@@ -2,18 +2,21 @@
 
 .tags.row
     h6 tags:
-    li.tag.three.columns(v-for='tag in x') {{tag}}
+        tag(v-for='tag in x', :x='tag') 
 
 
 </template>
 <script> // ES6
-
+import Tag from './Tag'
 export default {
     props: ['x'],
-
+    components:{
+        Tag,
+    }
 }
 
 </script>
+
 <style lang='stylus' scoped>
 
 h6

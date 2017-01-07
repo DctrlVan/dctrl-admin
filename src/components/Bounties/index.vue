@@ -25,7 +25,7 @@ export default {
   computed: {
       bounties(){
           return _.sortBy( this.$store.state.bounties.active, bounty => {
-              return -bounty.amount
+							return -bounty.amount
           })
       }
   }

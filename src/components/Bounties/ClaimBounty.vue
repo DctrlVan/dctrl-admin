@@ -21,16 +21,15 @@ modal(:visible='visible', :close='closeModal')
 </template>
 
 <script>
-import base58 from 'bs58'
+import Modal from '../generics/utils/Modal'
 import crypto from 'crypto'
-
-// SHA256(SHA256(buffer))
+import base58 from 'bs58'
+// for the address checksum
 function sha256x2 (x) {
     let firstHash = crypto.createHash('sha256').update(x).digest()
     return crypto.createHash('sha256').update(firstHash).digest()
 }
 
-import Modal from '../generics/utils/Modal'
 export default {
     data(){
         return {
