@@ -1,0 +1,54 @@
+.modal{
+    @extends .backdrop
+    z-index: z-index-9;
+    background-color: rgba(0,0,0,.8);
+  }
+
+  .content {
+      background-color: white;
+      padding: 25px;
+      min-height: 100%;
+  }
+
+  .modal__close-btn {
+    line-height: 0;
+    float: right;
+    margin-left: 1rem;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 1.25rem 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+@media (min-width: smBreakpoint) {
+  .content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    width: minBreakpoint;
+    height: auto;
+    min-height: 0;
+  }
+
+  .content.content--sm {
+    height: 65rem;
+    max-height: 75%;
+    overflow: auto;
+  }
+
+  .content.content--md {
+    margin: 5% auto;
+    width: 85%;
+  }
+}
+
+@media (min-width: mdBreakpoint) {
+  .content.content--sm {
+    width: 60rem;
+  }
+}
+
+
