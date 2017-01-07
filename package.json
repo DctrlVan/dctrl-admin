@@ -18,7 +18,12 @@
     "bs58check": "^2.0.1",
     "jade": "^1.11.0",
     "lodash": "^4.17.2",
-    "vue": "^2.1.0"
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.4.0",
+    "tether-tooltip": "^1.2.0",
+    "vue": "^2.1.8",
+    "vue-router": "^2.1.1",
+    "vuex": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
