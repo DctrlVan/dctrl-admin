@@ -1,6 +1,6 @@
 <template>
 
-  <div v-if="visible" class="claimed">
+  <div>
       CLAIMED BY {{ x }}
   </div>
 
@@ -17,7 +17,7 @@ export default {
 
 <style lang="stylus" scoped>
 
-.claimed
+div
     font-size:1.5em
     border-color:red
     color:red

@@ -4,7 +4,7 @@ modal(:visible='visible', :close='closeModal')
     label CLAIM BOUNTY
         alias-input
         address-input
-        button(@click='CLAIM_BOUNTY()') CLAIM BOUNTY
+        confirm-btn
 
 </template>
 
@@ -12,6 +12,7 @@ modal(:visible='visible', :close='closeModal')
 import Modal from '../../generics/utils/Modal'
 import AddressInput from './AddressInput'
 import AliasInput from './AliasInput'
+import ConfirmBtn from './ConfirmBtn'
 
 export default {
     computed: {
@@ -20,26 +21,17 @@ export default {
         },
     },
     methods:{
-      CLAIM_BOUNTY(){
-          let info = null
-          this.$store.dispatch('CLAIM_BOUNTY')
-      },
       closeModal(){
           this.$store.commit('setIsUserClaiming', false)
       },
     },
     components: {
-        Modal, AddressInput, AliasInput
+        Modal, AddressInput, AliasInput, ConfirmBtn
     }
 }
 
 </script>
 
 <style lang="stylus" scoped>
-
-button
-    background:silver
-    color:black
-    width:100%
 
 </style>
