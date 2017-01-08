@@ -1,7 +1,5 @@
 <template lang='jade'>
-
 .bounty.row
-    hr
     .row
         .six.columns
             h5 {{ x.name }}: {{ x.amount }} bits
@@ -17,17 +15,10 @@
 import Claimed from './Claimed'
 import ClaimBtn from './ClaimBtn'
 import Tags from './Tags'
-let loadTime = Date.now()
 
 export default {
     props: ['x'],
     components: { Tags, ClaimBtn, Claimed },
-    methods: {
-        claim(){
-            console.log('claim clicked')
-            this.$store.commit('setIsUserClaiming', true)
-        }
-    }
 }
 
 </script>

@@ -1,6 +1,6 @@
 <template>
 
-<button class='claimbtn' @click="claim(x)">
+<button @click="openClaimingModal(x)">
     Claim Your Bounty!
 </button>
 
@@ -11,7 +11,8 @@
 export default {
     props:['x'],
     methods:{
-        claim(_id){
+        openClaimingModal(_id){
+            this.$store.commit('setClaimId', _id)
             this.$store.commit('setIsUserClaiming', true)
         }
     }
@@ -22,7 +23,7 @@ export default {
 
 <style lang='stylus' scoped >
 
-.claimbtn
+button
     color:black
     float:right
 

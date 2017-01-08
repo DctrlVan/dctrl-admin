@@ -9,9 +9,9 @@
 
 <script>
 import _ from 'lodash'
-import Bounty from './Bounty'
 import NewBounty from './NewBounty'
 import ClaimBounty from './ClaimBounty'
+import Bounty from './Bounty'
 
 export default {
   beforeMount(){
