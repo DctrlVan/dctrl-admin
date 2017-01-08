@@ -1,7 +1,7 @@
 <template>
 
-<button class='claimbtn'>
-Claim Your Bounty!
+<button class='claimbtn' @click="claim(x)">
+    Claim Your Bounty!
 </button>
 
 </template>
@@ -9,7 +9,12 @@ Claim Your Bounty!
 <script>
 
 export default {
-
+    props:['x'],
+    methods:{
+        claim(_id){
+            this.$store.commit('setIsUserClaiming', true)
+        }
+    }
 }
 
 </script>

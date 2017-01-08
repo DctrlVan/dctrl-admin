@@ -1,8 +1,9 @@
-<template lang='jade'>
+<template>
 
-#commitments
-    really
-    commitment(v-for='c in commitments', :x='c')
+<div id="commitments">
+    <really></really>
+    <commitment v-for='c in commitments' :x='c'></commitment>
+</div>
 
 </template>
 

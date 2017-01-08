@@ -1,25 +1,27 @@
 <template lang='jade'>
 
 .bounty.row
-    .claimed {{ x.claimed }}
+    hr
     .row
         .six.columns
             h5 {{ x.name }}: {{ x.amount }} bits
                 claim-btn(:x='x._id')
-        .six.columns
+                claimed(:x='x.claimedBy')
+        .six.columns.description
             p {{ x.description }}
     tags(:x='x.tags')
     hr
 
 </template>
 <script> // ES6
+import Claimed from './Claimed'
 import ClaimBtn from './ClaimBtn'
 import Tags from './Tags'
 let loadTime = Date.now()
 
 export default {
     props: ['x'],
-    components: { Tags, ClaimBtn },
+    components: { Tags, ClaimBtn, Claimed },
     methods: {
         claim(){
             console.log('claim clicked')
@@ -30,8 +32,32 @@ export default {
 
 </script>
 <style lang='stylus' scoped>
-h5
-    font-weight:bolder
+
+hr
+    height: 30px
+    border-style: solid
+    border-color: black
+    border-width: 1px 0 0 0
+    border-radius: 20px
+    padding-bottom:0
+    margin-bottom:0
+
+hr:before  /* Not really supposed to work, but does */
+    display: block
+    content: ""
+    height: 30px
+    margin-top: -31px
+    border-style: solid
+    border-color: black
+    border-width: 0 0 1px 0
+    border-radius: 20px
+
+.description
+    padding: .3em .4em 0 .4em
+    border-style:solid
+    p
+        margin:0
+
 
 
 </style>

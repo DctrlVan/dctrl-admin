@@ -1,8 +1,7 @@
 <template lang="jade">
 
 modal(:visible='visible', :close='closeModal')
-    label THANK YOU!
-    p Please provide your member-name and btc address. We will confirm with you before finalizing:
+    label CLAIM BOUNTY
     div
       input(
         type='text',
@@ -16,7 +15,7 @@ modal(:visible='visible', :close='closeModal')
         name='address',
         v-model='info.address',
       )
-      button(@click.prevent='publishClaim') CLAIM BOUNTY
+      button(@click='publishClaim') CLAIM BOUNTY
 
 </template>
 
@@ -60,8 +59,8 @@ export default {
         }
     },
     methods:{
-      publishClaim(){
-          this.$store
+      publishClaim(_id){
+          this.$store.dispatch('CLAIM_BOUNTY',_id)
       },
       closeModal(){
           this.$store.commit('setIsUserClaiming', false)
@@ -75,5 +74,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
+button
+    background:silver
+    color:black
+    width:100%
 
 </style>

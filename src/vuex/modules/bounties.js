@@ -1,16 +1,28 @@
 import _ from 'lodash'
 
 const state = {
+  isUserClaiming:false,
+  claimId: null,
   active: [{
     _id: '1',
     name: 'Good Meetup',
-    amount: 3500,
+    amount: 15000,
     description: 'Host an awesome meetup that brings a whole bunch of new faces into the space and teaches them about technology, decentralization, justice, etc...',
-    tags: ['meetup', 'propaganda', 'people'],
+    tags: ['meetup', 'propaganda', 'people', 'intelligence'],
     monthlyBudget: 50000,
     claimed: false,
+    claimedBy:'',
+  },{
+    _id: '1',
+    name: 'Take out Garbage',
+    amount: 3500,
+    description: 'Trash bin is in the alley. The key is in the locker. Go out the back way.',
+    tags: ['dangerous', 'strength'],
+    monthlyBudget: 50000,
+    claimed: false,
+    claimedBy:'',
+    isUserClaiming:false,
   }],
-  isUserClaiming:false,
 }
 
 const mutations = {
@@ -20,7 +32,6 @@ const mutations = {
     claimBounty(bounties, bountyId){
         bounties.forEach( bounty => {
             if (bounty._id === bountyId){
-                console.log('bounty claimed!')
                 bounty.claimed = true
             }
         })
