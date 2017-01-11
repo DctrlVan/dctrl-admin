@@ -5,7 +5,7 @@
     .row.container
         .four.columns.u-hide-at-sm
             navigation
-        .eight.columns
+        .eight.columns.shiftup
             router-view
 
 </template>
@@ -31,7 +31,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import "../styles/main"
+@import "../styles/main"
 
+@media (min-width: breakpoint) {
+    .shiftup {
+        margin-top: -123px
+    }
+}
 
 </style>
