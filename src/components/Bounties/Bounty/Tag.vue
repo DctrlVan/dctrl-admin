@@ -18,9 +18,8 @@ export default {
 
 .span
     color:white
-    background:green
+    background:#4CAF50;
     padding:.2em
-    border-color:blue
     border-style:solid
     margin:.2em
 

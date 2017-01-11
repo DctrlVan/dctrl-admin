@@ -4,7 +4,6 @@
         .six.columns
             h5 {{ x.name }}: {{ x.amount }} bits
                 claim-btn(:x='x._id')
-                claimed(v-show="x.claimed", :x='x.claimedBy')
         .six.columns.description
             p {{ x.description }}
     tags(:x='x.tags')
@@ -13,13 +12,13 @@
 </template>
 <script> // ES6
 
-import Claimed from './Claimed'
+
 import ClaimBtn from './ClaimBtn'
 import Tags from './Tags'
 
 export default {
     props: ['x'],
-    components: { Tags, ClaimBtn, Claimed },
+    components: { Tags, ClaimBtn },
 }
 
 </script>

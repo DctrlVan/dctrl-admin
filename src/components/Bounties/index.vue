@@ -33,6 +33,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import "../../styles/main"
+
+#bounties
+		background:white
+		padding:1em
+		padding-bottom:10em
 
 </style>

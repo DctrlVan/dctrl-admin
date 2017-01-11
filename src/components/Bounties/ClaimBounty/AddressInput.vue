@@ -1,7 +1,7 @@
 <template lang="jade">
 
 input(
-    :style='inputStyle',
+    v-bind:style='inputStyle',
     type='text',
     placeholder='Your Wallet Address',
     name='address',
@@ -50,11 +50,10 @@ export default {
         inputStyle(){
             if (this.isValidAddress){
                 return {
-                    background:'darkgoldenrod'
+                    background:'#4CAF50'
                 }
             }
             return {
-                background:'red'
             }
         }
     },

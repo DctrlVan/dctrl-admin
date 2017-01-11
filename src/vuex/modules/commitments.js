@@ -5,14 +5,10 @@ const mutations = {
 
 const state = {
   hwaiting: [{
-      member: 'Cardinal',
-      amount: 1234,
-      description: 'Design commitments app.'
-  },{
       member: 'Cam',
-      amount: 124135234234,
-      deadline: new Date("2017/02/01"),
-      description: 'Sabatage pipeline construction crew with Desert Eagle.',
+      amount: 40000,
+      deadline: new Date("2017/01/11"),
+      description: 'Put in at least two hours towards understanding vue and the dctrlapp.',
   }],
   claimed: []
 }

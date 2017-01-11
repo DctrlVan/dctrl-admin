@@ -23,9 +23,14 @@ export default {
 
 <style lang='stylus' scoped >
 
-button
-    color:black
-    float:right
-
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 
 </style>

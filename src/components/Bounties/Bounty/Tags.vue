@@ -1,8 +1,8 @@
 <template lang='jade'>
 
 .tags.row
-    h6 tags:
-        tag(v-for='tag in x', :x='tag') 
+    h6 categories:
+        tag(v-for='tag in x', :x='tag')
 
 
 </template>
@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+
+.tags
+    margin-top:2em
 
 h6
     font-weight:bolder

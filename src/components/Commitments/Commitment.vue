@@ -21,8 +21,7 @@ export default {
 <style lang='stylus' scoped>
 
 h4
-    font-weight:bolder
     font-size:1.3em
-    color:brown
+    color:black
 
 </style>
