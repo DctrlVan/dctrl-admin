@@ -9,7 +9,6 @@ button(@click='CLAIM_BOUNTY()') CLAIM BOUNTY
 export default {
     methods: {
         CLAIM_BOUNTY(){
-            this.$store.dispatch('CLAIM_BOUNTY')
             this.$store.commit('setIsUserReserving', false)
         },
     },

@@ -1,6 +1,7 @@
 import _ from 'lodash'
 
 const state = {
+  isUserReserving:false,
   isUserClaiming:false,
   claimId: null,
   claimAlias:'',
@@ -28,6 +29,10 @@ const state = {
 }
 
 const mutations = {
+
+    setIsUserReserving(bounties, isReserving){
+      bounties.isUserReserving = isReserving
+    },
     setIsUserClaiming(bounties, isClaiming){
         bounties.isUserClaiming = isClaiming
     },

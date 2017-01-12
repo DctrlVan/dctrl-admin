@@ -5,8 +5,10 @@
             .row
                 h5 {{ x.name }}: {{ x.amount }} bits
             .row
+                span.reserve
+                    reserve-btn(:x='x._id')
                 claim-btn(:x='x._id')
-                reserve-btn(:x='x._id')
+
         .six.columns.description
             p {{ x.description }}
     tags(:x='x.tags')
@@ -27,6 +29,9 @@ export default {
 
 </script>
 <style lang='stylus' scoped>
+
+.reserve
+    margin-right:5px
 
 hr
     height: 30px
@@ -56,5 +61,6 @@ hr:before  /* Not really supposed to work, but does */
         margin:0
 
 
-
+.reserve
+    margin-right:
 </style>
