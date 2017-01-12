@@ -59,6 +59,7 @@ img
   align-items: center;
   margin-bottom: 0;
 
+
 .header-container__block {
     padding-left: 20px;
     padding-right: 20px;
@@ -85,6 +86,7 @@ img
 
     #heading {
         margin-top: 2.222rem;
+        position:fixed;
     }
 
     .header-container {
@@ -92,6 +94,7 @@ img
         padding: 0;
         margin-bottom: 7rem;
         display: block;
+
     }
 
     .header-container__block {

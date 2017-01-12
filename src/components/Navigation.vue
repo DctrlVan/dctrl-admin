@@ -35,7 +35,7 @@ export default {
 
 @media (min-width: breakpoint) {
     .shiftup {
-        margin-top: -123px
+        margin-top: 0px
     }
 }
 

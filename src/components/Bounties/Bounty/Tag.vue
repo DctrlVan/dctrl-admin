@@ -21,6 +21,7 @@ export default {
     background:#4CAF50;
     padding:.2em
     border-style:solid
+    border-width:.2px
     margin:.2em
 
 </style>

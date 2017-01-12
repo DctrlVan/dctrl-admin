@@ -1,7 +1,7 @@
 <template>
 
 <button @click="openClaimingModal(x)">
-    Claim Your Bounty!
+    Claim
 </button>
 
 </template>
@@ -31,6 +31,7 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 8px;
 }
 
 </style>
