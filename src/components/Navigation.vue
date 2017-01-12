@@ -6,7 +6,7 @@
         navigation
     .row.container
         .four.columns.u-hide-at-sm
-            p dctrl
+            p &nbsp;
         .eight.columns.shiftup
             router-view
 
@@ -37,7 +37,10 @@ export default {
 
 .menu
     position:fixed
-    padding-left:200px
+    padding-left:120px
+    z-index:10000
+    padding-top:200px
+
 
 @media (min-width: breakpoint) {
     .shiftup {

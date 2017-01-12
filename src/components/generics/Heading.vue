@@ -41,9 +41,7 @@ export default {
 img
   cursor:pointer
   position: relative;
-  right: 15px;
-
-
+  right: -87px;
 
 .header-container
   border-bottom: 1px solid #E0E1DC;
@@ -59,10 +57,9 @@ img
   align-items: center;
   margin-bottom: 0;
 
-
 .header-container__block {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .container--header {
