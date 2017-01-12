@@ -4,7 +4,6 @@
       Reserve this shit
     </label>
     <alias-input></alias-input>
-    <address-input></address-input>
     <confirm-btn></confirm-btn>
 </modal>
 
@@ -12,7 +11,6 @@
 
 <script>
 import Modal from '../../generics/utils/Modal'
-import AddressInput from './AddressInput'
 import AliasInput from './AliasInput'
 import ConfirmBtn from './ConfirmBtn'
 
@@ -28,7 +26,7 @@ export default {
       },
     },
     components: {
-        Modal, AddressInput, AliasInput, ConfirmBtn
+        Modal, AliasInput, ConfirmBtn
     }
 }
 
