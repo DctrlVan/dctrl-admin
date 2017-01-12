@@ -6,6 +6,7 @@
                 h5 {{ x.name }}: {{ x.amount }} bits
             .row
                 claim-btn(:x='x._id')
+                reserve-btn(:x='x._id')
         .six.columns.description
             p {{ x.description }}
     tags(:x='x.tags')
@@ -17,10 +18,11 @@
 
 import ClaimBtn from './ClaimBtn'
 import Tags from './Tags'
+import ReserveBtn from './ReserveBtn'
 
 export default {
     props: ['x'],
-    components: { Tags, ClaimBtn },
+    components: { Tags, ClaimBtn, ReserveBtn },
 }
 
 </script>
