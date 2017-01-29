@@ -1,7 +1,7 @@
 <template>
 
 <button @click="openClaimingModal(x)">
-    Claim
+    Reserve
 </button>
 
 </template>
@@ -12,8 +12,7 @@ export default {
     props:['x'],
     methods:{
         openClaimingModal(_id){
-            this.$store.commit('setClaimId', _id)
-            this.$store.commit('setIsUserClaiming', true)
+            this.$store.commit('setIsUserReserving', true)
         }
     }
 }
@@ -24,7 +23,7 @@ export default {
 <style lang='stylus' scoped >
 
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #f7a400; /* Green */
     border: none;
     color: white;
     text-align: center;

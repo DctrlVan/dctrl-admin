@@ -2,8 +2,13 @@
 .bounty.row
     .row
         .six.columns
-            h5 {{ x.name }}: {{ x.amount }} bits
+            .row
+                h5 {{ x.name }}: {{ x.amount }} bits
+            .row
+                span.reserve
+                    reserve-btn(:x='x._id')
                 claim-btn(:x='x._id')
+
         .six.columns.description
             p {{ x.description }}
     tags(:x='x.tags')
@@ -15,14 +20,18 @@
 
 import ClaimBtn from './ClaimBtn'
 import Tags from './Tags'
+import ReserveBtn from './ReserveBtn'
 
 export default {
     props: ['x'],
-    components: { Tags, ClaimBtn },
+    components: { Tags, ClaimBtn, ReserveBtn },
 }
 
 </script>
 <style lang='stylus' scoped>
+
+.reserve
+    margin-right:5px
 
 hr
     height: 30px
@@ -44,11 +53,14 @@ hr:before  /* Not really supposed to work, but does */
     border-radius: 20px
 
 .description
-    padding: .3em .4em 0 .4em
+    padding: .8em .8em .8em .8em
     border-style:solid
+    border-width: 1.8px
+
     p
         margin:0
 
 
-
+.reserve
+    margin-right:
 </style>

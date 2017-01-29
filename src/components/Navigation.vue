@@ -2,9 +2,11 @@
 
 #dctrlapp
     heading(:content='headingContent')
+    .menu
+        navigation
     .row.container
         .four.columns.u-hide-at-sm
-            navigation
+            p &nbsp;
         .eight.columns.shiftup
             router-view
 
@@ -33,9 +35,16 @@ export default {
 <style lang="stylus" scoped>
 @import "../styles/main"
 
+.menu
+    position:fixed
+    padding-left:120px
+    z-index:10000
+    padding-top:200px
+
+
 @media (min-width: breakpoint) {
     .shiftup {
-        margin-top: -123px
+        margin-top: 0px
     }
 }
 

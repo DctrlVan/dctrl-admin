@@ -1,6 +1,6 @@
 <template lang="jade">
 
-button(@click='CLAIM_BOUNTY()') CLAIM BOUNTY
+button(@click='RESERVE_BOUNTY()') RESERVE BOUNTY
 
 </template>
 
@@ -9,7 +9,6 @@ button(@click='CLAIM_BOUNTY()') CLAIM BOUNTY
 export default {
     methods: {
         CLAIM_BOUNTY(){
-            this.$store.dispatch('CLAIM_BOUNTY')
             this.$store.commit('setIsUserReserving', false)
         },
     },
@@ -20,7 +19,7 @@ export default {
 <style lang="stylus" scoped>
 
 button
-    background:#4CAF50;
+    background:#f7a400
     color:white
     width:100%
 

@@ -5,10 +5,10 @@ const mutations = {
 
 const state = {
   events: [{
-    date: new Date("2017/01/14"),
+    date: new Date("2017/01/28"),
     image: 'soundshapes'
   }, {
-    date: new Date("2017/01/15"),
+    date: new Date("2017/01/23"),
     image: 'bitcoin'
   }],
 }
