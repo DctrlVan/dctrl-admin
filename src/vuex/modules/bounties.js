@@ -21,8 +21,8 @@ const state = {
     description: 'Trash bin is in the alley. The key is in the locker. Go out the back way. Step with care, watch for giant rats. Never lose faith in your safe return.',
     tags: ['danger', 'strength'],
     monthlyBudget: 50000,
-    claimed: true,
-    claimedBy:'test',
+    claimed: false,
+    claimedBy:'',
     isUserClaiming:false,
   }],
 }

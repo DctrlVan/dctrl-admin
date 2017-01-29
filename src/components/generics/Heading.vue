@@ -3,10 +3,10 @@
 #heading.container
     router-link(to="/").link
         img.logo.header-container__block(
-            src='../../../static/images/dctrl-white.png'
+            src='../../assets/images/dctrl-white.png'
         )
     a(class="hamburger", href="#", @click.prevent='toggleHeaderNav')
-        img(src='../../../static/images/hamburger.svg')
+        img(src='../../assets/images/hamburger.svg')
     navigation(v-if="showHeaderNav").navigation--header
 
 

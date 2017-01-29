@@ -13,7 +13,7 @@
     props:['e'],
     computed: {
       imgUrl(){
-        return '../../../static/images/event-' + this.e.image + '.svg'
+        return '../assets/images/event-' + this.e.image + '.svg'
       }
     },
   }
