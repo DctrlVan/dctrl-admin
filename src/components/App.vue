@@ -39,7 +39,7 @@ export default {
     position:fixed
     padding-left:120px
     z-index:10000
-    padding-top:200px
+    padding-top:333px
 
 
 @media (min-width: breakpoint) {

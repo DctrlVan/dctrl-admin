@@ -8,7 +8,7 @@ import store from './vuex/store'
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
-import Navigation from './components/Navigation'
+import App from './components/App'
 import Members from './components/Members'
 import Bounties from './components/Bounties'
 import Commitments from './components/Commitments'
@@ -16,7 +16,7 @@ import Commitments from './components/Commitments'
 import Calendar from './components/Calendar'
 const routes = [{
     path: '/',
-    component: Navigation,
+    component: App,
     children: [{
       path: '/members',
       component: Members
