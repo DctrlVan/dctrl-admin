@@ -23,6 +23,8 @@ export default {
 <style lang='stylus' scoped >
 
 button {
+    margin: 5px
+    cursor:pointer
     background-color: #f7a400; /* Green */
     border: none;
     color: white;

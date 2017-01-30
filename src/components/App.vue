@@ -41,6 +41,7 @@ export default {
 .menu
     position:fixed
     padding-left:120px
+    width: 350px
     z-index:10000
     padding-top:333px
 

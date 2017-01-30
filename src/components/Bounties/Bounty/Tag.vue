@@ -17,8 +17,7 @@ export default {
 <style lang='stylus' scoped >
 
 .span
-    color:white
-    background:#4CAF50;
+    color:black
     padding:.2em
     border-style:solid
     border-width:.2px

@@ -1,13 +1,11 @@
 <template lang='jade'>
 .bounty.row
-    .row
-        .six.columns
-            h5 {{ x.name }}: {{ x.amount }}bits
-        .six.columns.description
-            p {{ x.description }}
-            claim-btn(:x='x._id')
-            reserve-btn(:x='x._id')
-    tags(:x='x.tags')
+    h5 {{ x.name }}: {{ x.amount }}bits
+    .buttons
+        claim-btn(:x='x._id')
+        reserve-btn(:x='x._id')
+        tag(v-for='x in tags', :x='x')
+    p {{ x.description }}
     hr
 
 </template>
@@ -15,12 +13,12 @@
 
 
 import ClaimBtn from './ClaimBtn'
-import Tags from './Tags'
+import Tag from './Tag'
 import ReserveBtn from './ReserveBtn'
 
 export default {
     props: ['x'],
-    components: { Tags, ClaimBtn, ReserveBtn },
+    components: { Tag, ClaimBtn, ReserveBtn },
 }
 
 </script>
@@ -29,12 +27,22 @@ export default {
 h5
     font-size:2em
     text-align:center
-    margin-bottom:0
+    margin-bottom:.2em
 
 .reserve
     margin-right:5px
 
+.buttons
+    content-align: center
+    background: black
+    margin-bottom:0
+    :first-child
+        float:right
 
+p
+    padding: .8em .8em .8em .8em
+    border-style:solid
+    border-width: 1.8px
 
 hr
     height: 30px
@@ -55,15 +63,4 @@ hr:before  /* Not really supposed to work, but does */
     border-width: 0 0 1px 0
     border-radius: 20px
 
-.description
-    padding: .8em .8em .8em .8em
-    border-style:solid
-    border-width: 1.8px
-
-    p
-        margin:0
-
-
-.reserve
-    margin-right:
 </style>
