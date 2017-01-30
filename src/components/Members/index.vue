@@ -1,9 +1,9 @@
 <template lang='jade'>
 
 #members
-    h1 Active Members: {{ finances.active.length }}
-    h1 {{ finances.commonsFund }}
+    h1 dctrl January Summary:
     shame-pie
+
 </template>
 
 <script>
@@ -25,16 +25,8 @@ export default {
 
 <style lang='stylus'>
 
-
-
 #members
     background:#dbd8d8
     margin-top:0
-
-h1
-    text-align:right
-
-h3
-    padding:10em
-
+    padding-bottom:40em
 </style>

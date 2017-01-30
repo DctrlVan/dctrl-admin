@@ -40,7 +40,6 @@ export default {
 
 #bounties
 		background:#dbd8d8
-		padding:1em
 		padding-bottom:10em
 
 </style>

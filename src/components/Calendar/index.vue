@@ -1,6 +1,6 @@
 <template lang="jade">
 
-#Calendar
+#calendar
     .weekday(v-for='dayName in DAYS_OF_WEEK') {{dayName}}
     .placeholder(v-for='placeholder in firstDay')
     day(v-for='day in days', :day="day", :month='month', :year='year')
@@ -45,6 +45,8 @@
 
   #calendar
     display:block
+    background:#dbd8d8
+    padding-bottom:40em
 
   #whenlabel
     content-align:center

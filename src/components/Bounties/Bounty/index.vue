@@ -6,7 +6,6 @@
         reserve-btn(:x='x._id')
         tag(v-for='x in tags', :x='x')
     p {{ x.description }}
-    hr
 
 </template>
 
@@ -25,15 +24,29 @@ export default {
 </script>
 <style lang='stylus' scoped>
 
+
+.bounty
+    border-style:solid
+    border-radius:5%
+    border-color:black
+    border-width:3px
+    padding:0
+    margin: .3em
+
 h5
+    background:black
+    color:white
+    padding:0
+    margin:0
     font-size:2em
     text-align:center
-    margin-bottom:.2em
 
 .reserve
     margin-right:5px
 
 .buttons
+    padding:0
+    margin:0
     content-align: center
     background: black
     margin-bottom:0
@@ -43,23 +56,5 @@ h5
 p
     padding: .8em .8em .8em .8em
 
-hr
-    height: 30px
-    border-style: solid
-    border-color: black
-    border-width: 1px 0 0 0
-    border-radius: 20px
-    padding-bottom:0
-    margin-bottom:0
-
-hr:before  /* Not really supposed to work, but does */
-    display: block
-    content: ""
-    height: 30px
-    margin-top: -31px
-    border-style: solid
-    border-color: black
-    border-width: 0 0 1px 0
-    border-radius: 20px
 
 </style>
