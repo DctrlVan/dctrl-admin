@@ -3,14 +3,11 @@
 #members
     h1 Active Members: {{ finances.active.length }}
     h1 {{ finances.commonsFund }}
-    h3 Fixed Costs {{ finances.fixedCosts}}
-    h3 Profit/Loss: {{finances.membershipRevenue - finances.fixedCosts}}
-    h3 TODO: ^^^ graph / summarize & watch blockchain
-    h3 Monthly Member Contribution: {{ finances.membershipRevenue }}
-
+    shame-pie
 </template>
 
 <script>
+import ShamePie from './ShamePie'
 
 export default {
     beforeMount(){
@@ -20,12 +17,15 @@ export default {
         finances(){
             return this.$store.state.members
         },
-    }
+    },
+    components: { ShamePie }
 }
 
 </script>
 
 <style lang='stylus'>
+
+
 
 #members
     background:#dbd8d8
