@@ -42,8 +42,6 @@ h5
 
 p
     padding: .8em .8em .8em .8em
-    border-style:solid
-    border-width: 1.8px
 
 hr
     height: 30px
