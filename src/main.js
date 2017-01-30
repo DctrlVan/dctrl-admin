@@ -12,6 +12,7 @@ import App from './components/App'
 import Members from './components/Members'
 import Bounties from './components/Bounties'
 import Commitments from './components/Commitments'
+import Projects from './components/Projects'
 
 import Calendar from './components/Calendar'
 const routes = [{
@@ -26,6 +27,9 @@ const routes = [{
     }, {
       path: '/commitments',
       component: Commitments
+    },{
+      path: '/projects',
+      component: Projects
     },{
       path: '/calendar',
       component: Calendar

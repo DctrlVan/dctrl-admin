@@ -35,6 +35,9 @@ export default {
 <style lang="stylus" scoped>
 @import "../styles/main"
 
+#dctrlapp
+    background:#5eab98
+
 .menu
     position:fixed
     padding-left:120px

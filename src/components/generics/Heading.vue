@@ -3,7 +3,7 @@
 #heading.container
     router-link(to="/").link
         img.logo.header-container__block(
-            src='../../assets/images/dctrl-white.png'
+            src='../../assets/images/dctrl.svg'
         )
     a(class="hamburger", href="#", @click.prevent='toggleHeaderNav')
         img(src='../../assets/images/hamburger.svg')
@@ -40,8 +40,10 @@ export default {
 
 img
   cursor:pointer
-  position: relative;
-  right: -87px;
+  position: fixed;
+  left: 15px;
+
+
 
 .header-container
   border-bottom: 1px solid #E0E1DC;
@@ -58,8 +60,8 @@ img
   margin-bottom: 0;
 
 .header-container__block {
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .container--header {
@@ -83,7 +85,6 @@ img
 
     #heading {
         margin-top: 2.222rem;
-        position:fixed;
     }
 
     .header-container {
@@ -91,7 +92,6 @@ img
         padding: 0;
         margin-bottom: 7rem;
         display: block;
-
     }
 
     .header-container__block {

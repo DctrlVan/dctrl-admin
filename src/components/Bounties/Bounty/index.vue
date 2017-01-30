@@ -2,15 +2,11 @@
 .bounty.row
     .row
         .six.columns
-            .row
-                h5 {{ x.name }}: {{ x.amount }} bits
-            .row
-                span.reserve
-                    reserve-btn(:x='x._id')
-                claim-btn(:x='x._id')
-
+            h5 {{ x.name }}: {{ x.amount }}bits
         .six.columns.description
             p {{ x.description }}
+            claim-btn(:x='x._id')
+            reserve-btn(:x='x._id')
     tags(:x='x.tags')
     hr
 
@@ -30,8 +26,15 @@ export default {
 </script>
 <style lang='stylus' scoped>
 
+h5
+    font-size:2em
+    text-align:center
+    margin-bottom:0
+
 .reserve
     margin-right:5px
+
+
 
 hr
     height: 30px
