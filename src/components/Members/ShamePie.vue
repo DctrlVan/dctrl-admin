@@ -8,20 +8,39 @@
 
 import * as d3 from 'd3'
 var dataset = [
-  { label: 'Abulia', count: 10 },
-  { label: 'Abulia', count: 10 },
-  { label: 'Bsdsdetelgeuse', count: 20 },
-  { label: 'Besstelgeuse', count: 20 },
-  { label: 'Dissjkstra', count: 40 }
+  { label: 'Rent', count: 1400, expense:true },
+  { label: 'OtherFixedCosts', count: 250, expense:true },
+  { label: 'Bouties', count:200, expense:true  },
+  { label: 'Donations', count:110 },
+  { label: 'Bsdsdeuse', count: 75},
+  { label: 'Bsdasdsdeuse', count: 75},
+  { label: 'Bsdsdeuasse', count: 75},
+  { label: 'Bsdsdeuseda', count: 75},
+  { label: 'Bsdsdeusae', count: 75},
+  { label: 'Bsdsdeuseasds', count: 75},
+  { label: 'Bsdsdeuse', count: 75},
+  { label: 'Bsdssddeuse', count: 75},
+  { label: 'Bsdsdsdeuse', count: 75},
+  { label: 'Bsdsddseuse', count: 75},
+  { label: 'Abulia', count: 75 },
+  { label: 'Besstelgeuse', count: 75},
+  { label: 'Dissjkstra', count: 75 }
 ];
 const width = 300
 const height = 300
 const radius = Math.min(width, height) / 2
-const color = d3.scaleOrdinal(d3.schemeCategory20b)
+const colorIn = d3
+    .scaleOrdinal()
+    .range(['#0cff0B', '#4CAF50'])
+
+const colorOut =  d3.scaleOrdinal()
+    .range(['#A2011f','#A20000','#Ab0c0b'])
+
 const arc = d3
     .arc()
     .innerRadius(0)
     .outerRadius(radius)
+
 const pie = d3
     .pie()
     .value(function(d) { return d.count; })
@@ -36,13 +55,18 @@ export default {
             .attr('height', height)
             .append('g')
             .attr('transform', 'translate(' + (width / 2) +  ',' + (height / 2) + ')')
+
         const path = svg.selectAll('path')
           .data(pie(dataset))
           .enter()
           .append('path')
           .attr('d', arc)
           .attr('fill', function(d, i) {
-            return color(d.data.label);
+            console.log(d)
+            if (d.data.expense){
+              return colorOut(d.data.label);
+            }
+            return colorIn(d.data.label);
           });
     }
 }
