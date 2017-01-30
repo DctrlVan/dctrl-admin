@@ -3,10 +3,10 @@
 #members
     h1 Active Members: {{ finances.active.length }}
     h1 {{ finances.commonsFund }}
-    li Monthly Member Contribution: {{ finances.membershipRevenue }}
-    li Fixed Costs {{ finances.fixedCosts}}
-    li Profit/Loss: {{finances.membershipRevenue - finances.fixedCosts}}
-    li TODO: ^^^ graph / summarize & watch blockchain
+    h3 Fixed Costs {{ finances.fixedCosts}}
+    h3 Profit/Loss: {{finances.membershipRevenue - finances.fixedCosts}}
+    h3 TODO: ^^^ graph / summarize & watch blockchain
+    h3 Monthly Member Contribution: {{ finances.membershipRevenue }}
 
 </template>
 
@@ -29,8 +29,12 @@ export default {
 
 #members
     background:#dbd8d8
+    margin-top:0
 
 h1
     text-align:right
+
+h3
+    padding:10em
 
 </style>
