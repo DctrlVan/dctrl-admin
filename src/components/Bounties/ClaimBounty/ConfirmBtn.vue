@@ -20,7 +20,7 @@ export default {
 <style lang="stylus" scoped>
 
 button
-    background:#4CAF50;
+    background:#4CAF50
     color:white
     width:100%
 

@@ -25,7 +25,7 @@ export default {
 button {
     margin: 5px
     cursor:pointer
-    background-color: #f7a400; /* Green */
+    background-color: darkgreen
     border: none;
     color: white;
     text-align: center;

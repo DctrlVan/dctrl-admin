@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #members
-    h1 Feb. Membership Recap
+    h1 Feb. Membership Status
     .row
       .six.columns
           shame-pie.pie
