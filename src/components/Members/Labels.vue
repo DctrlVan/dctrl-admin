@@ -1,7 +1,9 @@
 <template lang='jade'>
 
 #legend
-    p test
+    h5 Legend
+    p.e - EXPENSES
+    p.m - MEMBERSHIPS
 
 </template>
 
@@ -13,6 +15,28 @@ export default {
 
 </script>
 
-<style lang='stylus'>
+<style lang='stylus' scoped>
+
+@import '../../styles/main'
+
+#legend
+    border-style:solid
+    border-color:black
+
+h5
+    text-align:center
+
+p
+    text-align:left
+    padding: .0em 1em
+    margin:0
+    font-size: 1.2em
+    font-weight:bolder
+
+.e
+    color: darkred
+
+.m
+    color: darkgreen
 
 </style>

@@ -1,10 +1,10 @@
 <template lang='jade'>
 
 #members
-    h1 January Membership Summaasdasdry
+    h1 Feb. Membership Recap
     .row
-      .pie.six.columns
-          shame-pie
+      .six.columns
+          shame-pie.pie
       .six.columns
           labels
 
@@ -30,6 +30,8 @@ export default {
 
 <style lang='stylus'>
 
+@import '../../styles/framework'
+
 #members
     background:#dbd8d8
     margin-top:0
@@ -41,5 +43,6 @@ h1
 
 .pie
     padding-left:10px
+
 
 </style>
