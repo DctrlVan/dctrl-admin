@@ -21,21 +21,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "../../styles/main"
-
-
 
 .router-link-active
-  font-weight: bolder;
+    font-weight: bolder
 
-.navigation__link {
-    margin-right: 15px;
-    margin-left: 15px;
-}
+.navigation__link
+    margin-right: 15px
+    margin-left: 15px
 
-
-
-li {
+li
     border-bottom: 1px solid black
     color:#dbd8d8
     margin-bottom: 0;
@@ -44,7 +38,7 @@ li {
     display: inline-block;
     width: 60%;
     clear:both
-}
+
 
 a {
     text-decoration: none;

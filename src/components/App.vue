@@ -6,6 +6,7 @@
         navigation
     .row.container
         .four.columns.u-hide-at-sm
+            // spaceholder
             p &nbsp;
         .eight.columns.shiftup
             router-view
@@ -14,8 +15,8 @@
 
 <script>
 
-import Navigation from './generics/Navigation.vue'
-import Heading from './generics/Heading.vue'
+import Navigation from './Navigation.vue'
+import Heading from './Heading.vue'
 
 export default {
     components: {
@@ -33,9 +34,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "../styles/framework"
 @import "../styles/main"
 
 #dctrlapp
+    font-family:font
     background:#5eab98
 
 .menu
@@ -45,11 +48,5 @@ export default {
     z-index:10000
     padding-top:333px
 
-
-@media (min-width: breakpoint) {
-    .shiftup {
-        margin-top: 0px
-    }
-}
 
 </style>

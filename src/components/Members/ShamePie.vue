@@ -2,6 +2,7 @@
 
 #shamepie
 
+
 </template>
 
 <script>
@@ -12,31 +13,17 @@ var dataset = [
   { label: 'OtherFixedCosts', count: 200, expense:true },
   { label: 'CleaningBouties', count:200, expense:true  },
   { label: 'OtherBouties', count:100, expense:true  },
+  { label: 'TFSA', count:100, expense:true  },
   { label: 'Besstelgeuse', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-  { label: 'Dissjkstra', count: 75 },
-];
+  { label: 'Besssstelgeuse', count: 75 },
+  { label: 'Bessstelgeuse', count: 75 },
+  { label: 'Bsesstelgeuse', count: 75 },
+  { label: 'Besssfsstelgeuse', count: 75 },
+]
+
 const width = 300
 const height = 300
+
 const radius = Math.min(width, height) / 2
 const colorIn = d3
     .scaleOrdinal()
@@ -57,7 +44,6 @@ const pie = d3
 
 export default {
     mounted(){
-        let width = 300
         const svg = d3.select('#shamepie')
             .append('svg')
             .attr('width', width)
@@ -71,7 +57,6 @@ export default {
           .append('path')
           .attr('d', arc)
           .attr('fill', function(d, i) {
-            console.log(d)
             if (d.data.expense){
               return colorOut(d.data.label);
             }
@@ -83,15 +68,5 @@ export default {
 </script>
 
 <style lang='stylus'>
-
-#members
-    background:#dbd8d8
-    margin-top:0
-
-h1
-    text-align:right
-
-h3
-    padding:10em
 
 </style>

@@ -19,6 +19,9 @@ const routes = [{
     path: '/',
     component: App,
     children: [{
+      path: '/',
+      component: Members
+    },{
       path: '/members',
       component: Members
     },{

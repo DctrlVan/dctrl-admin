@@ -1,13 +1,18 @@
 <template lang='jade'>
 
 #members
-    h1 dctrl January Summary:
-    shame-pie
+    h1 January Membership Summaasdasdry
+    .row
+      .pie.six.columns
+          shame-pie
+      .six.columns
+          labels
 
 </template>
 
 <script>
 import ShamePie from './ShamePie'
+import Labels from './Labels'
 
 export default {
     beforeMount(){
@@ -18,7 +23,7 @@ export default {
             return this.$store.state.members
         },
     },
-    components: { ShamePie }
+    components: { ShamePie , Labels }
 }
 
 </script>
@@ -29,4 +34,12 @@ export default {
     background:#dbd8d8
     margin-top:0
     padding-bottom:40em
+
+h1
+    text-decoration:underline
+    text-align:center
+
+.pie
+    padding-left:10px
+
 </style>
