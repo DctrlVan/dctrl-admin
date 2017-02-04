@@ -8,7 +8,7 @@
         .four.columns.u-hide-at-sm
             // spaceholder
             p &nbsp;
-        .eight.columns.shiftup
+        .eight.columns
             router-view
 
 </template>
@@ -35,11 +35,15 @@ export default {
 
 <style lang="stylus" scoped>
 @import "../styles/framework"
-@import "../styles/main"
+@import "../styles/colours"
 
 #dctrlapp
     font-family:font
-    background:#5eab98
+    background:main
+
+.eight
+    padding-bottom:40em
+    background: mainLight
 
 .menu
     position:fixed

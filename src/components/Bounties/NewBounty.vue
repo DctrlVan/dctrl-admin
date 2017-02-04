@@ -7,7 +7,7 @@ modal(:visible='visible', :close='closeModal')
 </template>
 
 <script>
-import Modal from '../generics/utils/Modal'
+import Modal from '../slotUtils/Modal'
 
 export default {
     computed: {

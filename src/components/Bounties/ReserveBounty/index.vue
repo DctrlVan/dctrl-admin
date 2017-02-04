@@ -10,19 +10,19 @@
 </template>
 
 <script>
-import Modal from '../../generics/utils/Modal'
+import Modal from '../../slotUtils/Modal'
 import AliasInput from './AliasInput'
 import ConfirmBtn from './ConfirmBtn'
 
 export default {
     computed: {
         visible(){
-            return this.$store.state.bounties.isUserReserving
+            return this.$store.state.bounties.reserveId
         },
     },
     methods:{
       closeModal(){
-          this.$store.commit('setIsUserReserving', false)
+          this.$store.commit('setReserveId', false)
       },
     },
     components: {

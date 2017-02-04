@@ -32,11 +32,6 @@ export default {
 
 @import '../../styles/framework'
 
-#members
-    background:#dbd8d8
-    margin-top:0
-    padding-bottom:40em
-
 h1
     text-decoration:underline
     text-align:center

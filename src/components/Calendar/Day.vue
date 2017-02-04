@@ -32,7 +32,6 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-  @import "../../styles/main";
 
   .day
     background-color: white

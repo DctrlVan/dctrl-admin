@@ -7,7 +7,7 @@
 </template>
 
 <script>
-// TODO: details popup 
+// TODO: details popup
 
   export default {
     data(){
@@ -19,7 +19,7 @@
 </script>
 
 <style lang='stylus' scoped>
-@import "../../styles/main";
+@import "../../styles/colours";
 
 .arrow_box
   padding: 1em

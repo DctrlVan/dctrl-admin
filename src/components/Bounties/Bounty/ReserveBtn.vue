@@ -12,7 +12,7 @@ export default {
     props:['x'],
     methods:{
         openClaimingModal(_id){
-            this.$store.commit('setIsUserReserving', true)
+            this.$store.commit('setReserveId', true)
         }
     }
 }

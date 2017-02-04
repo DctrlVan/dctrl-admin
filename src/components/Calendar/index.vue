@@ -41,37 +41,31 @@
 </script>
 
 <style lang='stylus' scoped>
-  @import "../../styles/main"
 
-  #calendar
-    display:block
-    background:#dbd8d8
-    padding-bottom:40em
-
-  #whenlabel
+#whenlabel
     content-align:center
     font-weight:bolder
     font-size:1.1em
 
-  .calendar-column
+.calendar-column
     float: left
     box-sizing: border-box
     width: (96/7)%
     height: 100px
 
-  .placeholder
+.placeholder
     @extends .calendar-column
 
-  .day
+.day
     @extends .calendar-column
 
-  .weekday
+.weekday
     @extends .calendar-column
     height: 25px
     text-align: center
     font-weight:bolder
 
-  .date
+.date
     background-color: white
     float: right
     font-weight: bolder

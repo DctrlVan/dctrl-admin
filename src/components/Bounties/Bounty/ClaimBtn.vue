@@ -1,6 +1,6 @@
 <template>
 
-<button @click="openClaimingModal(x)">
+<button @click="openClaimingModal">
     Claim
 </button>
 
@@ -11,9 +11,8 @@
 export default {
     props:['x'],
     methods:{
-        openClaimingModal(_id){
-            this.$store.commit('setClaimId', _id)
-            this.$store.commit('setIsUserClaiming', true)
+        openClaimingModal(){
+            this.$store.commit('setClaimId', this.x)
         }
     }
 }

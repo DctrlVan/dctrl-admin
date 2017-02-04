@@ -29,11 +29,5 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "../../styles/main"
-
-#commitments
-    background:#dbd8d8
-    margin-top:0
-    padding-bottom:40em
 
 </style>

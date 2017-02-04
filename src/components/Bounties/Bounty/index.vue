@@ -24,10 +24,10 @@ export default {
 </script>
 <style lang='stylus' scoped>
 
-@import '../../../styles/main'
+@import '../../../styles/colours'
 
 .bounty
-    background-color:green
+    background-color:contentColour
     padding-bottom:10em
 
 .bits
@@ -41,8 +41,8 @@ export default {
     margin: .3em
 
 h5
-    background:mainDark
-    color:white
+    background:accent1
+    color:mainDark
     padding:0
     margin:0
     font-size:2em

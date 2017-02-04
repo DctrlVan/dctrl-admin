@@ -17,8 +17,6 @@ export default {
 
 <style lang='stylus' scoped>
 
-@import '../../styles/main'
-
 #legend
     border-style:solid
     border-color:black

@@ -9,7 +9,7 @@ modal(:visible='visible', :close='closeModal')
 </template>
 
 <script>
-import Modal from '../../generics/utils/Modal'
+import Modal from '../../slotUtils/Modal'
 import AddressInput from './AddressInput'
 import AliasInput from './AliasInput'
 import ConfirmBtn from './ConfirmBtn'
@@ -17,12 +17,12 @@ import ConfirmBtn from './ConfirmBtn'
 export default {
     computed: {
         visible(){
-            return this.$store.state.bounties.isUserClaiming
+            return this.$store.state.bounties.claimId
         },
     },
     methods:{
       closeModal(){
-          this.$store.commit('setIsUserClaiming', false)
+          this.$store.commit('setClaimId', false)
       },
     },
     components: {

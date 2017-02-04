@@ -21,12 +21,11 @@
 </script>
 
 <style lang='stylus' scoped>
-  @import "../../styles/main";
 
-  img
-      float:right
-      height:100%
-      width:100%
+img
+    float:right
+    height:100%
+    width:100%
 
 
 </style>

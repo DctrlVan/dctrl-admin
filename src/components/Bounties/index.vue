@@ -39,7 +39,6 @@ export default {
 <style lang="stylus" scoped>
 
 #bounties
-		background:#dbd8d8
 		padding-bottom:10em
 
 </style>

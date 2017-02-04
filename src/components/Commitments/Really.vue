@@ -10,7 +10,7 @@ Modal(:visible='really', :close='close')
 
 <script>
 
-import Modal from '../generics/utils/Modal'
+import Modal from '../slotUtils/Modal'
 
 export default {
     data(){
