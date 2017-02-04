@@ -1,7 +1,7 @@
 <template lang='jade'>
 .bounty.row
     div
-        h5 {{ x.name }}
+        h5 - {{ x.name }}
         p {{ x.description }}
         .bits {{ x.amount }} bits
             claim-btn(:x='x._id')
@@ -29,27 +29,25 @@ export default {
 .bounty
     background-color:contentColour
     padding-bottom:10em
-
-.bits
-    font-size:.9em
-    float:right
-.bounty
     border-radius:5%
     border-color:mainDark
     border-width:3px
     padding:0
-    margin: .3em
+
+.bits
+    font-size:.9em
+    float:right
 
 h5
     background:accent1
     color:mainDark
+    text-decoration: underline
     padding:0
     margin:0
     font-size:2em
-    text-align:center
 
 p
-    padding: .8em .8em .8em .8em
-
-
+    padding: .1em 1.5em 0em 1.5em
+    margin:1em
+    width: 70%
 </style>

@@ -21,14 +21,15 @@ export default {
 
 
 <style lang='stylus' scoped >
+@import '../../../styles/colours'
 
 button {
+    background-color: accent2
+    color: main;
     margin: 5px
     cursor:pointer
     z-index: 1e10
-    background-color: #4CAF50; /* Green */
     border: none;
-    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;

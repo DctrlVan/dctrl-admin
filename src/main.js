@@ -9,6 +9,7 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 
 import App from './components/App'
+import Home from './components/Home'
 import Members from './components/Members'
 import Bounties from './components/Bounties'
 import Commitments from './components/Commitments'
@@ -20,7 +21,7 @@ const routes = [{
     component: App,
     children: [{
       path: '/',
-      component: Members
+      component: Home
     },{
       path: '/members',
       component: Members
