@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "deploy": "node build/build.js; cp -r ./dist/* ../imagine-x.github.io/;",
+    "deploy": "node build/build.js; cp -r ./dist/* ../d-ctrl.github.io/;",
     "serve": "node build/build.js; node app.js"
   },
   "dependencies": {
