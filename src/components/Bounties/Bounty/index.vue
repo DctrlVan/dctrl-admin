@@ -28,19 +28,19 @@ export default {
 
 .bounty
     background-color:contentColour
-    padding-bottom:10em
-    border-radius:5%
+    padding-bottom:5em
     border-color:mainDark
     border-width:3px
     padding:0
+    margin-bottom:3.33em
 
 .bits
     font-size:.9em
     float:right
 
 h5
-    background:linear-gradient(90deg, accent1, main)
-    color:mainDark
+    background:black
+    color:accent1
     padding:0
     padding-left:.5em
     margin:0

@@ -34,16 +34,17 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
 @import "../styles/framework"
 @import "../styles/colours"
 
 #dctrlapp
-    font-family:font
     background:main
+    font-family:font
 
 .eight
-    padding-bottom:40em
     background: mainLight
+    padding-bottom:40em
 
 .menu
     position:fixed

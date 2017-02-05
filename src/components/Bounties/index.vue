@@ -1,6 +1,7 @@
 <template lang='jade'>
 
 #bounties
+		h2 Available Bounties:
 		bounty(v-for='b in bounties', :x='b')
 		new-bounty
 		claim-bounty
@@ -38,7 +39,12 @@ export default {
 
 <style lang="stylus" scoped>
 
+@import '../../styles/colours'
+
 #bounties
 		padding-bottom:10em
+
+h2
+		background:accent2
 
 </style>

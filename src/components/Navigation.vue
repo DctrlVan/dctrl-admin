@@ -3,6 +3,8 @@
 .navigation
     router-link(to='MEMBERS')
         li MEMBERS
+    router-link(to='ABOUT')
+        li ABOUT
     router-link(to='BOUNTIES')
         li BOUNTIES
     router-link(to='PROJECTS')
@@ -11,6 +13,8 @@
         li COMMITMENTS
     router-link(to='CALENDAR')
         li CALENDAR
+    router-link(to='NEWS')
+        li NEWS
 
 </template>
 
