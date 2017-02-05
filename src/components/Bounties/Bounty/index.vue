@@ -1,9 +1,7 @@
 <template lang='jade'>
 .bounty.row
     li(@click="toggleOpen")
-        span.arrow
-            span(v-if="open") SERGEI
-            span(v-else) >
+        span.arrow(:style="rotate") >
         {{ x.name }}
     div(v-show="open")
         p {{ x.description }}
@@ -22,8 +20,18 @@ import ReserveBtn from './ReserveBtn'
 export default {
     data(){
         return {
-            open:false
+            open:false,
         }
+    },
+    computed: {
+      rotate(){
+          if(this.open){
+              return {
+                  transform: 'rotate(90deg)',
+                  background:blue
+              }
+          }
+      }
     },
     methods:{
         toggleOpen(){
