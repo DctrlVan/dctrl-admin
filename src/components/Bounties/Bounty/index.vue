@@ -39,10 +39,10 @@ export default {
     float:right
 
 h5
-    background:accent1
+    background:linear-gradient(90deg, accent1, main)
     color:mainDark
-    text-decoration: underline
     padding:0
+    padding-left:.5em
     margin:0
     font-size:2em
 
@@ -50,4 +50,5 @@ p
     padding: .1em 1.5em 0em 1.5em
     margin:1em
     width: 70%
+
 </style>
