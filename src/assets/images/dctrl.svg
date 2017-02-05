@@ -14,8 +14,8 @@
    viewBox="0 0 501.14672 317.98656"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.0 r"
-   sodipodi:docname="fork_logo_20170118.svg">
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="dctrl.svg">
   <defs
      id="defs4">
     <marker
@@ -116,7 +116,12 @@
      inkscape:guide-bbox="true"
      units="in"
      inkscape:measure-start="390.929,781.858"
-     inkscape:measure-end="297.143,794.286" />
+     inkscape:measure-end="297.143,794.286"
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -125,7 +130,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -177,7 +182,7 @@
        id="path4217"
        sodipodi:nodetypes="ccccccccc" />
     <rect
-       style="opacity:1;fill:#dbd8d8;fill-opacity:1;stroke:none;stroke-width:3.72158885;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#202020;fill-opacity:1;stroke:none;stroke-width:3.72158885;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4519"
        width="501.14673"
        height="317.98657"

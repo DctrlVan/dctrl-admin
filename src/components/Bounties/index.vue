@@ -38,6 +38,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../styles/framework'
 
 @import '../../styles/colours'
 
@@ -47,5 +48,7 @@ export default {
 h2
 		background:mainDark
 		color:contentColour
+		margin:0
+		color: accent1
 
 </style>

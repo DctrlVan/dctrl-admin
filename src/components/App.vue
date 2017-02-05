@@ -51,7 +51,7 @@ export default {
     padding-left:120px
     width: 350px
     z-index:10000
-    padding-top:333px
+    padding-top:222px
 
 
 </style>
