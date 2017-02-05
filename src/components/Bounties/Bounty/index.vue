@@ -1,12 +1,14 @@
 <template lang='jade'>
 .bounty.row
-    div
-        li(@click="toggleOpen") >>>> {{ x.name }}
-        div(v-show="open")
-            p {{ x.description }}
-            .bits {{ x.amount }} bits
-                claim-btn(:x='x._id')
-            tag(v-for='x in x.tags', :x='x')
+    li(@click="toggleOpen")
+        span.arrow
+            span(v-if="open") SERGEI
+            span(v-else) >
+        {{ x.name }}
+    div(v-show="open")
+        p {{ x.description }}
+        .bits {{ x.amount }} bits
+            claim-btn(:x='x._id')
 
 </template>
 
@@ -30,6 +32,9 @@ export default {
     },
     props: ['x'],
     components: { Tag, ClaimBtn, ReserveBtn },
+    computed: {
+
+    }
 
 }
 
@@ -39,21 +44,27 @@ export default {
 @import '../../../styles/colours'
 
 .bounty
-    border-color:mainDark
+    border-color:red
     border-width:3px
     padding:0
     margin:0
+    border-radius:50%
+
+.arrow
+    margin-right:10px
+    color:accent2
 
 li
     color: mainLight
+    background:mainDark
     border-bottom: 1px solid black
     margin-bottom: 0;
     padding: 0.65rem 20px;
     list-style: none;
     display: inline-block;
     clear:both
-    background:mainDark
     width:100%
+
 .bits
     font-size:.9em
     float:right
