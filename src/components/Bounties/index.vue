@@ -45,6 +45,7 @@ export default {
 		padding-bottom:10em
 
 h2
-		background:accent2
+		background:mainDark
+		color:contentColour
 
 </style>
