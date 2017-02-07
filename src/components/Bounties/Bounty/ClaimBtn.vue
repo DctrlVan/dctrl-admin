@@ -1,7 +1,7 @@
 <template>
 
 <button @click="openClaimingModal">
-    Claim
+    Claim {{ x.amount }} bits
 </button>
 
 </template>
@@ -12,7 +12,7 @@ export default {
     props:['x'],
     methods:{
         openClaimingModal(){
-            this.$store.commit('setClaimId', this.x)
+            this.$store.commit('setClaimId', this.x._id)
         }
     }
 }

@@ -1,10 +1,10 @@
 <template lang='jade'>
 .bounty.row
-    h6(@click="toggleOpen") {{ x.name }}
+    h6(v-if="!open" @click="toggleOpen") {{ x.name }}
         .bits {{ x.amount }} bits
-    div(v-show="open")
+    div(v-show="open" @click="toggleOpen")
         p.content {{ x.description }}
-        claim-btn(:x='x._id')
+            claim-btn(:x='x')
 
 </template>
 
@@ -51,12 +51,11 @@ p
     padding: 0
 
 .content
-    padding-right:2em
-    padding-left:2em
-    background: white
-    color:black
-    margin-left:2em
-    margin-right:2em
+    padding-right:4em
+    padding-left:4em
+    padding-top:1em
+    background: contentColour
+    color:main
     margin-top:1em
 
 </style>
