@@ -1,10 +1,6 @@
 <template lang="jade">
 
 #heading.container
-    router-link(to="/").link
-        img.logo.header-container__block(
-            src='../assets/images/dctrl.svg'
-        )
     a(class="hamburger", href="#", @click.prevent='toggleHeaderNav')
         img(src='../assets/images/hamburger.svg')
     navigation(v-if="showHeaderNav").navigation--header
@@ -81,9 +77,6 @@ img
       display:none
     }
 
-    #heading {
-        margin-top: 2.222rem;
-    }
 
     .header-container {
         border-bottom: 0;

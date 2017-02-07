@@ -1,8 +1,8 @@
 <template lang="jade">
 
 #heading.container
-    router-link(to="/").link
-        img.logo.header-container__block(
+    router-link(to="/")
+        img(
             src='../../assets/images/dctrl.svg'
         )
     a(class="hamburger", href="#", @click.prevent='toggleHeaderNav')

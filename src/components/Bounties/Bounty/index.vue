@@ -1,7 +1,7 @@
 <template lang='jade'>
 .bounty.row
     li(@click="toggleOpen")
-        span.arrow(:style="rotate") >
+        span.arrow >
         {{ x.name }}
     div(v-show="open")
         p {{ x.description }}
@@ -47,6 +47,9 @@ export default {
 }
 
 </script>
+
+
+
 <style lang='stylus' scoped>
 
 @import '../../../styles/colours'
@@ -57,10 +60,6 @@ export default {
     padding:0
     margin:0
     border-radius:50%
-
-.arrow
-    margin-right:10px
-    color:accent2
 
 li
     color: mainLight

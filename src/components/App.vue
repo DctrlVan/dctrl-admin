@@ -1,7 +1,6 @@
 <template lang='jade'>
 
 #dctrlapp
-    heading(:content='headingContent')
     .menu
         navigation
     .row.container
@@ -16,17 +15,10 @@
 <script>
 
 import Navigation from './Navigation.vue'
-import Heading from './Heading.vue'
 
 export default {
     components: {
         Navigation,
-        Heading,
-    },
-    computed:{
-        headingContent(){
-            return this.$store.state.director.headingContent
-        }
     },
 }
 
@@ -42,16 +34,11 @@ export default {
     background:main
     font-family:font
 
-.eight
-    background: mainLight
-    padding-bottom:40em
-
 .menu
     position:fixed
-    padding-left:120px
+    left: 100px
     width: 350px
     z-index:10000
-    padding-top:222px
 
 
 </style>

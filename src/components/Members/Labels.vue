@@ -17,9 +17,11 @@ export default {
 
 <style lang='stylus' scoped>
 
+@import '../../styles/colours'
+
 #legend
     border-style:solid
-    border-color:black
+    border-color:mainLight
 
 h5
     text-align:center
@@ -30,11 +32,6 @@ p
     margin:0
     font-size: 1.2em
     font-weight:bolder
-
-.e
-    color: darkred
-
-.m
-    color: darkgreen
+    color:mainLight
 
 </style>

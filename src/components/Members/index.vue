@@ -31,10 +31,12 @@ export default {
 <style lang='stylus'>
 
 @import '../../styles/framework'
+@import '../../styles/colours'
 
 h1
+    color: mainLight
+    background: mainDark
     text-decoration:underline
-    text-align:center
 
 .pie
     padding-left:10px
