@@ -24,6 +24,7 @@ export default {
 @import '../../../styles/colours'
 
 button {
+    width:100%
     background-color: accent2
     color: main;
     margin: 5px
