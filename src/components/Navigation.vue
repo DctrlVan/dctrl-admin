@@ -1,7 +1,6 @@
 <template lang='jade'>
 
 .navigation
-    img(src='../assets/images/dctrl.svg')
     router-link(to='MEMBERS')
         li MEMBERS
     router-link(to='ABOUT')
@@ -27,10 +26,6 @@ export default {
 <style lang="stylus" scoped>
 
 @import '../styles/colours'
-@import '../styles/framework'
-
-img
-    height: 200px
 
 li
     color: mainLight

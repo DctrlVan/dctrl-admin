@@ -1,8 +1,9 @@
 <template lang='jade'>
 
 #dctrlapp
+    mobile-heading
     .menu
-        navigation
+        main-menu
     .row.container
         .four.columns.u-hide-at-sm
             // spaceholder
@@ -14,11 +15,13 @@
 
 <script>
 
-import Navigation from './Navigation.vue'
+import MainMenu from './MainMenu.vue'
+import MobileHeading from './MobileHeading.vue'
 
 export default {
     components: {
-        Navigation,
+        MainMenu,
+        MobileHeading
     },
 }
 

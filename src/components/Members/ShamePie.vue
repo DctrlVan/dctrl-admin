@@ -17,37 +17,12 @@ var dataset = [
   { label: 'Besstelgeuse', count: 75 },
   { label: 'Besstelgeuse', count: 75 },
   { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
-  { label: 'Besstelgeuse', count: 75 },
+  { label: 'Besstelgeusdde', count: 75 },
+  { label: 'Besstelgesasdduse', count: 75 },
+  { label: 'Besstelgeusse', count: 75 },
+  { label: 'Besstelgeussfe', count: 75 },
+  { label: 'Besstelgsfseuse', count: 75 },
+  { label: 'Besstddfelgeuse', count: 75 },
   { label: 'Besstelgeuse', count: 75 },
   { label: 'Besstelgeuse', count: 75 },
   { label: 'Besstelgeuse', count: 75 },
@@ -67,7 +42,7 @@ const height = 300
 const radius = Math.min(width, height) / 2
 const colorIn = d3
     .scaleOrdinal()
-    .range(['#0cff0B', '#4CAF50']) // greens
+    .range(['#5eab98', '#f7a400']) // greens
 
 const colorOut =  d3.scaleOrdinal()
     .range(['#A20114','#A20000','#Ab0c0b']) // reds

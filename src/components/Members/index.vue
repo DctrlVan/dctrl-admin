@@ -1,18 +1,15 @@
 <template lang='jade'>
 
 #members
-    h1 Feb. Membership Status
-    .row
-      .six.columns
-          shame-pie.pie
-      .six.columns
-          labels
+    h3 Status - February
+    .mem Memberships
+    .ex Expenses
+    shame-pie.pie
 
 </template>
 
 <script>
 import ShamePie from './ShamePie'
-import Labels from './Labels'
 
 export default {
     beforeMount(){
@@ -23,7 +20,7 @@ export default {
             return this.$store.state.members
         },
     },
-    components: { ShamePie , Labels }
+    components: { ShamePie }
 }
 
 </script>
@@ -33,13 +30,33 @@ export default {
 @import '../../styles/framework'
 @import '../../styles/colours'
 
-h1
+h3
     color: mainLight
-    background: mainDark
-    text-decoration:underline
+    font-weight:bolder
+    border-bottom-style:dashed
+    border-width:2px
+
+.ex
+    float:right
+    color: #A20114
+    padding:1em
+    font-size:1.6em
+    border-bottom-style:dashed
+    border-width:1px
+    width:30%
+    text-align:center
+
+.mem
+    text-align:center
+    width:30%
+    float:left
+    color:#5eab98
+    padding:1em
+    font-size:1.6em
+    border-bottom-style:dashed
+    border-width:1px
 
 .pie
-    padding-left:10px
-
+    padding:10em
 
 </style>
