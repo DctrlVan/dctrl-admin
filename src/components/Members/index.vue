@@ -32,6 +32,7 @@ export default {
 
 h3
     font-family:arial
+    font-weight:100
     color: mainLight
     font-weight:bolder
     border-bottom-style:dashed

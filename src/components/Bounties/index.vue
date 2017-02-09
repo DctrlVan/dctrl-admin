@@ -52,11 +52,11 @@ h2
 		margin:0
 		color: accent1
 		padding-top:50px
-		font-family:times
-		font-weight:bolder
+		font-family:arial
+		font-weight:100
 		border-bottom-style:solid
 		border-color:lightblue
-		border-width:100px
+		border-width:5px
 
 .border
 		border-style:solid
