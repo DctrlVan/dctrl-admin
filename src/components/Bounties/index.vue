@@ -2,7 +2,8 @@
 
 #bounties
 		h2 Available Bounties:
-		bounty(v-for='b in bounties', :x='b')
+		.border
+				bounty(v-for='b in bounties', :x='b')
 		new-bounty
 		claim-bounty
 		reserve-bounty
@@ -50,5 +51,17 @@ h2
 		color:contentColour
 		margin:0
 		color: accent1
+		padding-top:50px
+		font-family:times
+		font-weight:bolder
+		border-bottom-style:solid
+		border-color:lightblue
+		border-width:100px
+
+.border
+		border-style:solid
+		border-color:black
+		padding:1em
+		border-width:1px
 
 </style>

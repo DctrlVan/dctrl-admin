@@ -25,6 +25,7 @@ export default {
 
 <style lang='stylus' scoped>
 @import '../../styles/breakpoints'
+@import '../../styles/colours'
 
 .modal {
     display: block; /* Hidden by default */
@@ -35,8 +36,8 @@ export default {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,.8);
+    background-color: black  /* Fallback color */
+    background-color: black;
   }
 
   .content {

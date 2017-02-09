@@ -1,24 +1,27 @@
 <template lang='jade'>
 .bounty.row
-    h6(v-if="!open" @click="toggleOpen") {{ x.name }}
-        .bits {{ x.amount }} bits
-    div(v-show="open" @click="toggleOpen")
-        p.content {{ x.description }}
-            claim-btn(:x='x')
+    h6(@click="toggleOpen") {{ x.name }}
+        .bits {{ x.amount + y }} bits
+    transition(name='slide-fade')
+        expanded(:x='x' v-show='open')
 
 </template>
 
-<script> // ES6
+<script>
 
-
-import ClaimBtn from './ClaimBtn'
 import Tag from './Tag'
-import ReserveBtn from './ReserveBtn'
+import Expanded from './Expanded'
 
 export default {
+    mounted(){
+      setInterval(()=>{
+          this.y = this.y + 1
+      }, 1000)
+    },
     data(){
         return {
             open:false,
+            y:10
         }
     },
     methods:{
@@ -27,7 +30,7 @@ export default {
         }
     },
     props: ['x'],
-    components: { Tag, ClaimBtn, ReserveBtn },
+    components: { Tag, Expanded },
 }
 
 </script>
@@ -38,10 +41,24 @@ export default {
 
 @import '../../../styles/colours'
 
+h6
+    padding-bottom:0
+    margin-bottom:0
+
+.slide-fade-enter-active {
+  transition: all 1s ease;
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+  opacity: 0;
+}
+
 .bounty
     color:accent1
     padding:0
     margin:0
+    border-bottom-style:solid
+    border-color:lightblue
 
 .bits
     font-size:.9em
@@ -49,13 +66,5 @@ export default {
 
 p
     padding: 0
-
-.content
-    padding-right:4em
-    padding-left:4em
-    padding-top:1em
-    background: contentColour
-    color:main
-    margin-top:1em
 
 </style>
