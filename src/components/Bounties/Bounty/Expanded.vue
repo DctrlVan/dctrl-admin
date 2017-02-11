@@ -1,18 +1,22 @@
 <template lang='jade'>
 
 .expanded
+    claim-bounty
     p {{ x.description }}
         claim-btn(:x='x')
+        tag(v-for='y in x.tags', :x='y')
 
 </template>
 
 <script>
 
 import ClaimBtn from './ClaimBtn'
+import Tag from './Tag'
+import ClaimBounty from '../ClaimBounty'
 
 export default {
   props: ['x'],
-  components: { ClaimBtn }
+  components: { ClaimBtn, Tag, ClaimBounty }
 }
 
 </script>
@@ -22,14 +26,13 @@ export default {
 @import '../../../styles/colours'
 
 p
-    padding-right:4em
-    padding-left:4em
-    padding-top:1em
+    padding:4em
     background: main
     color:accent2
     border-style:solid
     border-width:5px
     border-color:accent2
+    border-radius:10px
     margin-top:1em
 
 

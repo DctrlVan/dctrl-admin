@@ -5,7 +5,6 @@
 		.border
 				bounty(v-for='b in bounties', :x='b')
 		new-bounty
-		claim-bounty
 		reserve-bounty
 
 </template>
@@ -56,7 +55,7 @@ h2
 		font-weight:100
 		border-bottom-style:solid
 		border-color:accent2
-		border-width:5px
+		border-width:1px
 		margin-bottom:1em
 
 .border

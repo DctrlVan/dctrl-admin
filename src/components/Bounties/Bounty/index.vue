@@ -52,6 +52,8 @@ h6
     margin:0
     border-bottom-style:solid
     border-color:accent3
+    padding-top:.9em
+    padding-bottom:.9em
 
 .bits
     font-size:.9em
