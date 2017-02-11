@@ -9,7 +9,6 @@
 
 <script>
 
-import Tag from './Tag'
 import Expanded from './Expanded'
 
 export default {
@@ -30,7 +29,7 @@ export default {
         }
     },
     props: ['x'],
-    components: { Tag, Expanded },
+    components: { Expanded },
 }
 
 </script>
@@ -45,26 +44,26 @@ h6
     padding-bottom:0
     margin-bottom:0
 
-.slide-fade-enter-active {
-  transition: all 1s ease;
-}
-
-.slide-fade-enter, .slide-fade-leave-to {
-  opacity: 0;
-}
-
 .bounty
     color:accent1
     padding:0
     margin:0
     border-bottom-style:solid
-    border-color:lightblue
+    border-color:accent3
 
 .bits
     font-size:.9em
     float:right
 
-p
-    padding: 0
+.slide-fade-enter-active
+    transition: all 1.5s ease
+    max-height:300px
+
+
+.slide-fade-enter, .slide-fade-leave-to
+    opacity: 0;
+    max-height:0
+
+
 
 </style>

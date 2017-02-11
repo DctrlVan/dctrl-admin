@@ -55,7 +55,7 @@ h2
 		font-family:arial
 		font-weight:100
 		border-bottom-style:solid
-		border-color:lightblue
+		border-color:accent3
 		border-width:5px
 
 .border
