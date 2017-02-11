@@ -47,20 +47,23 @@ export default {
 		padding-bottom:10em
 
 h2
+		text-transform:uppercase
 		background:mainDark
 		color:accent2
 		margin:0
 		padding-top:50px
-		font-family:arial
+		font-family:monospace
 		font-weight:100
 		border-bottom-style:solid
 		border-color:accent2
 		border-width:5px
 		margin-bottom:1em
+
 .border
 		border-style:solid
 		border-color:accent2
-		padding:1em
-		border-width:5px
+		padding:0em
+		border-width:0px
+
 
 </style>
