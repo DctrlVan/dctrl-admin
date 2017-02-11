@@ -1,7 +1,9 @@
 <template lang='jade'>
 .bounty.row
     h6(@click="toggleOpen") {{ x.name }}
-        .bits {{ x.amount + y }} bits
+        .bits
+            img(src='../../../assets/images/bullet.svg')
+            span {{ x.amount + y }} bits
     transition(name='slide-fade')
         expanded(:x='x' v-show='open')
 
