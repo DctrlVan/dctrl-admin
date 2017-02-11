@@ -48,20 +48,19 @@ export default {
 
 h2
 		background:mainDark
-		color:contentColour
+		color:accent2
 		margin:0
-		color: accent1
 		padding-top:50px
 		font-family:arial
 		font-weight:100
 		border-bottom-style:solid
-		border-color:accent3
+		border-color:accent2
 		border-width:5px
-
+		margin-bottom:1em
 .border
 		border-style:solid
-		border-color:black
+		border-color:accent2
 		padding:1em
-		border-width:1px
+		border-width:5px
 
 </style>

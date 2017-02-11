@@ -19,9 +19,11 @@ export default {
 
 <style lang="stylus" scoped>
 
+@import '../../../styles/colours'
+
 button
-    background:#4CAF50
-    color:white
+    background:accent3
+    color:black
     width:100%
 
 </style>

@@ -25,8 +25,11 @@ p
     padding-right:4em
     padding-left:4em
     padding-top:1em
-    background: contentColour
-    color:main
+    background: main
+    color:accent2
+    border-style:solid
+    border-width:5px
+    border-color:accent2
     margin-top:1em
 
 

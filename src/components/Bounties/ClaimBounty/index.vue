@@ -1,6 +1,6 @@
 <template lang="jade">
 
-modal(:visible='visible', :close='closeModal')
+modal.claimbounty(:visible='visible', :close='closeModal')
     label CLAIM BOUNTY
         alias-input
         address-input
@@ -33,7 +33,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../../styles/colours'
 
+.claimbounty
+    background:red
 
+label
+    background:accent1
+    padding:3em
 
 </style>
