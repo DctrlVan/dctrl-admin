@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #members
-    h3 STATUS - FEBRUARY
+    h2 FEBRUARY 2017
     .mem Memberships
     .ex Expenses
     shame-pie.pie
@@ -30,11 +30,23 @@ export default {
 @import '../../styles/framework'
 @import '../../styles/colours'
 
+
+h2
+    text-transform:uppercase
+    background:mainDark
+    color:accent2
+    margin:0
+    padding-top:50px
+    font-family:monospace
+    font-weight:100
+    border-bottom-style:solid
+    border-color:accent2
+    border-width:5px
+    margin-bottom:1em
+
 h3
-    font-family:arial
     font-weight:100
     color: mainLight
-    font-weight:bolder
     border-bottom-style:dashed
     border-width:2px
     margin-top:1.2em
