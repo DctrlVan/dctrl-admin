@@ -33,20 +33,24 @@ export default {
 
 <style lang='stylus' scoped>
 
+@import '../../styles/colours'
+
+
   .day
-    background-color: white
+    background-color: main
     border-style: dashed
     border-radius: 5px
-    border-color: black
+    border-color: accent2
     border-width: 1px
     overflow: visible
+		:hover
+				background-color: accent1
 
   .date
     text-align:right
     height: 30px
     margin-top: 0
     margin-bottom:-30px
-    color: black
     font-weight: bolder
     font-size: .9em
     padding: 5px 5px 5px 5px

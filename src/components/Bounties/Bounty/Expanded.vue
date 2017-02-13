@@ -26,14 +26,14 @@ export default {
 @import '../../../styles/colours'
 
 p
-    padding:4em
+    padding:1em 2em
     background: main
     color:accent2
-    border-style:solid
+    border-left-style:solid
     border-width:5px
     border-color:accent2
-    border-radius:10px
     margin-top:1em
+    margin-left:2em
 
 
 </style>

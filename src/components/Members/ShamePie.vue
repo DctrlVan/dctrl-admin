@@ -66,17 +66,20 @@ export default {
             .append('g')
             .attr('transform', 'translate(' + (width / 2) +  ',' + (height / 2) + ')')
 
-        const path = svg.selectAll('path')
+        const path = svg
+          .selectAll('path')
           .data(pie(dataset))
           .enter()
           .append('path')
           .attr('d', arc)
           .attr('fill', function(d, i) {
             if (d.data.expense){
-              return colorOut(d.data.label);
+              return colorOut(d.data.label)
             }
-            return colorIn(d.data.label);
-          });
+            return colorIn(d.data.label)
+          })
+          .text()
+
     }
 }
 

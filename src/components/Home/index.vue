@@ -2,11 +2,14 @@
 
 #home
     h1 decentralized commons
-    p As a community we can benefit from a shared work-space, hack-space, pong-space, etc...
     .row
-        .four.columns transparent
-        .four.columns collaborative
-        .four.columns enabling
+        .four.columns
+            p.l transparent
+        .four.columns
+            p.c collaborative
+        .four.columns
+            p.r enabling
+
 </template>
 
 <script>
@@ -22,12 +25,25 @@ export default {
 
 #home
     text-transform:uppercase
-    padding-top:60px
+    padding-top:30px
     color:accent2
 
+.r
+    text-align: right
+
+.l
+    text-align: left
+
+.c
+    text-align: center
+    
 h1
     font-family:monospace
     font-size:5em
     color:accent1
+    text-align:right
+
+p
+    padding: 0
 
 </style>

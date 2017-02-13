@@ -42,10 +42,12 @@
 
 <style lang='stylus' scoped>
 
-#whenlabel
-    content-align:center
+@import '../../styles/colours'
+
+#calendar
+    color: accent2
     font-weight:bolder
-    font-size:1.1em
+    font-size:2em
 
 .calendar-column
     float: left
@@ -61,7 +63,7 @@
 
 .weekday
     @extends .calendar-column
-    height: 25px
+    height: 40px
     text-align: center
     font-weight:bolder
 

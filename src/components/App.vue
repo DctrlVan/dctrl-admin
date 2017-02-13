@@ -35,7 +35,7 @@ export default {
 
 #dctrlapp
     background:main
-    font-family:monospace
+    font-family:font
 
 .menu
     position:fixed
