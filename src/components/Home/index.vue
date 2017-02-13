@@ -1,25 +1,33 @@
 <template lang='jade'>
 
 #home
-    h1 dctrl community commons
-
+    h1 decentralized commons
+    p As a community we can benefit from a shared work-space, hack-space, pong-space, etc...
+    .row
+        .four.columns transparent
+        .four.columns collaborative
+        .four.columns enabling
 </template>
 
 <script>
 
 export default {
-    beforeMount(){
-        this.$store.commit('setHeader', 'Financials:')
-    },
-    computed: {
-        finances(){
-            return this.$store.state.members
-        },
-    }
 }
 
 </script>
 
-<style lang='stylus'>
+<style lang='stylus' scoped>
+
+@import '../../styles/colours'
+
+#home
+    text-transform:uppercase
+    padding-top:60px
+    color:accent2
+
+h1
+    font-family:monospace
+    font-size:5em
+    color:accent1
 
 </style>
