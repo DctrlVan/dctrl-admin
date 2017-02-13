@@ -1,8 +1,9 @@
 <template>
-
-<button @click="openClaimingModal">
-    Claim {{ x.amount }} bits
-</button>
+<router-link to='BOUNTIES/CLAIM' >
+    <button @click="setClaim">
+        Claim {{ x.amount }} bits
+    </button>
+</router-link>
 
 </template>
 
@@ -11,7 +12,7 @@
 export default {
     props:['x'],
     methods:{
-        openClaimingModal(){
+        setClaim(){
             this.$store.commit('setClaimId', this.x._id)
         }
     }

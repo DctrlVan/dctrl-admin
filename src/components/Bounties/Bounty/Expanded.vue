@@ -1,7 +1,6 @@
 <template lang='jade'>
 
 .expanded
-    claim-bounty
     p {{ x.description }}
         claim-btn(:x='x')
         tag(v-for='y in x.tags', :x='y')
@@ -12,11 +11,10 @@
 
 import ClaimBtn from './ClaimBtn'
 import Tag from './Tag'
-import ClaimBounty from '../ClaimBounty'
 
 export default {
   props: ['x'],
-  components: { ClaimBtn, Tag, ClaimBounty }
+  components: { ClaimBtn, Tag }
 }
 
 </script>

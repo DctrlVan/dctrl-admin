@@ -4,16 +4,11 @@
 		h2 Available Bounties:
 		.border
 				bounty(v-for='b in bounties', :x='b')
-		new-bounty
-		reserve-bounty
 
 </template>
 
 <script>
 import _ from 'lodash'
-import NewBounty from './NewBounty'
-import ClaimBounty from './ClaimBounty'
-import ReserveBounty from './ReserveBounty'
 import Bounty from './Bounty'
 
 
@@ -23,9 +18,6 @@ export default {
   },
   components: {
       Bounty,
-			NewBounty,
-			ClaimBounty,
-			ReserveBounty
   },
   computed: {
       bounties(){

@@ -24,9 +24,8 @@ export default {
 @import '../styles/breakpoints'
 
 .menu
-    border-right-style:dashed
     border-color:accent1
-    border-width:5px
+    border-width:1px
     min-height:100%
 
 @media (max-width: breakpoint)
