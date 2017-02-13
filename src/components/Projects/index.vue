@@ -2,7 +2,7 @@
 
 #projects
     shared-title(title='Projects')
-    p It would be good to document our current projects and brainstorm/plan future projects. App design needed....
+        p It would be good to document our current projects and brainstorm/plan future projects. App design needed....
 
 </template>
 
@@ -17,6 +17,10 @@ export default {
 
 </script>
 
-<style lang='stylus'>
+<style lang='stylus' scoped>
+@import '../../styles/colours'
+
+p
+    color:accent1
 
 </style>

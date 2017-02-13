@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-@import '../../styles/breakpoints'
+
 @import '../../styles/colours'
 
 h2

@@ -2,13 +2,11 @@
 
 .commitment.row
     .six.columns
-        h4 Commited by: {{ x.member }}
-        h4 Commited Value: {{ x.amount }} bits
-        h4 Due in: {{ Math.round( (x.deadline - Date.now()) / 1000 / 60 / 60 ) }} hours
-        button I DID IT
-        button MAYBE NEXT TIME
-    .six.columns
         p {{ x.description }}
+    .six.columns
+        li Commited by: {{ x.member }}
+        li Commited Value: {{ x.amount }} bits
+        li Due in: {{ Math.round( (x.deadline - Date.now()) / 1000 / 60 / 60 ) }} hours
 
 </template>
 <script> // ES6
@@ -19,9 +17,11 @@ export default {
 
 </script>
 <style lang='stylus' scoped>
+@import '../../styles/colours'
 
-h4
-    font-size:1.3em
-    color:black
+.commitment
+    background:main
+    color:accent1
+
 
 </style>

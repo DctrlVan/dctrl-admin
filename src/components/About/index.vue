@@ -3,6 +3,7 @@
 #projects
     shared-title(title='About Us')
         p dctrlapp is community management software
+        p dctrlvan is this...
 
 </template>
 
@@ -18,10 +19,12 @@ export default {
 
 </script>
 
-<style lang='stylus'>
+<style lang='stylus' scoped>
+
+@import '../../styles/colours'
 
 p
-    padding: 2em
-    font-size:1.5em
+    font-size:1em
+    color:accent2
 
 </style>

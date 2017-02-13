@@ -2,8 +2,8 @@
 
 .expanded
     p {{ x.description }}
-        claim-btn(:x='x')
-        tag(v-for='y in x.tags', :x='y')
+    tag(v-for='y in x.tags', :x='y')
+    claim-btn(:x='x')
 
 </template>
 

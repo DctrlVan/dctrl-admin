@@ -1,8 +1,10 @@
 <template>
 
 <div id="commitments">
-    <really></really>
     <shared-title title='Commitments'>
+        <form-box>
+          <label> bitcoin address </label>
+        </form-box>
         <commitment v-for='c in commitments' :x='c'></commitment>
     </shared-title>
 </div>
@@ -11,12 +13,14 @@
 
 <script>
 import SharedTitle from '../slotUtils/SharedTitle'
+import FormBox from '../slotUtils/FormBox'
 import Commitment from './Commitment'
 import Really from './Really'
 
 export default {
     components: {
         SharedTitle,
+        FormBox,
         Commitment,
         Really
     },
@@ -25,7 +29,6 @@ export default {
         return this.$store.state.commitments.hwaiting
       }
     }
-
 }
 
 

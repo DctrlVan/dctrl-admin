@@ -1,14 +1,12 @@
 <template lang='jade'>
 
-
-.claimbounty
-    h2 CLAIM BOUNTY
-    .box
+shared-title(title='Claim Bounty')
+    form-box
         span This task is complete:
             li.box {{ title }}
         label bitcoin address
         address-input
-        label Note: 
+        label Note:
         alias-input
         confirm-btn
 
@@ -16,12 +14,16 @@
 
 <script>
 
+import SharedTitle from '../../slotUtils/SharedTitle'
+import FormBox from '../../slotUtils/FormBox'
 import AddressInput from './AddressInput'
 import AliasInput from './AliasInput'
 import ConfirmBtn from './ConfirmBtn'
 
 export default {
   components: {
+    SharedTitle,
+    FormBox,
     AddressInput,
     AliasInput,
     ConfirmBtn,
@@ -53,12 +55,6 @@ h2
 .box
     background: accent1
     padding:1em
-
-h5
-		text-transform:uppercase
-		border-color:accent2
-		border-width:1px
-		margin-bottom:1em
 
 
 </style>
