@@ -12,6 +12,14 @@
                 name="newcommit"
                 v-model="x"
             ></input>
+            <label> Deadline: </label>
+            <input
+                @input="setCommit"
+                type="date"
+                placeholder="What do you commit to do?"
+                name="newcommit"
+                v-model="x"
+            ></input>
             <label> Send the amount you wish to commit: </label>
             <img src="../../assets/images/address.svg"></img>
           </form-box>
