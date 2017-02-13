@@ -15,10 +15,10 @@ const state = {
   active: [{
     _id: '12',
     name: 'Host a good meetup.',
-    amount: 15000,
+    amount: 10000,
     description: 'Host an awesome meetup that brings a whole bunch of new faces into the space and teaches them about technology, decentralization, justice, etc...',
     tags: ['meetup', 'propaganda', 'people', 'intelligence'],
-    monthlyBudget: 50000,
+    monthlyBudget: 60000,
     claimed: false,
     claimedBy:'',
   },{
@@ -54,7 +54,6 @@ const state = {
     amount: 15000,
     description: 'For details refer to the github issues on btc-vending-machine. ',
     tags: ['strength', 'courage', 'intelligence'],
-    monthlyBudget: 50000,
     claimed: false,
     claimedBy:'',
   },{
@@ -63,7 +62,6 @@ const state = {
     amount: 25000,
     description: 'Figure out what we need to do to mount the flowmeters and valves onto the keg. Probably need to drill a hole in the fridge. Figure a way to mount the electronics and power them.',
     tags: ['strength', 'courage', 'intelligence'],
-    monthlyBudget: 50000,
     claimed: false,
     claimedBy:'',
   },{
@@ -72,7 +70,6 @@ const state = {
     amount: 30300,
     description: 'At the start of the print the plastic doesn\'t adhere.',
     tags: [ 'courage', 'intelligence'],
-    monthlyBudget: 50000,
     claimed: false,
     claimedBy:'',
   },{
@@ -81,7 +78,6 @@ const state = {
     amount: 1000,
     description: 'Members must first agree what, but it has to be good.',
     tags: ['strength', 'courage', 'intelligence'],
-    monthlyBudget: 50000,
     claimed: false,
     claimedBy:'',
   }],

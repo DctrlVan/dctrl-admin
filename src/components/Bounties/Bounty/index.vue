@@ -2,8 +2,8 @@
 .bounty.row
     h6(@click="toggleOpen") {{ x.name }}
         .bits
-            img(src='../../../assets/images/bullet.svg')
-            span {{ x.amount + y }} bits
+            img(v-if="x.monthlyBudget", src='../../../assets/images/bullet.svg')
+            span {{ Math.round( x.amount + y ) }} bits
     transition(name='slide-fade')
         expanded(:x='x' v-show='open')
 
@@ -15,14 +15,18 @@ import Expanded from './Expanded'
 
 export default {
     mounted(){
-      setInterval(()=>{
-          this.y = this.y + 1
-      }, 1000)
+      // component predicts
+      if (this.x.monthlyBudget){
+          let perMinute = this.x.monthlyBudget / 30 / 24 / 60
+          setInterval(()=> {
+              this.y = this.y + perMinute
+          }, 60000)
+      }
     },
     data(){
         return {
             open:false,
-            y:10
+            y:0
         }
     },
     methods:{

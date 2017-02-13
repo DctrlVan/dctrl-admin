@@ -39,7 +39,7 @@ export default {
               case 'transparent':
                   return 'We strive to run a community commons with a flat hierarchy. We provide tools for members to audit our full financials, and open voting for managing our commons wallet.'
               case 'collaborative':
-                  return 'We want to provide a place to meet with like minded people, and work on project. Political, anarchist, or anywhere in between.'
+                  return 'We want to provide a place to meet with like minded people, and work on impacting our community. Political, anarchist, or anywhere in between.'
               case 'enabling':
                   return 'We will provide tools to learn software, hardware and the environment to turn ideas into action. How? '
 

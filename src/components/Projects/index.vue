@@ -9,7 +9,9 @@
         li Kegorator - by volume, bitcoin accepting keg
         li Fully addressable LED sidewalk.
         li Graphical user interface for sidewalk (and/or api)
-        li dctrl server services (bitcore, tumblebit, library, dctrlapp...)
+        li dctrl server services (bitcore, tumblebit, library)
+        li dctrlapp - bounties, commitments, finances
+        li coinOS - bitcoin coop merchant processing reboot.
 </template>
 
 <script>
