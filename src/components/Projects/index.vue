@@ -2,7 +2,7 @@
 
 #projects
     shared-title(title='Projects')
-        p It would be good to document our current projects and brainstorm/plan future projects. App design needed....
+        p Document our current projects and brainstorm/plan future projects. App design needed....
 
 </template>
 

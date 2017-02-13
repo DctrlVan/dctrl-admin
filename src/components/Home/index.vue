@@ -1,20 +1,38 @@
 <template lang='jade'>
 
 #home
-    h1 decentralized commons
+    .img
+        img(v-show='show==="transparent"', src='../../assets/images/transparent.svg')
+        img(v-show='show==="collaborative"', src='../../assets/images/collaborative.svg')
+        img(v-show='show==="enabling"', src='../../assets/images/enabling.svg')
+    h1 decentralized
+    h1 commons
     .row
-        .four.columns
+        .four.columns(@mouseover='switchShow("transparent")', :class='{selected:show==="transparent"}')
             p.l transparent
-        .four.columns
+        .four.columns(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}')
             p.c collaborative
-        .four.columns
+        .four.columns(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}')
             p.r enabling
+    .row
+        p {{ description }}
+
 
 </template>
 
 <script>
 
 export default {
+  data(){
+      return {
+          show: 'transparent'
+      }
+  },
+  methods:{
+      switchShow(nowShow){
+          this.show = nowShow
+      }
+  },
 }
 
 </script>
@@ -28,6 +46,17 @@ export default {
     padding-top:30px
     color:accent2
 
+.selected
+    color:main
+    font-size:1.5em
+    background:accent1
+
+.img
+    position:fixed
+
+img
+    height:111px
+
 .r
     text-align: right
 
@@ -36,14 +65,13 @@ export default {
 
 .c
     text-align: center
-    
+
 h1
-    font-family:monospace
-    font-size:5em
     color:accent1
     text-align:right
+    margin:0
+    padding:0
 
-p
-    padding: 0
+
 
 </style>
