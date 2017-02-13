@@ -13,8 +13,6 @@
         li COMMITMENTS
     router-link(to='/CALENDAR')
         li CALENDAR
-    router-link(to='/NEWS')
-        li NEWS
 
 </template>
 

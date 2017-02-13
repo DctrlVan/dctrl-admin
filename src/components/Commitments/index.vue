@@ -2,20 +2,23 @@
 
 <div id="commitments">
     <really></really>
-    <commitment v-for='c in commitments' :x='c'></commitment>
+    <shared-title title='Commitments'>
+        <commitment v-for='c in commitments' :x='c'></commitment>
+    </shared-title>
 </div>
 
 </template>
 
 <script>
+import SharedTitle from '../slotUtils/SharedTitle'
 import Commitment from './Commitment'
 import Really from './Really'
+
 export default {
-    beforeMount(){
-        this.$store.commit('setHeader', 'Open Commitments:')
-    },
     components: {
-        Commitment, Really
+        SharedTitle,
+        Commitment,
+        Really
     },
     computed: {
       commitments(){

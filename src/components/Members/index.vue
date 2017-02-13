@@ -1,26 +1,19 @@
 <template lang='jade'>
 
 #members
-    h2 FEBRUARY 2017
-    .mem Memberships
-    .ex Expenses
-    shame-pie.pie
+    shared-title(title='FEBRUARY 2017')
+        .mem Memberships
+        .ex Expenses
+        shame-pie.pie
 
 </template>
 
 <script>
+import SharedTitle from '../slotUtils/SharedTitle'
 import ShamePie from './ShamePie'
 
 export default {
-    beforeMount(){
-        this.$store.commit('setHeader', 'Financials:')
-    },
-    computed: {
-        finances(){
-            return this.$store.state.members
-        },
-    },
-    components: { ShamePie }
+    components: { ShamePie, SharedTitle }
 }
 
 </script>

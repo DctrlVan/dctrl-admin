@@ -1,23 +1,23 @@
 <template lang='jade'>
 
 #bounties
-		h2 Available Bounties:
-		.border
-				bounty(v-for='b in bounties', :x='b')
+		shared-title(title="active bounties")
+				.border
+						bounty(v-for='b in bounties', :x='b')
 
 </template>
 
 <script>
 import _ from 'lodash'
 import Bounty from './Bounty'
-
+import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
   beforeMount(){
       this.$store.commit('setHeader', 'Available Bounties:')
   },
   components: {
-      Bounty,
+      Bounty, SharedTitle
   },
   computed: {
       bounties(){
@@ -36,19 +36,6 @@ export default {
 
 #bounties
 		padding-bottom:10em
-
-h2
-		text-transform:uppercase
-		background:mainDark
-		color:accent2
-		margin:0
-		padding-top:50px
-		font-family:monospace
-		font-weight:100
-		border-bottom-style:solid
-		border-color:accent2
-		border-width:1px
-		margin-bottom:1em
 
 .border
 		border-style:solid

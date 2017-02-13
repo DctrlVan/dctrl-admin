@@ -1,21 +1,18 @@
 <template lang='jade'>
 
 #projects
-    h1 About
-    p dctrlapp is community management software
+    shared-title(title='About Us')
+        p dctrlapp is community management software
 
 </template>
 
 <script>
 
+import SharedTitle from '../slotUtils/SharedTitle'
+
 export default {
-    beforeMount(){
-        this.$store.commit('setHeader', 'Financials:')
-    },
-    computed: {
-        finances(){
-            return this.$store.state.members
-        },
+    components:{
+        SharedTitle
     }
 }
 
