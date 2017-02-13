@@ -3,7 +3,13 @@
 #projects
     shared-title(title='Projects')
         p Document our current projects and brainstorm/plan future projects. App design needed....
-
+        p Current Projects
+        li RFID Door - key fod access to dctrl
+        li Bitcoin Vending Machine
+        li Kegorator - by volume, bitcoin accepting keg
+        li Fully addressable LED sidewalk.
+        li Graphical user interface for sidewalk (and/or api)
+        li dctrl server services (bitcore, tumblebit, library, dctrlapp...)
 </template>
 
 <script>
@@ -20,7 +26,7 @@ export default {
 <style lang='stylus' scoped>
 @import '../../styles/colours'
 
-p
+#projects
     color:accent1
 
 </style>

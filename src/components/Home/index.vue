@@ -15,7 +15,7 @@
         .four.columns(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}')
             p.r enabling
     .row
-        p {{ description }}
+        .description {{ description }}
 
 
 </template>
@@ -33,6 +33,19 @@ export default {
           this.show = nowShow
       }
   },
+  computed: {
+      description(){
+          switch (this.show){
+              case 'transparent':
+                  return 'We strive to run a community commons with a flat hierarchy. We provide tools for members to audit our full financials, and open voting for managing our commons wallet.'
+              case 'collaborative':
+                  return 'We want to provide a place to meet with like minded people, and work on project. Political, anarchist, or anywhere in between.'
+              case 'enabling':
+                  return 'We will provide tools to learn software, hardware and the environment to turn ideas into action. How? '
+
+          }
+      }
+  }
 }
 
 </script>
@@ -42,14 +55,20 @@ export default {
 @import '../../styles/colours'
 
 #home
-    text-transform:uppercase
     padding-top:30px
     color:accent2
+
+.description
+    padding:2em
+    font-size:1.4em
 
 .selected
     color:main
     font-size:1.5em
-    background:accent1
+    text-transform:uppercase
+    text-decoration:underline
+    p
+        background:accent1
 
 .img
     position:fixed
