@@ -99,7 +99,7 @@ const actions = {
     },
     CLAIM_BOUNTY({commit, state}){
         let claimPost = {
-            alias: state.claimAlias,
+            notes: state.claimNotes,
             address: state.claimAddress,
             bountyId: state.claimId
         }

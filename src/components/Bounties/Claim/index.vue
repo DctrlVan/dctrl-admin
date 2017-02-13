@@ -7,7 +7,7 @@ shared-title(title='Claim Bounty')
         label bitcoin address
         address-input
         label Note:
-        alias-input
+        notes-input
         confirm-btn
 
 </template>
@@ -17,7 +17,7 @@ shared-title(title='Claim Bounty')
 import SharedTitle from '../../slotUtils/SharedTitle'
 import FormBox from '../../slotUtils/FormBox'
 import AddressInput from './AddressInput'
-import AliasInput from './AliasInput'
+import NotesInput from './NotesInput'
 import ConfirmBtn from './ConfirmBtn'
 
 export default {
@@ -25,7 +25,7 @@ export default {
     SharedTitle,
     FormBox,
     AddressInput,
-    AliasInput,
+    NotesInput,
     ConfirmBtn,
   },
   computed:{
