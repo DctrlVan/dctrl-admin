@@ -3,15 +3,8 @@ import request from 'superagent'
 
 const state = {
   claimId: false,
-  reserveId: false,
-  claimForm: {
-    alias:'',
-    address:''
-  },
-  reserveForm: {
-    alias:'',
-    address:''
-  },
+  claimaddress: false,
+  claimNotes: false,
   active: [{
     _id: '12',
     name: 'Host a good meetup.',
@@ -85,14 +78,13 @@ const state = {
 
 const mutations = {
     setClaimId(bounties, _id){
-      console.log(_id)
       bounties.claimId = _id
     },
     setClaimAddress(bounties, address){
         bounties.claimAddress = address
     },
-    setClaimAlias(bounties, alias){
-        bounties.claimAlias = alias
+    setClaimNotes(bounties, notes){
+        bounties.claimNotes = notes
     },
     addBounty(bounties, bounty){
         bounties.active.push(bounty)
@@ -111,6 +103,7 @@ const actions = {
             address: state.claimAddress,
             bountyId: state.claimId
         }
+        console.log('TODO POST TO SERVER', claimPost)
         // request
         //     .post('')
         //     .send(claimPost)

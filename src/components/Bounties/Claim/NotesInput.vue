@@ -1,10 +1,10 @@
 <template lang="jade">
 
 input(
-    @input='setAlias',
+    @input='set',
     type='text',
     placeholder='Notes',
-    name='alias',
+    name='notes',
     v-model='x',
 )
 
@@ -19,8 +19,8 @@ export default {
         }
     },
     methods: {
-        setAlias(){
-            this.$store.commit('setClaimAlias', this.x)
+        set(){
+            this.$store.commit('setClaimNotes', this.x)
         },
     },
 }
