@@ -118,8 +118,6 @@ const actions = {
         // request
         //     .post('')
         //     .send(claimPost)
-        
-        console.log({claimPost})
         // commit('claimBounty')
     }
 }

@@ -6,10 +6,10 @@
     .box
         span This task is complete:
             li.box {{ title }}
-        label alias
-        alias-input
         label bitcoin address
         address-input
+        label Note: 
+        alias-input
         confirm-btn
 
 </template>

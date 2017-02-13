@@ -3,7 +3,7 @@
 input(
     @input='setAlias',
     type='text',
-    placeholder='Your Alias',
+    placeholder='Notes',
     name='alias',
     v-model='x',
 )

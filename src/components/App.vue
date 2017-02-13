@@ -6,7 +6,6 @@
         main-menu
     .row.container
         .four.columns.u-hide-at-sm
-            // spaceholder
             p &nbsp;
         .eight.columns
             router-view
@@ -43,5 +42,7 @@ export default {
     width: 350px
     z-index:10000
 
+.u-hide-at-sm
+    height:1px
 
 </style>
