@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import request from 'superagent'
 
 const state = {
   claimId: false,
@@ -87,23 +88,15 @@ const state = {
 }
 
 const mutations = {
+    setClaimId(bounties, _id){
+      console.log(_id)
+      bounties.claimId = _id
+    },
     setClaimAddress(bounties, address){
         bounties.claimAddress = address
     },
-    setClaimId(bounties, _id){
-        console.log(_id)
-        bounties.claimId = _id
-    },
-    setClaimAlias(alias){
+    setClaimAlias(bounties, alias){
         bounties.claimAlias = alias
-    },
-    claimBounty(bounties, info){
-        bounties.active.forEach( bounty => {
-            if (bounty._id === bounties.claimId){
-                bounty.claimed = true
-                bounty.claimedBy += info.alias
-            }
-        })
     },
     addBounty(bounties, bounty){
         bounties.active.push(bounty)
@@ -111,13 +104,23 @@ const mutations = {
 }
 
 // Actions are for the async calls to the server
+
 const actions = {
     ADD_BOUNTY(){
         // TODO post req then mutate
     },
-    CLAIM_BOUNTY({commit}, info){
-        commit('claimBounty', info)
-        // TODO post req then mutate
+    CLAIM_BOUNTY({commit, state}){
+        let claimPost = {
+            alias: state.claimAlias,
+            address: state.claimAddress,
+            bountyId: state.claimId
+        }
+        // request
+        //     .post('')
+        //     .send(claimPost)
+        
+        console.log({claimPost})
+        // commit('claimBounty')
     }
 }
 

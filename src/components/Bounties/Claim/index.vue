@@ -4,8 +4,8 @@
 .claimbounty
     h2 CLAIM BOUNTY
     .box
-        p This following task is complete:
-        li.box {{ title }}
+        span This task is complete:
+            li.box {{ title }}
         label alias
         alias-input
         label bitcoin address
@@ -48,17 +48,11 @@ export default {
 
 h2
     margin:0
-p
-    margin: 0
-
-.claimbounty
-    background: accent1
+    margin-bottom:1em
 
 .box
+    background: accent1
     padding:1em
-
-label
-    color:accent2
 
 h5
 		text-transform:uppercase
