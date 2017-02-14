@@ -13,6 +13,9 @@ import Bounty from './Bounty'
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
+	created(){
+			this.$store.dispatch('GET_ACTIVE_BOUNTIES')
+	},
   beforeMount(){
       this.$store.commit('setHeader', 'Available Bounties:')
   },
