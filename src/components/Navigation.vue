@@ -13,7 +13,8 @@
         li COMMITMENTS
     router-link(to='/CALENDAR')
         li CALENDAR
-
+    router-link(to='/SHOP')
+        li SHOP
 </template>
 
 <script>
@@ -26,7 +27,7 @@ export default {
 @import '../styles/colours'
 
 li
-    color: mainLight
+    color:accent3
     border-bottom: 1px solid accent1
     border-top: 1px solid accent1
     margin-bottom: 0;
@@ -39,6 +40,5 @@ li
 .router-link-active
     font-weight: bolder
     background: mainLight
-    color: mainDark // not working TODO
 
 </style>

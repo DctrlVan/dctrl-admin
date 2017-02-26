@@ -8,7 +8,8 @@
         .four.columns.u-hide-at-sm
             p &nbsp;
         .eight.columns
-            router-view
+            transition(name='slide-fade')
+                router-view
 
 </template>
 
@@ -44,5 +45,13 @@ export default {
 
 .u-hide-at-sm
     height:1px
+
+.slide-fade-enter-active
+    transition: all 1.5s ease
+    max-height:300px
+
+.slide-fade-enter, .slide-fade-leave-to
+    opacity: 0;
+    max-height:0
 
 </style>

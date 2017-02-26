@@ -16,6 +16,7 @@ import Claim from './components/Bounties/Claim'
 import Commitments from './components/Commitments'
 import Projects from './components/Projects'
 import About from './components/About'
+import Shop from './components/Shop'
 
 import Calendar from './components/Calendar'
 const routes = [{
@@ -45,7 +46,10 @@ const routes = [{
     },{
       path: '/calendar',
       component: Calendar
-    },]
+    },{
+      path: '/shop',
+      component: Shop
+    }]
   }]
 
 const router = new VueRouter({
