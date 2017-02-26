@@ -46,7 +46,7 @@ export default {
               case 'enabling':
                   return 'We will provide tools to learn software, hardware and the environment to turn ideas into action. How? '
               case 'rational':
-                  return '???'
+                  return 'Together we can own what would not make sense to own alone, i.e. tools, VR, recording studio, etc...  '
 
           }
       }
