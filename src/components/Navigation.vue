@@ -27,7 +27,8 @@ export default {
 
 li
     color: mainLight
-    border-bottom: 1px solid black
+    border-bottom: 1px solid accent1
+    border-top: 1px solid accent1
     margin-bottom: 0;
     padding: 0.65rem 20px;
     list-style: none;
