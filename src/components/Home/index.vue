@@ -4,16 +4,19 @@
     .img
         img(v-show='show==="transparent"', src='../../assets/images/transparent.svg')
         img(v-show='show==="collaborative"', src='../../assets/images/collaborative.svg')
+        img(v-show='show==="rational"', src='../../assets/images/rational.svg')
         img(v-show='show==="enabling"', src='../../assets/images/enabling.svg')
-    h1 decentralized
-    h1 commons
+    .offset-by-three.nine.columns
+        h1 create a community commons
     .row
-        .four.columns(@mouseover='switchShow("transparent")', :class='{selected:show==="transparent"}')
-            p.l transparent
-        .four.columns(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}')
+        .offset-by-one.seven.columns(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}')
             p.c collaborative
-        .four.columns(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}')
-            p.r enabling
+        .offset-by-four.seven.columns(@mouseover='switchShow("transparent")', :class='{selected:show==="transparent"}')
+            p.r transparent
+        .offset-by-one.seven.columns(@mouseover='switchShow("rational")', :class='{selected:show==="rational"}')
+            p.c rational
+        .seven.columns(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}')
+            p.l enabling
     .row
         .description {{ description }}
 
@@ -25,7 +28,7 @@
 export default {
   data(){
       return {
-          show: 'transparent'
+          show: 'collaborative'
       }
   },
   methods:{
@@ -37,11 +40,13 @@ export default {
       description(){
           switch (this.show){
               case 'transparent':
-                  return 'We strive to run a community commons with a flat hierarchy. We provide tools for members to audit our full financials, and open voting for managing our commons wallet.'
+                  return 'We want software to manage a community commons. We provide tools for members to participate, and open voting for managing our commons wallet.'
               case 'collaborative':
                   return 'We want to provide a place to meet with like minded people, and work on impacting our community. Political, anarchist, or anywhere in between.'
               case 'enabling':
                   return 'We will provide tools to learn software, hardware and the environment to turn ideas into action. How? '
+              case 'rational':
+                  return '???'
 
           }
       }
@@ -58,9 +63,15 @@ export default {
     padding-top:30px
     color:accent2
 
+.row
+    div
+        clear:both
+
 .description
     padding:2em
     font-size:1.4em
+    color:main
+    background:accent1
 
 .selected
     color:main
