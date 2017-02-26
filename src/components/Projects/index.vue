@@ -12,6 +12,7 @@
         li dctrl server services (bitcore, tumblebit, library)
         li dctrlapp - bounties, commitments, finances
         li coinOS - bitcoin coop merchant processing reboot.
+        li recording booth 
 </template>
 
 <script>
