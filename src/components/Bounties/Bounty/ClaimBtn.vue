@@ -25,17 +25,18 @@ export default {
 @import '../../../styles/colours'
 
 button {
-    width:100%
+    transform:rotate(-3deg)
+    float:right
+    bottom:-10px
+    width:33%
     background-color: accent2
-    color: main;
+    color: white;
     margin: 5px
     cursor:pointer
     z-index: 1e10
-    border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     border-radius: 8px;
     padding: 0px 12px
 }

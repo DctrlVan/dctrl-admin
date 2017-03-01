@@ -5,7 +5,7 @@ const state = {
   claimId: false,
   claimaddress: false,
   claimNotes: false,
-  active: [],
+  list: [],
 }
 
 const mutations = {
@@ -19,7 +19,16 @@ const mutations = {
         bounties.claimNotes = notes
     },
     addBounty(bounties, bounty){
-        bounties.active.push(bounty)
+        bounties.list.push(bounty)
+    },
+    claimBounty(bounties){
+        bounties.forEach(bounty => {
+            if (bounty._id == _id){
+                bounty.isClaimed = true
+                bounty.claimedBy = bounties.claimAddress
+                bounty.claimedNote = bounties.claimNote
+            }
+        })
     }
 }
 

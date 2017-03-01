@@ -1,8 +1,8 @@
 <template>
 
-<span class="span">
-    {{x}}
-</span>
+<div class='rot'>
+        {{x}}
+</div>
 
 </template>
 
@@ -16,12 +16,15 @@ export default {
 
 <style lang='stylus' scoped >
 
-.span
+div
     background-color:white
     color:black
     padding:.2em
     border-style:solid
     border-width:.2px
     margin:.2em
+
+.rot
+    transform:rotate(1deg)
 
 </style>

@@ -1,9 +1,15 @@
 <template lang='jade'>
 
 #bounties
-		shared-title(title="active bounties")
-				.border
-						bounty(v-for='b in bounties', :x='b')
+		shared-title(title="Bounties")
+				label active
+				.blist
+						bounty(v-for='b in activeBounties', :x='b')
+				label claimed
+				.blist
+						bounty(v-for='b in claimedBounties', :x='b')
+				label paid
+				/*bounty(v-for='b in payedBounties', :x='b')*/
 
 </template>
 
@@ -14,19 +20,22 @@ import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
 	created(){
-			if (!this.$store.state.bounties.active.length){
+			if (!this.$store.state.bounties.list.length){
 				this.$store.dispatch('GET_ACTIVE_BOUNTIES')
 			}
 	},
-  beforeMount(){
-      this.$store.commit('setHeader', 'Available Bounties:')
-  },
   components: {
       Bounty, SharedTitle
   },
   computed: {
+			activeBounties(){
+				return this.bounties.filter(bounty => !bounty.isClaimed)
+			},
+			claimedBounties(){
+				return this.bounties.filter(bounty => bounty.isClaimed)
+			},
       bounties(){
-          return _.sortBy( this.$store.state.bounties.active, bounty => {
+          return _.sortBy( this.$store.state.bounties.list, bounty => {
 							return -bounty.amount
           })
       }
@@ -42,11 +51,10 @@ export default {
 #bounties
 		padding-bottom:10em
 
-.border
-		border-style:solid
-		border-color:accent2
-		padding:0em
-		border-width:0px
+label
+		color: accent2
 
-
+.blist
+		padding-left: 2em
+		margin-bottom:2em
 </style>

@@ -1,6 +1,9 @@
 <template lang='jade'>
 .bounty.row
-    h6(@click="toggleOpen") {{ x.name }}
+    h6(@click="toggleOpen")
+        span(v-show='!open') +
+        span(v-show='open') -
+        span {{ '   '  + x.name }}
         .bits
             img(v-if="x.monthlyBudget", src='../../../assets/images/bullet.svg')
             span {{ Math.round( x.amount ) }} bits
@@ -37,6 +40,7 @@ export default {
 @import '../../../styles/colours'
 
 h6
+    cursor: pointer
     padding-bottom:0
     margin-bottom:0
 
@@ -45,6 +49,7 @@ h6
     padding:0
     margin:0
     border-bottom-style:solid
+    border-width:1px
     border-color:accent3
     padding-top:.9em
     padding-bottom:.9em

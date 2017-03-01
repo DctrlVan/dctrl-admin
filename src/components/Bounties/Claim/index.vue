@@ -32,7 +32,7 @@ export default {
     title(){
       let title = '...missing data'
       let id = this.$store.state.bounties.claimId
-      this.$store.state.bounties.active.forEach(bounty => {
+      this.$store.state.bounties.list.forEach(bounty => {
           if (id === bounty._id){
               title = bounty.name
           }

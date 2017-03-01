@@ -2,8 +2,7 @@
 
 .expanded
     p {{ x.description }}
-    tag(v-for='y in x.tags', :x='y')
-    claim-btn(:x='x')
+        claim-btn(:x= 'x')
 
 </template>
 
@@ -24,14 +23,15 @@ export default {
 @import '../../../styles/colours'
 
 p
-    padding:1em 2em
-    background: main
-    color:accent2
+    background: accent1
+    color:main
+    padding:.777em
     border-left-style:solid
-    border-width:5px
-    border-color:accent2
+    border-width:1px
+    border-color:accent1
     margin-top:1em
     margin-left:2em
+    font-weight:bolder
 
 
 </style>

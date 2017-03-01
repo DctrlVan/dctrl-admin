@@ -1,11 +1,6 @@
 <template lang='jade'>
 
 #home
-    .img
-        img(v-show='show==="transparent"', src='../../assets/images/transparent.svg')
-        img(v-show='show==="collaborative"', src='../../assets/images/collaborative.svg')
-        img(v-show='show==="rational"', src='../../assets/images/rational.svg')
-        img(v-show='show==="enabling"', src='../../assets/images/enabling.svg')
     .offset-by-three.nine.columns
         h1 create a community commons
     .row
