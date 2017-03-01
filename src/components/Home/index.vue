@@ -2,7 +2,8 @@
 
 #home
     .offset-by-three.nine.columns
-        h1 create a community commons
+        h1
+            label community commons
     .row
         .offset-by-one.seven.columns(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}')
             p.c collaborative

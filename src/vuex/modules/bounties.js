@@ -22,11 +22,12 @@ const mutations = {
         bounties.list.push(bounty)
     },
     claimBounty(bounties){
-        bounties.forEach(bounty => {
-            if (bounty._id == _id){
+        bounties.list.forEach(bounty => {
+            if (bounty._id == bounties.claimId){
+                console.log('claiming bounty')
                 bounty.isClaimed = true
-                bounty.claimedBy = bounties.claimAddress
-                bounty.claimedNote = bounties.claimNote
+                bounty.claimAddress = bounties.claimAddress
+                bounty.claimNotes = bounties.claimNotes
             }
         })
     }
@@ -56,6 +57,7 @@ const actions = {
             .send(claimPost)
             .then(res => {
                 console.log(res.body)
+                commit('claimBounty')
             })
     }
 }
