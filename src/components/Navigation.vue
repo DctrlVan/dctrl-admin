@@ -1,14 +1,14 @@
 <template lang='jade'>
 
 .navigation
-    router-link(to='/MEMBERS')
-        li MEMBERS
     router-link(to='/ABOUT')
         li ABOUT
-    router-link(to='/BOUNTIES')
-        li BOUNTIES
     router-link(to='/PROJECTS')
         li PROJECTS
+    router-link(to='/MEMBERS')
+        li MEMBERS
+    router-link(to='/BOUNTIES')
+        li BOUNTIES
     router-link(to='/COMMITMENTS')
         li COMMITMENTS
     router-link(to='/CALENDAR')
