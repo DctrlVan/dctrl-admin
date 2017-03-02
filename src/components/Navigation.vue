@@ -36,6 +36,7 @@ li
     display: inline-block;
     width: 60%;
     clear:both
+    background:main
 
 .router-link-active
     font-weight: bolder

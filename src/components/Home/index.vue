@@ -5,14 +5,14 @@
         h1
             label community commons
     .row
-        .offset-by-one.seven.columns(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}')
-            p.c collaborative
-        .offset-by-four.seven.columns(@mouseover='switchShow("transparent")', :class='{selected:show==="transparent"}')
-            p.r transparent
-        .offset-by-one.seven.columns(@mouseover='switchShow("rational")', :class='{selected:show==="rational"}')
-            p.c rational
-        .seven.columns(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}')
-            p.l enabling
+        .offset-by-four.six.columns(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}')
+            p.c 1. collaborative
+        .offset-by-four.six.columns(@mouseover='switchShow("transparent")', :class='{selected:show==="transparent"}')
+            p.c 2. transparent
+        .offset-by-four.six.columns(@mouseover='switchShow("rational")', :class='{selected:show==="rational"}')
+            p.c 3. rational
+        .offset-by-four.six.columns(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}')
+            p.c 4. enabling
     .row
         .description {{ description }}
 
@@ -71,9 +71,7 @@ export default {
 
 .selected
     color:main
-    font-size:1.5em
     text-transform:uppercase
-    text-decoration:underline
     p
         background:accent1
 
@@ -98,6 +96,8 @@ h1
     margin:0
     padding:0
 
-
+p
+    padding:1em
+    box-shadow: 1px 2px black
 
 </style>
