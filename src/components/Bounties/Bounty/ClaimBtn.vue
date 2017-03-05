@@ -25,20 +25,23 @@ export default {
 @import '../../../styles/colours'
 
 button {
-    transform:rotate(-3deg)
+    margin-top:-25px
     float:right
-    bottom:-10px
     width:33%
-    background-color: accent2
+    background-color: transparent
     color: white;
-    margin: 5px
     cursor:pointer
     z-index: 1e10
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 8px;
+    border-style:none
     padding: 0px 12px
 }
+
+button:hover
+    color:accent2
+
 
 </style>
