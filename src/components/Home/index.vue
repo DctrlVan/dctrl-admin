@@ -36,7 +36,7 @@ export default {
       description(){
           switch (this.show){
               case 'transparent':
-                  return 'We are building software and systems to manage an equal-stakes community commons. We provide tools for members to participate directly, voting on the allocation of shared resources and pursuing projects in a "do-ocracy" style (If you have an idea, and it doesn't conflict with the basic values of the group, go for it.)'
+                  return 'We are building software and systems to manage an equal-stakes community commons. We provide tools for members to participate directly, voting on the allocation of shared resources and pursuing projects in a "do-ocracy" style (If you have an idea, and it doesn\'t conflict with the basic values of the group, go for it.)'
               case 'collaborative':
                   return 'We want to provide a place to meet with like minded people, and work on impacting our community. The topics we focus on can be diverse -- technology, politics, education, fun. People come together from all of these interests, and move quickly from excited conversation to dedicated action.'
               case 'enabling':
