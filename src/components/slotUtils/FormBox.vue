@@ -23,8 +23,8 @@ h2
     margin-bottom:1em
 
 .box
-    background: accent1
+    background: main
     padding:1em
-
+    color:white
 
 </style>
