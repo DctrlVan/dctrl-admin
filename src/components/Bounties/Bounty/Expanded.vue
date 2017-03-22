@@ -2,7 +2,7 @@
 
 .expanded
     p {{ x.description }}
-        claim-btn(:x= 'x')
+    claim-btn(:x= 'x')
 
 </template>
 

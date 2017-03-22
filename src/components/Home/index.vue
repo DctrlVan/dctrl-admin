@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #home
-    .offset-by-three.nine.columns
+    .offset-by-two.nine.columns
         h1
             label community commons
     .row
