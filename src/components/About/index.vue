@@ -4,6 +4,7 @@
     shared-title(title='About Us')
         p dctrlapp is community management software
         p dctrlvan is this...
+        p dctrl is legion we do not forgive we do not forget
 
 </template>
 
