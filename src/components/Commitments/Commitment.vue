@@ -22,6 +22,7 @@ export default {
 .commitment
     background:main
     color:accent1
+    div:main
 
 
 </style>
