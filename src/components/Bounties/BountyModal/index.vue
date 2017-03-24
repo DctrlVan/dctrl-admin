@@ -6,8 +6,13 @@
         .three.columns
             button(v-if="!x.isClaimed" @click='setClaim') claim
             button.claimed(v-else @click='setClaim') claimed
+
         .nine.columns
-            p {{ x.description }}
+            div(v-if="!x.isClaimed")
+                p {{ x.description }}
+            div(v-else)
+                p Claimed by {{ x.claimAddress }}
+                p {{ x.claimNotes }}
 
 
 </template>
@@ -54,7 +59,9 @@ button
   background:main
   border-style:solid
   border-width:3px
-  border-color:teal
+  border-color:accent1
+  border-radius:5px
+
   padding:1em
   color: white
   cursor:pointer
