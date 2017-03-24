@@ -33,13 +33,15 @@ h6
 
 
 button
-
     color: white
     background: teal
 
 .bounty
-  margin: 30px
+  margin-bottom:30px
+  border-style:solid
+  border-color:accent1
   background:accent2
+  padding:1em
 
 
 
