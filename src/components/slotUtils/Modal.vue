@@ -2,7 +2,7 @@
 
 .modal(v-show='visible', @click='close')
   .content(v-bind:class='contentClass', @click.stop='')
-      a(href="#" class="modal__close-btn" @click.prevent='close') CLOSE
+      a(href="#" class="modal__close-btn" @click.prevent='close') X
       slot
 
 </template>
@@ -36,8 +36,7 @@ export default {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: black  /* Fallback color */
-    background-color: black;
+    background-color: rgba(0,0,0,.1)  /* Fallback color */
   }
 
   .content {
@@ -68,6 +67,10 @@ export default {
     width: minBreakpoint;
     height: auto;
     min-height: 0;
+    background: main
+    border-style:solid
+    border-width:4px
+    border-color:teal
   }
 
   .content.content--sm {
@@ -88,6 +91,7 @@ export default {
   }
 }
 
-
+a
+  color:teal
 
 </style>

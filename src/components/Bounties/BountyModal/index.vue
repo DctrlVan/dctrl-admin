@@ -4,7 +4,8 @@
         span.bits    {{ x.amount }} bits
     .row
         .three.columns
-            button claim
+            router-link(to='BOUNTIES/CLAIM')
+                button(@click='setClaim') claim
         .nine.columns
             p {{ x.description }}
 
@@ -16,6 +17,11 @@
 import Expanded from './Expanded'
 
 export default {
+    methods:{
+        setClaim(){
+            this.$store.commit('setClaimId', this.x._id)
+        }
+    },
     props: ['x'],
 }
 
