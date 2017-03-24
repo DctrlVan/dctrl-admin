@@ -2,20 +2,16 @@
 
 #bounties
 		shared-title(title="Bounties")
-				label active
 				.blist
-						bounty(v-for='b in activeBounties', :x='b')
-				label claimed
+						bounty-modal(v-for='b in activeBounties', :x='b')
 				.blist
-						bounty(v-for='b in claimedBounties', :x='b')
-				label paid
-				/*bounty(v-for='b in payedBounties', :x='b')*/
+						bounty-modal(v-for='b in claimedBounties', :x='b')
 
 </template>
 
 <script>
 import _ from 'lodash'
-import Bounty from './Bounty'
+import BountyModal from './BountyModal'
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
@@ -25,7 +21,7 @@ export default {
 			}
 	},
   components: {
-      Bounty, SharedTitle
+      BountyModal, SharedTitle
   },
   computed: {
 			activeBounties(){

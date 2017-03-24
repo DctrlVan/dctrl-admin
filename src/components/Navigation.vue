@@ -37,6 +37,7 @@ li
     width: 60%;
     clear:both
     background:main
+    font-family:sans-serif
 
 .router-link-active
     font-weight: bolder

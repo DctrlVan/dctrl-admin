@@ -34,7 +34,7 @@ const mutations = {
 }
 
 // Actions are for the async calls to the server
-const location = 'http://localhost:3000/'
+const location = 'http://192.168.0.127:3000/'
 
 const actions = {
     GET_ACTIVE_BOUNTIES({commit, state}){

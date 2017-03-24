@@ -18,11 +18,10 @@ export default {
 
 h2
 		text-transform:uppercase
-		background:mainDark
 		color:accent1
 		margin:0
 		padding-top:50px
-		font-family:monospace
+		font-family:sans-serif
 		font-weight:100
 		border-bottom-style:solid
 		border-color:accent1
