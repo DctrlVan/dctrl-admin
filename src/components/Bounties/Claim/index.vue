@@ -1,6 +1,6 @@
 <template lang='jade'>
 
-modal(visible='true')
+modal(visible='true', :close="closeModal")
     h5 {{title}}
     span Have you fulfilled the bounty requirements?:
     label bitcoin address
@@ -28,6 +28,11 @@ export default {
     NotesInput,
     ConfirmBtn,
     Modal
+  },
+  methods: {
+    closeModal(){
+      this.$store.commit('setClaimId', '')
+    }
   },
   computed:{
     title(){

@@ -36,7 +36,7 @@ export default {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,.1)  /* Fallback color */
+    background-color: rgba(94,171,152,.3)  /* Fallback color */
   }
 
   .content {

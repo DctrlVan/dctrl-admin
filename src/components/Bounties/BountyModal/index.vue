@@ -4,8 +4,7 @@
         span.bits    {{ x.amount }} bits
     .row
         .three.columns
-            router-link(to='BOUNTIES/CLAIM')
-                button(@click='setClaim') claim
+            button(@click='setClaim') claim
         .nine.columns
             p {{ x.description }}
 
