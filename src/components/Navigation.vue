@@ -40,6 +40,9 @@ li
 
 .router-link-active
     font-weight: bolder
-    background: mainLight
+    background-color: accent1
+    border-left-style:solid
+    border-width:5px
+    border-color:accent2
 
 </style>
