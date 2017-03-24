@@ -1,13 +1,12 @@
 <template lang='jade'>
 
-#members
-    shared-title(title='Members')
-        month-summary(v-for='m in summaries')
-        shame-pie.pie
+.monthsummary
+    p test
 
 </template>
 
 <script>
+
 import SharedTitle from '../slotUtils/SharedTitle'
 import ShamePie from './ShamePie'
 
