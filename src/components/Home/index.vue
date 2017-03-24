@@ -5,16 +5,13 @@
         h1
             label community commons
     .row
-        .offset-by-four.six.columns(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}')
-            p.c 1. collaborative
-        .offset-by-four.six.columns(@mouseover='switchShow("transparent")', :class='{selected:show==="transparent"}')
-            p.c 2. transparent
-        .offset-by-four.six.columns(@mouseover='switchShow("rational")', :class='{selected:show==="rational"}')
-            p.c 3. rational
-        .offset-by-four.six.columns(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}')
-            p.c 4. enabling
-    .row
-        .description {{ description }}
+        .four.columns
+            p(@mouseover='switchShow("collaborative")', :class='{selected:show==="collaborative"}') 1. collaborative
+            p(@mouseover='switchShow("transparent")', :class='{selected:show==="transparent"}') 2. transparent
+            p(@mouseover='switchShow("rational")', :class='{selected:show==="rational"}') 3. rational
+            p(@mouseover='switchShow("enabling")', :class='{selected:show==="enabling"}') 4. enabling
+        .eight.columns
+            .description {{ description }}
 
 
 </template>
@@ -59,10 +56,6 @@ export default {
     padding-top:30px
     color:accent2
 
-.row
-    div
-        clear:both
-
 .description
     padding:2em
     font-size:1.4em
@@ -70,25 +63,11 @@ export default {
     background:accent1
 
 .selected
-    color:main
+    color:accent3
     text-transform:uppercase
-    p
-        background:accent1
-
-.img
-    position:fixed
-
+    
 img
     height:111px
-
-.r
-    text-align: right
-
-.l
-    text-align: left
-
-.c
-    text-align: center
 
 h1
     color:accent1

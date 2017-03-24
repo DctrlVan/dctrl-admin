@@ -42,6 +42,7 @@ img
     position:absolute
     left:0
     top:0
+    overflow:visible
 
 .menu
     position:fixed
