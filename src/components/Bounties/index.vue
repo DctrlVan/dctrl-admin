@@ -2,9 +2,7 @@
 
 #bounties
 		shared-title(title="Bounties")
-				.blist
 						bounty-modal(v-for='b in activeBounties', :x='b')
-				.blist
 						bounty-modal(v-for='b in claimedBounties', :x='b')
 
 </template>
@@ -50,7 +48,4 @@ export default {
 label
 		color: accent2
 
-.blist
-		padding-left: 2em
-		margin-bottom:2em
 </style>
