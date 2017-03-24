@@ -4,7 +4,8 @@
         span.bits    {{ x.amount }} bits
     .row
         .three.columns
-            button(@click='setClaim') claim
+            button(v-if="!x.isClaimed" @click='setClaim') claim
+            button.claimed(v-else @click='setClaim') claimed
         .nine.columns
             p {{ x.description }}
 
@@ -13,7 +14,6 @@
 
 <script>
 
-import Expanded from './Expanded'
 
 export default {
     methods:{
@@ -41,10 +41,13 @@ h5
 
 
 button
-
   color: white
-  background: teal
+  background: accent1
   font-family:sans-serif
+
+.claimed
+  background:accent2
+  color:main
 
 .bounty
   margin-bottom: 30px
