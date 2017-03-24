@@ -35,7 +35,7 @@ export default {
               case 'transparent':
                   return 'We are building software and systems to manage an equal-stakes community commons. We provide tools for members to participate directly, voting on the allocation of shared resources and pursuing projects in a "do-ocracy" style (If you have an idea, and it doesn\'t conflict with the basic values of the group, go for it.)'
               case 'collaborative':
-                  return 'We want to provide a place to meet with like minded people, and work on impacting our community. The topics we focus on can be diverse -- technology, politics, education, fun. People come together from all of these interests, and move quickly from excited conversation to dedicated action.'
+                  return 'We want to provide a place to meet with like minded people, and impact our community. The topics we focus on: technology, politics, education, fun... People come together from all of these interests, and move quickly from excited conversation to dedicated action.'
               case 'enabling':
                   return 'We will provide tools for community members to learn for free: software, hardware, science, social theory, and so on. A core fascination for many of our members is decentralization, and the possible benefits of decentralized technology across all of these sectors.'
               case 'rational':
@@ -65,7 +65,7 @@ export default {
 .selected
     color:accent3
     text-transform:uppercase
-    
+
 img
     height:111px
 
@@ -77,6 +77,7 @@ h1
 
 p
     padding:1em
-    box-shadow: 1px 2px black
+    box-shadow: 1px 2px accent1
+    font-size: 14px
 
 </style>
