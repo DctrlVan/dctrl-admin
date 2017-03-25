@@ -1,7 +1,8 @@
 <template lang='jade'>
 
 #dctrlapp
-    img#dctrlimg(src='../assets/images/tronStuff.svg')
+    .tron
+        img(src='../assets/images/tronStuff.svg')
     mobile-heading
     .menu
         main-menu
@@ -38,7 +39,7 @@ export default {
     background:main
     font-family:font
 
-#dctlimg
+.tron
     position:absolute
     left:0
     top:0
