@@ -5,8 +5,8 @@
         li ETHOS
     router-link(to='/PROJECTS')
         li PROJECTS
-    router-link(to='/MEMBERS')
-        li MEMBERS
+    router-link(to='/TRANSPARENCY')
+        li TRANSPARENCY
     router-link(to='/BOUNTIES')
         li BOUNTIES
     router-link(to='/COMMITMENTS')

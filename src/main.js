@@ -25,7 +25,7 @@ const routes = [{
       path: '/',
       component: Home
     },{
-      path: '/members',
+      path: '/transparency',
       component: Members
     },{
       path: '/ethos',

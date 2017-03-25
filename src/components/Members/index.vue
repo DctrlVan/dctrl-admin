@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #members
-    shared-title(title='Members')
+    shared-title(title='Transparency')
         month-summary(v-for='m in summaries')
         shame-pie.pie
 
