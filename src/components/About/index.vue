@@ -7,9 +7,11 @@
         h3 The App
         p The&nbsp;
              a(href='https://github.com/DecentralVan/dctrlapp') dctrlapp
-             span  is community management software for helping communities self-govern themselves in a peer-to-peer way. All the code is open source including a web interface for interaction and information, a backend for managing members, and a rfid fob system that controls access to commons property.
+             span  is community management software for helping communities self-govern themselves in a peer-to-peer way. All the code is open source including a web interface for interaction and information, a&nbsp;
+                a(href='https://github.com/decentralvan/eventstate') backend
+                span &nbsp;for managing members, and a rfid fob system that controls access to commons property.
         h3 The Space
-        p DCTRL is a Collaborative Community inspired by the ideas behind Bitcoin, Decentralization, and the Open Source movement. This is a meetup where forward thinking people can hangout with like-minded individuals. We believe Cryptocurrency and the Open Source movement and create economically sustainable systems for communities globally and locally.
+        p DCTRL is a Collaborative Community inspired by the ideas behind Bitcoin, Decentralization, and the Open Source movement. This is a meetup where forward thinking people can hangout with like-minded individuals. We believe Cryptocurrency and the Open Source movement can create economically sustainable systems for communities globally and locally.
         h3 The Outreach
         p Check out our&nbsp;
             a(href='https://www.meetup.com/dctrlvan/') meetup page
