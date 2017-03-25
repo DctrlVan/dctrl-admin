@@ -1,16 +1,11 @@
 <template lang='jade'>
 
-#dctrlapp
-    img(src='../assets/images/tronStuff.svg')
-    mobile-heading
-    .menu
-        main-menu
-    .row.container
-        .four.columns.u-hide-at-sm
-            p &nbsp;
-        .eight.columns
-            transition(name='slide-fade')
-                router-view
+main
+  mobile-heading
+  .side_bar
+    main-menu
+  .content
+    router-view
 
 </template>
 
@@ -29,36 +24,44 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 
 @import "../styles/framework"
 @import "../styles/colours"
 
-#dctrlapp
-    background:main
-    font-family:font
+*
+  box-sizing: padding-box;
 
-img
-    position:absolute
-    left:0
-    top:0
-    overflow:visible
+html, body
+  overflow: hidden;
 
-.menu
-    position:fixed
-    left: 100px
-    width: 350px
-    z-index:10000
+html, body, main
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
 
-.u-hide-at-sm
-    height:1px
 
-.slide-fade-enter-active
-    transition: all 1.5s ease
-    max-height:300px
+main
+  background:main
+  font-family:font
 
-.slide-fade-enter, .slide-fade-leave-to
-    opacity: 0;
-    max-height:0
+.side_bar, .content {
+  height: 100%;
+  display: flex;
+}
+
+.side_bar {
+  flex-basis: 40rem;
+  flex-grow: 1;
+}
+
+.content {
+  flex-grow: 4;
+  overflow-y: scroll;
+  padding: 0 2rem;
+}
+
 
 </style>

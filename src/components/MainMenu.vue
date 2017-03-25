@@ -1,9 +1,9 @@
 <template lang='jade'>
 
-.menu
-    router-link(to='/')
-        img(src='../assets/images/dctrl.svg')
-    navigation
+nav
+  router-link(to='/')
+      img(src='../assets/images/dctrl.svg')
+  navigation
 
 </template>
 
@@ -23,14 +23,15 @@ export default {
 @import '../styles/framework'
 @import '../styles/breakpoints'
 
-.menu
-    border-color:accent1
-    border-width:1px
-    min-height:100%
+nav
+  display: none;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #333;
 
 @media (max-width: breakpoint)
-    .menu
-        display:none
+  nav
 
 img
     height: 133px
