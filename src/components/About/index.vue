@@ -50,5 +50,6 @@ a
 
 h3
     text-align: left
+    color:teal
 
 </style>

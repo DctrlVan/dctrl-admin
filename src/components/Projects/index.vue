@@ -1,9 +1,7 @@
 <template lang='jade'>
 
 #projects
-    shared-title(title='Projects')
-        p Document our current projects and brainstorm/plan future projects. App design needed....
-        p Current Projects
+    shared-title(title='Current Projects')
         li RFID Door - key fod access to dctrl
         li Bitcoin Vending Machine
         li Kegorator - by volume, bitcoin accepting keg
@@ -12,7 +10,7 @@
         li dctrl server services (bitcore, tumblebit, library)
         li dctrlapp - bounties, commitments, finances
         li coinOS - bitcoin coop merchant processing reboot.
-        li recording booth 
+        li recording booth
 </template>
 
 <script>
@@ -31,5 +29,9 @@ export default {
 
 #projects
     color:accent1
+
+li
+  color:white
+  font-size:18px
 
 </style>
