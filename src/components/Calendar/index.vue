@@ -58,7 +58,7 @@ export default {
     width: (96/7)%
     height: 100px
     border-style:solid
-    border-width: 2px
+    border-width: 1px
 
 .placeholder
     @extends .calendar-column
