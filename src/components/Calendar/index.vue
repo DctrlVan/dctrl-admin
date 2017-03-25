@@ -49,8 +49,7 @@ export default {
 @import '../../styles/colours'
 
 #calendar
-    color: accent2
-    font-weight:bolder
+    color: accent1
     font-size:2em
 
 .calendar-column
@@ -58,6 +57,8 @@ export default {
     box-sizing: border-box
     width: (96/7)%
     height: 100px
+    border-style:solid
+    border-width: 2px
 
 .placeholder
     @extends .calendar-column
@@ -70,6 +71,7 @@ export default {
     height: 40px
     text-align: center
     font-weight:bolder
+    border-style:solid
 
 .date
     background-color: white

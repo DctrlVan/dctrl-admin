@@ -32,6 +32,7 @@ export default {
 *
   box-sizing: padding-box;
 
+
 html, body
   overflow: hidden;
 
