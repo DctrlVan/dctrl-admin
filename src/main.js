@@ -14,7 +14,7 @@ import Members from './components/Members'
 import Bounties from './components/Bounties'
 import Commitments from './components/Commitments'
 import Projects from './components/Projects'
-import About from './components/About'
+import Ethos from './components/Ethos'
 import Shop from './components/Shop'
 
 import Calendar from './components/Calendar'
@@ -28,8 +28,8 @@ const routes = [{
       path: '/members',
       component: Members
     },{
-      path: '/about',
-      component: About
+      path: '/ethos',
+      component: Ethos
     },{
       path: '/bounties',
       component: Bounties

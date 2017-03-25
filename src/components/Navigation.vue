@@ -1,8 +1,8 @@
 <template lang='jade'>
 
 .navigation
-    router-link(to='/ABOUT')
-        li ABOUT
+    router-link(to='/ETHOS')
+        li ETHOS
     router-link(to='/PROJECTS')
         li PROJECTS
     router-link(to='/MEMBERS')
@@ -29,14 +29,13 @@ export default {
 li
     color:accent3
     border-bottom: 1px solid accent1
-    border-top: 1px solid accent1
     margin-bottom: 0;
     padding: 0.65rem 20px;
     list-style: none;
     display: inline-block;
     width: 60%;
     clear:both
-    background:main
+    background:transparent
     font-family:sans-serif
 
 .router-link-active

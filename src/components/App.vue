@@ -1,15 +1,13 @@
 <template lang='jade'>
 
 #dctrlapp
-    .tron
-        img(src='../assets/images/tronStuff.svg')
     mobile-heading
-    .menu
+    .menu.two.columns
         main-menu
     .row.container
-        .four.columns.u-hide-at-sm
+        .two.columns.u-hide-at-sm
             p &nbsp;
-        .eight.columns
+        .ten.columns
             transition(name='slide-fade')
                 router-view
 
@@ -50,6 +48,7 @@ export default {
     left: 100px
     width: 350px
     z-index:10000
+    margin-top:15px
 
 .u-hide-at-sm
     height:1px
