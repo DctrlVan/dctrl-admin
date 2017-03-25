@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #dctrlapp
-    img(src='../assets/images/tronStuff.svg')
+    img#dctrlimg(src='../assets/images/tronStuff.svg')
     mobile-heading
     .menu
         main-menu
@@ -29,7 +29,7 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" >
 
 @import "../styles/framework"
 @import "../styles/colours"
@@ -38,7 +38,7 @@ export default {
     background:main
     font-family:font
 
-img
+#dctlimg
     position:absolute
     left:0
     top:0
