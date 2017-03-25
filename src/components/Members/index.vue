@@ -17,7 +17,7 @@ export default {
 
 </script>
 
-<style lang='stylus'>
+<style lang='stylus' scoped>
 
 @import '../../styles/framework'
 @import '../../styles/colours'
