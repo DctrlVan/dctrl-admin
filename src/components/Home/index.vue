@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #projects
-    shared-title(title='About Us')
+    shared-title(title='dctrl Vancouver')
         h3 The Space
         p DCTRL is a Collaborative Community inspired by the ideas behind Bitcoin, Decentralization, and the Open Source movement. This is a meetup where forward thinking people can hangout with like-minded individuals. We believe Cryptocurrency and the Open Source movement can create economically sustainable systems for communities globally and locally.
         p Check out our&nbsp;

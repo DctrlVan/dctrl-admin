@@ -1,22 +1,31 @@
 <template lang='jade'>
 #ethos
     shared-title(title="Ethos")
-        .blurb From a socio-economic perspective, we view Bitcoin and Blockchain Technology as one of the most significant innovations in human history. It will catalyze a paradigm shift of how we fundamentally view politics, law, trade and currency. In parallel with the rise of Blockchain Technology, we acknowledge the imperative for a sustainable future and the need for humanized economics where community and the conditions for life are priority. We are not just another shared workspace, we are truly a niche community of likeminded individuals, friends, and peers. Our drive is to steer P2P and Blockchain Technology in a positive way that empowers the individual, and improves society – locally and globally. Our community is focused on creating culture and commerce with respect to…
+        .blurb We believe that distributed networks are one of the most significant innovations in human history. They enable a radically different legal & economic system.
+        .blurb We acknowledge the imperative for a sustainable future and the need for humanized economics where community and the conditions for life are priority.
+        .blurb We are truly a niche community of likeminded individuals, friends, and peers. Our drive is to steer peer-to-peer technology and enable through education.
+        .blurb We must empower the individual, enable trade and improve society.
+        .blurb Our community is focused on …
         .row
             .four.columns
-                .fa.fa-arrows
-                p Decentralization
+                img(src='../../assets/images/decentralize.svg')
+                p decentralize
             .four.columns
-                .fa.fa-arrows
+                img(src='../../assets/images/cultivate.svg')
+                p cultivate
             .four.columbs
-                .fa.fa-arrows
+                img(src='../../assets/images/bitcoin.svg')
+                p bitcoin
         .row
             .four.columns
-                .fa.fa-arrows
+                img(src='../../assets/images/decentralize.svg')
+                p community
             .four.columns
-                .fa.fa-arrows
+                img(src='../../assets/images/smarten.svg')
+                p smart iot
             .four.columbs
-                .fa.fa-arrows
+                img(src='../../assets/images/decentralize.svg')
+                p commons
 
 </template>
 
@@ -26,30 +35,6 @@ import SharedTitle from '../slotUtils/SharedTitle'
 export default {
   components:{
         SharedTitle
-  },
-  data(){
-      return {
-          show: 'collaborative'
-      }
-  },
-  methods:{
-      switchShow(nowShow){
-          this.show = nowShow
-      }
-  },
-  computed: {
-      description(){
-          switch (this.show){
-              case 'collaborative':
-                  return 'We want to build a community through technology, politics, education, fun... People can come together from all of these interests, and move quickly from excited conversation to dedicated action.'
-              case 'transparent':
-                  return 'We are building software and systems to manage an equal-stakes community commons. We provide tools for members to participate directly, voting on the allocation of shared resources and pursuing projects in a "do-ocracy" style'
-              case 'enabling':
-                  return 'We will provide tools for community members to learn for free: software, hardware, science, social theory, and more. A core fascination for many of our members is decentralization, and the possible benefits of decentralized technology across all of these sectors.'
-              case 'rational':
-                  return 'Together we can own things that would not make sense to own alone: high quality tools, virtual reality equipment, a well-equipped recording studio, and other voted-in expenditures. Similarly, the autonomous projects that take place in the space succeed or fail based on community participation and follow-up.'
-          }
-      }
   }
 }
 
@@ -61,7 +46,7 @@ export default {
 
 #ethos
     color:accent1
-    text-align:center
+
 .fa
     font-size:60px
     padding:1em
@@ -71,5 +56,7 @@ p
 .blurb
     font-size:15px
     color:accent3
+    padding: 0 10px
+    margin-bottom:22px
 
 </style>

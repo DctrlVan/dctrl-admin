@@ -30,7 +30,7 @@ export default {
 @import '../styles/colours'
 
 ul
-  list-style: none;
+    list-style: none;
 
 li
     margin-bottom: 0;

@@ -2,6 +2,8 @@
 
 main
   mobile-heading
+  .tron
+      img(src='../assets/images/tronStuff.svg')
   .side_bar
       main-menu
   .content
@@ -54,6 +56,7 @@ main
 .content
    flex-grow: 4;
    overflow-y:scroll
+   padding:0 5rem
 
 .side_bar {
   flex-basis: 30rem;
@@ -61,8 +64,13 @@ main
   flex-grow: 0;
 }
 
+.tron
+    position:fixed
+    left: 25rem
+    z-index:1
+
 @media (max-width: breakpoint)
-    .side_bar
+    .side_bar, .tron
         display:none
 
 
