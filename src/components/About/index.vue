@@ -19,9 +19,6 @@
                 span &nbsp;for managing members, and a rfid fob system that controls access to commons property.
 
 
->>>>>>> 9abe7fddf4ce8fa6a536c2c93f32acb8dc97a5a7
-
-
 </template>
 
 <script>
