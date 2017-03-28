@@ -41,7 +41,7 @@ li
     font-family:sans-serif
     display: block;
     :hover
-        background:accent1
+        background:accent3
 
 a
   text-decoration: none;

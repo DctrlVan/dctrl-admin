@@ -2,8 +2,6 @@
 
 main
   mobile-heading
-  .tron
-      img(src='../assets/images/tronStuff.svg')
   .side_bar
       main-menu
   .content
