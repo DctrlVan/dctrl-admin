@@ -2,24 +2,24 @@
 #ethos
     shared-title(title="Ethos")
         .blurb We believe that distributed networks are one of the most significant innovations in human history. They enable a radically different legal & economic system.
-        .blurb We acknowledge the imperative for a sustainable future and the need for humanized economics where community and the conditions for life are priority.
-        .blurb We are truly a niche community of likeminded individuals, friends, and peers. Our drive is to steer peer-to-peer technology and enable through education.
-        .blurb We must empower the individual, enable trade and improve society.
-        .blurb Our community is focused on …
+        .blurb We acknowledge the imperative for a sustainable future where community and the conditions for life are priority.
+        .blurb We are truly a niche community of likeminded individuals, friends, and peers. Our drive is to steer & embrace peer-to-peer technology.
+        .blurb We want to enable through education. We must empower, enable and improve ourselves and our society.
+        .blurb We are focused on …
         .row
             .four.columns
                 img(src='../../assets/images/decentralize.svg')
-                p decentralize
+                p decentralization
             .four.columns
                 img(src='../../assets/images/cultivate.svg')
-                p cultivate
+                p innovation
             .four.columbs
                 img(src='../../assets/images/bitcoin.svg')
                 p bitcoin
         .row
             .four.columns
                 img(src='../../assets/images/decentralize.svg')
-                p community
+                p community culture
             .four.columns
                 img(src='../../assets/images/smarten.svg')
                 p smart iot

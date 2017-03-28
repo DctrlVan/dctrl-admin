@@ -1,7 +1,7 @@
 <template lang="jade">
 
 .modal(v-show='visible', @click='close')
-  .content(v-bind:class='contentClass', @click.stop='')
+  .modal-content(v-bind:class='contentClass', @click.stop='')
       a(href="#" class="modal__close-btn" @click.prevent='close') X
       slot
 
@@ -39,21 +39,24 @@ export default {
     background-color: rgba(94,171,152,.3)  /* Fallback color */
   }
 
-  .content {
-      background-color: white;
-      padding: 25px;
-      min-height: 100%;
-  }
+.modal-content {
+    position:absolute
+    width:(100/3)%
+    left:(100/3)%
+    top:100px
+    background-color: main;
+    padding: 25px;
+}
 
-  .modal__close-btn {
-    line-height: 0;
-    float: right;
-    margin-left: 1rem;
-    font-size: 12px;
-    text-decoration: none;
-    padding: 1.25rem 0.75rem;
-    margin-top: 0.5rem;
-  }
+.modal__close-btn {
+  line-height: 0;
+  float: right;
+  margin-left: 1rem;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 1.25rem 0.75rem;
+  margin-top: 0.5rem;
+}
 
 @media (min-width: smBreakpoint) {
 
