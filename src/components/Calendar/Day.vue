@@ -38,10 +38,6 @@ export default {
 
   .day
     background-color: main
-    border-style: dashed
-    border-radius: 5px
-    border-color: accent2
-    border-width: 1px
     overflow: visible
 		:hover
 				background-color: accent1

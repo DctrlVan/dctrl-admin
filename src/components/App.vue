@@ -1,16 +1,13 @@
 <template lang='jade'>
 
-#dctrlapp
-    img(src='../assets/images/tronStuff.svg')
-    mobile-heading
-    .menu
-        main-menu
-    .row.container
-        .four.columns.u-hide-at-sm
-            p &nbsp;
-        .eight.columns
-            transition(name='slide-fade')
-                router-view
+main
+  mobile-heading
+  .tron
+      img(src='../assets/images/tronStuff.svg')
+  .side_bar
+      main-menu
+  .content
+      router-view
 
 </template>
 
@@ -29,36 +26,53 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 
+
+@import "../styles/breakpoints"
 @import "../styles/framework"
 @import "../styles/colours"
 
-#dctrlapp
-    background:main
-    font-family:font
+*
+  box-sizing: padding-box;
 
-img
-    position:absolute
-    left:0
-    top:0
-    overflow:visible
+html, body
+  overflow: hidden;
 
-.menu
+html, body, main, #app
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background:main
+
+main
+  font-family:font
+
+.side_bar, .content
+  display: flex;
+
+.content
+   flex-grow: 4;
+   overflow-y:scroll
+   padding:0 5rem
+
+.side_bar {
+  flex-basis: 30rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.tron
     position:fixed
-    left: 100px
-    width: 350px
-    z-index:10000
+    left: 25rem
+    z-index:1
 
-.u-hide-at-sm
-    height:1px
+@media (max-width: breakpoint)
+    .side_bar, .tron
+        display:none
 
-.slide-fade-enter-active
-    transition: all 1.5s ease
-    max-height:300px
 
-.slide-fade-enter, .slide-fade-leave-to
-    opacity: 0;
-    max-height:0
 
 </style>

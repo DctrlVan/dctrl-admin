@@ -1,9 +1,8 @@
 <template lang='jade'>
 
 #members
-    shared-title(title='FEBRUARY 2017')
-        .mem Memberships
-        .ex Expenses
+    shared-title(title='Transparency')
+        month-summary(v-for='m in summaries')
         shame-pie.pie
 
 </template>
@@ -22,7 +21,6 @@ export default {
 
 @import '../../styles/framework'
 @import '../../styles/colours'
-
 
 h2
     text-transform:uppercase
@@ -52,14 +50,12 @@ h3
     font-size:1.6em
     border-style:dashed
     border-width:1px
-    width:30%
     text-align:center
 
 .mem
     color:white
     background:#5eab98
     text-align:center
-    width:30%
     float:left
     font-size:1.6em
     border-style:dashed

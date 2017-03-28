@@ -2,17 +2,25 @@
 
 #projects
     shared-title(title='Projects')
-        p Document our current projects and brainstorm/plan future projects. App design needed....
-        p Current Projects
-        li RFID Door - key fod access to dctrl
-        li Bitcoin Vending Machine
-        li Kegorator - by volume, bitcoin accepting keg
-        li Fully addressable LED sidewalk.
-        li Graphical user interface for sidewalk (and/or api)
-        li dctrl server services (bitcore, tumblebit, library)
-        li dctrlapp - bounties, commitments, finances
-        li coinOS - bitcoin coop merchant processing reboot.
-        li recording booth 
+        h6 An attempt to automate management of the commons
+        ul
+            li Bitcoin Vending Machine
+            li RFID Door
+            li Kegorator - valve, flowmeter, keg & bitcoin
+            li Project & task bounty system
+        h6 we also like things that party & play
+        ul
+            li LED sidewalk in: javascript, rust, clojure, c ...
+            li decentralized dance party
+            li recording booth
+            li karaoke
+            li ping pong (dueces) table
+            li virtual reality experiences
+            li sound shapes
+
+
+
+
 </template>
 
 <script>
@@ -31,5 +39,9 @@ export default {
 
 #projects
     color:accent1
+
+li
+  color:white
+  font-size:18px
 
 </style>
