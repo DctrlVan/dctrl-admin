@@ -37,25 +37,27 @@ export default {
 html, body
   overflow: hidden;
 
-html, body, main
+html, body, main, #app
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
+  background:main
 
 main
-  background:main
   font-family:font
 
 .side_bar, .content
   display: flex;
 
 .content
-   flex-grow: 0;
+   flex-grow: 4;
+   overflow-y:scroll
 
 .side_bar {
-  flex-basis: 40rem;
+  flex-basis: 30rem;
+  flex-shrink: 0;
   flex-grow: 0;
 }
 
