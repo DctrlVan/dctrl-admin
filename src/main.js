@@ -15,6 +15,7 @@ import Bounties from './components/Bounties'
 import Commitments from './components/Commitments'
 import Projects from './components/Projects'
 import Ethos from './components/Ethos'
+import About from './components/About'
 import Shop from './components/Shop'
 
 import Calendar from './components/Calendar'
@@ -30,6 +31,9 @@ const routes = [{
     },{
       path: '/ethos',
       component: Ethos
+    },{
+      path: '/about',
+      component: About
     },{
       path: '/bounties',
       component: Bounties

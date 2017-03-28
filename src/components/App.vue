@@ -1,15 +1,11 @@
 <template lang='jade'>
 
-#dctrlapp
-    mobile-heading
-    .menu.two.columns
-        main-menu
-    .row.container
-        .two.columns.u-hide-at-sm
-            p &nbsp;
-        .ten.columns
-            transition(name='slide-fade')
-                router-view
+main
+  mobile-heading
+  .side_bar
+      main-menu
+  .content
+      router-view
 
 </template>
 
@@ -28,37 +24,45 @@ export default {
 
 </script>
 
-<style lang="stylus" >
+<style lang="stylus">
 
+
+@import "../styles/breakpoints"
 @import "../styles/framework"
 @import "../styles/colours"
 
-#dctrlapp
-    background:main
-    font-family:font
+*
+  box-sizing: padding-box;
 
-.tron
-    position:fixed
-    left:0
-    top:0
-    overflow:visible
+html, body
+  overflow: hidden;
 
-.menu
-    position:fixed
-    left: 100px
-    width: 350px
-    z-index:10000
-    margin-top:15px
+html, body, main
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
 
-.u-hide-at-sm
-    height:1px
+main
+  background:main
+  font-family:font
 
-.slide-fade-enter-active
-    transition: all 1.5s ease
-    max-height:300px
+.side_bar, .content
+  display: flex;
 
-.slide-fade-enter, .slide-fade-leave-to
-    opacity: 0;
-    max-height:0
+.content
+   flex-grow: 0;
+
+.side_bar {
+  flex-basis: 40rem;
+  flex-grow: 0;
+}
+
+@media (max-width: breakpoint)
+    .side_bar
+        display:none
+
+
 
 </style>
