@@ -4,8 +4,6 @@ ul.navigation
   li
     router-link(to='/ETHOS') ETHOS
   li
-    router-link(to='/ABOUT') ABOUT
-  li
     router-link(to='/PROJECTS') PROJECTS
   li
     router-link(to='/TRANSPARENCY') TRANSPARENCY

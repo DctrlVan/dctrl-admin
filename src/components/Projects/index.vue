@@ -10,19 +10,13 @@
             li Project & task bounty system
         h6 we also like things that party & play
         ul
-            li Play with our fully addressable LED sidewalk in: javascript, rust, clojure, c ...
+            li LED sidewalk in: javascript, rust, clojure, c ...
             li decentralized dance party
             li recording booth
             li karaoke
             li ping pong (dueces) table
             li virtual reality experiences
             li sound shapes
-        h6 Putting bitcoin to use?
-        ul
-            li commons fund multisig
-            li dctrl server services (bitcoind,... coming: lightningd, tumblebit )
-            li In collaboration with The Bitcoin Co-op, coinOS - a lightning enabled payment processor.
-        h6
 
 
 
