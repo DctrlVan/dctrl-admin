@@ -1,13 +1,8 @@
 <template lang='jade'>
 
 #projects
-    shared-title(title='dctrl Vancouver')
-        h3 The App
-        p The&nbsp;
-             a(href='https://github.com/DecentralVan/dctrlapp') dctrlapp
-             span  is community management software for helping communities self-govern themselves in a peer-to-peer way. All the code is open source including a web interface for interaction and information, a&nbsp;
-                a(href='https://github.com/decentralvan/eventstate') backend
-                span &nbsp;for managing members, and a rfid fob system that controls access to commons property.
+    shared-title(title='DCTRL')
+
         h3 Links
         p Check out our&nbsp;
             a(href='https://www.meetup.com/dctrlvan/') meetup page
@@ -16,6 +11,12 @@
             a(href='https://decentralslackvite.herokuapp.com/') Slack Chat.
         p You code? Then find us on&nbsp;
             a(href='https://github.com/DecentralVan/dctrlapp') github!
+        h3 The App
+        p The&nbsp;
+             a(href='https://github.com/DecentralVan/dctrlapp') dctrlapp
+             span  is community management software for helping communities self-govern themselves in a peer-to-peer way. All the code is open source including a web interface for interaction and information, a&nbsp;
+                a(href='https://github.com/decentralvan/eventstate') backend
+                span &nbsp;for managing members, and a rfid fob system that controls access to commons property.
 
 
 
@@ -40,6 +41,7 @@ export default {
 p
     font-size:1.3em
     color:white
+    font-family: 'Open Sans', light, sans-serif;
 
 a
     color: accent2
@@ -47,6 +49,8 @@ a
 
 h3
     text-align: left
-    color:teal
+    color:accent1
+    font-family: 'Open Sans', light, sans-serif;
+
 
 </style>
