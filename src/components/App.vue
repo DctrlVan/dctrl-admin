@@ -5,7 +5,8 @@ main
   .side_bar
       main-menu
   .content
-      router-view
+      transition(name='fade')
+          router-view
 
 </template>
 
@@ -71,6 +72,12 @@ main
     .side_bar, .tron
         display:none
 
+
+.fade-enter-active
+    transition: all 4s ease
+
+.fade-enter, .fade-leave-to
+    opacity: 0;
 
 
 </style>

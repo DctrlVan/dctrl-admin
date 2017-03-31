@@ -14,7 +14,7 @@
             li decentralized dance party
             li recording booth
             li karaoke
-            li ping pong (dueces) table
+            li ping pong (deuces) table
             li virtual reality experiences
             li sound shapes
 

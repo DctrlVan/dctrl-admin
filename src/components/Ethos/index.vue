@@ -2,10 +2,10 @@
 #ethos
     shared-title(title="Ethos")
         .blurb We believe that distributed networks are one of the most significant innovations in human history. They enable a radically different legal & economic system.
-           We acknowledge the imperative for a sustainable future where community and the conditions for life are priority.
-           We are truly a niche community of likeminded individuals, friends, and peers. Our drive is to steer & embrace peer-to-peer technology.
-           We want to enable through education. We must empower, enable and improve ourselves and our society.
-           We are focused on …
+           span &nbsp;We acknowledge the imperative for a sustainable future where community and the conditions for life are priority.
+           span &nbsp;We are truly a niche community of likeminded individuals, friends, and peers. Our drive is to steer & embrace peer-to-peer technology.
+           span &nbsp;We want to enable through education. We must empower, enable and improve ourselves and our society.
+           span &nbsp;We are focused on …
         .row
             .four.columns
                 img(src='../../assets/images/decentralize.svg')
