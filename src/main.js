@@ -10,15 +10,15 @@ Vue.use(Vuex)
 
 import App from './components/App'
 import Home from './components/Home'
-import Members from './components/Members'
+import Transparency from './components/Transparency'
 import Bounties from './components/Bounties'
 import Commitments from './components/Commitments'
 import Projects from './components/Projects'
 import Ethos from './components/Ethos'
 import About from './components/About'
 import Shop from './components/Shop'
-
 import Calendar from './components/Calendar'
+
 const routes = [{
     path: '/',
     component: App,
@@ -27,7 +27,7 @@ const routes = [{
       component: Home
     },{
       path: '/transparency',
-      component: Members
+      component: Transparency
     },{
       path: '/ethos',
       component: Ethos
