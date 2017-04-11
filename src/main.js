@@ -12,7 +12,6 @@ import App from './components/App'
 import Home from './components/Home'
 import Transparency from './components/Transparency'
 import Bounties from './components/Bounties'
-import Commitments from './components/Commitments'
 import Projects from './components/Projects'
 import Ethos from './components/Ethos'
 import About from './components/About'
@@ -38,17 +37,11 @@ const routes = [{
       path: '/bounties',
       component: Bounties
     },{
-      path: '/commitments',
-      component: Commitments
-    },{
       path: '/projects',
       component: Projects
     },{
       path: '/calendar',
       component: Calendar
-    },{
-      path: '/shop',
-      component: Shop
     }]
   }]
 
