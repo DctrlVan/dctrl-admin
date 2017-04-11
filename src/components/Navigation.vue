@@ -10,11 +10,7 @@ ul.navigation
   li
     router-link(to='/BOUNTIES') BOUNTIES
   li
-    router-link(to='/COMMITMENTS') COMMITMENTS
-  li
     router-link(to='/CALENDAR') CALENDAR
-  li
-    router-link(to='/SHOP') SHOP
 
 </template>
 
