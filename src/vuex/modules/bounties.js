@@ -39,9 +39,11 @@ const location = 'http://192.168.0.127:3000/'
 const actions = {
     GET_ACTIVE_BOUNTIES({commit, state}){
         request
-            .get(location + 'activebounties')
+            .get(location + 'bounties')
             .then(res => {
-                res.body.forEach(bounty => {
+                console.log('body? ', res)
+                let body = JSON.parse(res.text)
+                body.forEach(bounty => {
                     commit('addBounty', bounty)
                 })
             })
