@@ -2,9 +2,8 @@
 
     #about
         shared-title(title='About Us')
-            p DCTRL is a Collaborative Community inspired by the ideas behind Bitcoin, Decentralization, and the Open Source movement. This is a meetup where forward thinking people can hangout with like-minded individuals. We believe Cryptocurrency and the Open Source movement can create economically sustainable systems for communities globally and locally. The space is located Downtown Vancouver at &nbsp;
-                a(href='http://maps.google.com/?q=436 w Pender, Vancouver, British Columbia') 436 West Pender Street
-            p Check out our&nbsp;
+            p DCTRL is a Collaborative Community inspired by the ideas behind Bitcoin, Decentralization, and the Open Source movement. This is a meetup where forward thinking people can hangout with like-minded individuals. We believe Cryptocurrency and the Open Source movement can create economically sustainable systems for communities globally and locally.
+            p Checkout our 
                 a(href='https://www.meetup.com/dctrlvan/') meetup page
                 span . If you are interested in hosting an event please make a request to info@decentral.network
             p Have a question or concept you want to discuss? join our&nbsp;

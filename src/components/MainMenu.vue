@@ -28,13 +28,14 @@ nav
   display: flex;
   width: 100%;
   flex-direction: column;
-  background-color: #111;
+  background-color: #202020
 
 // @media (max-width: breakpoint)
 //   nav
 
 img
     padding: 2rem
-    height: 133px
+    height: 160px
+
 
 </style>

@@ -25,9 +25,6 @@ const routes = [{
       path: '/',
       component: Home
     },{
-      path: '/transparency',
-      component: Transparency
-    },{
       path: '/ethos',
       component: Ethos
     },{
@@ -39,9 +36,6 @@ const routes = [{
     },{
       path: '/projects',
       component: Projects
-    },{
-      path: '/calendar',
-      component: Calendar
     }]
   }]
 

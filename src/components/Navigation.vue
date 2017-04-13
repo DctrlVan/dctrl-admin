@@ -2,15 +2,11 @@
 
 ul.navigation
   li
-    router-link(to='/ETHOS') ETHOS
+    router-link(to='/ETHOS') Ethos
   li
-    router-link(to='/PROJECTS') PROJECTS
+    router-link(to='/PROJECTS') Projects
   li
-    router-link(to='/TRANSPARENCY') TRANSPARENCY
-  li
-    router-link(to='/BOUNTIES') BOUNTIES
-  li
-    router-link(to='/CALENDAR') CALENDAR
+    router-link(to='/BOUNTIES') Bounties
 
 </template>
 

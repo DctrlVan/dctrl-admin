@@ -8,24 +8,18 @@
            span &nbsp;We are focused on …
         .row
             .four.columns
-                img(src='../../assets/images/decentralize.svg')
-                p decentralization
+                p Decentralization
             .four.columns
-                img(src='../../assets/images/cultivate.svg')
-                p innovation
+                p Innovation
             .four.columbs
-                img(src='../../assets/images/bitcoin.svg')
-                p bitcoin
+                p Bitcoin
         .row
             .four.columns
-                img(src='../../assets/images/decentralize.svg')
-                p community culture
+                p Community Culture
             .four.columns
-                img(src='../../assets/images/smarten.svg')
-                p smart iot
+                p Smart Iot
             .four.columbs
-                img(src='../../assets/images/decentralize.svg')
-                p commons
+                p Commons
 
 </template>
 
@@ -47,12 +41,15 @@ export default {
 #ethos
     color:accent1
 p
+    font-family: 'Open Sans', light, sans-serif;
     font-size:25px
+    text-align:center
+
 
 .blurb
-    font-size:1.2em
+    font-size:1.1em
     color:white
     font-family: 'Open Sans', light, sans-serif;
-    margin-bottom:1em
+    margin-bottom:1.5em
 
 </style>

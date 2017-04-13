@@ -61,6 +61,7 @@ main
   flex-basis: 30rem;
   flex-shrink: 0;
   flex-grow: 0;
+  background-color:#202020
 }
 
 .tron
