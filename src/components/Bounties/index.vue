@@ -3,7 +3,7 @@
 #bounties
 		claim(v-show="claimingBounty")
 		shared-title(title="Bounties")
-
+		.full-width
 				bounty-modal(v-for='b in activeBounties', :x='b')
 				bounty-modal(v-for='b in claimedBounties', :x='b')
 
@@ -50,8 +50,12 @@ export default {
 
 #bounties
 		padding-bottom:10em
+		width:100%
 
 label
 		color: accent2
+
+.full-width
+		width:100%
 
 </style>

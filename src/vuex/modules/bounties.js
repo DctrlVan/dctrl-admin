@@ -38,15 +38,20 @@ const location = 'http://192.168.0.127:3000/'
 
 const actions = {
     GET_ACTIVE_BOUNTIES({commit, state}){
-        request
-            .get(location + 'bounties')
-            .then(res => {
-                console.log('body? ', res)
-                let body = JSON.parse(res.text)
-                body.forEach(bounty => {
-                    commit('addBounty', bounty)
-                })
-            })
+        commit('addBounty', {
+          _id: "asd",
+          amount: 5100,
+          name: "Get 3D printer working.",
+          description: "For details refer to the github issue. Yada yada Lorem ipsum lorum decorum.",
+          isClaimed: false
+        })
+        commit('addBounty', {
+          _id: "asda",
+          amount: 100,
+          name: "Install lock on backroom door.",
+          description: "test1 or details refer to the github issue. Yada yada Lorem ipsum lorum decorum. or details refer to the github issue. Yada yada Lorem ipsum lorum decorum. or details refer to the github issue. Yada yada Lorem ipsum lorum decorum.",
+          isClaimed: false
+        })
     },
     CLAIM_BOUNTY({commit, state}){
         let claimPost = {

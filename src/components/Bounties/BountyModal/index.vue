@@ -1,4 +1,5 @@
 <template lang='jade'>
+
 .bounty
     h5 {{x.name}}
         span.bits    {{ x.amount }} bits
@@ -6,7 +7,6 @@
         .three.columns
             button(v-if="!x.isClaimed" @click='setClaim') claim
             button.claimed(v-else @click='setClaim') claimed
-
         .nine.columns
             div(v-if="!x.isClaimed")
                 p {{ x.description }}
@@ -36,6 +36,7 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../../styles/colours'
+@import '../../../styles/framework'
 
 h5
   cursor: pointer
@@ -43,7 +44,6 @@ h5
   margin-bottom:.5em
   color: white
   font-family:sans-serif
-
 
 button
   color: white
@@ -57,14 +57,14 @@ button
 .bounty
   margin-bottom: 30px
   background:main
-  border-style:solid
-  border-width:3px
+  border-bottom-style:solid
+  border-width:2px
+  cursor:pointer
   border-color:accent1
-  border-radius:5px
-
   padding:1em
   color: white
-  cursor:pointer
+  width:100%
+
 
 .bits
   font-size:22px
@@ -73,4 +73,5 @@ button
 p
     font-size: 14px
     margin-top:-6.1px
+
 </style>
