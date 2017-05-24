@@ -2,11 +2,14 @@
 
 ul.navigation
   li
-    router-link(to='/ETHOS') Ethos
+    router-link(to='/MEMBER_LIST') Member List
   li
-    router-link(to='/PROJECTS') Projects
+    router-link(to='/NEW_MEMBER') New Member
   li
-    router-link(to='/BOUNTIES') Bounties
+    router-link(to='/DEACTIVATE_MEMBER') Deactivate Member
+  li
+    router-link(to='/DEACTIVATE_MEMBER') Member Paid
+
 
 </template>
 

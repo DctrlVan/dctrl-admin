@@ -45,6 +45,7 @@ html, body, main, #app
   padding: 0;
   display: flex;
   background:main
+  color: accent1
 
 main
   font-family:font

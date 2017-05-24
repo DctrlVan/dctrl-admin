@@ -106,7 +106,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="69.666299"
+     inkscape:cx="264.6747"
      inkscape:cy="24.548616"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -117,10 +117,10 @@
      units="in"
      inkscape:measure-start="390.929,781.858"
      inkscape:measure-end="297.143,794.286"
-     inkscape:window-width="1440"
-     inkscape:window-height="851"
-     inkscape:window-x="0"
-     inkscape:window-y="1"
+     inkscape:window-width="1309"
+     inkscape:window-height="747"
+     inkscape:window-x="57"
+     inkscape:window-y="21"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -177,5 +177,17 @@
        d="m 267.61422,466.84568 35.49144,0 0,19.49942 -35.49144,0 0,41.2635 44.83094,0 0,19.49941 -64.33034,0 0,-111.8729 19.4994,0 z"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:30.16105843px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#d45500;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="275.43088"
+       y="457.89432"
+       id="text4162"
+       sodipodi:linespacing="125%"
+       transform="scale(0.99864795,1.0013539)"><tspan
+         sodipodi:role="line"
+         id="tspan4164"
+         x="275.43088"
+         y="457.89432">ADMIN</tspan></text>
   </g>
 </svg>
