@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import newMember from './newMember'
+import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
@@ -30,18 +30,13 @@ export default {
   },
   methods: {
     createMember() {
-      let {
-        name,
-        email,
-        fob,
-        address
-      } = this.member
-
-      newMember(name,email,fob,address,(err, res)=> {
-          console.log({err})
-          console.log({res})
-      })
-
+      console.log("attempting to post to /new_member")
+      request
+          .post('/new_member')
+          .send(this.member)
+          .end((err,res)=>{
+                console.log({err,res})
+          })
     }
   },
   components: {
