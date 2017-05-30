@@ -1,4 +1,5 @@
 // Server
+var request = require('superagent')
 var express = require('express')
 var app = express()
 var path = require("path")
@@ -15,7 +16,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/new_member', (req,res)=> {
     console.log("/new_member")
     console.log("req body", req.body)
+
+    newMember(
+      req.body.name,
+      req.body.email,
+      req.body.fob,
+      req.body.address,
+      (err,res)=>{
+          console.log("newMember:", res.body)
+      })
+
     res.send("yessire")
+})
+
+app.get('/current_state', (req,res)=>{
+
 })
 
 app.get('/*', function(req,res){
@@ -25,24 +40,22 @@ app.get('/*', function(req,res){
 app.listen(process.env.PORT || 8003);
 
 
-
-
-
-
-
 function newMember(name, email, fob, address, callback){
+  let data = {
+      action: {
+        type: "member-created",
+        address: address,
+        fob: fob,
+        'active?': true,
+        balance: "0",
+        name:name,
+        email:email
+      }
+    }
+
+  console.log("attempting to send", data)
   request
     .post("http://localhost:3000/members")
-    .send({
-        action: {
-          type: "member-created",
-          address: address,
-          fob: fob,
-          'active?': true,
-          balance: "0",
-          name:name,
-          email:email
-        }
-      })
+    .send(data)
     .end(callback)
 }
