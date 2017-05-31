@@ -37,7 +37,10 @@ app.get('/*', function(req,res){
     res.sendFile(path.join(__dirname, '/dist/index.html'));
 })
 
-app.listen(process.env.PORT || 8003);
+let PORT = process.env.PORT || 8003
+app.listen(PORT, err =>{
+  console.log("Listening on port",PORT);
+});
 
 
 function newMember(name, email, fob, address, callback){
