@@ -21,10 +21,10 @@ export default {
   data() {
     return {
       member: {
-        name: 'test',
-        email: 'test',
-        fob: 'test',
-        address: 'test',
+        name: '',
+        email: '',
+        fob: '',
+        address: '',
       }
     }
   },
@@ -35,7 +35,7 @@ export default {
           .post('/new_member')
           .send(this.member)
           .end((err,res)=>{
-                console.log({err,res})
+							console.log({err,res})
           })
     }
   },

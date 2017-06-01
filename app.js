@@ -4,6 +4,8 @@ var express = require('express')
 var app = express()
 var path = require("path")
 
+var brainLocation = "http://localhost:3000/"
+
 // HTTP handlers
 var bodyParser = require('body-parser');
 var multer = require('multer');
@@ -22,15 +24,21 @@ app.post('/new_member', (req,res)=> {
       req.body.email,
       req.body.fob,
       req.body.address,
-      (err,res)=>{
-          console.log("newMember:", res.body)
-      })
+      (err, data )=> {
+        console.log({err, data})
+        res.send( !!err )
+      }
+    )
 
-    res.send("yessire")
 })
 
 app.get('/current_state', (req,res)=>{
+    request
+        .get(brainLocation)
+        .end( (err, res2)=> {
 
+            res.json(res2.body)
+        })
 })
 
 app.get('/*', function(req,res){
@@ -44,21 +52,38 @@ app.listen(PORT, err =>{
 
 
 function newMember(name, email, fob, address, callback){
-  let data = {
-      action: {
-        type: "member-created",
-        address: address,
-        fob: fob,
-        'active?': true,
-        balance: "0",
-        name:name,
-        email:email
-      }
+    let newEvent = {
+        action: {
+            type: "member-created",
+            address: address,
+            fob: fob,
+            'active?': true,
+            balance: "0",
+            name:name,
+            email:email
+        }
     }
+    memberPost(newEvent, callback)
+}
 
-  console.log("attempting to send", data)
-  request
-    .post("http://localhost:3000/members")
-    .send(data)
-    .end(callback)
+function memberPaid(id, amount, currency, callback){
+    let newEvent = {
+        action: {
+            type: "member-created",
+            address: address,
+            fob: fob,
+            'active?': true,
+            balance: "0",
+            name:name,
+            email:email
+        }
+    }
+    memberPost(newEvent, callback)
+}
+
+function memberPost(data, callback){
+    request
+      .post(brainLocation + "members")
+      .send(data)
+      .end(callback)
 }
