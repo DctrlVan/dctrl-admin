@@ -1,13 +1,13 @@
 <template lang='jade'>
 
 #newmember
-    shared-title(title='Create New Member')
+    shared-title(title='Member Paid')
         form
-            label email
-            input(type='text')
-            label fob
-            input(type='text')
-
+            label address
+            input(v-model='member.address' type='text')
+            label amount
+            input(v-model='member.amount' type='text')
+        button(@click='memberPaid') pay
 
 </template>
 
@@ -15,6 +15,19 @@
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
+    data(){
+        return {
+            member: {
+                address: 'test',
+                amount: 9000
+            }
+        }
+    },
+    methods: {
+        memberPaid(){
+            console.log("current member", this.member)
+        }
+    },
     components: {
         SharedTitle
     }

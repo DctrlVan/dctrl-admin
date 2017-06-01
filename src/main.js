@@ -13,6 +13,8 @@ import Home from './components/Home'
 import NewMember from './components/NewMember'
 import DeactivateMember from './components/DeactivateMember'
 import MemberList from './components/MemberList'
+import MemberPaid from './components/MemberPaid'
+
 
 const routes = [{
     path: '/',
@@ -29,6 +31,9 @@ const routes = [{
     },{
       path: '/member_list',
       component: MemberList
+    },{
+      path: '/member_paid',
+      component: MemberPaid
     }]
   }]
 

@@ -8,7 +8,7 @@ ul.navigation
   li
     router-link(to='/DEACTIVATE_MEMBER') Deactivate Member
   li
-    router-link(to='/DEACTIVATE_MEMBER') Member Paid
+    router-link(to='/MEMBER_PAID') Member Paid
 
 
 </template>
