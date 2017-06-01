@@ -4,7 +4,7 @@ var express = require('express')
 var app = express()
 var path = require("path")
 
-var brainLocation = "http://localhost:3000/"
+var brainLocation = "http://192.168.0.127:3000/"
 
 // HTTP handlers
 var bodyParser = require('body-parser');
@@ -49,6 +49,21 @@ let PORT = process.env.PORT || 8003
 app.listen(PORT, err =>{
   console.log("Listening on port",PORT);
 });
+
+function chargeMember(address, callback){
+  let newEvent = {
+      action: {
+          type: "member-charged",
+          address: address,
+          fob: fob,
+          'active?': true,
+          balance: "0",
+          name:name,
+          email:email
+      }
+  }
+  memberPost(newEvent, callback)
+}
 
 
 function newMember(name, email, fob, address, callback){
