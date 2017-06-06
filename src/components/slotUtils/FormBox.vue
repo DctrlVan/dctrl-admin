@@ -1,9 +1,7 @@
 <template lang='jade'>
 
-
-.claimbounty
-    .box
-        slot
+form
+    slot
 
 </template>
 
@@ -18,13 +16,19 @@ export default {
 
 @import '../../styles/colours'
 
-h2
-    margin:0
-    margin-bottom:1em
+form
+  border-style:dotted
+  border-width:1px
+  padding: 2em
+  width:100%
 
-.box
-    background: main
-    padding:1em
-    color:white
+button
+  width: 100%
+  color:accent2
+  border-color: accent2
+
+input
+  width:100%
+
 
 </style>

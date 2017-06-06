@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #newmember
-    shared-title(title='Member Paid')
+    shared-title(title='Member Charged')
     form-box
         label address
         input(v-model='member.address' type='text')
@@ -10,7 +10,7 @@
         label notes
         input(v-model='member.notes' type='text')
         label Submit
-        button(@click.prevent='pay') Cash Placed in Safe
+        button(@click.prevent='charge') Credit Member Account
 
 </template>
 
@@ -30,10 +30,10 @@ export default {
         }
     },
     methods:{
-        pay(){
+        charge(){
             console.log("to backend::", this.member)
             request
-                .post('/member_paid')
+                .post('/member_charged')
                 .send(this.member)
                 .end((err,res)=>{
                     console.log({err,res})

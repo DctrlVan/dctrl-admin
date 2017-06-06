@@ -1,10 +1,8 @@
 <template lang='jade'>
 
 #newmember
-    shared-title(title='Member Paid')
+    shared-title(title='Cash Received')
     form-box
-        label address
-        input(v-model='member.address' type='text')
         label amount
         input(v-model='member.amount' type='text')
         label notes
@@ -23,7 +21,6 @@ export default {
     data(){
         return {
             member: {
-                address: '',
                 amount: 0,
                 notes: ''
             }
@@ -33,10 +30,10 @@ export default {
         pay(){
             console.log("to backend::", this.member)
             request
-                .post('/member_paid')
+                .post('/cash_received')
                 .send(this.member)
                 .end((err,res)=>{
-                    console.log({err,res})
+                    console.log("res")
                 })
         }
     },

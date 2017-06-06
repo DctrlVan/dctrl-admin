@@ -6,10 +6,15 @@ ul.navigation
   li
     router-link(to='/NEW_MEMBER') New Member
   li
-    router-link(to='/DEACTIVATE_MEMBER') Deactivate Member
+    router-link(to='/MEMBER_DEACTIVATE') Deactivate Member
   li
-    router-link(to='/DEACTIVATE_MEMBER') Member Paid
-
+    router-link(to='/MEMBER_PAID') Member Paid
+  li
+    router-link(to='/MEMBER_CHARGED') Member Charged
+  li
+    router-link(to='/CASH_EXPENSE') Cash Expense
+  li
+    router-link(to='/CASH_RECEIVED') Cash Received
 
 </template>
 

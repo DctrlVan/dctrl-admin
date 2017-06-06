@@ -12,7 +12,11 @@ import App from './components/App'
 import Home from './components/Home'
 import NewMember from './components/NewMember'
 import DeactivateMember from './components/DeactivateMember'
+import MemberPaid from './components/MemberPaid'
+import MemberCharged from './components/MemberCharged'
 import MemberList from './components/MemberList'
+import CashExpense from './components/CashExpense'
+import CashReceived from './components/CashReceived'
 
 const routes = [{
     path: '/',
@@ -24,11 +28,23 @@ const routes = [{
       path: '/new_member',
       component: NewMember
     },{
-      path: '/deactivate_member',
+      path: '/member_paid',
+      component: MemberPaid
+    },{
+      path: '/member_charged',
+      component: MemberCharged
+    },{
+      path: '/member_deactivate',
       component: DeactivateMember
     },{
       path: '/member_list',
       component: MemberList
+    },{
+      path:'/cash_expense',
+      component: CashExpense
+    },{
+      path: '/cash_received',
+      component: CashReceived
     }]
   }]
 

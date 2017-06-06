@@ -2,9 +2,10 @@
 
 #deactivatemember
     shared-title(title='Deactivate Member')
-        form
+        form-box
             label address
-            input(type='text')
+            input(v-model='address' type='text')
+            button(@click.prevent='deactivateMember') Farewell
 
 
 </template>
@@ -12,14 +13,31 @@
 <script>
 import request from 'superagent'
 import SharedTitle from '../slotUtils/SharedTitle'
+import FormBox from '../slotUtils/FormBox'
 
-function deactivate_member(address){
-  
+function deactivateMember(address){
+    console.log(address)
+    request
+        .post('/member_deactivate')
+        .send({ address })
+        .end((err,res)=>{
+            console.log({err,res})
+        })
 }
 
 export default {
     components: {
-        SharedTitle
+        SharedTitle, FormBox
+    },
+    methods: {
+        deactivateMember(){
+            deactivateMember(this.address)
+        }
+    },
+    data(){
+        return {
+            address: "test"
+        }
     }
 }
 

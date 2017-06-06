@@ -1,20 +1,19 @@
 <template lang="jade">
 
-#mobileheading.container
-    router-link(to="/")
-        img(
-            src='../assets/images/dctrl.svg'
-        )
+#mobileheading
     a.hamburger(href="#", @click.prevent='toggleHeaderNav')
         img(src='../assets/images/hamburger.svg')
-    navigation(v-if="showHeaderNav").navigation--header
+    nav.wrapper
+        .logo
+            router-link(to="/")
+                img(src='../assets/images/dctrl.svg')
+        navigation(v-if="showHeaderNav").navigation--header
 
 
 </template>
 
 <script>
 import Navigation from './Navigation'
-
 export default {
     components: { Navigation },
     props: ['content'],
@@ -32,19 +31,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 @import "../styles/framework"
 @import "../styles/breakpoints"
-
+#mobileheading
+    display:fixed
+    width:100%
+    background:main
 img
-    height:100px
-
+    height:90px
 .hamburger
     position:absolute
     right:0
-
 @media (min-width: breakpoint)
     #mobileheading
         display:none
-
 </style>

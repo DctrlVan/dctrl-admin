@@ -1,7 +1,7 @@
 <template lang='jade'>
 #newmember
 	shared-title(title='Create New Member')
-	form
+	form-box
 		label name
 		input(v-model='member.name' type='text' )
 		label email
@@ -10,12 +10,13 @@
 		input(v-model='member.fob' type='text')
 		label address
 		input(v-model='member.address' type='text')
-	button(@click.prevent="createMember") create member
+		button(@click.prevent="createMember") create member
 </template>
 
 <script>
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
+import FormBox from '../slotUtils/FormBox'
 
 export default {
   data() {
@@ -40,7 +41,7 @@ export default {
     }
   },
   components: {
-    SharedTitle
+    SharedTitle, FormBox
   }
 }
 </script>
