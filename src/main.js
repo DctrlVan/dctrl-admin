@@ -17,6 +17,8 @@ import MemberCharged from './components/MemberCharged'
 import MemberList from './components/MemberList'
 import CashExpense from './components/CashExpense'
 import CashReceived from './components/CashReceived'
+import CreateBounty from './components/CreateBounty'
+import ClaimBounty from './components/ClaimBounty'
 
 const routes = [{
     path: '/',
@@ -45,6 +47,12 @@ const routes = [{
     },{
       path: '/cash_received',
       component: CashReceived
+    },{
+      path: '/create_bounty',
+      component: CreateBounty
+    },{
+      path: '/claim_bounty',
+      component: ClaimBounty
     }]
   }]
 

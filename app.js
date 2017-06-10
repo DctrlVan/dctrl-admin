@@ -3,6 +3,8 @@ var request = require('superagent')
 var express = require('express')
 var app = express()
 var path = require("path")
+const uuidV1 = require('uuid/v1');
+
 
 var brainLocation = "http://192.168.0.127:3000/"
 
@@ -13,175 +15,256 @@ var multer = require('multer');
 // outbound http client
 app.use(express.static('dist'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-app.post('/new_member', (req,res)=> {
-    console.log("/new_member", req.body)
-    newMember(
-        req.body.name,
-        req.body.email,
-        req.body.fob,
-        req.body.address,
-        (err, data)=> {
-            console.log({err, data})
-            res.send( !!err )
-        }
-    )
+app.post('/new_member', (req, res) => {
+  console.log("/new_member", req.body)
+  newMember(
+    req.body.name,
+    req.body.email,
+    req.body.fob,
+    req.body.address,
+    (err, data) => {
+      console.log({
+        err,
+        data
+      })
+      res.send(!!err)
+    }
+  )
 })
 
-app.post('/member_paid', (req,res)=>{
-    console.log("/member_paid", req.body)
-    memberPaid(
-        req.body.address,
-        req.body.amount,
-        req.body.notes,
-        (err, data)=> {
-            console.log({err,data})
-        }
-    )
+app.post('/member_paid', (req, res) => {
+  console.log("/member_paid", req.body)
+  memberPaid(
+    req.body.address,
+    req.body.amount,
+    req.body.notes,
+    (err, data) => {
+      console.log({
+        err,
+        data
+      })
+    }
+  )
 })
 
-app.post('/member_charged', (req,res)=>{
-    console.log("/member_charged", req.body)
-    memberCharged(
-        req.body.address,
-        req.body.amount,
-        req.body.notes,
-        (err, data)=> {
-            console.log({err,data})
-        }
-    )
+app.post('/member_charged', (req, res) => {
+  console.log("/member_charged", req.body)
+  memberCharged(
+    req.body.address,
+    req.body.amount,
+    req.body.notes,
+    (err, data) => {
+      console.log({
+        err,
+        data
+      })
+    }
+  )
 })
 
-app.post('/member_deactivate', (req,res)=>{
-    console.log("/member_deactivate", req.body)
-    let address = req.body.address
-    memberDeactivate(address, (err, data)=>{
-        console.log({err,data})
+app.post('/member_deactivate', (req, res) => {
+  console.log("/member_deactivate", req.body)
+  let address = req.body.address
+  memberDeactivate(address, (err, data) => {
+    console.log({
+      err,
+      data
+    })
+  })
+})
+
+app.post('/cash_expense', (req, res) => {
+  let amount = req.body.amount
+  let notes = req.body.notes
+  cashExpense(amount, notes, (err, data) => {
+    console.log({
+      err,
+      data
+    })
+  })
+})
+
+app.post('/cash_received', (req, res) => {
+  let amount = req.body.amount
+  let notes = req.body.notes
+  cashReceived(amount, notes, (err, data) => {
+    console.log({
+      err,
+      data
+    })
+  })
+})
+
+app.post('/create_bounty', (req, res) => {
+    console.log("resbody", req.body)
+    let name = req.body.name
+    let description = req.body.description
+    let value = req.body.value
+    let fob = req.body.fob
+    bountyCreate(name, description, value, fob, (err, resBrain)=> {
+        console.log({resBrain: resBrain.body})
     })
 })
 
-app.post('/cash_expense', (req,res)=>{
-    let amount = req.body.amount
-    let notes = req.body.notes
-    cashExpense(amount, notes, (err, data)=>{
-        console.log({err,data})
-    })
-})
-
-app.post('/cash_received', (req,res)=>{
-    let amount = req.body.amount
-    let notes = req.body.notes
-    cashReceived(amount, notes, (err, data)=>{
-        console.log({err,data})
+app.post('/claim_bounty', (req, res) => {
+    console.log("resbody", res.body)
+    let bountyId = "4f37e360-4caf-11e7-ae6e-e9ad780f3651"
+    let address = "3EerW4nQeMRJUTjM8UBbsdQPZxDA3VKdGX"
+    bountyClaim( bountyId, address, (err, resBrain)=> {
+        console.log({resBrain: resBrain.body})
     })
 })
 
 
-app.get('/current_state', (req,res)=>{
-    request
-        .get(brainLocation)
-        .end( (err, res2)=> {
-            if (err){
-                console.log(err)
-                return null
-            }
-            res.json(res2.body)
-        })
+
+app.get('/current_state', (req, res) => {
+  request
+    .get(brainLocation)
+    .end((err, res2) => {
+      if (err) {
+        console.log(err)
+        return null
+      }
+      res.json(res2.body)
+    })
 })
 
-app.get('/*', function(req,res){
-    res.sendFile(path.join(__dirname, '/dist/index.html'));
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
 })
 
 let PORT = process.env.PORT || 8003
-app.listen(PORT, err =>{
-  console.log("Listening on port",PORT);
+app.listen(PORT, err => {
+  console.log("Listening on port", PORT);
 });
 
-function newMember(name, email, fob, address, callback){
-    let newEvent = {
-        action: {
-            type: "member-created",
-            address: address,
-            fob: fob,
-            'active?': true,
-            balance: "0",
-            name:name,
-            email:email
-        }
+function newMember(name, email, fob, address, callback) {
+  let newEvent = {
+    action: {
+      type: "member-created",
+      address: address,
+      fob: fob,
+      'active?': true,
+      balance: "0",
+      name: name,
+      email: email
     }
-    memberPost(newEvent, callback)
+  }
+  memberPost(newEvent, callback)
 }
 
-function memberPaid(address, amount, notes, callback){
-    let newEvent = {
-        action: {
-            type: "member-paid",
-            address,
-            amount: amount.toString(),
-            "cash?":true,
-            notes
-        }
+function memberPaid(address, amount, notes, callback) {
+  let newEvent = {
+    action: {
+      type: "member-paid",
+      address,
+      amount: amount.toString(),
+      "cash?": true,
+      notes
     }
-    memberPost(newEvent, callback)
+  }
+  memberPost(newEvent, callback)
 }
 
-function cashReceived(amount, notes, callback){
-    let newEvent = {
-        action: {
-            type: "cash-increase",
-            amount: amount.toString(),
-            notes
-        }
+function cashReceived(amount, notes, callback) {
+  let newEvent = {
+    action: {
+      type: "cash-increase",
+      amount: amount.toString(),
+      notes
     }
-    cashPost(newEvent, callback)
+  }
+  cashPost(newEvent, callback)
 }
 
-function cashExpense(amount, notes, callback){
-    let newEvent = {
-        action: {
-            type: "cash-decrease",
-            amount: amount.toString(),
-            notes
-        }
+function cashExpense(amount, notes, callback) {
+  let newEvent = {
+    action: {
+      type: "cash-decrease",
+      amount: amount.toString(),
+      notes
     }
-    cashPost(newEvent, callback)
+  }
+  cashPost(newEvent, callback)
 }
 
-
-function memberCharged(address, amount, notes, callback){
-    let newEvent = {
-        action: {
-            type: "member-charged",
-            address,
-            amount,
-            notes
-        }
+function memberCharged(address, amount, notes, callback) {
+  let newEvent = {
+    action: {
+      type: "member-charged",
+      address,
+      amount,
+      notes
     }
-    memberPost(newEvent, callback)
+  }
+  memberPost(newEvent, callback)
 }
 
-function memberDeactivate(address, callback){
-    let newEvent = {
-        action: {
-            type: "member-deactivated",
-            address
-        }
+function memberDeactivate(address, callback) {
+  let newEvent = {
+    action: {
+      type: "member-deactivated",
+      address
     }
-    memberPost(newEvent, callback)
+  }
+  memberPost(newEvent, callback)
 }
 
-function memberPost(data, callback){
-    request
-      .post(brainLocation + "members")
-      .send(data)
-      .end(callback)
+function bountyCreate(name, description, value, fob, callback) {
+  let newEvent = {
+    action: {
+      type: "bounty-created",
+      name,
+      description,
+      value,
+      fob,
+      'bounty-id': uuidV1(),
+      'claimed?': false,
+      'paid?': false,
+      address: "",
+      notes: ""
+    }
+  }
+  console.log("sending:", newEvent)
+  bountyPost(newEvent, callback)
 }
 
-function cashPost(data, callback){
-    request
-      .post(brainLocation + "cash")
-      .send(data)
-      .end(callback)
+function bountyClaim(bountyId, address, callback){
+  // TODO: Check the previous timestamp on the claim
+  let newEvent = {
+    action: {
+      type: "bounty-claimed",
+      'bounty-id': bountyId,
+      address,
+      notes: Date.now().toString()
+    }
+  }
+  console.log("sending:", newEvent)
+  bountyPost(newEvent, callback)
+}
+
+
+function memberPost(data, callback) {
+  request
+    .post(brainLocation + "members")
+    .send(data)
+    .end(callback)
+}
+
+function bountyPost(data, callback) {
+  request
+    .post(brainLocation + "bounties")
+    .send(data)
+    .end(callback)
+}
+
+function cashPost(data, callback) {
+  request
+    .post(brainLocation + "cash")
+    .send(data)
+    .end(callback)
 }

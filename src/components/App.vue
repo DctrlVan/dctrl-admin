@@ -65,18 +65,13 @@ main
   background-color:#202020
 }
 
-.tron
-    position:fixed
-    left: 25rem
-    z-index:1
-
 @media (max-width: breakpoint)
     .side_bar, .tron
         display:none
 
 
 .fade-enter-active
-    transition: all 4s ease
+    transition: all 2s ease
 
 .fade-enter, .fade-leave-to
     opacity: 0;
