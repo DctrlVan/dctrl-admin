@@ -1,40 +1,30 @@
 <template lang='jade'>
 
-#newmember
+#cashexpense
     shared-title(title='Cash Expense')
-    form-box
+    form-box(btntxt="test btntxt"  endpoint='/cash_expense' v-bind:data='details')
         label amount
-        input(v-model='member.amount' type='text')
+        input(v-model='details.amount' type='text')
         label notes
-        input(v-model='member.notes' type='text')
-        label Submit
-        button(@click.prevent='pay') Cash Taken From Safe
+        input(v-model='details.notes' type='text')
+
+//- form-box(, :btntxt="Cash Taken")
+
 
 </template>
 
 <script>
 import request from 'superagent'
 import SharedTitle from '../slotUtils/SharedTitle'
-import FormBox from '../slotUtils/FormBox'
+import FormBox from '../slotUtils/FormBoxx'
 
 export default {
     data(){
         return {
-            member: {
+            details: {
                 amount: 0,
                 notes: ''
             }
-        }
-    },
-    methods:{
-        pay(){
-            console.log("to backend::", this.member)
-            request
-                .post('/cash_expense')
-                .send(this.member)
-                .end((err,res)=>{
-                    console.log({err,res})
-                })
         }
     },
     components: {

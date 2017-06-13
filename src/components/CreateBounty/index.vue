@@ -42,9 +42,13 @@ export default {
                     description: this.bounty.description,
                     value: this.bounty.value,
                     fob: this.bounty.fob
-                  })
+                })
                 .end((err,res)=>{
                     console.log({err,res})
+                    this.bounty.name = ''
+                    this.bounty.description = ''
+                    this.bounty.value = ''
+                    this.bounty.fob = ''
                 })
         }
     },

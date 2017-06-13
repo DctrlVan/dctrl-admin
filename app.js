@@ -1,38 +1,40 @@
-// Server
-var request = require('superagent')
-var express = require('express')
-var app = express()
-var path = require("path")
-const uuidV1 = require('uuid/v1');
+// Admin Server
+const request = require('superagent')
+const express = require('express')
+const app = express()
+const path = require("path")
+const uuidV1 = require('uuid/v1')
+const bodyParser = require('body-parser')
+const multer = require('multer')
+const brainLocation = "http://192.168.0.127:3000/"
 
 
-var brainLocation = "http://192.168.0.127:3000/"
-
-// HTTP handlers
-var bodyParser = require('body-parser');
-var multer = require('multer');
-
-// outbound http client
 app.use(express.static('dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+
+function buildResCallback(res){
+    return (err, brainResponse) => {
+        if (err) {
+            res.send(err)
+        }
+        console.log("sending", {brainResponse: brainResponse.body})
+        res.send(brainResponse.body)
+    }
+}
+
 app.post('/new_member', (req, res) => {
   console.log("/new_member", req.body)
+
   newMember(
     req.body.name,
     req.body.email,
     req.body.fob,
     req.body.address,
-    (err, data) => {
-      console.log({
-        err,
-        data
-      })
-      res.send(!!err)
-    }
+    buildResCallback(res)
   )
 })
 
@@ -42,12 +44,7 @@ app.post('/member_paid', (req, res) => {
     req.body.address,
     req.body.amount,
     req.body.notes,
-    (err, data) => {
-      console.log({
-        err,
-        data
-      })
-    }
+    buildResCallback(res)
   )
 })
 
@@ -57,46 +54,26 @@ app.post('/member_charged', (req, res) => {
     req.body.address,
     req.body.amount,
     req.body.notes,
-    (err, data) => {
-      console.log({
-        err,
-        data
-      })
-    }
+    buildResCallback(res)
   )
 })
 
 app.post('/member_deactivate', (req, res) => {
   console.log("/member_deactivate", req.body)
   let address = req.body.address
-  memberDeactivate(address, (err, data) => {
-    console.log({
-      err,
-      data
-    })
-  })
+  memberDeactivate( address, buildResCallback(res) )
 })
 
 app.post('/cash_expense', (req, res) => {
   let amount = req.body.amount
   let notes = req.body.notes
-  cashExpense(amount, notes, (err, data) => {
-    console.log({
-      err,
-      data
-    })
-  })
+  cashExpense(amount, notes, buildResCallback(res))
 })
 
 app.post('/cash_received', (req, res) => {
   let amount = req.body.amount
   let notes = req.body.notes
-  cashReceived(amount, notes, (err, data) => {
-    console.log({
-      err,
-      data
-    })
-  })
+  cashReceived(amount, notes, buildResCallback(res) )
 })
 
 app.post('/create_bounty', (req, res) => {
@@ -105,21 +82,15 @@ app.post('/create_bounty', (req, res) => {
     let description = req.body.description
     let value = req.body.value
     let fob = req.body.fob
-    bountyCreate(name, description, value, fob, (err, resBrain)=> {
-        console.log({resBrain: resBrain.body})
-    })
+    bountyCreate(name, description, value, fob, buildResCallback(res) )
 })
 
 app.post('/claim_bounty', (req, res) => {
     console.log("resbody", res.body)
     let bountyId = "4f37e360-4caf-11e7-ae6e-e9ad780f3651"
     let address = "3EerW4nQeMRJUTjM8UBbsdQPZxDA3VKdGX"
-    bountyClaim( bountyId, address, (err, resBrain)=> {
-        console.log({resBrain: resBrain.body})
-    })
+    bountyClaim( bountyId, address, buildResCallback(res) )
 })
-
-
 
 app.get('/current_state', (req, res) => {
   request
@@ -226,7 +197,7 @@ function bountyCreate(name, description, value, fob, callback) {
       'claimed?': false,
       'paid?': false,
       address: "",
-      notes: ""
+      notes: Date.now().toString()
     }
   }
   console.log("sending:", newEvent)

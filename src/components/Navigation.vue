@@ -16,10 +16,12 @@ ul.navigation
   li
     router-link(to='/CASH_RECEIVED') Cash Received
   li
+    router-link(to='/bounty_list') Bounty List
+  li
     router-link(to='/CREATE_BOUNTY') Create Bounty
   li
     router-link(to='/CLAIM_BOUNTY') Claim Bounty
-    
+
 </template>
 
 <script>

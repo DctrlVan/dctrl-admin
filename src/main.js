@@ -15,6 +15,7 @@ import DeactivateMember from './components/DeactivateMember'
 import MemberPaid from './components/MemberPaid'
 import MemberCharged from './components/MemberCharged'
 import MemberList from './components/MemberList'
+import BountyList from './components/BountyList'
 import CashExpense from './components/CashExpense'
 import CashReceived from './components/CashReceived'
 import CreateBounty from './components/CreateBounty'
@@ -53,6 +54,9 @@ const routes = [{
     },{
       path: '/claim_bounty',
       component: ClaimBounty
+    },{
+      path: '/bounty_list',
+      component: BountyList
     }]
   }]
 
