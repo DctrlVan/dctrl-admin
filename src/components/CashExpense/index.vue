@@ -12,7 +12,7 @@
 
 <script>
 import SharedTitle from '../slotUtils/SharedTitle'
-import FormBox from '../slotUtils/FormBoxx'
+import FormBox from '../slotUtils/FormBox'
 
 export default {
     data(){

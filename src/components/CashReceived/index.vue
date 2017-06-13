@@ -2,13 +2,11 @@
 
 #newmember
     shared-title(title='Cash Received')
-    form-box
+    form-box(btntxt="Cash Placed in Safe"  endpoint='/cash_received' v-bind:data='details')
         label amount
-        input(v-model='member.amount' type='text')
+        input(v-model='details.amount' type='text')
         label notes
-        input(v-model='member.notes' type='text')
-        label Submit
-        button(@click.prevent='pay') Cash Placed in Safe
+        input(v-model='details.notes' type='text')
 
 </template>
 
@@ -20,23 +18,13 @@ import FormBox from '../slotUtils/FormBox'
 export default {
     data(){
         return {
-            member: {
+            details: {
                 amount: 0,
                 notes: ''
             }
         }
     },
-    methods:{
-        pay(){
-            console.log("to backend::", this.member)
-            request
-                .post('/cash_received')
-                .send(this.member)
-                .end((err,res)=>{
-                    console.log("res")
-                })
-        }
-    },
+
     components: {
         SharedTitle, FormBox
     }
