@@ -19,8 +19,6 @@ ul.navigation
     router-link(to='/bounty_list') Bounty List
   li
     router-link(to='/CREATE_BOUNTY') Create Bounty
-  li
-    router-link(to='/CLAIM_BOUNTY') Claim Bounty
 
 </template>
 

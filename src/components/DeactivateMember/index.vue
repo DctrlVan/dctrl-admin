@@ -2,41 +2,25 @@
 
 #deactivatemember
     shared-title(title='Deactivate Member')
-        form-box
+        form-box(btntxt="Farewell"  endpoint='/member_deactivate' v-bind:data='member')
             label address
-            input(v-model='address' type='text')
-            button(@click.prevent='deactivateMember') Farewell
-
+            input(v-model='member.address' type='text')
 
 </template>
 
 <script>
-import request from 'superagent'
 import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
-
-function deactivateMember(address){
-    console.log(address)
-    request
-        .post('/member_deactivate')
-        .send({ address })
-        .end((err,res)=>{
-            console.log({err,res})
-        })
-}
 
 export default {
     components: {
         SharedTitle, FormBox
     },
-    methods: {
-        deactivateMember(){
-            deactivateMember(this.address)
-        }
-    },
     data(){
         return {
-            address: "test"
+            member: {
+                address: ""
+            }
         }
     }
 }

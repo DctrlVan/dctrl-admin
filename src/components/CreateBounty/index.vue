@@ -2,7 +2,7 @@
 
 #createbounty
     shared-title(title='Create Bounty')
-    form-box
+    form-box(btntxt="Create New Bounty" endpoint='/create_bounty' v-bind:data="bounty")
         label name
         input(v-model='bounty.name' type='text')
         label description
@@ -11,13 +11,11 @@
         input(v-model='bounty.value' type='text')
         label fob
         input(v-model='bounty.fob' type='text')
-        label Submit
-        button(@click.prevent='create') Cash Placed in Safe
 
 </template>
 
 <script>
-import request from 'superagent'
+
 import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
 
@@ -30,26 +28,6 @@ export default {
                 value: "",
                 fob: '',
             }
-        }
-    },
-    methods:{
-        create(){
-            console.log("to backend::", this.bounty)
-            request
-                .post('/create_bounty')
-                .send({
-                    name: this.bounty.name,
-                    description: this.bounty.description,
-                    value: this.bounty.value,
-                    fob: this.bounty.fob
-                })
-                .end((err,res)=>{
-                    console.log({err,res})
-                    this.bounty.name = ''
-                    this.bounty.description = ''
-                    this.bounty.value = ''
-                    this.bounty.fob = ''
-                })
         }
     },
     components: {

@@ -87,6 +87,7 @@ app.post('/create_bounty', (req, res) => {
 
 app.post('/claim_bounty', (req, res) => {
     console.log("resbody", res.body)
+    //TODO finish
     let bountyId = "4f37e360-4caf-11e7-ae6e-e9ad780f3651"
     let address = "3EerW4nQeMRJUTjM8UBbsdQPZxDA3VKdGX"
     bountyClaim( bountyId, address, buildResCallback(res) )

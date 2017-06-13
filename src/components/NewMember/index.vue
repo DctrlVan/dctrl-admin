@@ -1,16 +1,16 @@
 <template lang='jade'>
 #newmember
 	shared-title(title='Create New Member')
-	form-box
-		label name
-		input(v-model='member.name' type='text' )
-		label email
-		input(v-model='member.email' type='text')
-		label fob
-		input(v-model='member.fob' type='text')
-		label address
-		input(v-model='member.address' type='text')
-		button(@click.prevent="createMember") create member
+	form-box(btntxt="Welcome New Member"  endpoint='/new_member' v-bind:data='member')
+			label name
+			input(v-model='member.name' type='text' )
+			label email
+			input(v-model='member.email' type='text')
+			label fob
+			input(v-model='member.fob' type='text')
+			label address
+			input(v-model='member.address' type='text')
+
 </template>
 
 <script>
@@ -27,17 +27,6 @@ export default {
         fob: '',
         address: '',
       }
-    }
-  },
-  methods: {
-    createMember() {
-      console.log("attempting to post to /new_member")
-      request
-          .post('/new_member')
-          .send(this.member)
-          .end((err,res)=>{
-							console.log({err,res})
-          })
     }
   },
   components: {

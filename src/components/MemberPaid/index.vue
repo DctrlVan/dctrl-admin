@@ -2,20 +2,17 @@
 
 #newmember
     shared-title(title='Member Paid')
-    form-box
+    form-box(btntxt="Cash Placed in Safe"  endpoint='/member_paid' v-bind:data='member')
         label address
         input(v-model='member.address' type='text')
         label amount
         input(v-model='member.amount' type='text')
         label notes
         input(v-model='member.notes' type='text')
-        label Submit
-        button(@click.prevent='pay') Cash Placed in Safe
 
 </template>
 
 <script>
-import request from 'superagent'
 import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
 
@@ -27,17 +24,6 @@ export default {
                 amount: 0,
                 notes: ''
             }
-        }
-    },
-    methods:{
-        pay(){
-            console.log("to backend::", this.member)
-            request
-                .post('/member_paid')
-                .send(this.member)
-                .end((err,res)=>{
-                    console.log({err,res})
-                })
         }
     },
     components: {
