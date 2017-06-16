@@ -6,7 +6,7 @@ const path = require("path")
 const uuidV1 = require('uuid/v1')
 const bodyParser = require('body-parser')
 const multer = require('multer')
-const brainLocation = "http://192.168.0.127:3000/"
+const brainLocation = "http://192.168.0.103:3000/"
 
 
 app.use(express.static('dist'));
