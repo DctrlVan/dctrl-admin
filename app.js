@@ -6,7 +6,7 @@ const path = require("path")
 const uuidV1 = require('uuid/v1')
 const bodyParser = require('body-parser')
 const multer = require('multer')
-const brainLocation = "http://192.168.0.103:3000/"
+const config = require('./config')
 
 
 app.use(express.static('dist'));
@@ -95,7 +95,7 @@ app.post('/claim_bounty', (req, res) => {
 
 app.get('/current_state', (req, res) => {
   request
-    .get(brainLocation)
+    .get(config.brainLocation)
     .end((err, res2) => {
       if (err) {
         console.log(err)
@@ -222,21 +222,21 @@ function bountyClaim(bountyId, address, callback){
 
 function memberPost(data, callback) {
   request
-    .post(brainLocation + "members")
+    .post(config.brainLocation + "members")
     .send(data)
     .end(callback)
 }
 
 function bountyPost(data, callback) {
   request
-    .post(brainLocation + "bounties")
+    .post(config.brainLocation + "bounties")
     .send(data)
     .end(callback)
 }
 
 function cashPost(data, callback) {
   request
-    .post(brainLocation + "cash")
+    .post(config.brainLocation + "cash")
     .send(data)
     .end(callback)
 }
