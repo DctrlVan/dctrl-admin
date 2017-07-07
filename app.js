@@ -6,8 +6,7 @@ const path = require("path")
 const uuidV1 = require('uuid/v1')
 const bodyParser = require('body-parser')
 const multer = require('multer')
-const config = require('./config')
-
+const config = require('./conf')
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());
