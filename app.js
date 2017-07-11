@@ -6,12 +6,7 @@ const path = require("path")
 const uuidV1 = require('uuid/v1')
 const bodyParser = require('body-parser')
 const multer = require('multer')
-<<<<<<< Updated upstream
 const config = require('./conf')
-=======
-const brainLocation = "http://192.168.0.109:3000/"
-
->>>>>>> Stashed changes
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());

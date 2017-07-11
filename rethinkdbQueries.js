@@ -32,8 +32,6 @@ function getEventsForAddress( conn, address, callback ){
             })
 
           })
-
-          ;
       })
 
 }
