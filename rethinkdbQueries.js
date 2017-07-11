@@ -3,7 +3,6 @@ const r = require('rethinkdb')
 
 const listOfMemberPaidActions = []
 const listOfMemberChargedActions = []
-const listOfBountyClaimedActions = []
 
 // todo time filter
 function getEventsForAddress( conn, address, callback ){

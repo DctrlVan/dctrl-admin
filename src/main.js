@@ -59,24 +59,24 @@ const routes = [{
       path: '/bounty_list',
       component: BountyList
     },{
-      path: '/member',
+      path: '/member/*',
       component: Member
     }]
   }]
 
 const router = new VueRouter({
-  mode: 'history',
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return {
-        x: 0,
-        y: 0
-      }
+    mode: 'history',
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return {
+                x: 0,
+                y: 0
+            }
+        }
     }
-  }
 })
 
 const app = new Vue({

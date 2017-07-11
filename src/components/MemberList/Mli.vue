@@ -1,6 +1,6 @@
 <template>
 
-<router-link to='member'>
+<div @click='switchToMember(m.address)'>
   <ul :class="{ inactive: !m['active?'] }">
     <label>
         {{m.name}} - {{m.address}}
@@ -24,7 +24,14 @@
 
 export default {
     props: ['m'],
-    components: {  }
+    components: {  },
+    methods: {
+        switchToMember(address){
+            // use vuex state to pass to member component?
+            console.log('this is supposed to redirect to member/' + address)
+            this.$router.push('member/' + address);
+        }
+    }
 }
 
 </script>
