@@ -14,6 +14,7 @@
     </li>
     <li> Current balance: &nbsp; {{m.balance}} </li>
   </ul>
+</div>
 </router-link>
 
 </template>

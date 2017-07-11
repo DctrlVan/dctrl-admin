@@ -5,7 +5,8 @@ const listOfMemberPaidActions = []
 const listOfMemberChargedActions = []
 
 // todo time filter
-function getEventsForAddress( conn, address, callback ){
+var conn
+function getEventsForAddress( address, callback ){
   r
       .table('events')
       .filter({action: { address }})
@@ -24,26 +25,23 @@ function getEventsForAddress( conn, address, callback ){
                         break
                 }
           }, (err, results)=> {
-
-            console.log({
+            callback(null, {
                 listOfMemberPaidActions,
                 listOfMemberChargedActions,
             })
-
           })
       })
-
 }
 
+
+module.exports = {
+    getEventsForAddress
+}
 
 
 r.connect({
         db: 'eventstate',
         host: '192.168.0.109'
-    }).then(conn => {
-
-        getEventsForAddress(conn, '3GER8rjmFqypKbdwajGPs8YxXTYqLM51Cc')
-
-
-
+    }).then(c => {
+        conn = c
     })
