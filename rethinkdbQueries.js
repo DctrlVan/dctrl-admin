@@ -20,9 +20,6 @@ function getEventsForAddress( conn, address, callback ){
                     case 'member-charged':
                         listOfMemberChargedActions.push(ev.action)
                         break
-                    case 'bounty-claimed':
-                        listOfBountyClaimedActions.push(ev.action)
-                        break
                     case 'member-paid':
                         listOfMemberPaidActions.push(ev.action)
                         break
@@ -30,9 +27,8 @@ function getEventsForAddress( conn, address, callback ){
           }, (err, results)=> {
 
             console.log({
-              listOfMemberPaidActions,
-              listOfMemberChargedActions,
-              listOfBountyClaimedActions
+                listOfMemberPaidActions,
+                listOfMemberChargedActions,
             })
 
           })

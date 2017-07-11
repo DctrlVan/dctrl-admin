@@ -10,24 +10,15 @@
         span .
         p This is community management software for helping communities self-govern themselves in a peer-to-peer way. All the code is open source including a web interface for interaction and information for managing members, and a rfid fob system that controls access to commons property.
 
-    div(id="test")
 </template>
 
 <script>
 
 import SharedTitle from '../slotUtils/SharedTitle'
-import qrcode from 'qrcode-generator'
+
 export default {
     components:{
         SharedTitle
-    },
-    mounted(){
-	var typeNumber = 4;
-var errorCorrectionLevel = 'L';
-var qr = qrcode(typeNumber, errorCorrectionLevel);
-qr.addData('Hi!');
-qr.make();
-document.getElementById('test').innerHTML = qr.createImgTag();
     }
 }
 
