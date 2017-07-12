@@ -2,7 +2,7 @@
 
 #ActiveBounties
     shared-title(title='Active Bounties')
-    p Active bounties will be here
+    p The following is a list of all active bounties in DCTRL at the moment. Tab their corresponding fob, and the amount will be added to your account.
     table.u-full-width
         thead
             tr
