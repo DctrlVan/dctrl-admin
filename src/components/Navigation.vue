@@ -18,6 +18,8 @@ ul.navigation
   li
     router-link(to='/bounty_list') Bounty List
   li
+    router-link(to='/ACTIVE_BOUNTIES') Active Bounties
+  li
     router-link(to='/CREATE_BOUNTY') Create Bounty
 
 </template>
