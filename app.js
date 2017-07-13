@@ -205,10 +205,9 @@ function bountyCreate(name, description, value, fob, callback) {
       value,
       fob,
       'bounty-id': uuidV1(),
-      'claimed?': false,
-      'paid?': false,
+      'last-claimed': Date.now().toString(),
       address: "",
-      notes: Date.now().toString()
+      notes: "dctrl-admin"
     }
   }
   console.log("sending:", newEvent)
@@ -222,7 +221,7 @@ function bountyClaim(bountyId, address, callback){
       type: "bounty-claimed",
       'bounty-id': bountyId,
       address,
-      notes: Date.now().toString()
+      notes: "dctrl-admin"
     }
   }
   console.log("sending:", newEvent)

@@ -19,7 +19,7 @@ import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
 
 function calculatePayout(monthValue, lastClaimed, now){
-    let msSince = now - lastClaimed
+    let msSince = now - lastClaimed*1000
     let today = new Date()
     let daysThisMonth = new Date(today.getYear(), today.getMonth(), 0).getDate()
     let msThisMonth = daysThisMonth * 24 * 60 * 60 * 1000
@@ -43,7 +43,9 @@ export default {
               res.body.bounties.forEach(bounty => {
                   let processedBounty = {
                       name: bounty.name,
-                      currentValue: calculatePayout(bounty.value, bounty.notes, now)
+                      currentValue: calculatePayout(bounty.value, bounty['last-claimed'], now),
+                      monthValue: bounty.value,
+                      lastClaimed: bounty['last-claimed']
                   }
                   tempBounties.push(processedBounty)
               })
@@ -51,6 +53,18 @@ export default {
                   return b.currentValue - a.currentValue
               })
           })
+      setInterval(()=>{
+          let now = Date.now()
+          let tempBounties = []
+
+          this.bounties.forEach(bounty => {
+              bounty.currentValue = calculatePayout(bounty.monthValue, bounty.lastClaimed, now)
+              tempBounties.push(bounty)
+          })
+          this.bounties = tempBounties.sort((a,b) => {
+              return b.currentValue - a.currentValue
+          })
+      }, 500)
   },
     components:{
         SharedTitle,
