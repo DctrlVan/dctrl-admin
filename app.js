@@ -18,11 +18,13 @@ app.use(bodyParser.urlencoded({
 
 function buildResCallback(res){
     return (err, brainResponse) => {
-        if (err) {
-            res.send(err)
+        if (err || res.body.error || !brainResponse) {
+            console.log('returning error')
+            res.send('brain error')
+        } else {
+          console.log("sending", {brainResponse: brainResponse.body})
+          res.send(brainResponse.body)
         }
-        console.log("sending", {brainResponse: brainResponse.body})
-        res.send(brainResponse.body)
     }
 }
 
