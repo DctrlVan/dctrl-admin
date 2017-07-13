@@ -30,7 +30,6 @@ function buildResCallback(res){
 
 app.get('/v1/member/:address', (req, res) => {
   dbQueries.getEventsForAddress(req.params.address, (err, history)=> {
-      console.log('replying with:', history)
       res.json(history)
   })
 

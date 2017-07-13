@@ -8,6 +8,7 @@
             tr
                 th Bounty Name
                 th Current Value
+                th Monthly Value
         tbody
             active-bs(v-for="b in bounties", :b="b")
 
@@ -79,7 +80,7 @@ export default {
 @import '../../styles/colours'
 
 p
-    font-size:1.3em
+    font-size:1.4em
     color:white
     font-family: 'Open Sans', light, sans-serif;
 

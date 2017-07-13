@@ -3,6 +3,7 @@
 tr
     td {{b.name}}
     td {{b.currentValue}}
+    td {{b.monthValue}}
 </template>
 
 
@@ -11,7 +12,6 @@ tr
 export default {
     props: ['b'],
     components: { },
-
 }
 
 </script>
