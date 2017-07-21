@@ -13,6 +13,8 @@ ul.navigation
       router-link(to='/MEMBER_LIST') Member List
     li
       router-link(to='/BOUNTY_LIST') Bounty List
+    li
+      router-link(to='/ACTIVE_BOUNTIES') Active Bounties
   .cash
     label manage
     li

@@ -22,6 +22,8 @@ import CreateBounty from './components/CreateBounty'
 import ClaimBounty from './components/ClaimBounty'
 import EditBounty from './components/EditBounty'
 import StockSupplies from './components/StockSupplies'
+import ActiveBounties from './components/ActiveBounties'
+import Member from './components/Member'
 
 const routes = [{
     path: '/',
@@ -65,22 +67,28 @@ const routes = [{
     },{
       path: '/stock_supplies',
       component: StockSupplies
+    },{
+      path: '/ACTIVE_BOUNTIES',
+      component: ActiveBounties
+    },{
+      path: '/member/*',
+      component: Member
     }]
   }]
 
 const router = new VueRouter({
-  mode: 'history',
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return {
-        x: 0,
-        y: 0
-      }
+    mode: 'history',
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return {
+                x: 0,
+                y: 0
+            }
+        }
     }
-  }
 })
 
 const app = new Vue({

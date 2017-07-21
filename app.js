@@ -7,6 +7,7 @@ const uuidV1 = require('uuid/v1')
 const bodyParser = require('body-parser')
 const multer = require('multer')
 const config = require('./conf')
+const dbQueries = require('./rethinkdbQueries')
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());
@@ -17,13 +18,22 @@ app.use(bodyParser.urlencoded({
 
 function buildResCallback(res){
     return (err, brainResponse) => {
-        if (err) {
-            res.send(err)
+        if (err || res.body.error || !brainResponse) {
+            console.log('returning error')
+            res.send('brain error')
+        } else {
+          console.log("sending", {brainResponse: brainResponse.body})
+          res.send(brainResponse.body)
         }
-        console.log("sending", {brainResponse: brainResponse.body})
-        res.send(brainResponse.body)
     }
 }
+
+app.get('/v1/member/:address', (req, res) => {
+  dbQueries.getEventsForAddress(req.params.address, (err, history)=> {
+      res.json(history)
+  })
+
+})
 
 app.post('/new_member', (req, res) => {
   console.log("/new_member", req.body)
@@ -194,10 +204,9 @@ function bountyCreate(name, description, value, fob, callback) {
       value,
       fob,
       'bounty-id': uuidV1(),
-      'claimed?': false,
-      'paid?': false,
+      'last-claimed': Date.now().toString(),
       address: "",
-      notes: Date.now().toString()
+      notes: "dctrl-admin"
     }
   }
   console.log("sending:", newEvent)
@@ -211,7 +220,7 @@ function bountyClaim(bountyId, address, callback){
       type: "bounty-claimed",
       'bounty-id': bountyId,
       address,
-      notes: Date.now().toString()
+      notes: "dctrl-admin"
     }
   }
   console.log("sending:", newEvent)

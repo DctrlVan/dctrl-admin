@@ -3,10 +3,10 @@ const r = require('rethinkdb')
 
 const listOfMemberPaidActions = []
 const listOfMemberChargedActions = []
-const listOfBountyClaimedActions = []
 
 // todo time filter
-function getEventsForAddress( conn, address, callback ){
+var conn
+function getEventsForAddress( address, callback ){
   r
       .table('events')
       .filter({action: { address }})
@@ -20,37 +20,28 @@ function getEventsForAddress( conn, address, callback ){
                     case 'member-charged':
                         listOfMemberChargedActions.push(ev.action)
                         break
-                    case 'bounty-claimed':
-                        listOfBountyClaimedActions.push(ev.action)
-                        break
                     case 'member-paid':
                         listOfMemberPaidActions.push(ev.action)
                         break
                 }
           }, (err, results)=> {
-
-            console.log({
-              listOfMemberPaidActions,
-              listOfMemberChargedActions,
-              listOfBountyClaimedActions
+            callback(null, {
+                listOfMemberPaidActions,
+                listOfMemberChargedActions,
             })
-
           })
-
-          ;
       })
-
 }
 
+
+module.exports = {
+    getEventsForAddress
+}
 
 
 r.connect({
         db: 'eventstate',
         host: '192.168.0.109'
-    }).then(conn => {
-
-        getEventsForAddress(conn, '3GER8rjmFqypKbdwajGPs8YxXTYqLM51Cc')
-
-
-
+    }).then(c => {
+        conn = c
     })
