@@ -1,24 +1,30 @@
 <template lang='jade'>
 
 ul.navigation
-  li
-    router-link(to='/MEMBER_LIST') Member List
-  li
-    router-link(to='/NEW_MEMBER') New Member
-  li
-    router-link(to='/MEMBER_DEACTIVATE') Deactivate Member
-  li
-    router-link(to='/MEMBER_PAID') Member Paid
-  li
-    router-link(to='/MEMBER_CHARGED') Member Charged
-  li
-    router-link(to='/CASH_EXPENSE') Cash Expense
-  li
-    router-link(to='/CASH_RECEIVED') Cash Received
-  li
-    router-link(to='/bounty_list') Bounty List
-  li
-    router-link(to='/CREATE_BOUNTY') Create Bounty
+  .setup
+    label setup
+    li
+      router-link(to='/NEW_MEMBER') New Member
+    li
+      router-link(to='/CREATE_BOUNTY') Create Bounty
+  .lists
+    label browse
+    li
+      router-link(to='/MEMBER_LIST') Member List
+    li
+      router-link(to='/BOUNTY_LIST') Bounty List
+  .cash
+    label manage
+    li
+      router-link(to='/MEMBER_PAID') Member Paid
+    li
+      router-link(to='/STOCK_SUPPLIES') Stock Supplies
+    li
+      router-link(to='/CASH_EXPENSE') Cash Expense
+    li
+      router-link(to='/CASH_RECEIVED') Cash Received
+    li
+      router-link(to='/EDIT_BOUNTY') Edit Bounty
 
 </template>
 
@@ -31,6 +37,8 @@ export default {
 
 @import '../styles/colours'
 
+.setup, .lists, .cash
+    padding:10px
 ul
     list-style: none;
 
