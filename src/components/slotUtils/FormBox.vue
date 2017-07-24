@@ -4,25 +4,29 @@ form
     div(v-if='response')
         div(v-if='response.error')
             h5 Uh oh something went wrong, check your fields.
-        div(v-if='response.type')
-            h5 Event Successfully Created
-            p {{ response }}
-            router-link(to='/')
-                button ok
+        .row(v-if='response.type')
+            .six.columns
+                img(src='../../assets/images/doge.png')
+            .six.columns
+                h5 such create
+                action(:a="response")
+                router-link(to='/')
+                    button ok
     slot(v-else)
     button(v-if='!response' @click.prevent='post') {{ btntxt }}
 
 </template>
 
 <script>
-
 import request from 'superagent'
+import Action from './Action'
 
 export default {
     data(){
-      return { response: null }
+      return { response: false }
     },
     props: ['endpoint', 'data', 'btntxt'],
+    components: { Action },
     methods: {
       post(){
         console.log("to backend::", this.data)
@@ -31,11 +35,15 @@ export default {
             .post(this.endpoint)
             .send(this.data)
             .end((err,res)=>{
-                this.response = res.body
-                if (this.response.error){
-                    setTimeout( ()=>{ this.response = null } , 5000)
+                console.log({err, res})
+                if (err){
+                    this.response.error = true
+                    setTimeout( ()=>{ this.response = false } , 5000)
                 }
-                // todo show res data, hide slot?
+                if (res.body && res.body.error){
+                    setTimeout( ()=>{ this.response = false } , 5000)
+                }
+                this.response = res.body
             })
       },
     }
@@ -61,5 +69,7 @@ button
 input
   width:100%
 
+img
+    width: 100%
 
 </style>

@@ -53,7 +53,7 @@ li
     font-family:sans-serif
     display: block;
     :hover
-        background:accent3
+        background:accent1
 
 a
   text-decoration: none;

@@ -18,12 +18,13 @@ app.use(bodyParser.urlencoded({
 
 function buildResCallback(res){
     return (err, brainResponse) => {
-        if (err || res.body.error || !brainResponse) {
+        console.log({err,brainResponse})
+        if (err || !brainResponse) {
             console.log('returning error')
             res.send('brain error')
         } else {
-          console.log("sending", {brainResponse: brainResponse.body})
-          res.send(brainResponse.body)
+            console.log("sending", {brainResponse: brainResponse.body})
+            res.send(brainResponse.body)
         }
     }
 }
@@ -32,12 +33,10 @@ app.get('/v1/member/:address', (req, res) => {
   dbQueries.getEventsForAddress(req.params.address, (err, history)=> {
       res.json(history)
   })
-
 })
 
 app.post('/new_member', (req, res) => {
   console.log("/new_member", req.body)
-
   newMember(
     req.body.name,
     req.body.email,
@@ -159,7 +158,7 @@ function cashReceived(amount, notes, callback) {
       notes
     }
   }
-  cashPost(newEvent, callback)
+  dctrlPost(newEvent, callback)
 }
 
 function cashExpense(amount, notes, callback) {
@@ -170,7 +169,7 @@ function cashExpense(amount, notes, callback) {
       notes
     }
   }
-  cashPost(newEvent, callback)
+  dctrlPost(newEvent, callback)
 }
 
 function memberCharged(address, amount, notes, callback) {
@@ -242,9 +241,9 @@ function bountyPost(data, callback) {
     .end(callback)
 }
 
-function cashPost(data, callback) {
+function dctrlPost(data, callback) {
   request
-    .post(config.brainLocation + "cash")
+    .post(config.brainLocation + "dctrl")
     .send(data)
     .end(callback)
 }
