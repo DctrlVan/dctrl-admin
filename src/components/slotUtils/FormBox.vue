@@ -59,7 +59,10 @@ form
   border-style:dotted
   border-width:1px
   padding: 2em
-  width:100%
+  width:95%
+  color: accent1
+  margin: 1em
+
 
 button
   width: 100%

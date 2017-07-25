@@ -1,21 +1,27 @@
 <template lang='jade'>
 
-main
-  .side_bar
-      main-menu
-  .content
-      transition(name='fade')
-          router-view
+#app
+    .mobile
+        mobile-heading
+            transition(name='fade')
+                router-view
+    main
+      .side_bar
+          main-menu
+      .content
+          transition(name='fade')
+              router-view
 
 </template>
 
 <script>
 
 import MainMenu from './MainMenu.vue'
+import MobileHeading from './MobileHeading'
 
 export default {
     components: {
-        MainMenu,
+        MainMenu, MobileHeading
     },
 }
 
@@ -29,7 +35,7 @@ export default {
 @import "../styles/framework"
 @import "../styles/colours"
 
-html, body, main, #app
+main
   height: 100%;
   width: 100%;
   margin: 0;
@@ -54,6 +60,14 @@ main
   flex-shrink: 0;
   flex-grow: 0;
 }
+
+@media (max-width: breakpoint)
+    main
+        display: none
+
+@media (min-width: breakpoint)
+    .mobile
+        display: none
 
 .fade-enter-active
     transition: all 2s ease

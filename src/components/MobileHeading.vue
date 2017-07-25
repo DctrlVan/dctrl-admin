@@ -4,11 +4,11 @@
     a.hamburger(href="#", @click.prevent='toggleHeaderNav')
         img(src='../assets/images/hamburger.svg')
     nav.wrapper
-        .logo
-            router-link(to="/")
-                img(src='../assets/images/dctrl.svg')
-        navigation(v-if="showHeaderNav").navigation--header
-
+        router-link(to="/")
+            img(src='../assets/images/dctrl.svg')
+        .toggle(v-if="showHeaderNav" @click="toggleHeaderNav")
+            navigation().navigation--header
+    slot
 
 </template>
 
@@ -24,6 +24,7 @@ export default {
     },
     methods:{
       toggleHeaderNav(){
+        console.log('toglin')
         this.showHeaderNav = !this.showHeaderNav
       },
     },

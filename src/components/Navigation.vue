@@ -39,6 +39,9 @@ export default {
 
 @import '../styles/colours'
 
+.navigation
+    color: accent1
+
 .setup, .lists, .cash
     padding:10px
 ul
