@@ -4,27 +4,19 @@ ul.navigation
   .setup
     label setup
     li
-      router-link(to='/NEW_MEMBER') New Member
+      router-link(to='/NEW_MEMBER') Create Member
     li
       router-link(to='/CREATE_BOUNTY') Create Bounty
   .lists
-    label browse
-    li
-      router-link(to='/MEMBER_LIST') Member List
-    li
-      router-link(to='/BOUNTY_LIST') Bounty List
-    li
-      router-link(to='/ACTIVE_BOUNTIES') Active Bounties
-  .cash
     label manage
     li
-      router-link(to='/MEMBER_PAID') Member Paid
+      router-link(to='/MEMBER_LIST') Members
+    li
+      router-link(to='/ACTIVE_BOUNTIES') Bounties
+  .cash
+    label todo
     li
       router-link(to='/STOCK_SUPPLIES') Stock Supplies
-    li
-      router-link(to='/CASH_EXPENSE') Cash Expense
-    li
-      router-link(to='/CASH_RECEIVED') Cash Received
     li
       router-link(to='/EDIT_BOUNTY') Edit Bounty
 

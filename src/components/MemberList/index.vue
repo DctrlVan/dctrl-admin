@@ -2,15 +2,17 @@
 
 #member
     shared-title(title='Member List')
-    mli(v-for="m in members", :m="m")
+    tab
+        row(v-for="m in members", :m="m")
 
 
 </template>
 
 <script>
-import Mli from "./Mli"
+import Row from "./Row"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
+import Tab from './Tab'
 
 export default {
     data(){
@@ -31,7 +33,8 @@ export default {
     },
     components:{
         SharedTitle,
-        Mli
+        Row,
+        Tab
     }
 }
 
@@ -40,5 +43,8 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
+
+#member
+    width: 100%
 
 </style>

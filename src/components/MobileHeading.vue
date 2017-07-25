@@ -34,16 +34,16 @@ export default {
 <style lang="stylus" scoped>
 @import "../styles/framework"
 @import "../styles/breakpoints"
+@import "../styles/colours"
 #mobileheading
     display:fixed
     width:100%
     background:main
+    color: accent1
 img
     height:90px
 .hamburger
     position:absolute
     right:0
-@media (min-width: breakpoint)
-    #mobileheading
-        display:none
+
 </style>
