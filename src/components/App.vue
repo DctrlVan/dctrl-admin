@@ -1,7 +1,6 @@
 <template lang='jade'>
 
 main
-  mobile-heading
   .side_bar
       main-menu
   .content
@@ -13,12 +12,10 @@ main
 <script>
 
 import MainMenu from './MainMenu.vue'
-import MobileHeading from './MobileHeading.vue'
 
 export default {
     components: {
         MainMenu,
-        MobileHeading
     },
 }
 
@@ -31,12 +28,6 @@ export default {
 @import "../styles/breakpoints"
 @import "../styles/framework"
 @import "../styles/colours"
-
-*
-  box-sizing: padding-box;
-
-html, body
-  overflow: hidden;
 
 html, body, main, #app
   height: 100%;
@@ -59,16 +50,10 @@ main
    padding:0 5rem
 
 .side_bar {
-  flex-basis: 30rem;
+  flex-basis: 10rem;
   flex-shrink: 0;
   flex-grow: 0;
-  background-color:#202020
 }
-
-@media (max-width: breakpoint)
-    .side_bar, .tron
-        display:none
-
 
 .fade-enter-active
     transition: all 2s ease
