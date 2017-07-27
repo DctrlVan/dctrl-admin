@@ -52,5 +52,7 @@ li a
     color: accent2
     text-decoration: none;
 
+li a:visited
+    color: accent2
 
 </style>

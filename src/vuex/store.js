@@ -1,21 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import director from './modules/director'
-import members from './modules/members'
-import bounties from './modules/bounties'
-import commitments from './modules/commitments'
-import calendar from './modules/calendar'
+import brain from './modules/brain'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    director,
-    members,
-    bounties,
-    commitments,
-    calendar,
+    brain
   },
   middlewares: [],
   strict: process.env.NODE_ENV !== 'production'
