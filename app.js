@@ -116,6 +116,7 @@ app.get('/current_state', (req, res) => {
         console.log(err)
         return null
       }
+      console.log('/current_state ::', res2.body)
       res.json(res2.body)
     })
 })

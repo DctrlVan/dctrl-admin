@@ -27,13 +27,10 @@ ul.navigation
 
 <script>
 export default {
-    data(){
-        return {
-            // todo: time to vuex
-            supplies: 13
-        }
-    },
     computed: {
+        supplies(){
+            return this.$store.state.brain.dctrl.supplies.bitpepsi
+        },
         low(){
             return this.supplies < 100
         }

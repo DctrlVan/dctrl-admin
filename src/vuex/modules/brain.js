@@ -1,7 +1,9 @@
 import request from 'superagent'
 
 const state = {
-    dctrl:{},
+    dctrl:{
+        supplies: {bitpepsi: '0'},
+    },
     members:[],
     bounties:[]
 }
@@ -11,15 +13,15 @@ const mutations = {
         state.dctrl = newState.dctrl
         state.members = newState.members
         state.bounties = newState.bounties
+        console.log({state})
     }
 }
 
 const actions = {
     getState({ state, commit }){
         request.get('/current_state')
-            .end((err, newState)=> {
-                console.log({err, newState})
-                commit('load', newState)
+            .end((err, res)=> {
+                commit('load', res.body)
             })
     }
 }
