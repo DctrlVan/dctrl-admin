@@ -6,6 +6,8 @@ tr
     td {{m.balance}}
     td
         button(@click='switchToMember(m.address)') details
+    td
+        input(type="checkbox") 
 
 </template>
 

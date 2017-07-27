@@ -30,7 +30,7 @@ export default {
     data(){
         return {
             // todo: time to vuex
-            supplies: 1
+            supplies: 13
         }
     },
     computed: {

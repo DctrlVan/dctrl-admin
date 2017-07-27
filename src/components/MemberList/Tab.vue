@@ -6,6 +6,7 @@ table
         th address
         th balance
         th inspect
+        th active
     slot
 
 </template>

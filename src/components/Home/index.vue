@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 #home
-    shared-title(title='About')
+    shared-title(title='dctrl community commons')
     p
         span The code for this admin is hosted here:  &nbsp;
         a(href='https://github.com/DecentralVan/dctrlapp') dctrlapp
