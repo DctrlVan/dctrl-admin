@@ -35,7 +35,7 @@ export default {
     methods:{
         toEdit(){
 
-            this.$router.push('EDIT_BOUNTY');
+            this.$router.push('EDIT_BOUNTY/' + this.b['bounty-id']);
         }
     }
 }
