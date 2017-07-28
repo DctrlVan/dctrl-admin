@@ -28,44 +28,12 @@ function calculatePayout(monthValue, lastClaimed, now){
 }
 
 export default {
-  data(){
-      return {
-          bounties: []
-      }
-  },
-  mounted(){
-      request
-          .get('/current_state')
-          .end( (err, res)=> {
-              console.log("response from /current_state::")
-              console.log(res.body)
-              let now = Date.now()
-              let tempBounties = []
-              res.body.bounties.forEach(bounty => {
-                  let processedBounty = {
-                      name: bounty.name,
-                      currentValue: calculatePayout(bounty.value, bounty['last-claimed'], now),
-                      monthValue: bounty.value,
-                      lastClaimed: bounty['last-claimed']
-                  }
-                  tempBounties.push(processedBounty)
-              })
-              this.bounties = tempBounties.sort((a,b) => {
-                  return b.currentValue - a.currentValue
-              })
-          })
-      setInterval(()=>{
-          let now = Date.now()
-          let tempBounties = []
-
-          this.bounties.forEach(bounty => {
-              bounty.currentValue = calculatePayout(bounty.monthValue, bounty.lastClaimed, now)
-              tempBounties.push(bounty)
-          })
-          this.bounties = tempBounties.sort((a,b) => {
+  computed: {
+      bounties(){
+          return this.$store.state.brain.bounties.sort((a,b) => {
               return b.currentValue - a.currentValue
           })
-      }, 500)
+      }
   },
     components:{
         SharedTitle,
