@@ -1,13 +1,19 @@
 <template lang='jade'>
 
 tr
-    td {{m.name}}
-    td {{m.address}}
+    td.bkg
+        span.name {{m.name}}
+    td.small {{m.address}}
     td {{m.balance}}
     td
         button(@click='switchToMember(m.address)') details
     td
-        input(type="checkbox") 
+        input(type="checkbox")
+    td
+        button(@click='') pay
+    td
+        button(@click='') charge
+
 
 </template>
 
@@ -31,6 +37,22 @@ export default {
 </script>
 
 <style lang="stylus">
+
+@import '../../styles/colours'
+
+.bkg
+    background: accent3
+
+.small
+    font-size: .3em
+
+.name
+    color: main
+    font-size: 1.3em
+    text-align: center
+    margin: 10px
+    width:100%
+    padding:1em
 
 // TODO: style .inactive / or .active
 

@@ -7,6 +7,8 @@ table
         th balance
         th inspect
         th active
+        th pay
+        th charge
     slot
 
 </template>

@@ -48,11 +48,11 @@ h3
     color:accent1
     font-family: 'Open Sans', light, sans-serif;
 
-li a
+a
     color: accent2
     text-decoration: none;
 
-li a:visited
-    color: accent2
+a:visited
+    color: accent
 
 </style>
