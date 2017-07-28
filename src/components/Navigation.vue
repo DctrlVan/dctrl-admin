@@ -11,11 +11,11 @@ ul.navigation
     label manage
     li
       router-link(to='/MEMBER_LIST') Members
-    li
+    li()
       router-link(to='/ACTIVE_BOUNTIES') Bounties
   .cash
     label todo
-    li
+    li()
       router-link(to='/STOCK_SUPPLIES') Stock Supplies
           span
               span.red(v-if='low')  ( {{supplies}} )
@@ -27,6 +27,21 @@ ul.navigation
 
 <script>
 export default {
+    methods:{
+        match(route){
+            let matched = route == this.$router.currentRoute.path
+            console.log({route, matched})
+            return {
+                selected: matched
+            }
+        }
+    },
+    data(){
+        console.log("current route 2412312@#@#", this.$router.currentRoute.path)
+        return {
+            current: this.$router.currentRoute.path
+        }
+    },
     computed: {
         supplies(){
             return this.$store.state.brain.dctrl.supplies.bitpepsi
@@ -51,10 +66,9 @@ export default {
 .red
     color: red
 
-ul
-    list-style: none;
-
-li
+.router-link-active
+    box-shadow:3px 3px 3px accent1
+    border-radius: 30%
     margin-bottom: 0;
     border-bottom-style:solid
     border-width:1px
@@ -62,8 +76,34 @@ li
     list-style: none;
     font-family:sans-serif
     display: block;
-    :hover
-        background:accent1
+    box-shadow:4px 4px 4px accent2
+    font-size: 1.2em
+
+
+ul
+    list-style: none;
+
+li
+    box-shadow:3px 3px 3px accent1
+    border-radius: 30%
+    margin-bottom: 0;
+    border-bottom-style:solid
+    border-width:1px
+    border-color:accent1
+    list-style: none;
+    font-family:sans-serif
+    display: block;
+
+li:hover
+    transition: font-size 3s
+    box-shadow:4px 4px 4px accent2
+    color:accent2
+    font-size: 1.2em
+
+.selected
+    box-shadow:4px 4px 4px accent2
+    color:accent2
+    font-size: 1.2em
 
 a
   text-decoration: none;
