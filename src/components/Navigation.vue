@@ -78,10 +78,8 @@ export default {
     display: block;
     box-shadow:4px 4px 4px accent2
     font-size: 1.2em
+    color:accent2
 
-
-ul
-    list-style: none;
 
 li
     box-shadow:3px 3px 3px accent1
@@ -95,10 +93,7 @@ li
     display: block;
 
 li:hover
-    transition: font-size 3s
     box-shadow:4px 4px 4px accent2
-    color:accent2
-    font-size: 1.2em
 
 .selected
     box-shadow:4px 4px 4px accent2
