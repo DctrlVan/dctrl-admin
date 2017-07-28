@@ -6,6 +6,9 @@ table
         th address
         th balance
         th inspect
+        th active
+        th pay
+        th charge
     slot
 
 </template>
@@ -18,13 +21,6 @@ table
 export default {
     props: ['m'],
     components: {  },
-    methods: {
-        switchToMember(address){
-            // use vuex state to pass to member component?
-            console.log('this is supposed to redirect to member/' + address)
-            this.$router.push('member/' + address);
-        }
-    }
 }
 
 </script>

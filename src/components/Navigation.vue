@@ -17,6 +17,9 @@ ul.navigation
     label todo
     li
       router-link(to='/STOCK_SUPPLIES') Stock Supplies
+          span
+              span.red(v-if='low')  ( {{supplies}} )
+              span(v-else) ( {{supplies}} )
     li
       router-link(to='/EDIT_BOUNTY') Edit Bounty
 
@@ -24,6 +27,14 @@ ul.navigation
 
 <script>
 export default {
+    computed: {
+        supplies(){
+            return this.$store.state.brain.dctrl.supplies.bitpepsi
+        },
+        low(){
+            return this.supplies < 100
+        }
+    }
 }
 </script>
 
@@ -36,6 +47,10 @@ export default {
 
 .setup, .lists, .cash
     padding:10px
+
+.red
+    color: red
+
 ul
     list-style: none;
 

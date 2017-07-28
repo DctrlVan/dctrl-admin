@@ -93,12 +93,19 @@ app.post('/create_bounty', (req, res) => {
     bountyCreate(name, description, value, fob, buildResCallback(res) )
 })
 
-app.post('/claim_bounty', (req, res) => {
-    console.log("resbody", res.body)
-    //TODO finish
-    let bountyId = "4f37e360-4caf-11e7-ae6e-e9ad780f3651"
-    let address = "3EerW4nQeMRJUTjM8UBbsdQPZxDA3VKdGX"
-    bountyClaim( bountyId, address, buildResCallback(res) )
+// app.post('/claim_bounty', (req, res) => {
+//     console.log("resbody", res.body)
+//     //TODO finish
+//     let bountyId = "4f37e360-4caf-11e7-ae6e-e9ad780f3651"
+//     let address = "3EerW4nQeMRJUTjM8UBbsdQPZxDA3VKdGX"
+//     bountyClaim( bountyId, address, buildResCallback(res) )
+// })
+
+app.post('/stock_supplies', (req, res) => {
+    // need to expand types
+    let amount = req.body.amount
+    let notes = req.body.notes
+    stockSupplies(amount, notes, buildResCallback(res))
 })
 
 app.get('/current_state', (req, res) => {
@@ -109,6 +116,7 @@ app.get('/current_state', (req, res) => {
         console.log(err)
         return null
       }
+      console.log('/current_state ::', res2.body)
       res.json(res2.body)
     })
 })
@@ -170,6 +178,19 @@ function cashExpense(amount, notes, callback) {
     }
   }
   dctrlPost(newEvent, callback)
+}
+
+function stockSupplies(amount, notes, callback){
+    let newEvent = {
+        action: {
+            type: 'supplies-stocked',
+            amount,
+            'supply-type': 'bitpepsi',
+            notes
+        }
+    }
+    console.log("sending:", newEvent)
+    dctrlPost(newEvent, callback)
 }
 
 function memberCharged(address, amount, notes, callback) {

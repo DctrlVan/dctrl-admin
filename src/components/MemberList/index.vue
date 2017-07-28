@@ -15,21 +15,10 @@ import SharedTitle from '../slotUtils/SharedTitle'
 import Tab from './Tab'
 
 export default {
-    data(){
-        return {
-            members: []
+    computed: {
+        members(){
+            return this.$store.state.brain.members
         }
-    },
-    mounted(){
-        request
-            .get('/current_state')
-            .end( (err, res)=> {
-                console.log("response from /current_state::")
-                console.log(res.body)
-                res.body.members.forEach(member => {
-                    this.members.push(member)
-                })
-            })
     },
     components:{
         SharedTitle,

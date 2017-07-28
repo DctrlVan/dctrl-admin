@@ -12,21 +12,10 @@ import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
-    data(){
-        return {
-            bounties: []
+    computed: {
+        bounties(){
+            return this.$store.state.brain.bounties
         }
-    },
-    mounted(){
-        request
-            .get('/current_state')
-            .end( (err, res)=> {
-                console.log("response from /current_state::")
-                console.log(res.body)
-                res.body.bounties.forEach(bounty => {
-                    this.bounties.push(bounty)
-                })
-            })
     },
     components:{
         SharedTitle,

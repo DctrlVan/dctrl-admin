@@ -2,16 +2,30 @@
 
 #stocksupplies
     shared-title(title='Stock Supplies')
-    p test
+    form-box(btntxt="Loaded"  endpoint='/stock_supplies' v-bind:data='info')
+        label amount
+        input(v-model='info.amount' type='text')
+        label notes
+        input(v-model='info.notes' type='text')
+
 </template>
 
 <script>
 
 import SharedTitle from '../slotUtils/SharedTitle'
+import FormBox from '../slotUtils/FormBox'
 
 export default {
+    data(){
+      return {
+          info: {
+              amount:'',
+              notes: ''
+          }
+      }
+    },
     components:{
-        SharedTitle
+        SharedTitle, FormBox
     }
 }
 

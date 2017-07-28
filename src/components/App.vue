@@ -20,6 +20,10 @@ import MainMenu from './MainMenu.vue'
 import MobileHeading from './MobileHeading'
 
 export default {
+    mounted(){
+        console.log('dispatching getstate')
+        this.$store.dispatch('getState')
+    },
     components: {
         MainMenu, MobileHeading
     },
@@ -29,7 +33,6 @@ export default {
 </script>
 
 <style lang="stylus">
-
 
 @import "../styles/breakpoints"
 @import "../styles/framework"

@@ -35,10 +35,10 @@ const routes = [{
       path: '/new_member',
       component: NewMember
     },{
-      path: '/member_paid',
+      path: '/member_paid/*',
       component: MemberPaid
     },{
-      path: '/member_charged',
+      path: '/member_charged/*',
       component: MemberCharged
     },{
       path: '/member_deactivate',

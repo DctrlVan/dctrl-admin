@@ -1,6 +1,6 @@
 <template lang='jade'>
 
-form
+form(v-on:submit.prevent="")
     div(v-if='response')
         div(v-if='response.error')
             h5 Uh oh something went wrong, check your fields.
@@ -13,6 +13,8 @@ form
                 router-link(to='/')
                     button ok
     slot(v-else)
+    .hidden
+        input#fob(v-model='memberFob' type='text')
     button(v-if='!response' @click.prevent='post') {{ btntxt }}
 
 </template>
@@ -23,7 +25,10 @@ import Action from './Action'
 
 export default {
     data(){
-      return { response: false }
+      return {
+          response: false,
+          memberFob: ""
+       }
     },
     props: ['endpoint', 'data', 'btntxt'],
     components: { Action },
@@ -31,6 +36,7 @@ export default {
       post(){
         console.log("to backend::", this.data)
         this.response = {} // hides forms
+
         request
             .post(this.endpoint)
             .send(this.data)
@@ -54,6 +60,10 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
+
+.hidden
+  display:none
+
 
 form
   border-style:dotted
