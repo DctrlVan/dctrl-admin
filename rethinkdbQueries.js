@@ -46,7 +46,7 @@ module.exports = {
 
 r.connect({
         db: 'eventstate',
-        host: '192.168.0.127'
+        host: '192.168.0.109'
     }).then(c => {
         conn = c
     })

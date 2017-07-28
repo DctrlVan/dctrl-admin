@@ -1,3 +1,3 @@
 module.exports = {
-    brainLocation: "192.168.0.127:3000/"
+    brainLocation: "192.168.0.109:3000/"
 }

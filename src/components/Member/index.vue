@@ -29,6 +29,8 @@ export default {
         SharedTitle
     },
     mounted(){
+        this.listOfMemberChargedActions = []
+        this.listOfMemberPaidActions = []
         let component = this
         console.log("this.$router.currentRoute.path:", this.$router.currentRoute.path)
         let address = this.$router.currentRoute.path.split('/')[2]
