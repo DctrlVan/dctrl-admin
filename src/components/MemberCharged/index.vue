@@ -6,7 +6,7 @@
         label address
         input(v-model='member.address' type='text')
         label amount
-        input(v-model='member.amount' type='text')
+        input(autofocus="autofocus" v-model='member.amount' type='text')
         label notes
         input(v-model='member.notes' type='text')
 
@@ -17,11 +17,17 @@ import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
 
 export default {
+    mounted(){
+        let address = this.$router.currentRoute.path.split('/')[2]
+        if (address){
+          this.member.address = address
+        }
+    },
     data(){
         return {
             member: {
                 address: '',
-                amount: 0,
+                amount: '',
                 notes: ''
             }
         }

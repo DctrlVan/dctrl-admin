@@ -6,13 +6,15 @@ tr
     td.small {{m.address}}
     td {{m.balance}}
     td
-        button(@click='switchToMember(m.address)') details
+        button(@click='switchToMember(m.address)') &#9776;
     td
         input(type="checkbox")
     td
-        button(@click='') pay
+        router-link(:to='payLocation')
+            button() pay
     td
-        button(@click='') charge
+        router-link(:to='chargeLocation')
+            button(@click='') charge
 
 
 </template>
@@ -24,7 +26,14 @@ tr
 
 export default {
     props: ['m'],
-    components: {  },
+    computed: {
+        payLocation(){
+            return '/MEMBER_PAID/' + this.m.address
+        },
+        chargeLocation(){
+            return '/MEMBER_CHARGED/' + this.m.address
+        }
+    },
     methods: {
         switchToMember(address){
             // use vuex state to pass to member component?
