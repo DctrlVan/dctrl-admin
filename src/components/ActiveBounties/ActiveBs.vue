@@ -4,6 +4,8 @@ tr
     td {{b.name}}
     td {{currentValue}}
     td {{b.value}}
+    td
+        button(@click='toEdit') edit
 
 </template>
 
@@ -23,13 +25,19 @@ export default {
     mounted(){
         setInterval( ()=>{
             this.currentValue = calculatePayout(this.b['value'], this.b['last-claimed'], Date.now())
-        },2222)
+        },3333)
     },
     data() {
         return {
             currentValue: ''
         }
     },
+    methods:{
+        toEdit(){
+
+            this.$router.push('EDIT_BOUNTY');
+        }
+    }
 }
 
 </script>

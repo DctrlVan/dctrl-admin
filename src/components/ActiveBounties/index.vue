@@ -9,6 +9,7 @@
                 th Bounty Name
                 th Current Value
                 th Monthly Value
+                th Edit
         tbody
             active-bs(v-for="b in bounties", :b="b")
 
@@ -18,14 +19,6 @@
 import ActiveBs from "./ActiveBs"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
-
-function calculatePayout(monthValue, lastClaimed, now){
-    let msSince = now - lastClaimed*1000
-    let today = new Date()
-    let daysThisMonth = new Date(today.getYear(), today.getMonth(), 0).getDate()
-    let msThisMonth = daysThisMonth * 24 * 60 * 60 * 1000
-    return (msSince / msThisMonth) * monthValue
-}
 
 export default {
   computed: {
