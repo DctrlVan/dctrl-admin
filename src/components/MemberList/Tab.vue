@@ -5,10 +5,9 @@ table
         th name
         th address
         th balance
-        th inspect
+        th history
         th active
-        th pay
-        th charge
+        th pay with cash
     slot
 
 </template>

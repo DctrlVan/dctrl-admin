@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 tr
-    td.bkg
+    td
         span.name {{m.name}}
     td.small {{m.address}}
     td {{m.balance}}
@@ -12,10 +12,6 @@ tr
     td
         router-link(:to='payLocation')
             button() pay
-    td
-        router-link(:to='chargeLocation')
-            button(@click='') charge
-
 
 </template>
 
@@ -45,23 +41,27 @@ export default {
 
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 
 @import '../../styles/colours'
 
-.bkg
-    background: accent3
-
-.small
-    font-size: .3em
-
 .name
-    color: main
-    font-size: 1.3em
+    color: accent2
+    font-size: 1.4em
     text-align: center
     margin: 10px
     width:100%
     padding:1em
+
+
+.small
+    font-size: .5em
+
+button
+    background: accent2
+    color: black
+    border: none
+
 
 // TODO: style .inactive / or .active
 

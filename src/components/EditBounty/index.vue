@@ -1,18 +1,51 @@
 <template lang='jade'>
 
 #editbounty
-    shared-title(title='Edit Bounty')
-    p test
+    shared-title(:title='getTitle')
+    form-box(btntxt="Edit Bounty" endpoint='/edit_bounty' v-bind:data="info")
+        label New Monthly Amount
+        input(v-model='info.amount' type='text')
+        label notes
+        input(v-model='info.notes' type='text')
 
 </template>
 
 <script>
 
 import SharedTitle from '../slotUtils/SharedTitle'
+import FormBox from '../slotUtils/FormBox'
 
 export default {
+    mounted(){
+        let bountyId = this.$router.currentRoute.path.split('/')[2]
+        if (bountyId){
+          this.info.bountyId = bountyId
+        }
+    },
+    computed: {
+        getTitle(){
+            let title
+            // todo how often?
+            console.log('calc getTitle')
+            this.$store.state.brain.bounties.forEach(b => {
+                if (b['bounty-id'] == this.info.bountyId){
+                    title = "Edit " + b.name + " Bounty!"
+                }
+            })
+            return title
+        }
+    },
+    data(){
+        return {
+            info: {
+                bountyId: '',
+                amount:'',
+                notes: ''
+            }
+        }
+    },
     components:{
-        SharedTitle
+        SharedTitle, FormBox
     }
 }
 
