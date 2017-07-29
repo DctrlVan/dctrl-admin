@@ -57,7 +57,6 @@ app.post('/member_paid', (req, res) => {
 })
 
 app.post('/member_charged', (req, res) => {
-  console.log("/member_charged", req.body)
   memberCharged(
     req.body.address,
     req.body.amount,
@@ -67,25 +66,23 @@ app.post('/member_charged', (req, res) => {
 })
 
 app.post('/member_deactivate', (req, res) => {
-  console.log("/member_deactivate", req.body)
-  let address = req.body.address
-  memberDeactivate( address, buildResCallback(res) )
+    let address = req.body.address
+    memberDeactivate( address, buildResCallback(res) )
 })
 
 app.post('/cash_expense', (req, res) => {
-  let amount = req.body.amount
-  let notes = req.body.notes
-  cashExpense(amount, notes, buildResCallback(res))
+    let amount = req.body.amount
+    let notes = req.body.notes
+    cashExpense(amount, notes, buildResCallback(res))
 })
 
 app.post('/cash_received', (req, res) => {
-  let amount = req.body.amount
-  let notes = req.body.notes
-  cashReceived(amount, notes, buildResCallback(res) )
+    let amount = req.body.amount
+    let notes = req.body.notes
+    cashReceived(amount, notes, buildResCallback(res) )
 })
 
 app.post('/create_bounty', (req, res) => {
-    console.log("resbody", req.body)
     let name = req.body.name
     let description = req.body.description
     let value = req.body.value
@@ -108,15 +105,20 @@ app.post('/stock_supplies', (req, res) => {
     stockSupplies(amount, notes, buildResCallback(res))
 })
 
+app.post('/edit_bounty', (req,res)=> {
+    let bountyId = req.body.bountyId
+    let amount = req.body.amount
+    let notes = req.body.notes
+    editBounty(bountyId, amount, notes, buildResCallback(res))
+})
+
 app.get('/current_state', (req, res) => {
   request
     .get(config.brainLocation)
     .end((err, res2) => {
       if (err) {
-        console.log(err)
-        return null
+          return null
       }
-      console.log('/current_state ::', res2.body)
       res.json(res2.body)
     })
 })
@@ -129,6 +131,19 @@ let PORT = process.env.PORT || 8003
 app.listen(PORT, err => {
   console.log("Listening on port", PORT);
 });
+
+
+function editBounty(bountyId, amount, notes, callback){
+    let newEvent = {
+        action: {
+            type: "bounty-update-value",
+            value: amount,
+            'bounty-id':bountyId,
+            notes
+        }
+    }
+    bountyPost(newEvent, callback)
+}
 
 function newMember(name, email, fob, address, callback) {
   let newEvent = {

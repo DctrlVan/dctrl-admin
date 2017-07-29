@@ -25,15 +25,15 @@ export default {
     computed: {
         getTitle(){
             let title
+            // todo how often?
+            console.log('calc getTitle')
             this.$store.state.brain.bounties.forEach(b => {
                 if (b['bounty-id'] == this.info.bountyId){
                     title = "Edit " + b.name + " Bounty!"
                 }
             })
             return title
-
         }
-
     },
     data(){
         return {

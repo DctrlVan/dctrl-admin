@@ -23,9 +23,8 @@ import SharedTitle from '../slotUtils/SharedTitle'
 export default {
   computed: {
       bounties(){
-          return this.$store.state.brain.bounties.sort((a,b) => {
-              return b.currentValue - a.currentValue
-          })
+          let bounties = this.$store.state.brain.bounties
+          return bounties
       }
   },
     components:{

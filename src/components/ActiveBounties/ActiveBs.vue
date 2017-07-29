@@ -9,7 +9,6 @@ tr
 
 </template>
 
-
 <script>
 
 function calculatePayout(monthValue, lastClaimed, now){
@@ -34,7 +33,6 @@ export default {
     },
     methods:{
         toEdit(){
-
             this.$router.push('EDIT_BOUNTY/' + this.b['bounty-id']);
         }
     }
