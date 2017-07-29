@@ -7,8 +7,8 @@
         thead
             tr
                 th Bounty Name
-                th Current Value
-                th Monthly Value
+                th Current Value ($)
+                th Monthly Value ($)
                 th Edit
         tbody
             active-bs(v-for="b in bounties", :b="b")

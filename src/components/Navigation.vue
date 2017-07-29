@@ -13,15 +13,17 @@ ul.navigation
       router-link(to='/MEMBER_LIST') Members
     li()
       router-link(to='/ACTIVE_BOUNTIES') Bounties
-  .cash
-    label todo
-    li()
-      router-link(to='/STOCK_SUPPLIES') Stock Supplies
-          span
-              span.red(v-if='low')  ( {{supplies}} )
-              span(v-else) ( {{supplies}} )
     li
-      router-link(to='/EDIT_BOUNTY') Edit Bounty
+        router-link(to='/STOCK_SUPPLIES') Supplies
+            span
+                span.red(v-if='low')  ( {{supplies}} )
+                span(v-else) ( {{supplies}} )
+    label Cash
+    li
+        router-link(to='/CASH_EXPENSE') Expend
+    li
+        router-link(to='/cash_received') Receive
+
 
 </template>
 

@@ -22,8 +22,9 @@ function calculatePayout(monthValue, lastClaimed, now){
 export default {
     props: ['b'],
     mounted(){
+        this.currentValue = calculatePayout(this.b['value'], this.b['last-claimed'], Date.now()).toFixed(6)
         setInterval( ()=>{
-            this.currentValue = calculatePayout(this.b['value'], this.b['last-claimed'], Date.now())
+            this.currentValue = calculatePayout(this.b['value'], this.b['last-claimed'], Date.now()).toFixed(6)
         },3333)
     },
     data() {
