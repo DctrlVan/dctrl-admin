@@ -18,7 +18,7 @@ ul.navigation
             span
                 span.red(v-if='low')  ( {{supplies}} )
                 span(v-else) ( {{supplies}} )
-    label Cash
+    label Cash - {{cadBalance}}
     li
         router-link(to='/CASH_EXPENSE') Expend
     li
@@ -50,7 +50,10 @@ export default {
         },
         low(){
             return this.supplies < 100
-        }
+        },
+        cadBalance(){
+            return this.$store.state.brain.dctrl.cash.CAD
+        },
     }
 }
 </script>

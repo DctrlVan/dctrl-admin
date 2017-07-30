@@ -2,7 +2,8 @@ import request from 'superagent'
 
 const state = {
     dctrl:{
-        supplies: {bitpepsi: '0'}
+        supplies: {bitpepsi: '0'},
+        cash: {CAD: '0'}
     },
     members:[
       {"active?":true,"address":"3NfzURFaxqdDwT8xa6Jwv49xEBrW6QnhAn","balance":"0.012961290776729584","email":"kenta.otani@gmail.com","fob":"0010199264","name":"Kenta"},
