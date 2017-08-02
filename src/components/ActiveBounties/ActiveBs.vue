@@ -6,6 +6,8 @@ tr
     td {{b.value}}
     td
         button(@click='toEdit') edit
+    td
+        button(@click='toBoost') boost
 
 </template>
 
@@ -35,6 +37,9 @@ export default {
     methods:{
         toEdit(){
             this.$router.push('EDIT_BOUNTY/' + this.b['bounty-id']);
+        },
+        toBoost(){
+            this.$router.push('BOOST_BOUNTY/' + this.b['bounty-id']);
         }
     }
 }

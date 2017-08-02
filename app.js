@@ -232,7 +232,7 @@ function memberDeactivate(address, callback) {
   memberPost(newEvent, callback)
 }
 
-function bountyCreate(name, description, value, cap, boost, fob, callback) {
+function bountyCreate(name, description, value, cap, fob, callback) {
   let newEvent = {
     action: {
       type: "bounty-created",
@@ -245,7 +245,7 @@ function bountyCreate(name, description, value, cap, boost, fob, callback) {
       address: "",
       notes: "dctrl-admin",
       cap,
-      boost
+      boost: '0'
     }
   }
   console.log("sending:", newEvent)

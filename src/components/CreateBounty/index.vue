@@ -7,8 +7,10 @@
         input(v-model='bounty.name' type='text')
         label description
         input(v-model='bounty.description' type='text')
-        label value
+        label Monthly Value
         input(v-model='bounty.value' type='text')
+        label Payout Maximum
+        input(v-model='bounty.cap')
         label fob
         input(v-model='bounty.fob' type='text')
 
@@ -27,6 +29,7 @@ export default {
                 description: '',
                 value: "",
                 fob: '',
+                cap: ''
             }
         }
     },
