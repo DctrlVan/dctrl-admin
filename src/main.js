@@ -21,6 +21,7 @@ import CashReceived from './components/CashReceived'
 import CreateBounty from './components/CreateBounty'
 import ClaimBounty from './components/ClaimBounty'
 import EditBounty from './components/EditBounty'
+import BoostBounty from './components/BoostBounty'
 import StockSupplies from './components/StockSupplies'
 import ActiveBounties from './components/ActiveBounties'
 import Member from './components/Member'
@@ -70,6 +71,9 @@ const routes = [{
     },{
       path: '/ACTIVE_BOUNTIES',
       component: ActiveBounties
+    },{
+      path: '/boost_bounty/*',
+      component: BoostBounty
     },{
       path: '/member/*',
       component: Member

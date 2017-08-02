@@ -86,8 +86,10 @@ app.post('/create_bounty', (req, res) => {
     let name = req.body.name
     let description = req.body.description
     let value = req.body.value
+    let boost = req.body.boost
+    let cap = req.body.cap
     let fob = req.body.fob
-    bountyCreate(name, description, value, fob, buildResCallback(res) )
+    bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
 })
 
 // app.post('/claim_bounty', (req, res) => {
@@ -230,7 +232,7 @@ function memberDeactivate(address, callback) {
   memberPost(newEvent, callback)
 }
 
-function bountyCreate(name, description, value, fob, callback) {
+function bountyCreate(name, description, value, cap, boost, fob, callback) {
   let newEvent = {
     action: {
       type: "bounty-created",
@@ -241,7 +243,9 @@ function bountyCreate(name, description, value, fob, callback) {
       'bounty-id': uuidV1(),
       'last-claimed': Date.now().toString(),
       address: "",
-      notes: "dctrl-admin"
+      notes: "dctrl-admin",
+      cap,
+      boost
     }
   }
   console.log("sending:", newEvent)

@@ -23,6 +23,8 @@ ul.navigation
         router-link(to='/CASH_EXPENSE') Expend
     li
         router-link(to='/cash_received') Receive
+    li todo
+        router-link(to='/boost_bounty/3b47bed0-4cc7-11e7-9e1b-7b250854a0f6') Boost Bounty
 
 
 </template>
