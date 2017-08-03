@@ -1,10 +1,11 @@
 const r = require('rethinkdb')
-
+const config = require('./conf')
 
 
 // todo time filter
 var conn
 function getEventsForAddress( address, callback ){
+  console.log('IN getEventsForAddress')
   r
       .table('events')
       .filter({action: { address }})
@@ -13,14 +14,14 @@ function getEventsForAddress( address, callback ){
 
           const listOfMemberPaidActions = []
           const listOfMemberChargedActions = []
+
           cursor.each( (err, ev)=>{
+                console.log({ev})
                 switch (ev.action.type) {
                     case 'member-charged':
-                        console.log('adding')
                         listOfMemberChargedActions.push(ev.action)
                         break
                     case 'member-paid':
-                        console.log('adding')
                         listOfMemberPaidActions.push(ev.action)
                         break
                 }
@@ -46,7 +47,7 @@ module.exports = {
 
 r.connect({
         db: 'eventstate',
-        host: '192.168.0.109'
+        host: config.rethinkLocation
     }).then(c => {
         conn = c
     })

@@ -36,7 +36,7 @@ export default {
         let address = this.$router.currentRoute.path.split('/')[2]
         console.log({address})
         this.address = address
-        let reqLoc = '/v1/member/' + address
+        let reqLoc = '/db/member/' + address
         console.log({reqLoc})
         request
             .get(reqLoc)
@@ -44,6 +44,7 @@ export default {
                 if (err) {
                     this.address = "sorry error, abort,... panic!"
                 }
+                console.log('res from backend', res.body)
                 res.body.listOfMemberChargedActions.forEach( charge => {
                     component.listOfMemberChargedActions.push(charge)
                 })

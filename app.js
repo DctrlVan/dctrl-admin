@@ -29,7 +29,7 @@ function buildResCallback(res){
     }
 }
 
-app.get('/v1/member/:address', (req, res) => {
+app.get('/db/member/:address', (req, res) => {
   dbQueries.getEventsForAddress(req.params.address, (err, history)=> {
       res.json(history)
   })
