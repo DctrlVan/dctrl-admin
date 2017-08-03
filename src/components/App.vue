@@ -3,14 +3,12 @@
 #app
     .mobile
         mobile-heading
-            transition(name='fade')
-                router-view
+            router-view
     main
       .side_bar
           main-menu
       .content
-          transition(name='fade')
-              router-view
+          router-view
 
 </template>
 
@@ -71,12 +69,5 @@ main
 @media (min-width: breakpoint)
     .mobile
         display: none
-
-.fade-enter-active
-    transition: all 2s ease
-
-.fade-enter, .fade-leave-to
-    opacity: 0;
-
 
 </style>

@@ -2,13 +2,16 @@
 
 #home
     shared-title(title='dctrl community commons')
-    p
-        span The code for this admin is hosted here:  &nbsp;
-        a(href='https://github.com/DecentralVan/dctrlapp') dctrlapp
-        span &nbsp; and the &nbsp;
-        a(href='https://github.com/decentralvan/eventstate') eventstate
+    p This is community management software for helping communities self-govern in a peer-to-peer way.
+    p All the code is open source including this admin interface, an eventstate database and rfid readers for bounty claiming, beverage vending, and door opening.
+        span hosted here:  the &nbsp;
+        a(href='https://github.com/DecentralVan/dctrl-admin') dctrl-admin
+        span , &nbsp;the &nbsp;
+        a(href='https://github.com/decentralvan/dctrl-brain') dctrl-brain
+        span , &nbsp;and the &nbsp;
+        a(href='https://github.com/decentralvan/dctrl-fobtap') dctrl-fobtap
         span .
-        p This is community management software for helping communities self-govern themselves in a peer-to-peer way. All the code is open source including a web interface for interaction and information for managing members, and a rfid fob system that controls access to commons property.
+    p Todo: explain why
 
 </template>
 

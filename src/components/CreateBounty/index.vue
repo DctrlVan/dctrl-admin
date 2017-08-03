@@ -11,8 +11,6 @@
         input(v-model='bounty.value' type='text')
         label Maximum Payout
         input(v-model='bounty.cap' type='text')
-        label fob
-        input(v-model='bounty.fob' type='text')
 
 </template>
 
@@ -28,7 +26,6 @@ export default {
                 name: '',
                 description: '',
                 value: '',
-                fob: '',
                 cap: ''
             }
         }
