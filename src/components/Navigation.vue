@@ -1,14 +1,12 @@
 <template lang='jade'>
 
 ul.navigation
-  .setup
-    label setup
+    label SETUP
     li
       router-link(to='/NEW_MEMBER') Create Member
     li
       router-link(to='/CREATE_BOUNTY') Create Bounty
-  .lists
-    label manage
+    label MANAGE
     li
       router-link(to='/MEMBER_LIST') Members
     li()
@@ -18,14 +16,11 @@ ul.navigation
             span
                 span.red(v-if='low')  ( {{supplies}} )
                 span(v-else) ( {{supplies}} )
-    label Cash - {{cadBalance}}
-    li
-        router-link(to='/CASH_EXPENSE') Expend
-    li
-        router-link(to='/cash_received') Receive
-    li todo
-        router-link(to='/boost_bounty/3b47bed0-4cc7-11e7-9e1b-7b250854a0f6') Boost Bounty
-
+    //- label Cash - {{cadBalance}}
+    //- li
+    //-     router-link(to='/CASH_EXPENSE') Expend
+    //- li
+    //-     router-link(to='/cash_received') Receive
 
 </template>
 
@@ -73,24 +68,24 @@ export default {
 .red
     color: red
 
-.router-link-active
-    box-shadow:3px 3px 3px accent1
-    border-radius: 30%
-    margin-bottom: 0;
+li:hover, .router-link-active
     border-bottom-style:solid
     border-width:1px
-    border-color:accent1
-    list-style: none;
+    border-color:accent2
     font-family:sans-serif
-    display: block;
-    box-shadow:4px 4px 4px accent2
-    font-size: 1.2em
     color:accent2
+
+label
+    font-family:sans-serif
+    font-weight: lighter
+    margin-top: .5em
+    background: accent1
+    color: main
+    padding: .1em
+    padding-left:1em
 
 
 li
-    box-shadow:3px 3px 3px accent1
-    border-radius: 30%
     margin-bottom: 0;
     border-bottom-style:solid
     border-width:1px
@@ -98,14 +93,6 @@ li
     list-style: none;
     font-family:sans-serif
     display: block;
-
-li:hover
-    box-shadow:4px 4px 4px accent2
-
-.selected
-    box-shadow:4px 4px 4px accent2
-    color:accent2
-    font-size: 1.2em
 
 a
   text-decoration: none;

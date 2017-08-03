@@ -114,6 +114,13 @@ app.post('/edit_bounty', (req,res)=> {
     editBounty(bountyId, amount, notes, buildResCallback(res))
 })
 
+app.post('/edit_bounty', (req,res)=> {
+    let bountyId = req.body.bountyId
+    let amount = req.body.amount
+    let notes = req.body.notes
+    boostBounty(bountyId, amount, notes, buildResCallback(res))
+})
+
 app.get('/current_state', (req, res) => {
   request
     .get(config.brainLocation)
@@ -141,6 +148,18 @@ function editBounty(bountyId, amount, notes, callback){
             type: "bounty-update-value",
             value: amount,
             'bounty-id':bountyId,
+            notes
+        }
+    }
+    bountyPost(newEvent, callback)
+}
+
+function boostBounty(bountyId, amount, notes, callback){
+    let newEvent = {
+        action: {
+            type: "bounty-boosted",
+            'bounty-id':bountyId,
+            amount,
             notes
         }
     }

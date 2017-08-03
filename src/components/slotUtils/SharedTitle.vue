@@ -16,6 +16,11 @@ export default {
 
 @import '../../styles/colours'
 
+div
+    border-bottom-style: solid
+    border-width: 26px
+
+
 h2
 		color:accent1
 		margin:0
@@ -23,5 +28,6 @@ h2
 		font-family: 'Open Sans', light, sans-serif;
 		font-weight:100
 		margin-bottom:.5em
+
 
 </style>

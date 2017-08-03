@@ -66,18 +66,24 @@ export default {
 
 
 form
-  border-style:dotted
-  border-width:1px
-  padding: 2em
+  padding: 0em
   width:95%
   color: accent1
   margin: 1em
 
+label
+    font-family: sans-serif
+    font-weight: lighter
+    font-size: 1.2em
 
 button
   width: 100%
-  color:accent2
+  color:main
+  background:accent2
   border-color: accent2
+  font-family: sans-serif
+  font-weight: lighter
+  font-size: 1.2em
 
 input
   width:100%

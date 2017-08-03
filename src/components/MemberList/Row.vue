@@ -11,7 +11,7 @@ tr
         input(type="checkbox")
     td
         router-link(:to='payLocation')
-            button() pay
+            img(src='../../assets/images/cash1.svg')
 
 </template>
 
@@ -62,6 +62,8 @@ button
     color: black
     border: none
 
+img
+    height: 55px
 
 // TODO: style .inactive / or .active
 

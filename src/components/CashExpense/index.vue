@@ -2,7 +2,7 @@
 
 #cashexpense
     shared-title(title='Cash Expense')
-    form-box(btntxt="Cash Taken From Safe"  endpoint='/cash_expense' v-bind:data='details')
+    form-box(btntxt="Expend"  endpoint='/cash_expense' v-bind:data='details')
         label amount
         input(v-model='details.amount' type='text')
         label notes

@@ -2,7 +2,7 @@
 
 #ActiveBounties
     shared-title(title='Active Bounties')
-    p The following is a list of all active bounties in DCTRL at the moment. Tab their corresponding fob, and the amount will be added to your account.
+    p The following is a list of all active bounties in DCTRL at the moment. Find a fob reading station, tap the corresponding fob, then your member fob and claim your reward.
     table.u-full-width
         thead
             tr

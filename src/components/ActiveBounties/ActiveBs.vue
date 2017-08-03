@@ -3,6 +3,7 @@
 tr
     td {{b.name}}
     td {{currentValue}}
+        span(v-if='b.boost > 0').boost (+ {{b.boost}})
     td {{b.value}}
     td
         button(@click='toEdit') edit
@@ -13,18 +14,31 @@ tr
 
 <script>
 
-function calculatePayout(monthValue, lastClaimed, now){
-    let msSince = now - lastClaimed*1000
+
+function calculateMsThisMonth(){
     let today = new Date()
     let daysThisMonth = new Date(today.getYear(), today.getMonth(), 0).getDate()
-    let msThisMonth = daysThisMonth * 24 * 60 * 60 * 1000
-    return (msSince / msThisMonth) * monthValue
+    return daysThisMonth * 24 * 60 * 60 * 1000
+}
+
+function calculatePayout(bounty){
+    let msThisMonth = calculateMsThisMonth()
+    let msSince = Date.now() - bounty['last-claimed'] * 1000
+    let payout = (msSince / msThisMonth) * parseFloat(bounty.value)
+    let cap = parseFloat(bounty.cap)
+    let boost = parseFloat(bounty.boost) || 0
+    if (cap > 0){
+        return Math.min(payout, cap) + boost
+    }
+    else {
+        return payout + boost
+    }
 }
 
 export default {
     props: ['b'],
     mounted(){
-        this.currentValue = calculatePayout(this.b['value'], this.b['last-claimed'], Date.now()).toFixed(6)
+        this.currentValue = calculatePayout(this.b).toFixed(6)
         setInterval( ()=>{
             this.currentValue = calculatePayout(this.b['value'], this.b['last-claimed'], Date.now()).toFixed(6)
         },3333)
@@ -36,10 +50,10 @@ export default {
     },
     methods:{
         toEdit(){
-            this.$router.push('EDIT_BOUNTY/' + this.b['bounty-id']);
+            this.$router.push('EDIT_BOUNTY/' + this.b['bounty-id'])
         },
         toBoost(){
-            this.$router.push('BOOST_BOUNTY/' + this.b['bounty-id']);
+            this.$router.push('BOOST_BOUNTY/' + this.b['bounty-id'])
         }
     }
 }
