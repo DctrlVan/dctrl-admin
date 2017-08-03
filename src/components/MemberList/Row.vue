@@ -2,16 +2,21 @@
 
 tr
     td
-        span.name {{m.name}}
-    td.small {{m.address}}
-    td {{m.balance}}
+        img(v-if='m["active?"]' src='../../assets/images/active.svg')
+        img(v-else src='../../assets/images/inactive.svg')
     td
-        button(@click='switchToMember(m.address)') &#9776;
+        span {{m.name}}
+    //- td.small {{m.address}}
     td
-        input(type="checkbox")
+        span {{bal}}
     td
-        router-link(:to='payLocation')
+        router-link(:to='memberLocation')
+            img(src='../../assets/images/hamburger.svg')
+    td
+        router-link.pad(:to='payLocation')
             img(src='../../assets/images/cash1.svg')
+        router-link(:to='payBtcLocation')
+            img(src='../../assets/images/bitcoin.svg')
 
 </template>
 
@@ -28,13 +33,15 @@ export default {
         },
         chargeLocation(){
             return '/MEMBER_CHARGED/' + this.m.address
-        }
-    },
-    methods: {
-        switchToMember(address){
-            // use vuex state to pass to member component?
-            console.log('this is supposed to redirect to member/' + address)
-            this.$router.push('member/' + address);
+        },
+        payBtcLocation(){
+            return '/MEMBER_PAID_BTC/' + this.m.address
+        },
+        memberLocation(){
+            return '/MEMBER/' + this.m.address
+        },
+        bal(){
+            return parseFloat(this.m.balance).toFixed(2)
         }
     }
 }
@@ -45,7 +52,13 @@ export default {
 
 @import '../../styles/colours'
 
-.name
+.or
+    font-size: 1.3em
+
+.pad
+    margin-right: 50px
+
+span
     color: accent2
     font-size: 1.4em
     text-align: center
