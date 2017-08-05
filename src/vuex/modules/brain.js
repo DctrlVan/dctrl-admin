@@ -30,7 +30,10 @@ const actions = {
     getState({ state, commit }){
         request.get('/current_state')
             .end((err, res)=> {
-                commit('load', res.body)
+                console.log(res.body)
+                if (res.body){
+                    commit('load', res.body )
+                }
             })
     }
 }

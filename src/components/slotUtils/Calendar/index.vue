@@ -12,9 +12,6 @@
 import Day from './Day.vue'
 
 export default {
-  beforeMount(){
-      this.$store.commit('setHeader', 'Upcoming Events:')
-  },
   components: {
     Day
   },

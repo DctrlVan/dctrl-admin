@@ -46,7 +46,9 @@ export default {
                 if (err) {
                     this.address = "sorry error, abort,... panic!"
                 }
-                console.log('res from backend', res.body)
+                if (!res.body){
+                    return console.log('no res')
+                }
                 res.body.listOfMemberChargedActions.forEach( charge => {
                     component.listOfMemberChargedActions.push(charge)
                 })

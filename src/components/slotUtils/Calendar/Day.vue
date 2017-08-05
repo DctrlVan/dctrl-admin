@@ -2,7 +2,7 @@
 
 .day
 	.date {{ day }}
-	main-event(v-for='e in daysEvents', :e='e')
+	//- main-event(v-for='e in daysEvents', :e='e')
 
 </template>
 
@@ -18,14 +18,7 @@ export default {
   props: ['day', 'month', 'year'],
   computed: {
     daysEvents() {
-				return this.$store.state.calendar.events.filter( event => {
-						return (
-								this.day === event.date.getDate() &&
-								this.month === event.date.getMonth() + 1 &&
-								this.year === event.date.getYear() + 1900
-						)
-
-				})
+				return []
     },
   },
 }
