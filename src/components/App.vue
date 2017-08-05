@@ -19,7 +19,6 @@ import MobileHeading from './MobileHeading'
 
 export default {
     mounted(){
-        console.log('dispatching getstate')
         this.$store.dispatch('getState')
     },
     components: {

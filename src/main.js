@@ -13,6 +13,7 @@ import Home from './components/Home'
 import NewMember from './components/NewMember'
 import DeactivateMember from './components/DeactivateMember'
 import MemberPaid from './components/MemberPaid'
+import MemberPaidBtc from './components/MemberPaidBtc'
 import MemberCharged from './components/MemberCharged'
 import MemberList from './components/MemberList'
 import BountyList from './components/BountyList'
@@ -77,6 +78,9 @@ const routes = [{
     },{
       path: '/member/*',
       component: Member
+    },{
+      path: '/member_paid_btc/*',
+      component: MemberPaidBtc
     }]
   }]
 
