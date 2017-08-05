@@ -3,6 +3,7 @@
 #home
     shared-title(title='Member: ')
     p todo summary {{address}}
+    calendar
     li(v-for='x in listOfMemberChargedActions') Charge: {{x}}
     li(v-for='y in listOfMemberPaidActions') Credit: {{ y}}
 
@@ -11,6 +12,7 @@
 <script>
 import request from 'superagent'
 import SharedTitle from '../slotUtils/SharedTitle'
+import Calendar from '../slotUtils/Calendar'
 
 export default {
     data(){
@@ -26,7 +28,7 @@ export default {
         }
     },
     components:{
-        SharedTitle
+        SharedTitle, Calendar
     },
     mounted(){
         this.listOfMemberChargedActions = []
