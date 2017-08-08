@@ -1,10 +1,15 @@
 <template lang="jade">
 
 #calendar
+    div(@click='prevMonth')
+        p prev
+    div(@click='nextMonth')
+        p next
     slot
     .weekday(v-for='dayName in DAYS_OF_WEEK') {{dayName}}
     .placeholder(v-for='placeholder in firstDay')
-    day(v-for='day in days', :day="day", :month='month', :year='year')
+    //- day( :day="day", :month='month', :year='year')
+    day( day="1", month='6', year='2017')
 
 </template>
 
@@ -12,7 +17,6 @@
 import Day from './Day.vue'
 
 export default {
-  props: ['days'],
   components: {
     Day
   },
@@ -24,12 +28,21 @@ export default {
       return firstDay
     }
   },
+  methods: {
+      nextMonth(){
+          this.month++
+      },
+      prevMonth(){
+          this.month--
+      }
+  },
   data () {
     let current = new Date
     let year = current.getFullYear()
     let month = current.getMonth() + 1
     return {
       DAYS_OF_WEEK:['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+      days: new Date(year, month, 0).getDate(),
       month,
       year
     }

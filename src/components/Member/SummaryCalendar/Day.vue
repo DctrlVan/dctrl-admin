@@ -1,7 +1,8 @@
 <template lang="jade">
 
 .day
-	.date {{ day }}
+		.date {{ day }}
+				span {{daysEvents}}
 	//- main-event(v-for='e in daysEvents', :e='e')
 
 </template>
@@ -17,8 +18,18 @@ export default {
   },
   props: ['day', 'month', 'year'],
   computed: {
-    daysEvents() {
-				return []
+		daysEvents() {
+				let daysEv = []
+				this.$store.state.history.listOfMemberPaidActions.forEach( action => {
+						if (
+								this.day == action.day &&
+								this.year == action.year &&
+								this.month == action.month
+						){
+								daysEv.push(action)
+						}
+				})
+				return daysEv
     },
   },
 }
@@ -27,8 +38,6 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../../styles/colours'
-
-
   .day
     background-color: main
     overflow: visible

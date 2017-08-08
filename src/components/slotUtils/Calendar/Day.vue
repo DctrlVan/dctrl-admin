@@ -2,6 +2,7 @@
 
 .day
 	.date {{ day }}
+			span {{daysEvents}}
 	//- main-event(v-for='e in daysEvents', :e='e')
 
 </template>
@@ -18,7 +19,17 @@ export default {
   props: ['day', 'month', 'year'],
   computed: {
     daysEvents() {
-				return []
+				let daysEv = []
+				this.$store.state.history.listOfMemberPaidActions.forEach( action => {
+						if (
+								this.day = action.day &&
+								this.year = action.year &&
+								this.month = action.month
+						){
+								daysEv.push(action)
+						}
+				})
+				return daysEv
     },
   },
 }

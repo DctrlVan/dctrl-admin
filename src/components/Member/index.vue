@@ -1,6 +1,6 @@
 <template lang='jade'>
 
-#home
+.membersummary
     shared-title(title='Member: ')
     p todo summary {{address}}
     calendar

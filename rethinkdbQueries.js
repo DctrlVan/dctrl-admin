@@ -16,8 +16,6 @@ function getEventsForAddress( address, callback ){
           const listOfMemberChargedActions = []
 
           cursor.each( (err, ev)=>{
-                console.log({ev})
-
                 var a = new Date(ev.timestamp*1000)
                 ev.action.year = a.getFullYear();
                 ev.action.month = a.getMonth() + 1
@@ -33,10 +31,6 @@ function getEventsForAddress( address, callback ){
                 }
           }, (err, results)=> {
             // on cursor end
-            console.log({
-                listOfMemberPaidActions,
-                listOfMemberChargedActions,
-            })
             callback(null, {
                 listOfMemberPaidActions,
                 listOfMemberChargedActions,
