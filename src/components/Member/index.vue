@@ -4,22 +4,18 @@
     shared-title(title='Member: ')
     p todo summary {{address}}
     calendar
-    li(v-for='x in listOfMemberChargedActions') Charge: {{x}}
-    li(v-for='y in listOfMemberPaidActions') Credit: {{ y}}
 
 </template>
 
 <script>
 import request from 'superagent'
+import Calendar from './SummaryCalendar'
 import SharedTitle from '../slotUtils/SharedTitle'
-import Calendar from '../slotUtils/Calendar'
 
 export default {
     data(){
         return {
             address: '',
-            listOfMemberChargedActions:[],
-            listOfMemberPaidActions: []
         }
     },
     computed: {
@@ -31,31 +27,10 @@ export default {
         SharedTitle, Calendar
     },
     mounted(){
-        this.listOfMemberChargedActions = []
-        this.listOfMemberPaidActions = []
         let component = this
-        console.log("this.$router.currentRoute.path:", this.$router.currentRoute.path)
         let address = this.$router.currentRoute.path.split('/')[2]
-        console.log({address})
         this.address = address
-        let reqLoc = '/db/member/' + address
-        console.log({reqLoc})
-        request
-            .get(reqLoc)
-            .end((err, res)=> {
-                if (err) {
-                    this.address = "sorry error, abort,... panic!"
-                }
-                if (!res.body){
-                    return console.log('no res')
-                }
-                res.body.listOfMemberChargedActions.forEach( charge => {
-                    component.listOfMemberChargedActions.push(charge)
-                })
-                res.body.listOfMemberPaidActions.forEach( paid => {
-                    component.listOfMemberPaidActions.push(paid)
-                })
-            })
+        this.$store.dispatch('getHistory', address)
     }
 }
 

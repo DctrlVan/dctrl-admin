@@ -18,7 +18,7 @@ export default {
 
 div
     border-bottom-style: solid
-    border-width: 26px
+    border-width: 0px
 
 
 h2

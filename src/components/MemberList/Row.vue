@@ -56,7 +56,7 @@ export default {
     font-size: 1.3em
 
 .pad
-    margin-right: 50px
+    margin-right: 5px
 
 span
     color: accent2

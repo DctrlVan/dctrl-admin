@@ -17,6 +17,12 @@ function getEventsForAddress( address, callback ){
 
           cursor.each( (err, ev)=>{
                 console.log({ev})
+
+                var a = new Date(ev.timestamp*1000)
+                ev.action.year = a.getFullYear();
+                ev.action.month = a.getMonth() + 1
+                ev.action.day = a.getDate();
+
                 switch (ev.action.type) {
                     case 'member-charged':
                         listOfMemberChargedActions.push(ev.action)
@@ -35,6 +41,7 @@ function getEventsForAddress( address, callback ){
                 listOfMemberPaidActions,
                 listOfMemberChargedActions,
             })
+
           })
       })
 }
