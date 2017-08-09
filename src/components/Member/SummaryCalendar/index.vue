@@ -1,11 +1,24 @@
 <template lang="jade">
 
 #calendar
-    span(@click='prevMonth')
-        p prev
-    span {{ month }} / {{year}}
-    span(@click='nextMonth')
-        p next
+    .row.legend
+        .nine.columns &nbsp;
+        .three.columns
+            table
+                tr
+                    td.signcell
+                        .chargedbox
+                    td Charged
+                tr
+                    td.signcell
+                        .paidbox
+                    td Paid
+    .row.menu
+        .three.columns(@click='prevMonth')
+            p prev
+        .six.columns {{ month }} / {{year}}
+        .three.columns(@click='nextMonth')
+            p next
     slot
     .weekday(v-for='dayName in DAYS_OF_WEEK') {{dayName}}
     .placeholder(v-for='placeholder in firstDay')
@@ -29,22 +42,22 @@ export default {
     }
   },
   computed: {
-    firstDay: function(){
+    firstDay(){
       let date = new Date(this.year, this.month-1, 1)
       let firstDay = date.getDay()
       console.log({date, firstDay})
       return firstDay
+    },
+    days(){
+      return  new Date(this.year, this.month, 0).getDate()
     }
   },
   data () {
     let current = new Date
     let year = current.getFullYear()
     let month = current.getMonth() + 1
-    let days = new Date(year, month, 0).getDate()
-    console.log({days})
     return {
       DAYS_OF_WEEK:['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
-      days,
       month,
       year
     }
@@ -57,6 +70,10 @@ export default {
 #calendar
     color: accent1
     font-size:2em
+
+.menu
+    text-align: center
+
 .calendar-column
     float: left
     box-sizing: border-box
@@ -64,6 +81,7 @@ export default {
     height: 100px
     border-style:solid
     border-width: 1px
+    border-color: black
 .placeholder
     @extends .calendar-column
 .day
@@ -79,4 +97,28 @@ export default {
     float: right
     font-weight: bolder
     font-size: .666em
+
+.legend
+    margin-top: -70px
+
+td
+    border: none
+
+.paidbox, .chargedbox
+    height: 20px
+    width: 20px
+
+.paidbox
+    background-color: accent1
+.chargedbox
+    background-color: accent2
+.signcell
+    max-width: 0px
+
+table
+    font-size: .7em
+
+tr, td
+    padding:0
+    padding-left: 11px
 </style>

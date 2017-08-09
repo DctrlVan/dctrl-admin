@@ -2,7 +2,6 @@
 
 .membersummary
     shared-title(title='Member: ')
-    p todo summary {{address}}
     calendar
 
 </template>
