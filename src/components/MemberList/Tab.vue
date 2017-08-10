@@ -24,6 +24,10 @@ export default {
 
 <style lang="stylus">
 
+@import '../../styles/colours'
+
+
+
 table
     color: accent1
     text-align:center
@@ -34,6 +38,8 @@ th
     font-size: 1.1em
 
 
+td, tr, th
+    border-color: accent4
 
 // TODO: style .inactive / or .active
 

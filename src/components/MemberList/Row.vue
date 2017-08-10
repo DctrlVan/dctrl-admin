@@ -78,6 +78,9 @@ button
 img
     height: 55px
 
+td
+    border-color: accent4
+
 // TODO: style .inactive / or .active
 
 </style>

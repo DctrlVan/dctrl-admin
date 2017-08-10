@@ -6,12 +6,10 @@
         .three.columns
             table
                 tr
-                    td.signcell
-                        .chargedbox
-                    td Charged
+                    td.chargedbox.signcell
+                    td.ch Charged
                 tr
-                    td.signcell
-                        .paidbox
+                    td.paidbox.signcell
                     td Paid
     .row.menu
         .three.columns(@click='prevMonth')
@@ -81,7 +79,7 @@ export default {
     height: 100px
     border-style:solid
     border-width: 1px
-    border-color: black
+    border-color: accent4
 .placeholder
     @extends .calendar-column
 .day
@@ -90,8 +88,10 @@ export default {
     @extends .calendar-column
     height: 40px
     text-align: center
-    font-weight:bolder
+    font-weight:lighter
+    font-size: .7em
     border-style:solid
+    color:accent4
 .date
     background-color: white
     float: right
@@ -121,4 +121,6 @@ table
 tr, td
     padding:0
     padding-left: 11px
+.ch
+    color: accent2
 </style>
