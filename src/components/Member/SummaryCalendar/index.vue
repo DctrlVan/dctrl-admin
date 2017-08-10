@@ -14,7 +14,7 @@
     .row.menu
         .three.columns(@click='prevMonth')
             img(src='../../../assets/images/left.svg')
-        .six.columns {{ month }} / {{year}}
+        .six.columns {{ monthName }} - {{year}}
         .three.columns(@click='nextMonth')
             img(src='../../../assets/images/right.svg')
     slot
@@ -48,6 +48,10 @@ export default {
     },
     days(){
       return  new Date(this.year, this.month, 0).getDate()
+    },
+    monthName(){
+        var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return mL[this.month - 1]
     }
   },
   data () {
@@ -71,6 +75,7 @@ export default {
 
 .menu
     text-align: center
+    color: accent4
 
 .calendar-column
     float: left

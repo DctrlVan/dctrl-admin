@@ -52,7 +52,7 @@ export default {
 						if (
 								this.day == action.day &&
 								this.year == action.year &&
-								this.month == action.month
+								this.month == action.month + 1
 						){
 								let amount = parseFloat( action.amount )
 								if (amount > 0){
