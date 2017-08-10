@@ -13,10 +13,10 @@
                     td Paid
     .row.menu
         .three.columns(@click='prevMonth')
-            p prev
+            img(src='../../../assets/images/left.svg')
         .six.columns {{ month }} / {{year}}
         .three.columns(@click='nextMonth')
-            p next
+            img(src='../../../assets/images/right.svg')
     slot
     .weekday(v-for='dayName in DAYS_OF_WEEK') {{dayName}}
     .placeholder(v-for='placeholder in firstDay')
@@ -123,4 +123,7 @@ tr, td
     padding-left: 11px
 .ch
     color: accent2
+
+img
+    height: 30px
 </style>
