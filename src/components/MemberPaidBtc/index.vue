@@ -1,22 +1,44 @@
 <template lang='jade'>
 
 #newmember
-    shared-title(title='Member Paid Btc')
-    h2 todo qr
+    shared-title(:title='calcTitle')
+    div(v-html='imgTag')
 
 </template>
 
 <script>
 import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
+import qrcode from 'qrcode-generator'
+
 
 export default {
     mounted(){
-        // this is boilerplate code that could probably be avoided with state
-        // allows direct link to this page
         let address = this.$router.currentRoute.path.split('/')[2]
         if (address){
             this.member.address = address
+        }
+    },
+    computed: {
+        imgTag(){
+            let typeNumber = 4;
+            let errorCorrectionLevel = 'L';
+            let qr = qrcode(typeNumber, errorCorrectionLevel);
+            let data = 'bitcoin:' + this.member.address
+            qr.addData(data)
+            qr.make()
+            let cellsize = 10
+            let margin = 10
+            return qr.createImgTag(cellsize, margin)
+        },
+        calcTitle(){
+            let name = 'nobodies'
+            this.$store.state.brain.members.forEach( member => {
+                if (member.address === this.member.address){
+                    name = member.name
+                }
+            })
+            return name + "'s address: "
         }
     },
     data(){

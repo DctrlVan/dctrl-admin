@@ -1,10 +1,8 @@
 <template lang='jade'>
 
 #newmember
-    shared-title(title='Member Paid')
+    shared-title(:title='calcTitle')
     form-box(btntxt="Cash Placed in Safe"  endpoint='/member_paid' v-bind:data='member')
-        label address
-        input(v-model='member.address' type='text')
         label amount
         input(autofocus="autofocus" v-model='member.amount' type='text')
         label notes
@@ -34,6 +32,17 @@ export default {
     },
     components: {
         SharedTitle, FormBox
+    },
+    computed: {
+        calcTitle(){
+            let name = 'nobodies'
+            this.$store.state.brain.members.forEach( member => {
+                if (member.address === this.member.address){
+                    name = member.name
+                }
+            })
+            return name + "'s paying cash: "
+        }
     }
 }
 
