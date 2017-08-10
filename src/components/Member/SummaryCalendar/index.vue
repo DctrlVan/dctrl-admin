@@ -32,12 +32,30 @@ export default {
     Day
   },
   methods: {
-    nextMonth(){
-        this.month++
-    },
-    prevMonth(){
-        this.month--
-    }
+      nextMonth(){
+          if (this.month == 12){
+            this.year++
+            this.month = 1
+          }
+            else {
+              this.month++
+          }
+      },
+      prevMonth(){
+          if (this.month == 1){
+              this.year--
+              this.month = 12
+          }
+          else {
+              this.month--
+          }
+      },
+      nextYear(){
+          this.year++
+      },
+      prevYear(){
+          this.year--
+      }
   },
   computed: {
     firstDay(){
