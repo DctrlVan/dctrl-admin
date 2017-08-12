@@ -6,10 +6,11 @@ tr
         span(v-if='b.boost > 0').boost (+ {{b.boost}})
     td {{b.value}}
     td
+        button(@click='toHistory') History
+    td
         button(@click='toEdit') edit
     td
         button(@click='toBoost') boost
-
 </template>
 
 <script>
@@ -49,10 +50,13 @@ export default {
         }
     },
     methods:{
-        toEdit(){
+      toHistory(){
+            this.$router.push('HISTORY_BOUNTY/' + this.b['bounty-id'])
+      },
+      toEdit(){
             this.$router.push('EDIT_BOUNTY/' + this.b['bounty-id'])
         },
-        toBoost(){
+      toBoost(){
             this.$router.push('BOOST_BOUNTY/' + this.b['bounty-id'])
         }
     }

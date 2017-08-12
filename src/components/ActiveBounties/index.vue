@@ -2,18 +2,17 @@
 
 #ActiveBounties
     shared-title(title='Active Bounties')
-    p The following is a list of all active bounties in DCTRL at the moment. Find a fob reading station, tap the corresponding fob, then your member fob and claim your reward.
-    table.u-full-width
-        thead
-            tr
-                th Bounty Name
-                th Current Value ($)
-                th Monthly Value ($)
-                th Edit
-                th Boost
-        tbody
-            active-bs(v-for="b in bounties", :b="b")
-
+        table.u-full-width
+            thead
+                tr
+                    th Bounty Name
+                    th Current Value ($)
+                    th Monthly Value ($)
+                    th History
+                    th Edit
+                    th Boost
+            tbody
+                active-bs(v-for="b in bounties", :b="b")
 </template>
 
 <script>
@@ -36,23 +35,49 @@ export default {
 
 </script>
 
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 
 @import '../../styles/colours'
 
-p
-    font-size:1.4em
-    color:white
-    font-family: 'Open Sans', light, sans-serif;
+.or
+    font-size: 1.3em
 
-h3
-    text-align: left
-    color:accent1
-    font-family: 'Open Sans', light, sans-serif;
+.pad
+    margin-right: 5px
 
-li a
+span
+    color: accent1
+    font-size: 1.4em
+    text-align: center
+    margin: 10px
+    width:100%
+    padding:1em
+
+
+.small
+    font-size: .5em
+
+
+button
+    background: accent1
+    color: black
+    border: none
+
+img
+    height: 55px
+
+table
+    text-align:center
+    width: 100%
+th
+    font-family: sans-serif
+    font-weight: lighter
+    font-size: 1.1em
+    color: accent1
+    border-color: accent1
+td
+    color: accent3
+tr
     color: accent2
-    text-decoration: none;
-
-
+    // TODO: style .inactive / or .active
 </style>

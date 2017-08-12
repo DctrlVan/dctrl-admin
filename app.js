@@ -30,8 +30,14 @@ function buildResCallback(res){
 }
 
 app.get('/db/member/:address', (req, res) => {
-  dbQueries.getEventsForAddress(req.params.address, (err, history)=> {
-      res.json(history)
+  dbQueries.getEventsForAddress(req.params.address, (err, member)=> {
+      res.json(member)
+  })
+})
+
+app.get('/db/bounty/:bountyId', (req, res) => {
+  dbQueries.getEventsForBounty(req.params.bountyId, (err, bounty)=> {
+      res.json(bounty)
   })
 })
 

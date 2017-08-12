@@ -20,7 +20,7 @@ export default {
   computed: {
     daysEvents() {
 				let daysEv = []
-				this.$store.state.history.listOfMemberPaidActions.forEach( action => {
+				this.$store.state.member.listOfMemberPaidActions.forEach( action => {
 						if (
 								this.day = action.day &&
 								this.year = action.year &&

@@ -26,7 +26,7 @@ export default {
 		paidThisDay() {
 				var paid = 0
 
-				this.$store.state.history.listOfMemberPaidActions.forEach( action => {
+				this.$store.state.member.listOfMemberPaidActions.forEach( action => {
 						if (
 								this.day == action.day &&
 								this.year == action.year &&
@@ -48,7 +48,7 @@ export default {
     },
 		chargedThisDay() {
 				var charged = 0
-				this.$store.state.history.listOfMemberChargedActions.forEach( action => {
+				this.$store.state.member.listOfMemberChargedActions.forEach( action => {
 						if (
 								this.day == action.day &&
 								this.year == action.year &&

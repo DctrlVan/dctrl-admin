@@ -21,6 +21,7 @@ import CashExpense from './components/CashExpense'
 import CashReceived from './components/CashReceived'
 import CreateBounty from './components/CreateBounty'
 import ClaimBounty from './components/ClaimBounty'
+import HistoryBounty from './components/HistoryBounty'
 import EditBounty from './components/EditBounty'
 import BoostBounty from './components/BoostBounty'
 import StockSupplies from './components/StockSupplies'
@@ -72,6 +73,9 @@ const routes = [{
     },{
       path: '/ACTIVE_BOUNTIES',
       component: ActiveBounties
+    },{
+      path: '/HISTORY_BOUNTY/*',
+      component: HistoryBounty
     },{
       path: '/boost_bounty/*',
       component: BoostBounty
