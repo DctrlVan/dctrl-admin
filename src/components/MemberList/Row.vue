@@ -11,7 +11,7 @@ tr
         span {{bal}}
     td
         router-link(:to='memberLocation')
-            img(src='../../assets/images/hamburger.svg')
+            img(src='../../assets/images/calendar.svg')
     td
         router-link.pad(:to='payLocation')
             img(src='../../assets/images/cash1.svg')

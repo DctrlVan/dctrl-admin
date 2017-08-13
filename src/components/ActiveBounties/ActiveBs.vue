@@ -10,7 +10,7 @@ tr
             img.pencil(src='../../assets/images/pencil.svg')
     td
         router-link(:to='historyLocation')
-            img(src='../../assets/images/hamburger.svg')
+            img(src='../../assets/images/calendar.svg')
     td
         router-link(:to='boostLocation')
             img(src='../../assets/images/boost.svg')
@@ -48,7 +48,7 @@ export default {
     },
     data() {
         return {
-            currentValue: ''
+            currentValue: '...calculating'
         }
     },
     computed: {
@@ -66,15 +66,18 @@ export default {
 
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 
 td
     vertical-align: middle
     color: accent2
-    font-size: 1.4em
+    font-size: 1.2em
     text-align: center
 
 .pencil
     height: 39px
+
+img
+    height: 55px
 
 </style>
