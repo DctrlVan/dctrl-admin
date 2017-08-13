@@ -6,11 +6,14 @@ tr
         span(v-if='b.boost > 0').boost (+ {{b.boost}})
     td {{b.value}}
     td
-        button(@click='toHistory') History
+        router-link(:to='editLocation')
+            img.pencil(src='../../assets/images/pencil.svg')
     td
-        button(@click='toEdit') edit
+        router-link(:to='historyLocation')
+            img(src='../../assets/images/hamburger.svg')
     td
-        button(@click='toBoost') boost
+        router-link(:to='boostLocation')
+            img(src='../../assets/images/boost.svg')
 </template>
 
 <script>
@@ -39,31 +42,39 @@ function calculatePayout(bounty){
 export default {
     props: ['b'],
     mounted(){
-        this.currentValue = calculatePayout(this.b).toFixed(6)
         setInterval( ()=>{
-            this.currentValue = calculatePayout(this.b['value'], this.b['last-claimed'], Date.now()).toFixed(6)
-        },3333)
+            this.currentValue = calculatePayout(this.b).toFixed(6)
+        },1111)
     },
     data() {
         return {
             currentValue: ''
         }
     },
-    methods:{
-      toHistory(){
-            this.$router.push('HISTORY_BOUNTY/' + this.b['bounty-id'])
-      },
-      toEdit(){
-            this.$router.push('EDIT_BOUNTY/' + this.b['bounty-id'])
+    computed: {
+        historyLocation(){
+            return '/HISTORY_BOUNTY/' + this.b['bounty-id']
         },
-      toBoost(){
-            this.$router.push('BOOST_BOUNTY/' + this.b['bounty-id'])
+        boostLocation(){
+            return '/BOOST_BOUNTY/' + this.b['bounty-id']
+        },
+        editLocation(){
+            return '/EDIT_BOUNTY/' + this.b['bounty-id']
         }
-    }
+    },
 }
 
 </script>
 
 <style lang="stylus">
+
+td
+    vertical-align: middle
+    color: accent2
+    font-size: 1.4em
+    text-align: center
+
+.pencil
+    height: 39px
 
 </style>

@@ -20,7 +20,6 @@ div
     border-bottom-style: solid
     border-width: 0px
 
-
 h2
 		color:accent1
 		margin:0

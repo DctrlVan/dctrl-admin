@@ -80,6 +80,7 @@ img
 
 td
     border-color: accent4
+    vertical-align:middle
 
 // TODO: style .inactive / or .active
 

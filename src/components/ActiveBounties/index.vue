@@ -8,8 +8,8 @@
                     th Bounty Name
                     th Current Value ($)
                     th Monthly Value ($)
+                    th
                     th History
-                    th Edit
                     th Boost
             tbody
                 active-bs(v-for="b in bounties", :b="b")
