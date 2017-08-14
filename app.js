@@ -257,6 +257,16 @@ function memberDeactivate(address, callback) {
   memberPost(newEvent, callback)
 }
 
+function memberActivate(address, callback){
+  let newEvent = {
+    action: {
+      type: "member-activated",
+      address
+    }
+  }
+  memberPost(newEvent, callback)
+}
+
 function bountyCreate(name, description, value, cap, fob, callback) {
   let newEvent = {
     action: {
