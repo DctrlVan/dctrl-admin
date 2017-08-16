@@ -3,7 +3,7 @@
 ul.navigation
     label SETUP
     li
-      router-link(to='/NEW_MEMBER') Create Member
+      router-link(to='/MEMBER_CREATE') Create Member
     li
       router-link(to='/CREATE_BOUNTY') Create Bounty
     label MANAGE
