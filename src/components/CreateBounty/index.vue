@@ -11,6 +11,8 @@
         input(v-model='bounty.value' type='text')
         label Maximum Payout
         input(v-model='bounty.cap' type='text')
+        label Bounty Fob! (tap it)
+        input(v-model='bounty.fob' type='text')
 
 </template>
 

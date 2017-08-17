@@ -16,15 +16,15 @@ import FormBox from '../slotUtils/FormBox'
 
 export default {
     mounted(){
-        let address = this.$router.currentRoute.path.split('/')[2]
-        if (address){
-          this.member.address = address
+        let memberId = this.$router.currentRoute.path.split('/')[2]
+        if (memberId){
+          this.member.memberId = memberId
         }
     },
     data(){
         return {
             member: {
-                address: '',
+                memberId: '',
                 amount: '',
                 notes: ''
             }
@@ -37,7 +37,7 @@ export default {
         calcTitle(){
             let name = 'nobodies'
             this.$store.state.brain.members.forEach( member => {
-                if (member.address === this.member.address){
+                if (member['member-id'] === this.member.memberId){
                     name = member.name
                 }
             })

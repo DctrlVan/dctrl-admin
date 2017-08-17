@@ -29,16 +29,16 @@ export default {
     props: ['m'],
     computed: {
         payLocation(){
-            return '/MEMBER_PAID/' + this.m.address
+            return '/MEMBER_PAID/' + this.m['member-id']
         },
         chargeLocation(){
-            return '/MEMBER_CHARGED/' + this.m.address
+            return '/MEMBER_CHARGED/' + this.m['member-id']
         },
         payBtcLocation(){
-            return '/MEMBER_PAID_BTC/' + this.m.address
+            return '/MEMBER_PAID_BTC/' + this.m['member-id']
         },
         memberLocation(){
-            return '/MEMBER/' + this.m.address
+            return '/MEMBER/' + this.m['member-id']
         },
         bal(){
             return parseFloat(this.m.balance).toFixed(2)

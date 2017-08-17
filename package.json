@@ -8,12 +8,13 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "deploy": "node build/build.js; cp -r ./dist/* ../d-ctrl.github.io/;",
-    "serve": "node build/build.js; node app.js"
+    "serve": "node build/build.js; node ./adminSrc/app.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "bcoin": "^0.15.0",
     "bitcoinjs-lib": "^2.3.0",
+    "bitcore-wallet-client": "^5.4.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.17.2",
     "bs58check": "^2.0.1",

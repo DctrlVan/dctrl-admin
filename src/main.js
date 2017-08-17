@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 import App from './components/App'
 import Home from './components/Home'
-import NewMember from './components/NewMember'
+import MemberCreate from './components/MemberCreate'
 import DeactivateMember from './components/DeactivateMember'
 import MemberPaid from './components/MemberPaid'
 import MemberPaidBtc from './components/MemberPaidBtc'
@@ -35,8 +35,8 @@ const routes = [{
       path: '/',
       component: Home
     },{
-      path: '/new_member',
-      component: NewMember
+      path: '/member_create',
+      component: MemberCreate
     },{
       path: '/member_paid/*',
       component: MemberPaid
