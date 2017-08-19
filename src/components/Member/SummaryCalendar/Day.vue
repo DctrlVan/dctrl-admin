@@ -52,7 +52,7 @@ export default {
 						if (
 								this.day == action.day &&
 								this.year == action.year &&
-								this.month == action.month + 1
+								this.month == action.month
 						){
 								let amount = parseFloat( action.amount )
 								if (amount > 0){
@@ -95,9 +95,9 @@ export default {
 		font-size: .8em
 
 .p
-		background-color: accent1
+		background-color: green
 		border-right-style: solid
-		border-color: accent1
+		border-color: green
 .c
 		background-color: accent2
 

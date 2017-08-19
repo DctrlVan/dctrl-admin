@@ -2,15 +2,19 @@
 
 #calendar
     .row.legend
-        .nine.columns &nbsp;
+        .eight.columns &nbsp;
+        .one.columns
+            table
+                tr
+                    td.downhalfbox member
         .three.columns
             table
                 tr
                     td.chargedbox.signcell
-                    td.ch Charged
+                    td.ch charged
                 tr
                     td.paidbox.signcell
-                    td Paid
+                    td.do donated
     .row.menu
         .three.columns(@click='prevMonth')
             img(src='../../../assets/images/left.svg')
@@ -33,18 +37,18 @@ export default {
   },
   methods: {
       nextMonth(){
-          if (this.month == 12){
+          if (this.month == 11){
             this.year++
-            this.month = 1
+            this.month = 0
           }
             else {
               this.month++
           }
       },
       prevMonth(){
-          if (this.month == 1){
+          if (this.month == 0){
               this.year--
-              this.month = 12
+              this.month = 11
           }
           else {
               this.month--
@@ -59,7 +63,7 @@ export default {
   },
   computed: {
     firstDay(){
-      let date = new Date(this.year, this.month-1, 1)
+      let date = new Date(this.year, this.month, 1)
       let firstDay = date.getDay()
       console.log({date, firstDay})
       return firstDay
@@ -69,13 +73,13 @@ export default {
     },
     monthName(){
         var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        return mL[this.month - 1]
+        return mL[this.month]
     }
   },
   data () {
     let current = new Date
     let year = current.getFullYear()
-    let month = current.getMonth() + 1
+    let month = current.getMonth()
     return {
       DAYS_OF_WEEK:['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
       month,
@@ -132,11 +136,14 @@ td
     width: 20px
 
 .paidbox
-    background-color: accent1
+    background-color: green
 .chargedbox
     background-color: accent2
 .signcell
     max-width: 0px
+
+.downhalfbox
+    padding-top: 10px
 
 table
     font-size: .7em
@@ -146,6 +153,9 @@ tr, td
     padding-left: 11px
 .ch
     color: accent2
+
+.do
+    color: green
 
 img
     height: 30px

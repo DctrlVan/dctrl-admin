@@ -14,9 +14,9 @@ import qrcode from 'qrcode-generator'
 
 export default {
     mounted(){
-        let address = this.$router.currentRoute.path.split('/')[2]
-        if (address){
-            this.member.address = address
+        let memberId = this.$router.currentRoute.path.split('/')[2]
+        if (memberId){
+            this.member.memberId = memberId
         }
     },
     computed: {
@@ -24,17 +24,24 @@ export default {
             let typeNumber = 4;
             let errorCorrectionLevel = 'L';
             let qr = qrcode(typeNumber, errorCorrectionLevel);
-            let data = 'bitcoin:' + this.member.address
+            let address = 'x'
+            this.$store.state.brain.members.forEach( member => {
+                if (member['member-id'] === this.member.memberId){
+                    address = member.address
+                }
+            })
+            let data = 'bitcoin:' + address
             qr.addData(data)
             qr.make()
             let cellsize = 10
             let margin = 10
             return qr.createImgTag(cellsize, margin)
         },
+
         calcTitle(){
             let name = 'nobodies'
             this.$store.state.brain.members.forEach( member => {
-                if (member.address === this.member.address){
+                if (member['member-id'] === this.member.memberId){
                     name = member.name
                 }
             })
@@ -44,7 +51,7 @@ export default {
     data(){
         return {
             member: {
-                address: '',
+                memberId: '',
             }
         }
     },

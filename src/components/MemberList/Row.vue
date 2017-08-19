@@ -2,7 +2,7 @@
 
 tr
     td
-        img(v-if='m["active?"]' src='../../assets/images/active.svg')
+        img(v-if='m.active  > 0' src='../../assets/images/active.svg')
         img(v-else src='../../assets/images/inactive.svg')
     td
         span {{m.name}}

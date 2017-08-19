@@ -1,7 +1,7 @@
 <template lang='jade'>
 
 .membersummary
-    shared-title(title='Member: ')
+    shared-title(:title='calcTitle')
     calendar
 
 </template>
@@ -20,6 +20,15 @@ export default {
     computed: {
         totalCharged(){
             return 'todo'
+        },
+        calcTitle(){
+            let title
+            this.$store.state.brain.members.forEach( member => {
+                if (member['member-id'] === this.member.memberId){
+                    title = this.member.name
+                }
+            })
+            return title
         }
     },
     components:{

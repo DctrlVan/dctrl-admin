@@ -17,9 +17,9 @@ function getEventsForMember( memberId, callback ){
 
           cursor.each( (err, ev)=>{
                 var a = new Date(ev.timestamp*1000)
-                ev.action.year = a.getFullYear();
-                ev.action.month = a.getMonth() + 1
-                ev.action.day = a.getDate();
+                ev.action.year = a.getFullYear()
+                ev.action.month = a.getMonth()
+                ev.action.day = a.getDate()
 
                 switch (ev.action.type) {
                     case 'member-charged':
@@ -52,7 +52,7 @@ function getEventsForBounty( bountyId, callback ){
                 console.log('found bounty', {ev})
                 var a = new Date(ev.timestamp*1000)
                 ev.action.year = a.getFullYear();
-                ev.action.month = a.getMonth() + 1
+                ev.action.month = a.getMonth()
                 ev.action.day = a.getDate();
 
                 switch (ev.action.type) {

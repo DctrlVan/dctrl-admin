@@ -35,7 +35,7 @@ function memberCreate(name, email, fob, callback) {
                 type: "member-created",
                 address: addr,
                 fob: fob,
-                'active': 0,
+                'active': 1,
                 balance: "0",
                 name: name,
                 email: email
