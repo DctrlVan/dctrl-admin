@@ -14,7 +14,7 @@ import SharedTitle from '../slotUtils/SharedTitle'
 export default {
     data(){
         return {
-            address: '',
+            memberId: '',
         }
     },
     computed: {
@@ -22,10 +22,10 @@ export default {
             return 'todo'
         },
         calcTitle(){
-            let title
+            let title = 'none'
             this.$store.state.brain.members.forEach( member => {
-                if (member['member-id'] === this.member.memberId){
-                    title = this.member.name
+                if (member['member-id'] === this.memberId){
+                    title = member.name
                 }
             })
             return title
@@ -36,9 +36,9 @@ export default {
     },
     mounted(){
         let component = this
-        let address = this.$router.currentRoute.path.split('/')[2]
-        this.address = address
-        this.$store.dispatch('getHistory', address)
+        let memberId = this.$router.currentRoute.path.split('/')[2]
+        this.memberId = memberId
+        this.$store.dispatch('getHistory', memberId)
     }
 }
 
