@@ -3,7 +3,7 @@
 #stocksupplies
     shared-title(title='Stock BitPepsi')
     form-box(btntxt="Loaded"  endpoint='/stock_supplies' v-bind:data='info')
-        label amount
+        label New Cans Stocked:
         input(v-model='info.amount' type='text')
         label notes
         input(v-model='info.notes' type='text')
