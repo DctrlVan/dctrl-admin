@@ -9,24 +9,28 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 
 import App from './components/App'
-import Home from './components/Home'
-import MemberCreate from './components/MemberCreate'
-import DeactivateMember from './components/DeactivateMember'
-import MemberPaid from './components/MemberPaid'
-import MemberPaidBtc from './components/MemberPaidBtc'
-import MemberCharged from './components/MemberCharged'
-import MemberList from './components/MemberList'
-import BountyList from './components/BountyList'
-import CashExpense from './components/CashExpense'
-import CashReceived from './components/CashReceived'
-import CreateBounty from './components/CreateBounty'
-import ClaimBounty from './components/ClaimBounty'
-import HistoryBounty from './components/HistoryBounty'
-import EditBounty from './components/EditBounty'
-import BoostBounty from './components/BoostBounty'
-import StockSupplies from './components/StockSupplies'
+
 import ActiveBounties from './components/ActiveBounties'
+import BountyList from './components/BountyList'
+import HistoryBounty from './components/HistoryBounty'
+import Home from './components/Home'
 import Member from './components/Member'
+import MemberList from './components/MemberList'
+
+import BoostBounty from './components/forms/BoostBounty'
+import CashExpense from './components/forms/CashExpense'
+import CashReceived from './components/forms/CashReceived'
+import ClaimBounty from './components/forms/ClaimBounty'
+import CreateBounty from './components/forms/CreateBounty'
+import DeactivateMember from './components/forms/DeactivateMember'
+import EditBounty from './components/forms/EditBounty'
+import MemberCharged from './components/forms/MemberCharged'
+import MemberCreate from './components/forms/MemberCreate'
+import MemberPaid from './components/forms/MemberPaid'
+import MemberPaidBtc from './components/forms/MemberPaidBtc'
+
+
+import StockSupplies from './components/forms/StockSupplies'
 
 const routes = [{
     path: '/',

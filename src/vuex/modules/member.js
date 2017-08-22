@@ -2,8 +2,12 @@ import request from 'superagent'
 
 const state = {
     address: null,
-    listOfMemberChargedActions: [],
-    listOfMemberPaidActions: []
+    listOfMemberChargedActions: [{
+      
+    }],
+    listOfMemberPaidActions: [{
+
+    }]
 }
 
 const mutations = {
