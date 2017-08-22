@@ -1,12 +1,12 @@
 const request = require('superagent')
 const path = require("path")
+const actions = require('./brainActions')
 
 const config = require('../conf')
 const dbQueries = require('./rethinkdbQueries')
 
 function buildResCallback(res){
     return (err, brainResponse) => {
-        console.log({err,brainResponse})
         if (err || !brainResponse) {
             console.log('returning error')
             res.send('brain error')

@@ -1,6 +1,6 @@
 const request = require('superagent')
 const uuidV1 = require('uuid/v1')
-const addressManager = require('./addressManager')
+const addressManager = require('../bitcoinSrc/addressManager')
 const config = require('../conf')
 
 function editBounty(bountyId, amount, notes, callback){
@@ -35,7 +35,7 @@ function memberCreate(name, email, fob, callback) {
                 type: "member-created",
                 address: addr,
                 fob: fob,
-                'active': 1,
+                active: 1,
                 balance: "0",
                 name: name,
                 email: email

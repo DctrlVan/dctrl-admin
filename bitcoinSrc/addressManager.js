@@ -1,42 +1,53 @@
+const request = require('superagent')
 const Client = require('bitcore-wallet-client')
 const BWS_INSTANCE_URL = 'https://bws.bitpay.com/bws/api' // # alternatives to bitpay?
 const fs = require('fs')
-const config = require('../config')
+const config = require('../conf')
 
 const client = new Client({
  baseUrl: BWS_INSTANCE_URL,
  verbose: false,
 })
 
-var getNewAddress
-
+var ready = false
 client.importFromMnemonic(config.secret, {}, (err, wallet)=> {
-    getNewAddress = function getNewAddress(callback){
-        client.createAddress({}, function(err,addr){
-            if (err) {
-              console.log('error: ', err);
-              return;
-            };
-            callback(null, addr.address)
-        })
+    if (err){
+        // TODO
+        return console.log('error importing', {err})
     }
+    console.log('import success', {wallet})
+    ready = true
 })
 
-function updateAddress(member, callback){
-    if (!getNewAddress){
-        return callback('wallet import not complete')
-    }
-    getNewAddress(addr => {
-        request
-            .post({
-                  type: 'member-update-address',
-                  address: member.address,
-                  "new-address": addr
-            })
-            .end(callback)
+function getNewAddress(callback){
+    if (!ready) return console.log('wallet not ready')
+
+    client.createAddress({}, function(err,addr){
+        if (err) {
+          console.log('error: ', err);
+          return;
+        };
+        console.log('got new address: ', addr.address)
+        callback(null, addr.address)
     })
 }
 
+// function updateAddress(member, callback){
+//     if (!getNewAddress){
+//         return callback('wallet import not complete')
+//     }
+//     getNewAddress(addr => {
+//         request
+//             .post({
+//                   type: 'member-update-address',
+//                   "member-id": member['member-id'],
+//                   "new-address": addr
+//             })
+//             .end(callback)
+//     })
+// }
+
 module.exports = {
-  updateAddress
+  getNewAddress,
+  // updateAddress
 }
