@@ -1,4 +1,5 @@
 const request = require('superagent')
+const path = require("path")
 
 const config = require('../conf')
 const dbQueries = require('./rethinkdbQueries')
@@ -18,8 +19,8 @@ function buildResCallback(res){
 
 module.exports = function applyRouter(app){
 
-    app.get('/db/member/:address', (req, res) => {
-      dbQueries.getEventsForMember(req.params.address, (err, member)=> {
+    app.get('/db/member/:memberId', (req, res) => {
+      dbQueries.getEventsForMember(req.params.memberId, (err, member)=> {
           res.json(member)
       })
     })

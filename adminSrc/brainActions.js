@@ -171,15 +171,15 @@ function dctrlPost(data, callback) {
 }
 
 module.exports = {
-    editBounty,
-    boostBounty,
     memberCreate,
     memberPaid,
+    memberCharged,
+    memberDeactivate,
+    editBounty,
+    boostBounty,
+    bountyCreate,
+    bountyClaim,
     cashReceived,
     cashExpense,
     stockSupplies,
-    memberCharged,
-    memberDeactivate,
-    bountyCreate,
-    bountyClaim,
 }

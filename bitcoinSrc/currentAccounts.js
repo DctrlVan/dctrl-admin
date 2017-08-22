@@ -19,11 +19,13 @@ function initializeWatchedAddresses(){
                 } else {
                     addressManager.getNewAddress( (err, success)=> {
                         console.log({err,success})
+                        //TODO
                     })
                 }
             })
         })
 }
+
 
 function checkInitial(address){
     if (!address) return console.log('address required')
@@ -33,8 +35,8 @@ function checkInitial(address){
             address,
             balance
         })
-        console.log("Initialized:", {currentAccounts})
     })
 }
 
+initializeWatchedAddresses() //
 module.exports = currentAccounts
