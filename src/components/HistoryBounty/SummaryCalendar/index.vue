@@ -28,17 +28,35 @@ export default {
   components: {
     Day
   },
-  methods: {
-    nextMonth(){
-        this.month++
-    },
-    prevMonth(){
-        this.month--
-    }
+  methods:  {
+      nextMonth(){
+          if (this.month == 11){
+            this.year++
+            this.month = 0
+          }
+            else {
+              this.month++
+          }
+      },
+      prevMonth(){
+          if (this.month == 0){
+              this.year--
+              this.month = 11
+          }
+          else {
+              this.month--
+          }
+      },
+      nextYear(){
+          this.year++
+      },
+      prevYear(){
+          this.year--
+      }
   },
   computed: {
     firstDay(){
-      let date = new Date(this.year, this.month-1, 1)
+      let date = new Date(this.year, this.month, 1)
       let firstDay = date.getDay()
       console.log({date, firstDay})
       return firstDay
@@ -48,13 +66,13 @@ export default {
     },
     monthName(){
         var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        return mL[this.month - 1]
+        return mL[this.month]
     }
   },
   data () {
     let current = new Date
     let year = current.getFullYear()
-    let month = current.getMonth() + 1
+    let month = current.getMonth()
     return {
       DAYS_OF_WEEK:['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
       month,
