@@ -16,10 +16,19 @@
 
 import MainMenu from './MainMenu.vue'
 import MobileHeading from './MobileHeading'
+import io from 'socket.io-client'
+
+const socket = io()
+console.log(socket)
 
 export default {
     mounted(){
-        this.$store.dispatch('getState')
+        var socket = io.connect();
+        socket.on('eventstream', function(data){
+            console.log(data)
+            // TODO router to actions
+        });
+        this.$store.dispatch('getMembers')
     },
     components: {
         MainMenu, MobileHeading

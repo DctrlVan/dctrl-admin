@@ -6,11 +6,13 @@ const multer = require('multer')
 const events = require('./events')
 const config = require('../conf')
 const dbQueries = require('./dbQueries')
+const state = require('./state')
 
 module.exports = function applyRouter(app){
 
     app.get('/db/member/:memberId', (req, res) => {
       dbQueries.getEventsForMember(req.params.memberId, (err, member)=> {
+        console.log({members})
         res.json(member)
       })
     })
@@ -19,6 +21,10 @@ module.exports = function applyRouter(app){
       dbQueries.getEventsForBounty(req.params.bountyId, (err, bounty)=> {
         res.json(bounty)
       })
+    })
+
+    app.get('/state', (req, res) => {
+      res.json(state)
     })
 
     app.get('/*', function(req, res) {
@@ -40,94 +46,85 @@ module.exports = function applyRouter(app){
           buildResCallback(res)
       )
     })
-    //
-    // app.post('/member_paid', (req, res) => {
-    //   console.log("/member_paid", req.body)
-    //   events.memberPaid(
-    //     req.body.memberId,
-    //     req.body.amount,
-    //     req.body.notes,
-    //     buildResCallback(res)
-    //   )
-    // })
-    //
-    // app.post('/member_charged', (req, res) => {
-    //   events.memberCharged(
-    //     req.body.address,
-    //     req.body.amount,
-    //     req.body.notes,
-    //     buildResCallback(res)
-    //   )
-    // })
-    //
-    // app.post('/member_deactivate', (req, res) => {
-    //     let address = req.body.address
-    //     events.memberDeactivate( address, buildResCallback(res) )
-    // })
-    //
-    // app.post('/cash_expense', (req, res) => {
-    //     let amount = req.body.amount
-    //     let notes = req.body.notes
-    //     events.cashExpense(amount, notes, buildResCallback(res))
-    // })
-    //
-    // app.post('/cash_received', (req, res) => {
-    //     let amount = req.body.amount
-    //     let notes = req.body.notes
-    //     events.cashReceived(amount, notes, buildResCallback(res) )
-    // })
-    //
-    // app.post('/create_bounty', (req, res) => {
-    //     let name = req.body.name
-    //     let description = req.body.description
-    //     let value = req.body.value
-    //     let boost = req.body.boost
-    //     let cap = req.body.cap
-    //     let fob = req.body.fob
-    //     events.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
-    // })
-    //
-    // app.post('/stock_supplies', (req, res) => {
-    //     // need to expand types
-    //     let amount = req.body.amount
-    //     let notes = req.body.notes
-    //     events.stockSupplies(amount, notes, buildResCallback(res))
-    // })
-    //
-    // app.post('/edit_bounty', (req,res)=> {
-    //     let bountyId = req.body.bountyId
-    //     let amount = req.body.amount
-    //     let notes = req.body.notes
-    //     events.editBounty(bountyId, amount, notes, buildResCallback(res))
-    // })
-    //
-    // app.post('/boost_bounty', (req,res)=> {
-    //     let bountyId = req.body.bountyId
-    //     let amount = req.body.amount
-    //     let notes = req.body.notes
-    //     events.boostBounty(bountyId, amount, notes, buildResCallback(res))
-    // })
-    //
-    // app.get('/current_state', (req, res) => {
-    //   request
-    //     .get(config.brainLocation)
-    //     .end((err, res2) => {
-    //       if (err) {
-    //           return null
-    //       }
-    //       res.json(res2.body)
-    //     })
-    // })
-    // //
-    // // app.post('/claim_bounty', (req, res) => {
-    // //     console.log("resbody", res.body)
-    // //     //TODO finish
-    // //     let bountyId = "4f37e360-4caf-11e7-ae6e-e9ad780f3651"
-    // //     let address = "3EerW4nQeMRJUTjM8UBbsdQPZxDA3VKdGX"
-    // //     bountyClaim( bountyId, address, buildResCallback(res) )
-    // // })
-    //
 
+    app.post('/member_paid', (req, res) => {
+      console.log("/member_paid", req.body)
+      events.memberPaid(
+        req.body.memberId,
+        req.body.amount,
+        req.body.notes,
+        buildResCallback(res)
+      )
+    })
+
+    app.post('/member_charged', (req, res) => {
+      events.memberCharged(
+        req.body.address,
+        req.body.amount,
+        req.body.notes,
+        buildResCallback(res)
+      )
+    })
+
+    app.post('/member_deactivate', (req, res) => {
+        let address = req.body.address
+        events.memberDeactivate( address, buildResCallback(res) )
+    })
+
+    app.post('/cash_expense', (req, res) => {
+        let amount = req.body.amount
+        let notes = req.body.notes
+        events.cashExpense(amount, notes, buildResCallback(res))
+    })
+
+    app.post('/cash_received', (req, res) => {
+        let amount = req.body.amount
+        let notes = req.body.notes
+        events.cashReceived(amount, notes, buildResCallback(res) )
+    })
+
+    app.post('/create_bounty', (req, res) => {
+        let name = req.body.name
+        let description = req.body.description
+        let value = req.body.value
+        let boost = req.body.boost
+        let cap = req.body.cap
+        let fob = req.body.fob
+        events.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
+    })
+
+    app.post('/stock_supplies', (req, res) => {
+        // need to expand types
+        let amount = req.body.amount
+        let notes = req.body.notes
+        events.stockSupplies(amount, notes, buildResCallback(res))
+    })
+
+    app.post('/edit_bounty', (req,res)=> {
+        let bountyId = req.body.bountyId
+        let amount = req.body.amount
+        let notes = req.body.notes
+        events.editBounty(bountyId, amount, notes, buildResCallback(res))
+    })
+
+    app.post('/boost_bounty', (req,res)=> {
+        let bountyId = req.body.bountyId
+        let amount = req.body.amount
+        let notes = req.body.notes
+        events.boostBounty(bountyId, amount, notes, buildResCallback(res))
+    })
+
+    app.get('/current_state', (req, res) => {
+        res.send("<3")
+    })
+
+    // app.post('/claim_bounty', (req, res) => {
+    //     console.log("resbody", res.body)
+    //     //TODO finish
+    //     let bountyId = "4f37e360-4caf-11e7-ae6e-e9ad780f3651"
+    //     let address = "3EerW4nQeMRJUTjM8UBbsdQPZxDA3VKdGX"
+    //     bountyClaim( bountyId, address, buildResCallback(res) )
+    // })
 }
 
 function buildResCallback(res){

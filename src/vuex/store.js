@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import socket from 'socket.io-client'
 
 // state
 import dctrl from './modules/dctrl'
@@ -9,8 +8,6 @@ import bounties from './modules/bounties'
 
 import member from './modules/member'
 import bounty from './modules/bounty'
-
-const s = socket()
 
 Vue.use(Vuex)
 

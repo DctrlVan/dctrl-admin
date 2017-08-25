@@ -6,6 +6,7 @@ const express = require('express')
 const path = require("path")
 const app = express()
 const socketIo = require('socket.io')
+const dctrlDb = require('./dctrlDb')
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
@@ -18,7 +19,9 @@ const server = app.listen(PORT, err => {
 
 const io = socketIo(server)
 
-io.on('connection', function(socket){
+io.sockets.on('connection', function(socket){
     console.log('a user connected');
-
+    dctrlDb.changeFeed.onValue(ev => {
+        socket.emit('eventstream', ev);
+    })
 });
