@@ -23,12 +23,12 @@ console.log(socket)
 
 export default {
     mounted(){
+        var vue = this
         var socket = io.connect();
-        socket.on('eventstream', function(data){
-            console.log(data)
-            // TODO router to actions
+        socket.on('eventstream', function(ev){
+            vue.$store.commit('applyEvent', ev)
         });
-        this.$store.dispatch('getMembers')
+        vue.$store.dispatch('getMembers')
     },
     components: {
         MainMenu, MobileHeading

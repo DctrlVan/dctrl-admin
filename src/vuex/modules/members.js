@@ -1,15 +1,25 @@
 import request from 'superagent'
 
-const state = []
+const state = [] // aka members (in this file):
 
 const mutations = {
-    setCurrent(state, current){
+    setCurrent(members, current){
         current.forEach( member => {
-            state.push(member)
+            members.push(member)
         })
     },
-    applyEvent(state, ev){
-        // switch?
+    applyEvent(members, ev){
+        switch (ev.type){
+            case "member-created":
+                delete ev.type
+                members.push(ev)
+                break
+            case "member-activated":
+            case "member-deactivated":
+            case "member-charged":
+            case "member-paid":
+            case "member-update-address":
+        }
     }
 }
 
