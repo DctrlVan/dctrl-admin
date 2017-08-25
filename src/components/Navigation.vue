@@ -49,7 +49,7 @@ export default {
             return this.supplies < 100
         },
         cadBalance(){
-            return this.$store.state.dctrl.cash.CAD
+            return this.$store.state.dctrl.cash
         },
     }
 }

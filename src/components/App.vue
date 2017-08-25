@@ -28,7 +28,7 @@ export default {
         socket.on('eventstream', function(ev){
             vue.$store.commit('applyEvent', ev)
         });
-        vue.$store.dispatch('getMembers')
+        vue.$store.dispatch('loadCurrent')
     },
     components: {
         MainMenu, MobileHeading

@@ -2,13 +2,13 @@
 
 const state = {
     members: [{name: 'test2'}],
-    bounties: [],
+    bounties: [{name: 'agg'}],
     dctrl: {
         cash : {
-            CAD: 0
+            CAD: 111
         },
         supplies: {
-            bitpepsi: 0
+            bitpepsi: 110
         }
     },
 }

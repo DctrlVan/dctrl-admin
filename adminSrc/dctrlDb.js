@@ -32,6 +32,7 @@ r
 
 function insertEvent( ev, callback ){
     if (!conn) return console.log("wait for connection")
+    ev.timestamp = Date.now()
     r
         .db("eventstate").table("events")
         .insert(ev)
