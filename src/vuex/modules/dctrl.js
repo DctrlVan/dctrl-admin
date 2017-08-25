@@ -20,10 +20,10 @@ const mutations = {
                 }
                 break
             case "cash-increase":
-                dctrl.cash += ev.amount
+                dctrl.cash += parseFloat(ev.amount)
                 break
             case "cash-decrease":
-                dctrl.cash -= ev.amount
+                dctrl.cash -= parseFloat(ev.amount)
                 break
             case "supplies-stocked":
                 dctrl.supplies[ev.supplyType] += parseFloat(ev.amount)
@@ -33,7 +33,6 @@ const mutations = {
                 break
         }
     }
-    // match to events
 }
 
 const actions = {

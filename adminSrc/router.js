@@ -12,7 +12,6 @@ module.exports = function applyRouter(app){
 
     app.get('/db/member/:memberId', (req, res) => {
       dbQueries.getEventsForMember(req.params.memberId, (err, member)=> {
-        console.log({members})
         res.json(member)
       })
     })
@@ -24,7 +23,7 @@ module.exports = function applyRouter(app){
     })
 
     app.get('/state', (req, res) => {
-      res.json(state)
+      res.json(state.getState())
     })
 
     app.get('/*', function(req, res) {
