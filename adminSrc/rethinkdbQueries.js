@@ -16,6 +16,7 @@ function getEventsForMember( memberId, callback ){
           const listOfMemberChargedActions = []
 
           cursor.each( (err, ev)=>{
+                // used for calendar, add to action
                 var a = new Date(ev.timestamp*1000)
                 ev.action.year = a.getFullYear()
                 ev.action.month = a.getMonth()
@@ -31,6 +32,7 @@ function getEventsForMember( memberId, callback ){
                 }
           }, (err, results)=> {
             // on cursor end
+            if (err) return callback(err);
             callback(null, {
                 listOfMemberPaidActions,
                 listOfMemberChargedActions,
@@ -62,7 +64,7 @@ function getEventsForBounty( bountyId, callback ){
                 }
           }, (err, results)=> {
             // on cursor end
-            console.log('Response for bountyId: ', {bountyId, listOfBountyPaidActions})
+            if (err) return callback(err);
             callback(null, {
                 listOfBountyPaidActions,
             })

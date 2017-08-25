@@ -36,7 +36,7 @@ export default {
     computed: {
         calcTitle(){
             let name = 'nobodies'
-            this.$store.state.brain.members.forEach( member => {
+            this.$store.state.members.forEach( member => {
                 if (member['member-id'] === this.member.memberId){
                     name = member.name
                 }

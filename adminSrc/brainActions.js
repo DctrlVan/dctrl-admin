@@ -1,6 +1,6 @@
 const request = require('superagent')
 const uuidV1 = require('uuid/v1')
-const addressManager = require('../bitcoinSrc/addressManager')
+// const addressManager = require('../bitcoinSrc/addressManager')
 const config = require('../conf')
 
 function editBounty(bountyId, amount, notes, callback){
@@ -71,11 +71,9 @@ function cashReceived(amount, notes, callback) {
 
 function cashExpense(amount, notes, callback) {
   let newEvent = {
-    action: {
       type: "cash-decrease",
       amount: amount.toString(),
       notes
-    }
   }
   dctrlPost(newEvent, callback)
 }
@@ -95,12 +93,10 @@ function stockSupplies(amount, notes, callback){
 
 function memberCharged(id, amount, notes, callback) {
   let newEvent = {
-    action: {
       type: "member-charged",
       "member-id":id,
       amount,
       notes
-    }
   }
   memberPost(newEvent, callback)
 }

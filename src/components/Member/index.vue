@@ -23,7 +23,7 @@ export default {
         },
         calcTitle(){
             let title = 'none'
-            this.$store.state.brain.members.forEach( member => {
+            this.$store.state.members.forEach( member => {
                 if (member['member-id'] === this.memberId){
                     title = member.name
                 }

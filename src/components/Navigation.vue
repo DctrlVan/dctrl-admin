@@ -43,13 +43,13 @@ export default {
     },
     computed: {
         supplies(){
-            return this.$store.state.brain.dctrl.supplies.bitpepsi
+            return this.$store.state.dctrl.supplies.bitpepsi
         },
         low(){
             return this.supplies < 100
         },
         cadBalance(){
-            return this.$store.state.brain.dctrl.cash.CAD
+            return this.$store.state.dctrl.cash.CAD
         },
     }
 }
