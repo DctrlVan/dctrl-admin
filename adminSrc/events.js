@@ -4,18 +4,6 @@ const dctrlDb = require('./dctrlDb')
 const addressManager = require('../bitcoinSrc/addressManager')
 const config = require('../conf')
 
-setInterval(()=>{
-    console.log('create?')
-    memberCreate(
-        Math.random(),
-        Math.random(),
-        Math.random(),
-        (err, res)=> {
-            console.log({err,res})
-        }
-    )
-}, 3000)
-
 function memberCreate(name, email, fob, callback) {
   addressManager.getNewAddress((err, addr) => {
     let newEvent = {
@@ -132,7 +120,7 @@ function cashReceived(amount, notes, callback) {
 function cashExpense(amount, notes, callback) {
   let newEvent = {
     type: "cash-decrease",
-    amount: amount.toString(),
+    amount,
     notes,
 
   }

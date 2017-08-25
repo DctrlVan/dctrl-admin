@@ -36,9 +36,7 @@ module.exports = function applyRouter(app){
         extended: true
     }))
 
-    //
     app.post('/member_create', (req, res) => {
-      console.log("/member_create", req)
       events.memberCreate(
           req.body.name,
           req.body.email,
@@ -47,8 +45,7 @@ module.exports = function applyRouter(app){
       )
     })
 
-    app.post('/member_paid', (req, res) => {
-      console.log("/member_paid", req.body)
+    app.post('/member_pay', (req, res) => {
       events.memberPaid(
         req.body.memberId,
         req.body.amount,
@@ -57,7 +54,7 @@ module.exports = function applyRouter(app){
       )
     })
 
-    app.post('/member_charged', (req, res) => {
+    app.post('/member_charge', (req, res) => {
       events.memberCharged(
         req.body.address,
         req.body.amount,
@@ -69,6 +66,31 @@ module.exports = function applyRouter(app){
     app.post('/member_deactivate', (req, res) => {
         let address = req.body.address
         events.memberDeactivate( address, buildResCallback(res) )
+    })
+
+    app.post('/bounty_create', (req, res) => {
+        let name = req.body.name
+        let description = req.body.description
+        let value = req.body.value
+        let boost = req.body.boost
+        let cap = req.body.cap
+        let fob = req.body.fob
+        events.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
+    })
+
+
+    app.post('/bounty_edit', (req,res)=> {
+        let bountyId = req.body.bountyId
+        let amount = req.body.amount
+        let notes = req.body.notes
+        events.bountyEdit(bountyId, amount, notes, buildResCallback(res))
+    })
+
+    app.post('/bounty_boost', (req,res)=> {
+        let bountyId = req.body.bountyId
+        let amount = req.body.amount
+        let notes = req.body.notes
+        events.bountyBoost(bountyId, amount, notes, buildResCallback(res))
     })
 
     app.post('/cash_expense', (req, res) => {
@@ -83,39 +105,11 @@ module.exports = function applyRouter(app){
         events.cashReceived(amount, notes, buildResCallback(res) )
     })
 
-    app.post('/create_bounty', (req, res) => {
-        let name = req.body.name
-        let description = req.body.description
-        let value = req.body.value
-        let boost = req.body.boost
-        let cap = req.body.cap
-        let fob = req.body.fob
-        events.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
-    })
-
     app.post('/stock_supplies', (req, res) => {
         // need to expand types
         let amount = req.body.amount
         let notes = req.body.notes
-        events.stockSupplies(amount, notes, buildResCallback(res))
-    })
-
-    app.post('/edit_bounty', (req,res)=> {
-        let bountyId = req.body.bountyId
-        let amount = req.body.amount
-        let notes = req.body.notes
-        events.editBounty(bountyId, amount, notes, buildResCallback(res))
-    })
-
-    app.post('/boost_bounty', (req,res)=> {
-        let bountyId = req.body.bountyId
-        let amount = req.body.amount
-        let notes = req.body.notes
-        events.boostBounty(bountyId, amount, notes, buildResCallback(res))
-    })
-
-    app.get('/current_state', (req, res) => {
-        res.send("<3")
+        events.suppliesStock(amount, notes, buildResCallback(res))
     })
 
     // app.post('/claim_bounty', (req, res) => {

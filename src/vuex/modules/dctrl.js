@@ -16,7 +16,7 @@ const mutations = {
         switch(ev.type){
             case "member-paid":
                 if (ev.isCash){
-                    dctrl.cash += ev.amount
+                    dctrl.cash += parseFloat(ev.amount)
                 }
                 break
             case "cash-increase":
@@ -26,10 +26,10 @@ const mutations = {
                 dctrl.cash -= ev.amount
                 break
             case "supplies-stocked":
-                dctrl.supplies[ev.supplyType] += ev.amount
+                dctrl.supplies[ev.supplyType] += parseFloat(ev.amount)
                 break
             case "supplies-used":
-                dctrl.supplies[ev.supplyType] -= ev.amount
+                dctrl.supplies[ev.supplyType] -=  parseFloat(ev.amount)
                 break
         }
     }
