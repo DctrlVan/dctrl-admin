@@ -1,9 +1,8 @@
 const r = require('rethinkdb')
 const config = require('../conf')
-
+const conn = require('./dctrlDb').conn
 
 // todo time filter
-var conn
 function getEventsForMember( memberId, callback ){
   console.log('IN getEventsForAddress')
   r
@@ -76,10 +75,3 @@ function getEventsForBounty( bountyId, callback ){
 module.exports = {
     getEventsForBounty,getEventsForMember
 }
-
-r.connect({
-        db: 'eventstate',
-        host: config.rethinkLocation
-    }).then(c => {
-        conn = c
-    })

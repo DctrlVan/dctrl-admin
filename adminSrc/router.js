@@ -3,9 +3,9 @@ const express = require('express')
 const path = require("path")
 const bodyParser = require('body-parser')
 const multer = require('multer')
-const actions = require('./brainActions')
+const events = require('./events')
 const config = require('../conf')
-const dbQueries = require('./rethinkdbQueries')
+const dbQueries = require('./dbQueries')
 
 module.exports = function applyRouter(app){
 
@@ -33,17 +33,17 @@ module.exports = function applyRouter(app){
     //
     app.post('/member_create', (req, res) => {
       console.log("/member_create", req)
-      actions.memberCreate(
-        req.body.name,
-        req.body.email,
-        req.body.fob,
-        buildResCallback(res)
+      events.memberCreate(
+          req.body.name,
+          req.body.email,
+          req.body.fob,
+          buildResCallback(res)
       )
     })
     //
     // app.post('/member_paid', (req, res) => {
     //   console.log("/member_paid", req.body)
-    //   actions.memberPaid(
+    //   events.memberPaid(
     //     req.body.memberId,
     //     req.body.amount,
     //     req.body.notes,
@@ -52,7 +52,7 @@ module.exports = function applyRouter(app){
     // })
     //
     // app.post('/member_charged', (req, res) => {
-    //   actions.memberCharged(
+    //   events.memberCharged(
     //     req.body.address,
     //     req.body.amount,
     //     req.body.notes,
@@ -62,19 +62,19 @@ module.exports = function applyRouter(app){
     //
     // app.post('/member_deactivate', (req, res) => {
     //     let address = req.body.address
-    //     actions.memberDeactivate( address, buildResCallback(res) )
+    //     events.memberDeactivate( address, buildResCallback(res) )
     // })
     //
     // app.post('/cash_expense', (req, res) => {
     //     let amount = req.body.amount
     //     let notes = req.body.notes
-    //     actions.cashExpense(amount, notes, buildResCallback(res))
+    //     events.cashExpense(amount, notes, buildResCallback(res))
     // })
     //
     // app.post('/cash_received', (req, res) => {
     //     let amount = req.body.amount
     //     let notes = req.body.notes
-    //     actions.cashReceived(amount, notes, buildResCallback(res) )
+    //     events.cashReceived(amount, notes, buildResCallback(res) )
     // })
     //
     // app.post('/create_bounty', (req, res) => {
@@ -84,28 +84,28 @@ module.exports = function applyRouter(app){
     //     let boost = req.body.boost
     //     let cap = req.body.cap
     //     let fob = req.body.fob
-    //     actions.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
+    //     events.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
     // })
     //
     // app.post('/stock_supplies', (req, res) => {
     //     // need to expand types
     //     let amount = req.body.amount
     //     let notes = req.body.notes
-    //     actions.stockSupplies(amount, notes, buildResCallback(res))
+    //     events.stockSupplies(amount, notes, buildResCallback(res))
     // })
     //
     // app.post('/edit_bounty', (req,res)=> {
     //     let bountyId = req.body.bountyId
     //     let amount = req.body.amount
     //     let notes = req.body.notes
-    //     actions.editBounty(bountyId, amount, notes, buildResCallback(res))
+    //     events.editBounty(bountyId, amount, notes, buildResCallback(res))
     // })
     //
     // app.post('/boost_bounty', (req,res)=> {
     //     let bountyId = req.body.bountyId
     //     let amount = req.body.amount
     //     let notes = req.body.notes
-    //     actions.boostBounty(bountyId, amount, notes, buildResCallback(res))
+    //     events.boostBounty(bountyId, amount, notes, buildResCallback(res))
     // })
     //
     // app.get('/current_state', (req, res) => {

@@ -1,6 +1,6 @@
 const r = require('rethinkdb')
-const config = require('../conf')
 const Kefir = require('kefir')
+const config = require('../conf')
 
 var conn, eventEmitter
 const changeFeed = Kefir.stream( e => {
