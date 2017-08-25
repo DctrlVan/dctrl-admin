@@ -1,6 +1,7 @@
 const request = require('superagent')
 const uuidV1 = require('uuid/v1')
-// const addressManager = require('../bitcoinSrc/addressManager')
+const dctrlDb = require('./rethinkdbConnection')
+const addressManager = require('../bitcoinSrc/addressManager')
 const config = require('../conf')
 
 function editBounty(bountyId, amount, notes, callback){
@@ -12,19 +13,23 @@ function editBounty(bountyId, amount, notes, callback){
             notes
         }
     }
-    bountyPost(newEvent, callback)
+    dctrlDb.insertEvent(newEvent, callback)
 }
+
+setTimeout(()=>{
+    boostBounty('123', 1, 'notes', (err, r)=>{ console.log({err,r})})
+}, 5000)
 
 function boostBounty(bountyId, amount, notes, callback){
     let newEvent = {
         action: {
             type: "bounty-boosted",
-            'bounty-id':bountyId,
+            bountyId,
             amount,
             notes
         }
     }
-    bountyPost(newEvent, callback)
+    dctrlDb.insertEvent(newEvent, callback)
 }
 
 function memberCreate(name, email, fob, callback) {
@@ -41,7 +46,7 @@ function memberCreate(name, email, fob, callback) {
                 email: email
             }
         }
-        memberPost(newEvent, callback)
+        dctrlDb.insertEvent(newEvent, callback)
     })
 }
 
@@ -55,7 +60,7 @@ function memberPaid(id, amount, notes, callback) {
       notes
     }
   }
-  memberPost(newEvent, callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 function cashReceived(amount, notes, callback) {
@@ -66,7 +71,7 @@ function cashReceived(amount, notes, callback) {
       notes
     }
   }
-  dctrlPost(newEvent, callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 function cashExpense(amount, notes, callback) {
@@ -75,7 +80,7 @@ function cashExpense(amount, notes, callback) {
       amount: amount.toString(),
       notes
   }
-  dctrlPost(newEvent, callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 function stockSupplies(amount, notes, callback){
@@ -88,7 +93,7 @@ function stockSupplies(amount, notes, callback){
         }
     }
     console.log("sending:", newEvent)
-    dctrlPost(newEvent, callback)
+    dctrlDb.insertEvent(newEvent, callback)
 }
 
 function memberCharged(id, amount, notes, callback) {
@@ -98,7 +103,7 @@ function memberCharged(id, amount, notes, callback) {
       amount,
       notes
   }
-  memberPost(newEvent, callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 function memberDeactivate(id, callback) {
@@ -108,7 +113,7 @@ function memberDeactivate(id, callback) {
       "member-id": id
     }
   }
-  memberPost(newEvent, callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 function memberActivate(id, callback) {
@@ -118,26 +123,25 @@ function memberActivate(id, callback) {
       "member-id": id
     }
   }
-  memberPost(newEvent, callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 function bountyCreate(name, description, value, cap, boost, fob, callback) {
   let newEvent = {
-    action: {
       type: "bounty-created",
       name,
       description,
       value,
       fob,
-      'bounty-id': uuidV1(),
-      'last-claimed': parseInt(Date.now() / 1000).toString(),
-      notes: "dctrl-admin",
+      bountyId: uuidV1(),
+      lastClaimed: parseInt(Date.now() / 1000).toString(),
+      notes: "dctrl-admin:",
       cap,
-      boost: '0'
-    }
+      boost: '0',
+      timestamp: Date.now()
   }
   console.log("sending:", newEvent)
-  bountyPost(newEvent, callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 function bountyClaim(bountyId, memberId, callback){
@@ -151,29 +155,7 @@ function bountyClaim(bountyId, memberId, callback){
     }
   }
   console.log("sending:", newEvent)
-  bountyPost(newEvent, callback)
-}
-
-
-function memberPost(data, callback) {
-  request
-    .post(config.brainLocation + "members")
-    .send(data)
-    .end(callback)
-}
-
-function bountyPost(data, callback) {
-  request
-    .post(config.brainLocation + "bounties")
-    .send(data)
-    .end(callback)
-}
-
-function dctrlPost(data, callback) {
-  request
-    .post(config.brainLocation + "dctrl")
-    .send(data)
-    .end(callback)
+  dctrlDb.insertEvent(newEvent, callback)
 }
 
 module.exports = {

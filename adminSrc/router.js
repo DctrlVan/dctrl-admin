@@ -20,26 +20,26 @@ module.exports = function applyRouter(app){
         res.json(bounty)
       })
     })
-    
+
     app.get('/*', function(req, res) {
         res.sendFile(path.join(__dirname, '../dist/index.html'));
     })
 
-    // app.use(bodyParser.json())
-    // app.use(bodyParser.urlencoded({
-    //     extended: true
-    // }))
+    app.use(bodyParser.json())
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }))
+
     //
-    //
-    // app.post('/member_create', (req, res) => {
-    //   console.log("/member_create", req.body)
-    //   actions.memberCreate(
-    //     req.body.name,
-    //     req.body.email,
-    //     req.body.fob,
-    //     buildResCallback(res)
-    //   )
-    // })
+    app.post('/member_create', (req, res) => {
+      console.log("/member_create", req)
+      actions.memberCreate(
+        req.body.name,
+        req.body.email,
+        req.body.fob,
+        buildResCallback(res)
+      )
+    })
     //
     // app.post('/member_paid', (req, res) => {
     //   console.log("/member_paid", req.body)
@@ -128,4 +128,16 @@ module.exports = function applyRouter(app){
     // // })
     //
 
+}
+
+function buildResCallback(res){
+    return (err, dbResponse) => {
+        if (err || !dbResponse) {
+            console.log('returning error')
+            res.send('brain error')
+        } else {
+            console.log("sending", dbResponse)
+            res.send(dbResponse)
+        }
+    }
 }

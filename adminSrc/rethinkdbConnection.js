@@ -30,15 +30,16 @@ r
         startFeed()
     })
 
-function insertEvent( action ){
+function insertEvent( ev, callback ){
     if (!conn) return console.log("wait for connection")
-    // todo
-    // r
-    //     .insert()
+    r
+        .db("eventstate").table("events")
+        .insert(ev)
+        .run(conn, callback)
 }
 
 module.exports = {
   conn,
   changeFeed,
-  // insertEvent
+  insertEvent
 }
