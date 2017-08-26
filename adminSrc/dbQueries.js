@@ -17,6 +17,7 @@ function getEventsForMember( memberId, callback ){
           const listOfMemberChargedActions = []
 
           cursor.each( (err, ev)=>{
+                console.log(memberId, ev)
                 // used for calendar, add to action
                 var a = new Date(ev.timestamp)
                 ev.year = a.getFullYear()
@@ -47,7 +48,7 @@ function getEventsForBounty( bountyId, callback ){
   if (!conn) return console.log('wait for connection')
   r
       .table('events')
-      .filter({action: { "bounty-id": bountyId }})
+      .filter({bountyId})
       .run(conn, function(err, cursor) {
 
           const listOfBountyPaidActions = []

@@ -3,7 +3,7 @@ import request from 'superagent'
 const state = {
     address: null,
     listOfMemberChargedActions: [{
-      
+
     }],
     listOfMemberPaidActions: [{
 
@@ -19,16 +19,16 @@ const mutations = {
         console.log({chargedActions})
         state.listOfMemberChargedActions = chargedActions
     },
-    setAddress(state, address){
+    setId(state, address){
         state.address = address
     }
 }
 
 const actions = {
-    getHistory({ state, commit }, address){
-        console.log("dispatching getHistory", {state, address})
-        let reqLoc = '/db/member/' + address
-        commit('setAddress', address)
+    getMemberHistory({ state, commit }, memberId){
+        console.log("dispatching getHistory", {state, memberId})
+        let reqLoc = '/db/member/' + memberId
+        commit('setId', memberId)
         commit('setPaidActions', [])
         commit('setChargedActions',[])
         request

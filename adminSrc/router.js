@@ -11,8 +11,9 @@ const state = require('./state')
 module.exports = function applyRouter(app){
 
     app.get('/db/member/:memberId', (req, res) => {
-      dbQueries.getEventsForMember(req.params.memberId, (err, member)=> {
-        res.json(member)
+      dbQueries.getEventsForMember(req.params.memberId, (err, memberHistory)=> {
+        console.log("returning: ", memberHistory)
+        res.json(memberHistory)
       })
     })
 
@@ -104,7 +105,7 @@ module.exports = function applyRouter(app){
         events.cashReceived(amount, notes, buildResCallback(res) )
     })
 
-    app.post('/stock_supplies', (req, res) => {
+    app.post('/supplies_stock', (req, res) => {
         // need to expand types
         let amount = req.body.amount
         let notes = req.body.notes
@@ -123,10 +124,10 @@ module.exports = function applyRouter(app){
 function buildResCallback(res){
     return (err, dbResponse) => {
         if (err || !dbResponse) {
-            console.log('returning error')
+            console.log('returning error', err)
             res.send('brain error')
         } else {
-            console.log("sending", dbResponse)
+            console.log("sending:", dbResponse)
             res.send(dbResponse)
         }
     }

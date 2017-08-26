@@ -37,7 +37,7 @@ export default {
         calcTitle(){
             let name = 'nobodies'
             this.$store.state.members.forEach( member => {
-                if (member['member-id'] === this.member.memberId){
+                if (member.memberId === this.member.memberId){
                     name = member.name
                 }
             })

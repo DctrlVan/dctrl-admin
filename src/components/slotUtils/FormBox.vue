@@ -41,7 +41,7 @@ export default {
             .post(this.endpoint)
             .send(this.data)
             .end((err,res)=>{
-                console.log({err, res})
+                console.log({err, resBody: res.body})
                 if (err){
                     this.response.error = true
                     setTimeout( ()=>{ this.response = false } , 5000)
