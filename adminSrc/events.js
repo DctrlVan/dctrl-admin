@@ -7,8 +7,8 @@ const config = require('../conf')
 function memberCreate(name, email, fob, callback) {
   addressManager.getNewAddress((err, addr) => {
     let newEvent = {
-        'member-id': uuidV1(),
         type: "member-created",
+        memberId: uuidV1(),
         address: addr,
         fob: fob,
         active: 1,
@@ -22,13 +22,11 @@ function memberCreate(name, email, fob, callback) {
 
 function memberPaid(memberId, amount, notes, callback) {
   let newEvent = {
-    action: {
       type: "member-paid",
       memberId,
       amount,
       isCash: true, // pass from frontend
       notes
-    }
   }
   dctrlDb.insertEvent(newEvent, callback)
 }
@@ -86,16 +84,13 @@ function bountyClaim(bountyId, memberId, callback) {
 
 function bountyBoost(bountyId, amount, notes, callback) {
   let newEvent = {
-    action: {
       type: "bounty-boosted",
       bountyId,
       amount,
       notes
-    }
   }
   dctrlDb.insertEvent(newEvent, callback)
 }
-
 
 function bountyEdit(bountyId, amount, notes, callback) {
   let newEvent = {

@@ -13,8 +13,8 @@ function getEventsForMember( memberId, callback ){
       .run(conn, function(err, cursor) {
           console.log('Response for address: ')
 
-          const listOfMemberPaidActions = []
-          const listOfMemberChargedActions = []
+          const listOfMemberPaidEvents = []
+          const listOfMemberChargedEvents = []
 
           cursor.each( (err, ev)=>{
                 console.log(memberId, ev)
@@ -26,18 +26,18 @@ function getEventsForMember( memberId, callback ){
 
                 switch (ev.type) {
                     case 'member-charged':
-                        listOfMemberChargedActions.push(ev)
+                        listOfMemberChargedEvents.push(ev)
                         break
                     case 'member-paid':
-                        listOfMemberPaidActions.push(ev)
+                        listOfMemberPaidEvents.push(ev)
                         break
                 }
           }, (err, results)=> {
             // on cursor end
             if (err) return callback(err);
             callback(null, {
-                listOfMemberPaidActions,
-                listOfMemberChargedActions,
+                listOfMemberPaidEvents,
+                listOfMemberChargedEvents,
             })
 
           })
@@ -51,7 +51,7 @@ function getEventsForBounty( bountyId, callback ){
       .filter({bountyId})
       .run(conn, function(err, cursor) {
 
-          const listOfBountyPaidActions = []
+          const listOfBountyClaimedEvents = []
 
           cursor.each( (err, ev)=>{
                 console.log('found bounty', {ev})
@@ -62,14 +62,14 @@ function getEventsForBounty( bountyId, callback ){
 
                 switch (ev.action.type) {
                     case 'bounty-claimed':
-                        listOfBountyPaidActions.push(ev.action)
+                        listOfBountyClaimedEvents.push(ev.action)
                         break
                 }
           }, (err, results)=> {
             // on cursor end
             if (err) return callback(err);
             callback(null, {
-                listOfBountyPaidActions,
+                listOfBountyClaimedEvents,
             })
 
           })

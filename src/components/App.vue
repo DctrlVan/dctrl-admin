@@ -26,6 +26,7 @@ export default {
         var vue = this
         var socket = io.connect();
         socket.on('eventstream', function(ev){
+            console.log('eventstream', ev)
             vue.$store.commit('applyEvent', ev)
         });
         vue.$store.dispatch('loadCurrent')

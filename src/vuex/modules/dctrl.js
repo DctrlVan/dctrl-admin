@@ -1,4 +1,5 @@
 import request from 'superagent'
+import { applyDctrl } from '../../../adminSrc/mutations'
 
 const state = {
     cash: 0,
@@ -12,27 +13,7 @@ const mutations = {
         dctrl.cash = current.cash
         dctrl.supplies = current.supplies
     },
-    applyEvent(dctrl, ev){
-        switch(ev.type){
-            case "member-paid":
-                if (ev.isCash){
-                    dctrl.cash += parseFloat(ev.amount)
-                }
-                break
-            case "cash-increase":
-                dctrl.cash += parseFloat(ev.amount)
-                break
-            case "cash-decrease":
-                dctrl.cash -= parseFloat(ev.amount)
-                break
-            case "supplies-stocked":
-                dctrl.supplies[ev.supplyType] += parseFloat(ev.amount)
-                break
-            case "supplies-used":
-                dctrl.supplies[ev.supplyType] -=  parseFloat(ev.amount)
-                break
-        }
-    }
+    applyEvent: applyDctrl
 }
 
 const actions = {

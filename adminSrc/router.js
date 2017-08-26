@@ -12,7 +12,6 @@ module.exports = function applyRouter(app){
 
     app.get('/db/member/:memberId', (req, res) => {
       dbQueries.getEventsForMember(req.params.memberId, (err, memberHistory)=> {
-        console.log("returning: ", memberHistory)
         res.json(memberHistory)
       })
     })
@@ -127,7 +126,7 @@ function buildResCallback(res){
             console.log('returning error', err)
             res.send('brain error')
         } else {
-            console.log("sending:", dbResponse)
+            console.log("response:", dbResponse)
             res.send(dbResponse)
         }
     }

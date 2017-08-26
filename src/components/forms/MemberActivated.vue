@@ -1,12 +1,8 @@
 <template lang='jade'>
 
 #newmember
-    shared-title(title='Claim Bounty')
-    form-box(btntxt="Claim Bounty", v-bind:data="bounty", endpoint='/bounty_claim')
-        label amount
-        input(v-model='bounty.amount' type='text')
-        label notes
-        input(v-model='bounty.notes' type='text')
+    shared-title(title='Member Charged')
+    form-box(btntxt="Credit Member Account"  endpoint='/member_activated' v-bind:data='member')
 
 </template>
 
@@ -15,10 +11,17 @@ import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
 
 export default {
+    mounted(){
+        let address = this.$router.currentRoute.path.split('/')[2]
+        if (address){
+          this.member.address = address
+        }
+    },
     data(){
         return {
-            bounty: {
-                amount: 0,
+            member: {
+                address: '',
+                amount: '',
                 notes: ''
             }
         }

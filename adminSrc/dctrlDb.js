@@ -24,7 +24,7 @@ function getAll(callback){
   if (!conn) return console.log("wait for connection")
   r
       .table('events')
-      .orderBy(r.desc('timestamp'))
+      .orderBy('timestamp')
       .run(conn, (err, cursor)=> {
           if (err) return console.log('err getting feed', err)
           let all = []
@@ -39,6 +39,7 @@ function getAll(callback){
 
 
 function startFeed(){
+    console.log("starting feed...")
     r
         .table('events')
         .changes()
