@@ -2,7 +2,7 @@
 
 #editbounty
     shared-title(:title='getTitle')
-    form-box(btntxt="Edit Bounty" endpoint='/boost_bounty' v-bind:data="info")
+    form-box(btntxt="Edit Bounty" endpoint='/bounty_boost' v-bind:data="info")
         label Boost Amount
         input(v-model='info.amount' type='text')
         label notes

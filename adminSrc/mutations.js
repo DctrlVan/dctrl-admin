@@ -24,7 +24,7 @@ function applyDctrl(dctrl, ev) {
 function applyMembers(members, ev) {
   switch (ev.type){
       case "member-created":
-          // delete ev.type
+          delete ev.type
           members.push(ev)
           break
       case "member-activated":
