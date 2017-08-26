@@ -13,11 +13,11 @@ const state = {
 const mutations = {
     setPaid(state, paid){
         console.log({paid})
-        state.listOfMemberPaid = paid
+        state.listOfMemberPaidEvents = paid
     },
     setCharged(state, charged){
         console.log({charged})
-        state.listOfMemberCharged = charged
+        state.listOfMemberChargedEvents = charged
     },
     setId(state, memberId){
         state.memberId = memberId
@@ -26,12 +26,12 @@ const mutations = {
         switch(ev.type){
             case 'member-paid':
                 if (ev.memberId == state.memberId){
-                    state.listOfMemberPaid.push(ev)
+                    state.listOfMemberPaidEvents.push(ev)
                 }
                 break
             case 'member-charged':
                 if (ev.memberId == state.memberId){
-                    state.listOfMemberCharged.push(ev)
+                    state.listOfMemberChargedEvents.push(ev)
                 }
                 break
         }

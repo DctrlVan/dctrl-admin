@@ -1,8 +1,8 @@
 <template lang='jade'>
 
 #newmember
-    shared-title(title='Member Charged')
-    form-box(btntxt="Credit Member Account"  endpoint='/member_activated' v-bind:data='member')
+    shared-title(:title='member.memberId')
+    form-box(btntxt="Credit Member Account"  endpoint='/member_activate' v-bind:data='member')
 
 </template>
 
@@ -12,17 +12,15 @@ import FormBox from '../slotUtils/FormBox'
 
 export default {
     mounted(){
-        let address = this.$router.currentRoute.path.split('/')[2]
-        if (address){
-          this.member.address = address
+        let memberId = this.$router.currentRoute.path.split('/')[2]
+        if (memberId){
+          this.member.memberId = memberId
         }
     },
     data(){
         return {
             member: {
-                address: '',
-                amount: '',
-                notes: ''
+                memberId: '',
             }
         }
     },

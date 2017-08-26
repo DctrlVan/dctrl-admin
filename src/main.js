@@ -27,6 +27,7 @@ import EditBounty from './components/forms/EditBounty'
 import MemberCharged from './components/forms/MemberCharged'
 import MemberCreate from './components/forms/MemberCreate'
 import MemberPaid from './components/forms/MemberPaid'
+import MemberActivate from './components/forms/MemberActivate'
 import MemberPaidBtc from './components/forms/MemberPaidBtc'
 
 
@@ -50,6 +51,9 @@ const routes = [{
     },{
       path: '/member_deactivate',
       component: DeactivateMember
+    },{
+      path: '/member_activate/*',
+      component: MemberActivate
     },{
       path: '/member_list',
       component: MemberList

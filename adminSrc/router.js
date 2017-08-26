@@ -17,8 +17,8 @@ module.exports = function applyRouter(app){
     })
 
     app.get('/db/bounty/:bountyId', (req, res) => {
-      dbQueries.getEventsForBounty(req.params.bountyId, (err, bounty)=> {
-        res.json(bounty)
+      dbQueries.getEventsForBounty(req.params.bountyId, (err, bountyHistory)=> {
+        res.json(bountyHistory)
       })
     })
 
@@ -63,8 +63,13 @@ module.exports = function applyRouter(app){
     })
 
     app.post('/member_deactivate', (req, res) => {
-        let address = req.body.address
-        events.memberDeactivate( address, buildResCallback(res) )
+        let memberId = req.body.memberId
+        events.memberDeactivate( memberId, buildResCallback(res) )
+    })
+
+    app.post('/member_activate', (req, res) => {
+        let memberId = req.body.memberId
+        events.memberActivate( memberId, buildResCallback(res) )
     })
 
     app.post('/bounty_create', (req, res) => {
@@ -76,7 +81,6 @@ module.exports = function applyRouter(app){
         let fob = req.body.fob
         events.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
     })
-
 
     app.post('/bounty_edit', (req,res)=> {
         let bountyId = req.body.bountyId

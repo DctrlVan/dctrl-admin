@@ -19,7 +19,6 @@ import MobileHeading from './MobileHeading'
 import io from 'socket.io-client'
 
 const socket = io()
-console.log(socket)
 
 export default {
     mounted(){

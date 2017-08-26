@@ -24,7 +24,7 @@ export default {
         calcTitle(){
             let title = 'none'
             this.$store.state.members.forEach( member => {
-                if (member['member-id'] === this.memberId){
+                if (member.memberId === this.memberId){
                     title = member.name
                 }
             })

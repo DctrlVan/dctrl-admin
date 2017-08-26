@@ -41,12 +41,20 @@ function memberCharged(memberId, amount, notes, callback) {
     dctrlDb.insertEvent(newEvent, callback)
 }
 
-function memberDeactivate(id, callback) {
+function memberDeactivate(memberId, callback) {
   let newEvent = {
     type: "member-deactivated",
     memberId,
   }
   dctrlDb.insertEvent(newEvent, callback)
+}
+
+function memberActivate(memberId, callback){
+    let newEvent = {
+        type: "member-activated",
+        memberId
+    }
+    dctrlDb.insertEvent(newEvent, callback)
 }
 
 function memberActivate(memberId, callback) {
@@ -147,6 +155,7 @@ module.exports = {
   memberPaid,
   memberCharged,
   memberDeactivate,
+  memberActivate,
   bountyEdit,
   bountyBoost,
   bountyCreate,

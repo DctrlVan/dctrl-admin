@@ -65,7 +65,6 @@ export default {
     firstDay(){
       let date = new Date(this.year, this.month, 1)
       let firstDay = date.getDay()
-      console.log({date, firstDay})
       return firstDay
     },
     days(){

@@ -2,7 +2,7 @@
 
 #newmember
     shared-title(title='Member Charged')
-    form-box(btntxt="Credit Member Account"  endpoint='/member_charged' v-bind:data='member')
+    form-box(btntxt="Credit Member Account"  endpoint='/member_charge' v-bind:data='member')
         label address
         input(v-model='member.address' type='text')
         label amount

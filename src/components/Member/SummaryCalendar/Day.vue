@@ -24,22 +24,29 @@ export default {
   props: ['day', 'month', 'year'],
   computed: {
 		paidThisDay() {
+				var self = this
 				var paid = 0
 
-				this.$store.state.member.listOfMemberPaidActions.forEach( action => {
-						if (
-								this.day == action.day &&
-								this.year == action.year &&
-								this.month == action.month
-						){
-								let amount = parseFloat( action.amount )
+				this.$store.state.member.listOfMemberPaidEvents.forEach( ev => {
+						var a = new Date(ev.timestamp)
+						console.log(
+							a.getDate(),
+							a.getFullYear(),
+							a.getMonth()
+						)
+						let isToday = (
+								self.day == a.getDate() &&
+								self.year == a.getFullYear() &&
+								self.month == a.getMonth()
+						)
+						if ( isToday ){
+								let amount = parseFloat(ev.amount)
 								if (amount > 0){
-										console.log('trying to increase paid', {action, paid})
 										paid += amount
 								}
 						}
 				})
-
+				console.log({paid})
 				if (paid > 0){
 						return paid.toFixed(2)
 				}else {
@@ -48,15 +55,15 @@ export default {
     },
 		chargedThisDay() {
 				var charged = 0
-				this.$store.state.member.listOfMemberChargedActions.forEach( action => {
+				this.$store.state.member.listOfMemberChargedEvents.forEach( ev => {
+						var a = new Date(ev.timestamp)
 						if (
-								this.day == action.day &&
-								this.year == action.year &&
-								this.month == action.month
+								this.day == a.getDate() &&
+								this.year == a.getFullYear() &&
+								this.month == a.getMonth()
 						){
-								let amount = parseFloat( action.amount )
+								let amount = parseFloat(ev.amount)
 								if (amount > 0){
-										console.log('trying to increase charged', {action, charged})
 										charged += amount
 								}
 						}

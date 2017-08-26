@@ -4,26 +4,16 @@ const dctrlDb = require('./dctrlDb')
 
 // todo time filter
 function getEventsForMember( memberId, callback ){
-  console.log(dctrlDb)
   let conn = dctrlDb.getConnection()
   if (!conn) return console.log('wait for connection')
   r
       .table('events')
       .filter({memberId})
       .run(conn, function(err, cursor) {
-          console.log('Response for address: ')
-
           const listOfMemberPaidEvents = []
           const listOfMemberChargedEvents = []
 
           cursor.each( (err, ev)=>{
-                console.log(memberId, ev)
-                // used for calendar, add to action
-                var a = new Date(ev.timestamp)
-                ev.year = a.getFullYear()
-                ev.month = a.getMonth()
-                ev.day = a.getDate()
-
                 switch (ev.type) {
                     case 'member-charged':
                         listOfMemberChargedEvents.push(ev)
@@ -32,8 +22,7 @@ function getEventsForMember( memberId, callback ){
                         listOfMemberPaidEvents.push(ev)
                         break
                 }
-          }, (err, results)=> {
-            // on cursor end
+          }, (err, results)=> { // on cursor end
             if (err) return callback(err);
             callback(null, {
                 listOfMemberPaidEvents,
@@ -45,12 +34,12 @@ function getEventsForMember( memberId, callback ){
 }
 
 function getEventsForBounty( bountyId, callback ){
+  let conn = dctrlDb.getConnection()
   if (!conn) return console.log('wait for connection')
   r
       .table('events')
       .filter({bountyId})
       .run(conn, function(err, cursor) {
-
           const listOfBountyClaimedEvents = []
 
           cursor.each( (err, ev)=>{
@@ -65,17 +54,16 @@ function getEventsForBounty( bountyId, callback ){
                         listOfBountyClaimedEvents.push(ev.action)
                         break
                 }
-          }, (err, results)=> {
-            // on cursor end
+          }, (err, results)=> { // on cursor end
             if (err) return callback(err);
             callback(null, {
                 listOfBountyClaimedEvents,
             })
-
           })
       })
 }
 
 module.exports = {
-    getEventsForBounty,getEventsForMember
+    getEventsForBounty,
+    getEventsForMember
 }
