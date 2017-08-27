@@ -8,11 +8,12 @@ import bounties from './modules/bounties'
 
 import member from './modules/member'
 import bounty from './modules/bounty'
+import eventstream from './modules/eventstream'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules: { members, bounties, dctrl, member, bounty },
+  modules: { members, bounties, dctrl, member, bounty, eventstream },
   middlewares: [],
   strict: process.env.NODE_ENV !== 'production'
 })

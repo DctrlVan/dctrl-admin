@@ -79,7 +79,7 @@ const routes = [{
       path: '/bounty_edit/*',
       component: BountyEdit
     },{
-      path: '/stock_supplies',
+      path: '/supplies_stock',
       component: SuppliesStock
     },{
       path: '/ACTIVE_BOUNTIES',
