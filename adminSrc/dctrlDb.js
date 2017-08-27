@@ -1,6 +1,6 @@
 const r = require('rethinkdb')
 const Kefir = require('kefir')
-const config = require('../conf')
+const config = require('../configuration')
 
 var conn, eventEmitter
 const changeFeed = Kefir.stream( e => {
@@ -24,7 +24,7 @@ function getAll(callback){
   if (!conn) return console.log("wait for connection")
   r
       .table('events')
-      .orderBy('timestamp')
+      .orderBy('timestamp') //todo index
       .run(conn, (err, cursor)=> {
           if (err) return console.log('err getting feed', err)
           let all = []
@@ -56,7 +56,8 @@ function insertEvent(ev, callback){
     if (!conn) return console.log("wait for connection")
     ev.timestamp = Date.now()
     r
-        .db("dctrl").table("events")
+        .db("dctrl")
+        .table("events")
         .insert(ev)
         .run(conn, callback)
 }

@@ -1,5 +1,5 @@
 const bitcoind = require('bitcoin')
-const config = require('../conf')
+const config = require('../configuration')
 
 const client = new bitcoind.Client(config.bitcoindClient)
 

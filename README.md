@@ -1,9 +1,17 @@
 ## Welcome to dctrl app.
 
-`This is the Vue-designed website of March 2017. Instructions on cloning:
+Start by cloning this repo. In the new folder do:
+- `npm install`
 
-`git clone `
-`cd dctrlapp`
-`npm install`
-`npm run dev`
+This will start the dev server
+- `npm run dev`
 
+The admin-server depends on:
+- rethinkdb: https://rethinkdb.com/docs/install/
+- bitcoind: https://bitcoin.org/en/bitcoin-core/
+- (todo) lightningd: https://github.com/ElementsProject/lightning
+
+You must change the configuration.js
+
+Once the above are started run
+- `npm run serve`

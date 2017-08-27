@@ -13,7 +13,6 @@ const state = {
 }
 
 function applyEvent(ev){
-    console.log("applying Event ", ev)
     mutations.applyBounties(state.bounties, ev)
     mutations.applyDctrl(state.dctrl, ev)
     mutations.applyMembers(state.members, ev)

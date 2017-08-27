@@ -4,7 +4,7 @@ const path = require("path")
 const bodyParser = require('body-parser')
 const multer = require('multer')
 const events = require('./events')
-const config = require('../conf')
+const config = require('../configuration')
 const dbQueries = require('./dbQueries')
 const state = require('./state')
 

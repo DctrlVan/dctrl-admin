@@ -2,7 +2,7 @@ const request = require('superagent')
 const Client = require('bitcore-wallet-client')
 const BWS_INSTANCE_URL = 'https://bws.bitpay.com/bws/api' // # alternatives to bitpay?
 const fs = require('fs')
-const config = require('../conf')
+const config = require('../configuration')
 
 const client = new Client({
  baseUrl: BWS_INSTANCE_URL,
@@ -10,18 +10,18 @@ const client = new Client({
 })
 
 var ready = false
-client.importFromMnemonic(config.secret, {}, (err, wallet)=> {
-    if (err){
-        // TODO
-        return console.log('error importing', {err})
-    }
-    console.log('import success', {wallet})
-    ready = true
-})
+// client.importFromMnemonic(config.secret, {}, (err, wallet)=> {
+//     if (err){
+//         // TODO
+//         return console.log('error importing', {err})
+//     }
+//     console.log('import success', {wallet})
+//     ready = true
+// })
 
 function getNewAddress(callback){
+    return callback( null, "1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX")
     if (!ready) return console.log('wallet not ready')
-
     client.createAddress({}, function(err,addr){
         if (err) {
           console.log('error: ', err);

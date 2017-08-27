@@ -12,9 +12,8 @@ import App from './components/App'
 
 import Home from './components/Home'
 import ActiveBounties from './components/ActiveBounties'
-import BountyList from './components/BountyList'
 import HistoryBounty from './components/HistoryBounty'
-import Member from './components/Member'
+import HistoryMember from './components/HistoryMember'
 import MemberList from './components/MemberList'
 
 import BountyBoost from './components/forms/BountyBoost'
@@ -59,8 +58,8 @@ const routes = [{
       path: '/member_list',
       component: MemberList
     },{
-      path: '/member/*',
-      component: Member
+      path: '/history_member/*',
+      component: HistoryMember
     },{
       path: '/member_paid_btc/*',
       component: MemberPaidBtc
@@ -76,9 +75,6 @@ const routes = [{
     },{
       path: '/bounty_claim',
       component: BountyClaim
-    },{
-      path: '/bounty_list',
-      component: BountyList
     },{
       path: '/bounty_edit/*',
       component: BountyEdit

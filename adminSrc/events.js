@@ -2,7 +2,7 @@ const request = require('superagent')
 const uuidV1 = require('uuid/v1')
 const dctrlDb = require('./dctrlDb')
 const addressManager = require('../bitcoinSrc/addressManager')
-const config = require('../conf')
+const config = require('../configuration')
 
 function memberCreate(name, email, fob, callback) {
   addressManager.getNewAddress((err, addr) => {
@@ -47,14 +47,6 @@ function memberDeactivate(memberId, callback) {
     memberId,
   }
   dctrlDb.insertEvent(newEvent, callback)
-}
-
-function memberActivate(memberId, callback){
-    let newEvent = {
-        type: "member-activated",
-        memberId
-    }
-    dctrlDb.insertEvent(newEvent, callback)
 }
 
 function memberActivate(memberId, callback) {

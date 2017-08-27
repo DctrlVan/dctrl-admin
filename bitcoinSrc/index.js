@@ -1,4 +1,4 @@
-const config = require('../conf')
+const config = require('../configuration')
 const request = require('superagent')
 const bitcoindZmq = require('./bitcoindZmq')
 const bitcoindRpc = require('./bitcoindRpc')
