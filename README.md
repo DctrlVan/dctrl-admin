@@ -9,9 +9,24 @@ This will start the dev server
 The admin-server depends on:
 - rethinkdb: https://rethinkdb.com/docs/install/
 - bitcoind: https://bitcoin.org/en/bitcoin-core/
-- (todo) lightningd: https://github.com/ElementsProject/lightning
 
 You must change the configuration.js
+```
+module.exports = {
+    rethinkLocation: "localhost",
+    secret: "copay wallet seed random words secret very...",
+    bitcoindClient: {
+        host: 'localhost',
+        port: 8332,
+        user: 'whoyou',
+        pass: 'lol'
+    },
+    bitcoinAverage: {
+        pub: "3232...",
+        secret: "HSDH..."
+    }
+}
+```
 
 Once the above are started run
 - `npm run serve`
