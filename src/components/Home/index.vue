@@ -2,12 +2,11 @@
 
 #home
     shared-title(title='dctrl community commons')
-    p dctrl is commons space & property managed by an autonomous organization.
-    p Community management software for peer-to-peer commons.
+    p Welcome to community management software for a peer-to-peer commons.
     p All the code is open source including this web application & rethinkdb driven mutation/event database (dctrl-admin) and rfid fob reading for bounty claiming, beverage vending, and door opening (dctrl-fobtap).
     p We host &nbsp;
         a(href='https://www.meetup.com/dctrlvan/') meetups &nbsp;
-        span that focus on decentralization include Decentralized Currency (Bitcoin), Decentralized Law (smart contracts, autonomous organizations), Decentralized Production (3D printing, vertical farming, and solar (& nuclear?) energy), and Decentralized Communication (metaverse).
+        span that focus on decentralization include Decentralized Currency (Bitcoin), Decentralized Law (smart contracts, cooperatives), Decentralized Production (3D printing, vertical farming, and solar (& nuclear?) energy), and Decentralized Communication (encryption, metaverse).
     p Fork us on github <3: &nbsp;
         a(href='https://github.com/DecentralVan/dctrl-admin')
             button dctrl-admin
