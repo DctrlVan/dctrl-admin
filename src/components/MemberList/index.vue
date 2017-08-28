@@ -17,7 +17,7 @@ import Tab from './Tab'
 export default {
     computed: {
         members(){
-            return this.$store.state.brain.members
+            return this.$store.state.members
         }
     },
     components:{

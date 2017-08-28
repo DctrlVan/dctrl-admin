@@ -1,23 +1,6 @@
 const request = require('superagent')
-const config = require('./conf')
-const actions = require('./adminSrc/brainActions')
-
-function memberActivate(id, callback) {
-  let newEvent = {
-    action: {
-      type: "member-activated",
-      "member-id": id
-    }
-  }
-  memberPost(newEvent, callback)
-}
-
-function memberPost(data, callback) {
-  request
-    .post(config.brainLocation + "members")
-    .send(data)
-    .end(callback)
-}
+const config = require('./configuration')
+const events = require('./adminSrc/events')
 
 const toImport = [
     {
@@ -38,8 +21,8 @@ request
                     let x = 0
                     while (x < person.active){
                         x++
-                        memberActivate(member["member-id"], (err, res)=> {
-                            console.log({err}, res.body)
+                        events.memberActivate(member.memberId, (err, res)=> {
+                            console.log({err,res})
                         })
                     }
                 }

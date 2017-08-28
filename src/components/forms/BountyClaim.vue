@@ -2,7 +2,7 @@
 
 #newmember
     shared-title(title='Claim Bounty')
-    form-box(btntxt="Claim Bounty", v-bind:data="bounty", endpoint='/claim_bounty')
+    form-box(btntxt="Claim Bounty", v-bind:data="bounty", endpoint='/bounty_claim')
         label amount
         input(v-model='bounty.amount' type='text')
         label notes

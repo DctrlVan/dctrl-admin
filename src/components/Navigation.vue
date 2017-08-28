@@ -5,14 +5,14 @@ ul.navigation
     li
       router-link(to='/MEMBER_CREATE') Create Member
     li
-      router-link(to='/CREATE_BOUNTY') Create Bounty
+      router-link(to='/BOUNTY_CREATE') Create Bounty
     label MANAGE
     li
       router-link(to='/MEMBER_LIST') Members
     li()
       router-link(to='/ACTIVE_BOUNTIES') Bounties
     li
-        router-link(to='/STOCK_SUPPLIES') Supplies
+        router-link(to='/SUPPLIES_STOCK') Supplies
             span
                 span.red(v-if='low')  ( {{supplies}} )
                 span(v-else) ( {{supplies}} )
@@ -43,13 +43,13 @@ export default {
     },
     computed: {
         supplies(){
-            return this.$store.state.brain.dctrl.supplies.bitpepsi
+            return this.$store.state.dctrl.supplies.bitpepsi
         },
         low(){
             return this.supplies < 100
         },
         cadBalance(){
-            return this.$store.state.brain.dctrl.cash.CAD
+            return this.$store.state.dctrl.cash
         },
     }
 }

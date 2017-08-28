@@ -25,7 +25,7 @@ export default {
 								this.year == action.year &&
 								this.month == action.month
 						){
-								this.$store.state.brain.members.forEach( member => {
+								this.$store.state.members.forEach( member => {
 										if (member.address == action.address) {
 												claimedToday.push( member.name)
 										}

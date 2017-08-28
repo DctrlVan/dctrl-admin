@@ -2,17 +2,18 @@
 
 #home
     shared-title(title='dctrl community commons')
-    p This is community management software for helping communities self-govern in a peer-to-peer way.
-    p The space acts as a autonomous organization (an AO).
-    p All the code is open source including this admin interface, an eventstate database and rfid readers for bounty claiming, beverage vending, and door opening.
-        span hosted here:  the &nbsp;
-        a(href='https://github.com/DecentralVan/dctrl-admin') dctrl-admin
-        span , &nbsp;the &nbsp;
-        a(href='https://github.com/decentralvan/dctrl-brain') dctrl-brain
-        span , &nbsp;and the &nbsp;
-        a(href='https://github.com/decentralvan/dctrl-fobtap') dctrl-fobtap
-        span .
-    p Todo: explain why
+    p dctrl is commons space & property managed by an autonomous organization.
+    p Community management software for peer-to-peer commons.
+    p All the code is open source including this web application & rethinkdb driven mutation/event database (dctrl-admin) and rfid fob reading for bounty claiming, beverage vending, and door opening (dctrl-fobtap).
+    p We host &nbsp;
+        a(href='https://www.meetup.com/dctrlvan/') meetups &nbsp;
+        span that focus on decentralization include Decentralized Currency (Bitcoin), Decentralized Law (smart contracts, autonomous organizations), Decentralized Production (3D printing, vertical farming, and solar (& nuclear?) energy), and Decentralized Communication (metaverse).
+    p Fork us on github <3: &nbsp;
+        a(href='https://github.com/DecentralVan/dctrl-admin')
+            button dctrl-admin
+        a(href='https://github.com/decentralvan/dctrl-fobtap')
+            button  dctrl-fobtap
+
 
 </template>
 
@@ -32,6 +33,11 @@ export default {
 
 @import '../../styles/colours'
 
+button
+    color: white
+    margin: 1em
+    background: accent1
+
 p
     font-size:1.3em
     color:white
@@ -47,6 +53,6 @@ a
     text-decoration: none;
 
 a:visited
-    color: accent
+    color: accent1
 
 </style>

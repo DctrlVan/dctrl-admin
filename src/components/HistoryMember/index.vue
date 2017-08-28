@@ -23,8 +23,8 @@ export default {
         },
         calcTitle(){
             let title = 'none'
-            this.$store.state.brain.members.forEach( member => {
-                if (member['member-id'] === this.memberId){
+            this.$store.state.members.forEach( member => {
+                if (member.memberId === this.memberId){
                     title = member.name
                 }
             })
@@ -38,7 +38,7 @@ export default {
         let component = this
         let memberId = this.$router.currentRoute.path.split('/')[2]
         this.memberId = memberId
-        this.$store.dispatch('getHistory', memberId)
+        this.$store.dispatch('getMemberHistory', memberId)
     }
 }
 

@@ -1,45 +1,58 @@
 import request from 'superagent'
 
 const state = {
-    address: null,
-    listOfMemberChargedActions: [{
-      
+    memberId: null,
+    listOfMemberChargedEvents: [{
+
     }],
-    listOfMemberPaidActions: [{
+    listOfMemberPaidEvents: [{
 
     }]
 }
 
 const mutations = {
-    setPaidActions(state, paidActions){
-        console.log({paidActions})
-        state.listOfMemberPaidActions = paidActions
+    setPaid(state, paid){
+        console.log({paid})
+        state.listOfMemberPaidEvents = paid
     },
-    setChargedActions(state, chargedActions){
-        console.log({chargedActions})
-        state.listOfMemberChargedActions = chargedActions
+    setCharged(state, charged){
+        console.log({charged})
+        state.listOfMemberChargedEvents = charged
     },
-    setAddress(state, address){
-        state.address = address
+    setId(state, memberId){
+        state.memberId = memberId
+    },
+    applyEvent(state, ev){
+        switch(ev.type){
+            case 'member-paid':
+                if (ev.memberId == state.memberId){
+                    state.listOfMemberPaidEvents.push(ev)
+                }
+                break
+            case 'member-charged':
+                if (ev.memberId == state.memberId){
+                    state.listOfMemberChargedEvents.push(ev)
+                }
+                break
+        }
     }
 }
 
 const actions = {
-    getHistory({ state, commit }, address){
-        console.log("dispatching getHistory", {state, address})
-        let reqLoc = '/db/member/' + address
-        commit('setAddress', address)
-        commit('setPaidActions', [])
-        commit('setChargedActions',[])
+    getMemberHistory({ state, commit }, memberId){
+        console.log("dispatching getHistory", {state, memberId})
+        let reqLoc = '/db/member/' + memberId
+        commit('setId', memberId)
+        commit('setPaid', [])
+        commit('setCharged',[])
         request
             .get(reqLoc)
             .end((err, res)=> {
                 if (err || !res.body) {
                     return console.log('no res')
                 }
-                console.log('Setting action arrays')
-                commit('setPaidActions', res.body.listOfMemberPaidActions)
-                commit('setChargedActions', res.body.listOfMemberChargedActions)
+                commit('setPaid', res.body.listOfMemberPaidEvents)
+                commit('setCharged', res.body.listOfMemberChargedEvents)
             })
     }
 }

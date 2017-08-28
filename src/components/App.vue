@@ -1,6 +1,9 @@
 <template lang='jade'>
 
 #app
+    //- img#tronstuff(src='../assets/images/tronStuff.svg')
+    .feed
+        event-feed
     .mobile
         mobile-heading
             router-view
@@ -10,19 +13,30 @@
       .content
           router-view
 
+
 </template>
 
 <script>
 
 import MainMenu from './MainMenu.vue'
 import MobileHeading from './MobileHeading'
+import EventFeed from './slotUtils/EventFeed'
+import io from 'socket.io-client'
+
+const socket = io()
 
 export default {
     mounted(){
-        this.$store.dispatch('getState')
+        var vue = this
+        var socket = io.connect();
+        socket.on('eventstream', function(ev){
+            vue.$store.commit('applyEvent', ev)
+            vue.$store.dispatch('displayEvent', ev)
+        });
+        vue.$store.dispatch('loadCurrent')
     },
     components: {
-        MainMenu, MobileHeading
+        MainMenu, MobileHeading, EventFeed
     },
 }
 
@@ -30,6 +44,11 @@ export default {
 </script>
 
 <style lang="stylus">
+
+#tronstuff
+    position:absolute
+    z-index: -100
+    left: 100px
 
 @import "../styles/breakpoints"
 @import "../styles/framework"
@@ -43,9 +62,9 @@ main
   display: flex;
   background:main
   color: accent1
-
-main
   font-family:font
+
+.feed
 
 .side_bar, .content
   display: flex;

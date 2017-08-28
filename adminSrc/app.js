@@ -1,23 +1,27 @@
 // Admin Server
+// require("../bitcoinSrc") // initialize address watching
+let PORT = process.env.PORT || 8003
 
 const express = require('express')
 const path = require("path")
-const bodyParser = require('body-parser')
-const multer = require('multer')
-const applyRouter = require('./router')
-
-require("../bitcoinSrc") // initialize address watching
 const app = express()
-let PORT = process.env.PORT || 8003
+const socketIo = require('socket.io')
+const dctrlDb = require('./dctrlDb')
 
-app.use(express.static('dist'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
+app.use(express.static(path.join(__dirname, '../dist')));
 
+const applyRouter = require('./router')
 applyRouter(app)
 
-app.listen(PORT, err => {
-  console.log("Listening on port", PORT);
+const server = app.listen(PORT, err => {
+    console.log("Listening on port", PORT)
+})
+
+const io = socketIo(server)
+
+io.sockets.on('connection', function(socket){
+    console.log('a user connected');
+    dctrlDb.changeFeed.onValue(ev => {
+        socket.emit('eventstream', ev);
+    })
 });

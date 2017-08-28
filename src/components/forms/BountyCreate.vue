@@ -2,7 +2,7 @@
 
 #createbounty
     shared-title(title='Create Bounty')
-    form-box(btntxt="Create New Bounty" endpoint='/create_bounty' v-bind:data="bounty")
+    form-box(btntxt="Create New Bounty" endpoint='/bounty_create' v-bind:data="bounty")
         label name
         input(v-model='bounty.name' type='text')
         label description

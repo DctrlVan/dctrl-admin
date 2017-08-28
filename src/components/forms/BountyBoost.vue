@@ -2,8 +2,8 @@
 
 #editbounty
     shared-title(:title='getTitle')
-    form-box(btntxt="Edit Bounty" endpoint='/edit_bounty' v-bind:data="info")
-        label New Monthly Amount
+    form-box(btntxt="Edit Bounty" endpoint='/bounty_boost' v-bind:data="info")
+        label Boost Amount
         input(v-model='info.amount' type='text')
         label notes
         input(v-model='info.notes' type='text')
@@ -27,9 +27,9 @@ export default {
             let title
             // todo how often?
             console.log('calc getTitle')
-            this.$store.state.brain.bounties.forEach(b => {
+            this.$store.state.bounties.forEach(b => {
                 if (b['bounty-id'] == this.info.bountyId){
-                    title = "Edit " + b.name + " Bounty!"
+                    title = "Boost " + b.name + " Bounty!"
                 }
             })
             return title
