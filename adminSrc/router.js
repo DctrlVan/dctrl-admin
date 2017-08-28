@@ -55,7 +55,7 @@ module.exports = function applyRouter(app){
 
     app.post('/member_charge', (req, res) => {
       events.memberCharged(
-        req.body.address,
+        req.body.memberId,
         req.body.amount,
         req.body.notes,
         buildResCallback(res)

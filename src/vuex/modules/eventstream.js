@@ -11,7 +11,7 @@ function bestMeme(){
 
 const state = {
     meme: bestMeme(),
-    type: "member-charged",
+    type: "",
     showEvent: false
 }
 
