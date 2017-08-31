@@ -2,10 +2,8 @@
 #newmember
 	shared-title(title='Create New Member')
 	form-box(btntxt="Welcome New Member"  endpoint='/member_create' v-bind:data='member')
-			label name
+			label hacker name
 			input(v-model='member.name' type='text' )
-			label email
-			input(v-model='member.email' type='text')
 			label Member Fob! (tap it)
 			input(v-model='member.fob' type='text')
 
