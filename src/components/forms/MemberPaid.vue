@@ -26,6 +26,7 @@ export default {
             member: {
                 memberId: '',
                 amount: '',
+                isCash: true,
                 notes: ''
             }
         }

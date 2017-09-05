@@ -20,12 +20,12 @@ function memberCreate(name, email, fob, callback) {
   })
 }
 
-function memberPaid(memberId, amount, notes, callback) {
+function memberPaid(memberId, amount, isCash, notes, callback) {
   let newEvent = {
       type: "member-paid",
       memberId,
       amount,
-      isCash: true, // pass from frontend
+      isCash,
       notes
   }
   dctrlDb.insertEvent(newEvent, callback)

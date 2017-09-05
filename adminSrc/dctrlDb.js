@@ -53,8 +53,10 @@ function startFeed(){
 }
 
 function insertEvent(ev, callback){
-    if (!conn) return console.log("wait for connection")
-    ev.timestamp = Date.now()
+    if (!conn) return callback("No rethinkdb connection")
+    if (!ev.timestamp){ 
+        ev.timestamp = Date.now()
+    }
     r
         .db("dctrl")
         .table("events")

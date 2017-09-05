@@ -10,23 +10,23 @@ function getEventsForMember( memberId, callback ){
       .table('events')
       .filter({memberId})
       .run(conn, function(err, cursor) {
-          const listOfMemberPaidEvents = []
-          const listOfMemberChargedEvents = []
+          const memberPaidEvents = []
+          const memberChargedEvents = []
 
           cursor.each( (err, ev)=>{
                 switch (ev.type) {
                     case 'member-charged':
-                        listOfMemberChargedEvents.push(ev)
+                        memberChargedEvents.push(ev)
                         break
                     case 'member-paid':
-                        listOfMemberPaidEvents.push(ev)
+                        memberPaidEvents.push(ev)
                         break
                 }
           }, (err, results)=> { // on cursor end
             if (err) return callback(err);
             callback(null, {
-                listOfMemberPaidEvents,
-                listOfMemberChargedEvents,
+                memberPaidEvents,
+                memberChargedEvents,
             })
 
           })
