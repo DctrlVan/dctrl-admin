@@ -15,10 +15,12 @@
 import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
 
+// TODO: supplies stocked affect member...
 export default {
     data(){
       return {
           info: {
+              credit: '',
               amount:'',
               notes: ''
           }

@@ -72,11 +72,12 @@ function bountyCreate(name, description, value, cap, boost, fob, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function bountyClaim(bountyId, memberId, callback) {
+function bountyClaim(bountyId, memberId, paid,  callback) {
   let newEvent = {
     type: "bounty-claimed",
     bountyId,
     memberId,
+    paid,
     notes: "dctrl-admin",
   }
   dctrlDb.insertEvent(newEvent, callback)
@@ -117,12 +118,11 @@ function cashExpense(amount, notes, callback) {
     type: "cash-decrease",
     amount,
     notes,
-
   }
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function suppliesStock(amount, notes, callback) {
+function suppliesStock(memberId, amount, notes, callback) {
   let newEvent = {
       type: 'supplies-stocked',
       amount,
@@ -132,12 +132,13 @@ function suppliesStock(amount, notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function suppliesUse(amount, supplyType, notes, callback) {
+function suppliesUse(memberId, supplyType, charged, notes, callback) {
   let newEvent = {
       type: 'supplies-used',
+      memberId,
       supplyType,
-      amount,
-      notes,
+      charged,
+      notes
   }
   dctrlDb.insertEvent(newEvent, callback)
 }

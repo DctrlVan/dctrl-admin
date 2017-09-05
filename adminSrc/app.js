@@ -8,19 +8,15 @@ const app = express()
 const socketIo = require('socket.io')
 const dctrlDb = require('./dctrlDb')
 
-app.use(express.static(path.join(__dirname, '../dist')));
-
 const applyRouter = require('./router')
-applyRouter(app)
 
+applyRouter(app)
 const server = app.listen(PORT, err => {
     console.log("Listening on port", PORT)
 })
-
 const io = socketIo(server)
 
 io.sockets.on('connection', function(socket){
-    console.log('a user connected');
     dctrlDb.changeFeed.onValue(ev => {
         socket.emit('eventstream', ev);
     })

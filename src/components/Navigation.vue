@@ -6,21 +6,21 @@ ul.navigation
       router-link(to='/MEMBER_CREATE') Create Member
     li
       router-link(to='/BOUNTY_CREATE') Create Bounty
+    li
+      router-link(to='/SUPPLIES_STOCK') Stock bitpepsi
+          span.red(v-if='low') - warning! {{supplies}}
+          span(v-else)  - {{supplies}}
     label MANAGE
     li
       router-link(to='/MEMBER_LIST') Members
     li()
       router-link(to='/ACTIVE_BOUNTIES') Bounties
     li
-        router-link(to='/SUPPLIES_STOCK') Supplies
-            span
-                span.red(v-if='low')  ( {{supplies}} )
-                span(v-else) ( {{supplies}} )
-    //- label Cash - {{cadBalance}}
-    //- li
-    //-     router-link(to='/CASH_EXPENSE') Expend
-    //- li
-    //-     router-link(to='/cash_received') Receive
+    label Cash - ${{cash}}
+    li
+        router-link(to='/CASH_EXPENSE') Expend
+    li
+        router-link(to='/cash_received') Receive
 
 </template>
 
@@ -48,7 +48,7 @@ export default {
         low(){
             return this.supplies < 100
         },
-        cadBalance(){
+        cash(){
             return this.$store.state.dctrl.cash
         },
     }

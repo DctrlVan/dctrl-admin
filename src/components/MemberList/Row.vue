@@ -2,23 +2,12 @@
 
 tr
     td
-        div(v-if='m.active > 0')
-            img(:class='calcSpin(m)' v-if='m.active == 1' src='../../assets/images/active1.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 2' src='../../assets/images/active2.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 3' src='../../assets/images/active3.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 4' src='../../assets/images/active4.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 5' src='../../assets/images/active5.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 6' src='../../assets/images/active6.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 7' src='../../assets/images/active7.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 8' src='../../assets/images/active8.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 9' src='../../assets/images/active9.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 10' src='../../assets/images/active10.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 11' src='../../assets/images/active11.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 12' src='../../assets/images/active12.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 13' src='../../assets/images/active13.svg')
-            img(:class='calcSpin(m)' v-if='m.active == 14' src='../../assets/images/active14.svg')
-            img(:class='calcSpin(m)' v-if='m.active >= 15' src='../../assets/images/active15.svg')
-        img(v-else src='../../assets/images/inactive.svg')
+        dctrl-active(:m='m')
+    td
+        router-link.pad(:to='payLocation')
+            img(src='../../assets/images/cash1.svg')
+        router-link(:to='payBtcLocation')
+            img(src='../../assets/images/bitcoin.svg')
     td
         span {{m.name}}
     td
@@ -26,31 +15,16 @@ tr
     td
         router-link(:to='memberLocation')
             img(src='../../assets/images/calendar.svg')
-    td
-        router-link.pad(:to='payLocation')
-            img(src='../../assets/images/cash1.svg')
-        router-link(:to='payBtcLocation')
-            img(src='../../assets/images/bitcoin.svg')
 
 </template>
 
 
 <script>
-
-
+import DctrlActive from './DctrlActive'
 
 export default {
-    methods: {
-        calcSpin(m){
-            console.log(m)
-            if (Math.random() > .8765 ){
-                return {
-                    spin:true
-                }
-            }
-        }
-    },
     props: ['m'],
+    components: {DctrlActive},
     computed: {
         payLocation(){
             return '/MEMBER_PAID/' + this.m.memberId
@@ -73,8 +47,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../styles/spinners'
 @import '../../styles/colours'
+
+.payrow
+    max-width: 100px
 
 .or
     font-size: 1.3em
@@ -100,12 +76,10 @@ button
     border: none
 
 img
-    height: 55px
+    height: 45px
 
 td
     border-color: accent4
     vertical-align:middle
-
-// TODO: style .inactive / or .active
 
 </style>

@@ -62,6 +62,21 @@ function applyMembers(members, ev) {
               }
           })
           break
+      case "supplies-used":
+          members.forEach( member => {
+              if (member.memberId === ev.memberId){
+                  member.address = ev.newAddress
+              }
+          })
+          break
+      case "bounty-claimed":
+          members.forEach( member => {
+              if (member.memberId === ev.memberId){
+                  member.balance += ev.paid
+              }
+          })
+          break
+
   }
 }
 

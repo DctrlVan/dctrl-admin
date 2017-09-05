@@ -1,13 +1,13 @@
 <template lang='jade'>
 
 table
-    tr
-        th active
-        th who
-        //- th address
-        th balance
-        th history
-        th pay
+    //- tr
+    //-     th active
+    //-     th who
+    //-     //- th address
+    //-     th balance
+    //-     th history
+    //-     th pay
     slot
 
 </template>
@@ -26,8 +26,6 @@ export default {
 
 @import '../../styles/colours'
 
-
-
 table
     color: accent1
     text-align:center
@@ -40,7 +38,5 @@ th
 
 td, tr, th
     border-color: accent4
-
-// TODO: style .inactive / or .active
 
 </style>
