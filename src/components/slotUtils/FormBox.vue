@@ -31,7 +31,7 @@ export default {
         this.response = {} // hides forms
 
         request
-            .post('/events/' + this.endpoint)
+            .post('/events' + this.endpoint)
             .send(this.data)
             .end((err,res)=>{
                 console.log({err, resBody: res.body})

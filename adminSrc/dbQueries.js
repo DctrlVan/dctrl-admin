@@ -40,7 +40,7 @@ function getEventsForBounty( bountyId, callback ){
       .table('events')
       .filter({bountyId})
       .run(conn, function(err, cursor) {
-          const listOfBountyClaimedEvents = []
+          const bountyClaimedEvents = []
 
           cursor.each( (err, ev)=>{
                 console.log('found bounty', {ev})
@@ -51,13 +51,13 @@ function getEventsForBounty( bountyId, callback ){
 
                 switch (ev.action.type) {
                     case 'bounty-claimed':
-                        listOfBountyClaimedEvents.push(ev.action)
+                        bountyClaimedEvents.push(ev.action)
                         break
                 }
           }, (err, results)=> { // on cursor end
             if (err) return callback(err);
             callback(null, {
-                listOfBountyClaimedEvents,
+                bountyClaimedEvents,
             })
           })
       })

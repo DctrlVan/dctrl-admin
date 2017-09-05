@@ -2,10 +2,10 @@ import request from 'superagent'
 
 const state = {
     memberId: null,
-    listOfMemberChargedEvents: [{
+    memberChargedEvents: [{
 
     }],
-    listOfMemberPaidEvents: [{
+    memberPaidEvents: [{
 
     }]
 }
@@ -13,11 +13,11 @@ const state = {
 const mutations = {
     setPaid(state, paid){
         console.log({paid})
-        state.listOfMemberPaidEvents = paid
+        state.memberPaidEvents = paid
     },
     setCharged(state, charged){
         console.log({charged})
-        state.listOfMemberChargedEvents = charged
+        state.memberChargedEvents = charged
     },
     setId(state, memberId){
         state.memberId = memberId
@@ -26,12 +26,12 @@ const mutations = {
         switch(ev.type){
             case 'member-paid':
                 if (ev.memberId == state.memberId){
-                    state.listOfMemberPaidEvents.push(ev)
+                    state.memberPaidEvents.push(ev)
                 }
                 break
             case 'member-charged':
                 if (ev.memberId == state.memberId){
-                    state.listOfMemberChargedEvents.push(ev)
+                    state.memberChargedEvents.push(ev)
                 }
                 break
         }
@@ -51,8 +51,8 @@ const actions = {
                 if (err || !res.body) {
                     return console.log('no res')
                 }
-                commit('setPaid', res.body.listOfMemberPaidEvents)
-                commit('setCharged', res.body.listOfMemberChargedEvents)
+                commit('setPaid', res.body.memberPaidEvents)
+                commit('setCharged', res.body.memberChargedEvents)
             })
     }
 }

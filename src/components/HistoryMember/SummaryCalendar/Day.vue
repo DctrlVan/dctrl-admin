@@ -27,7 +27,7 @@ export default {
 				var self = this
 				var paid = 0
 
-				this.$store.state.member.listOfMemberPaidEvents.forEach( ev => {
+				this.$store.state.member.memberPaidEvents.forEach( ev => {
 						var a = new Date(ev.timestamp)
 						console.log(
 							a.getDate(),
@@ -55,7 +55,7 @@ export default {
     },
 		chargedThisDay() {
 				var charged = 0
-				this.$store.state.member.listOfMemberChargedEvents.forEach( ev => {
+				this.$store.state.member.memberChargedEvents.forEach( ev => {
 						var a = new Date(ev.timestamp)
 						if (
 								this.day == a.getDate() &&
