@@ -3,9 +3,10 @@ import request from 'superagent'
 const state = {
     memberId: null,
     memberChargedEvents: [{
-
     }],
     memberPaidEvents: [{
+      // type: 'member-paid',
+      // amount: 9001
 
     }]
 }

@@ -62,7 +62,7 @@ module.exports = function applyRouter(app){
       })
 
       if (!responseMember){
-          return res.status(401).send('no match')
+          return res.send('no match')
       }
       res.json(responseMember)
     })
@@ -156,6 +156,14 @@ module.exports = function applyRouter(app){
         let amount = req.body.amount
         let notes = req.body.notes
         events.suppliesStock(amount, notes, buildResCallback(res))
+    })
+
+    app.post('/events/supplies_use', (req, res) => {
+        // need to expand types
+        let amount = req.body.amount
+        let supplyType = req.body.supplyType
+        let notes = req.body.notes
+        events.suppliesUse(amount, supplyType, notes, buildResCallback(res))
     })
 
     // app.post('/claim_bounty', (req, res) => {

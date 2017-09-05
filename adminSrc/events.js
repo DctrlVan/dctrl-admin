@@ -132,11 +132,11 @@ function suppliesStock(amount, notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function suppliesUsed(amount, notes, callback) {
+function suppliesUse(amount, supplyType, notes, callback) {
   let newEvent = {
       type: 'supplies-used',
+      supplyType,
       amount,
-      supplyType: 'bitpepsi',
       notes,
   }
   dctrlDb.insertEvent(newEvent, callback)
@@ -155,4 +155,5 @@ module.exports = {
   cashReceived,
   cashExpense,
   suppliesStock,
+  suppliesUse,
 }
