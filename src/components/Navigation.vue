@@ -3,9 +3,9 @@
 ul.navigation
     label Explore
     li
-        router-link(to='/MEMBER_LIST') Members
+        router-link(to='/MEMBERS') Members
     li
-        router-link(to='/ACTIVE_BOUNTIES') Bounties
+        router-link(to='/BOUNTIES') Bounties
     li
         router-link(to='/resources') Resources
     label Manage $$ ({{cash}})

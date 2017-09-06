@@ -36,7 +36,7 @@ export default {
             return '/MEMBER_PAID_BTC/' + this.m.memberId
         },
         memberLocation(){
-            return '/HISTORY_MEMBER/' + this.m.memberId
+            return '/MEMBER/' + this.m.memberId
         },
         bal(){
             return parseFloat(this.m.balance).toFixed(2)

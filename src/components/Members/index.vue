@@ -5,7 +5,7 @@
         //- img.left(src='../../assets/images/active14.svg')
         span New Member
         img(src='../../assets/images/active10.svg')
-    shared-title(title='Member List')
+    shared-title(title='List of Members')
     tab
         row(v-for="m in members", :m="m")
 

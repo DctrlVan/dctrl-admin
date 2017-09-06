@@ -9,21 +9,12 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 
 import App from './components/App'
-
 import Home from './components/Home'
-import ActiveBounties from './components/ActiveBounties'
-import HistoryBounty from './components/HistoryBounty'
-import HistoryMember from './components/HistoryMember'
-import MemberList from './components/MemberList'
 
-import BountyBoost from './components/forms/BountyBoost'
-import BountyClaim from './components/forms/BountyClaim'
-import BountyCreate from './components/forms/BountyCreate'
-import BountyEdit from './components/forms/BountyEdit'
-
-import CashExpense from './components/forms/CashExpense'
-import CashReceived from './components/forms/CashReceived'
-
+// Member components
+import Member from './components/Member'
+import Members from './components/Members'
+// Member forms
 import MemberDeactivate from './components/forms/MemberDeactivate'
 import MemberCharged from './components/forms/MemberCharged'
 import MemberCreate from './components/forms/MemberCreate'
@@ -31,7 +22,27 @@ import MemberPaid from './components/forms/MemberPaid'
 import MemberActivate from './components/forms/MemberActivate'
 import MemberPaidBtc from './components/forms/MemberPaidBtc'
 
+// Bounty components
+import Bounty from './components/Bounty'
+import Bounties from './components/Bounties'
+// Bounty forms
+import BountyBoost from './components/forms/BountyBoost'
+import BountyClaim from './components/forms/BountyClaim'
+import BountyCreate from './components/forms/BountyCreate'
+import BountyEdit from './components/forms/BountyEdit'
+
+// Supply components
+// Supply forms
 import SuppliesStock from './components/forms/SuppliesStock'
+
+//Cash components
+// Cash forms
+import CashExpense from './components/forms/CashExpense'
+import CashReceived from './components/forms/CashReceived'
+
+//Resource components
+// Resource forms
+
 
 const routes = [{
     path: '/',
@@ -55,11 +66,11 @@ const routes = [{
       path: '/member_activate/*',
       component: MemberActivate
     },{
-      path: '/member_list',
-      component: MemberList
+      path: '/members',
+      component: Members
     },{
-      path: '/history_member/*',
-      component: HistoryMember
+      path: '/member/*',
+      component: Member
     },{
       path: '/member_paid_btc/*',
       component: MemberPaidBtc
@@ -82,11 +93,11 @@ const routes = [{
       path: '/supplies_stock',
       component: SuppliesStock
     },{
-      path: '/ACTIVE_BOUNTIES',
-      component: ActiveBounties
+      path: '/BOUNTIES',
+      component: Bounties
     },{
-      path: '/HISTORY_BOUNTY/*',
-      component: HistoryBounty
+      path: '/BOUNTY/*',
+      component: Bounty
     },{
       path: '/bounty_boost/*',
       component: BountyBoost
