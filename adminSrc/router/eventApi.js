@@ -104,7 +104,6 @@ module.exports = function eventApi(app){
       })
 
       app.post('/events/supplies_stock', (req, res) => {
-          // the client sends us a fob not a memberId, we have it in state
           let memberId = false
           state.getState().members.forEach(member => {
               if (member.fob == req.body.fob){
@@ -122,10 +121,10 @@ module.exports = function eventApi(app){
 
       app.post('/events/supplies_use', (req, res) => {
           let memberId = req.body.memberId
-          let amount = req.body.amount
+          let charged = req.body.charged
           let supplyType = req.body.supplyType
           let notes = req.body.notes
-          events.suppliesUse(memberId, supplyType, amount,  notes, buildResCallback(res))
+          events.suppliesUse(memberId, supplyType, charged,  notes, buildResCallback(res))
       })
 
 }

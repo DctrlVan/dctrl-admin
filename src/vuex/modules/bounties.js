@@ -1,13 +1,13 @@
 import request from 'superagent'
 import { applyBounties } from '../../../adminSrc/mutations'
 
-const state = [] // aka members (in this file):
-
+const state = []
 
 const mutations = {
     setCurrentBounties(bounties, current){
-        current.forEach( member => {
-            bounties.push(member)
+        bounties = []
+        current.forEach( bounty => {
+            bounties.push(bounty)
         })
     },
     applyEvent: applyBounties

@@ -1,22 +1,14 @@
 <template lang='jade'>
 
 ul.navigation
-    label SETUP
+    label Explore
     li
-      router-link(to='/MEMBER_CREATE') Create Member
+        router-link(to='/MEMBER_LIST') Members
     li
-      router-link(to='/BOUNTY_CREATE') Create Bounty
+        router-link(to='/ACTIVE_BOUNTIES') Bounties
     li
-      router-link(to='/SUPPLIES_STOCK') Stock bitpepsi
-          span.red(v-if='low') - warning! {{supplies}}
-          span(v-else)  - {{supplies}}
-    label MANAGE
-    li
-      router-link(to='/MEMBER_LIST') Members
-    li()
-      router-link(to='/ACTIVE_BOUNTIES') Bounties
-    li
-    label Cash - ${{cash}}
+        router-link(to='/resources') Resources
+    label Manage $$ ({{cash}})
     li
         router-link(to='/CASH_EXPENSE') Expend
     li
@@ -79,11 +71,10 @@ label
     font-family:sans-serif
     font-weight: lighter
     margin-top: .5em
-    background: accent1
-    color: main
+    background: accent4
+    color: accent3
     padding: .1em
     padding-left:1em
-
 
 li
     margin-bottom: 0;

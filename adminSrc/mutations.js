@@ -44,7 +44,7 @@ function applyMembers(members, ev) {
       case "member-charged":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
-                  member.balance -= parseFloat(ev.amount)
+                  member.balance -= parseFloat(ev.charged)
               }
           })
           break
@@ -90,8 +90,9 @@ function applyMembers(members, ev) {
 function applyBounties(bounties, ev) {
   switch (ev.type) {
     case "bounty-created":
-      delete ev.type
-      bounties.push(ev)
+      var clonedEv = Object.assign({}, ev);
+      delete clonedEv.type
+      bounties.push(clonedEv)
       break
     case "bounty-claimed":
       bounties.forEach(bounty => {

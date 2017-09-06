@@ -1,7 +1,7 @@
 c<template lang='jade'>
 
 #stocksupplies
-    shared-title(title='Stock BitPepsi')
+    shared-title(title='stock bitpepsi')
     form-box(btntxt="Loaded"  endpoint='/supplies_stock' v-bind:data='info')
         label Cans Stocked:
         input(v-model='info.amount' type='text')

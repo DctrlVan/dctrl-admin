@@ -1,13 +1,13 @@
 <template lang='jade'>
 
 table
-    //- tr
-    //-     th active
-    //-     th who
-    //-     //- th address
-    //-     th balance
-    //-     th history
-    //-     th pay
+    tr
+        th
+        th name
+        //- th address
+        th balance
+        th payment options
+        th
     slot
 
 </template>
@@ -28,7 +28,7 @@ export default {
 
 table
     color: accent1
-    text-align:center
+    text-align:left
     width: 100%
 th
     font-family: sans-serif

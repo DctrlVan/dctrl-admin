@@ -18,15 +18,11 @@ export default {
 
 div
     border-bottom-style: solid
-    border-width: 0px
-
-h2
-		color:accent1
-		margin:0
-		padding-top:50px
-		font-family: 'Open Sans', light, sans-serif;
-		font-weight:100
-		margin-bottom:.5em
+    border-bottom-width: 2px
+    border-color: accent2
+    color: white
+    padding-top: 3em
+    background: accent4
 
 
 </style>

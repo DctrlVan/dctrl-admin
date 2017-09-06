@@ -1,19 +1,19 @@
 <template lang='jade'>
 
 tr
+    td
+        router-link(to='supp')
+            img(src='../../assets/images/doge.png')
     td {{b.name}}
     td {{currentValue}}
         span(v-if='b.boost > 0').boost (+ {{b.boost}})
-    td {{b.value}}
     td
         router-link(:to='editLocation')
-            img.pencil(src='../../assets/images/pencil.svg')
+            img.pencil(src='../../assets/images/control.svg')
     td
         router-link(:to='historyLocation')
             img(src='../../assets/images/calendar.svg')
-    td
-        router-link(:to='boostLocation')
-            img(src='../../assets/images/boost.svg')
+
 </template>
 
 <script>
@@ -27,7 +27,7 @@ function calculateMsThisMonth(){
 
 function calculatePayout(bounty){
     let msThisMonth = calculateMsThisMonth()
-    let msSince = Date.now() - bounty['last-claimed'] * 1000
+    let msSince = Date.now() - bounty.lastClaimed
     let payout = (msSince / msThisMonth) * parseFloat(bounty.value)
     let cap = parseFloat(bounty.cap)
     let boost = parseFloat(bounty.boost) || 0
@@ -68,10 +68,12 @@ export default {
 
 <style lang="stylus" scoped>
 
+@import '../../styles/colours'
+
 td
+    color: accent3
     vertical-align: middle
-    color: accent2
-    font-size: 1.2em
+    font-size: 1.4em
     text-align: center
 
 .pencil

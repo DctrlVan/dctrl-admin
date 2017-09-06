@@ -15,6 +15,7 @@ function getEventsForMember( memberId, callback ){
 
           cursor.each( (err, ev)=>{
                 switch (ev.type) {
+                    case 'supplies-used':
                     case 'member-charged':
                         memberChargedEvents.push(ev)
                         break

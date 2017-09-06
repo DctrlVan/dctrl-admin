@@ -1,18 +1,27 @@
 <template lang='jade'>
 
 #ActiveBounties
+    router-link(to='/BOUNTY_CREATE').crazybtn
+        span New Bounty
     shared-title(title='Active Bounties')
-        table.u-full-width
-            thead
-                tr
-                    th Bounty Name
-                    th Current Value ($)
-                    th Monthly Value ($)
-                    th
-                    th History
-                    th Boost
-            tbody
-                active-bs(v-for="b in bounties", :b="b")
+    table.u-full-width
+        thead
+            tr
+                th Claim
+                th Bounty Name
+                th Current Value ($)
+                th
+                th
+        tbody
+            tr
+                td
+                    router-link(to='/supplies_stock')
+                        img(src='../../assets/images/doge.png')
+                td stock bitpepsi
+                td 4
+                td
+                td
+            active-bs(v-for="b in bounties", :b="b")
 </template>
 
 <script>
@@ -38,6 +47,13 @@ export default {
 <style lang="stylus" scoped>
 
 @import '../../styles/colours'
+@import '../../styles/crazybtn'
+
+td
+    vertical-align: middle
+    color: accent2
+    font-size: 1.4em
+    text-align: center
 
 .or
     font-size: 1.3em

@@ -31,11 +31,11 @@ function memberPaid(memberId, paid, isCash, notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function memberCharged(memberId, amount, notes, callback) {
+function memberCharged(memberId, charged, notes, callback) {
     let newEvent = {
         type: "member-charged",
         memberId,
-        amount,
+        charged,
         notes,
     }
     dctrlDb.insertEvent(newEvent, callback)

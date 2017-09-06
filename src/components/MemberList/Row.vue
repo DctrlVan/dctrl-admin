@@ -4,14 +4,14 @@ tr
     td
         dctrl-active(:m='m')
     td
-        router-link.pad(:to='payLocation')
-            img(src='../../assets/images/cash1.svg')
-        router-link(:to='payBtcLocation')
-            img(src='../../assets/images/bitcoin.svg')
-    td
         span {{m.name}}
     td
         span {{bal}}
+    td
+        router-link.pad(:to='payLocation')
+            img.pay(src='../../assets/images/cash1.svg')
+        router-link(:to='payBtcLocation')
+            img.pay(src='../../assets/images/bitcoin.svg')
     td
         router-link(:to='memberLocation')
             img(src='../../assets/images/calendar.svg')
@@ -49,9 +49,6 @@ export default {
 <style lang="stylus" scoped>
 @import '../../styles/colours'
 
-.payrow
-    max-width: 100px
-
 .or
     font-size: 1.3em
 
@@ -59,7 +56,7 @@ export default {
     margin-right: 5px
 
 span
-    color: accent2
+    color: accent3
     font-size: 1.4em
     text-align: center
     margin: 10px
