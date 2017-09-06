@@ -10,7 +10,7 @@ The admin-server depends on:
 - rethinkdb: https://rethinkdb.com/docs/install/
 - bitcoind: https://bitcoin.org/en/bitcoin-core/
 
-You must create a new file in the root of the directory, and call it `configuration.js`. You need to specify the following information in the file:    
+You must create a new file in the root of the directory, and call it `configuration.js`. You need to specify the following information in the file (**WARNING:** The information in the file is sensitive. Manage it accordingly):
 ```
 module.exports = {
     rethinkLocation: "localhost",
@@ -27,6 +27,7 @@ module.exports = {
     }
 }
 ```
+
 ``
 Once the above are started run
 - `npm run serve`
