@@ -3,7 +3,7 @@ function applyDctrl(dctrl, ev) {
   switch (ev.type) {
     case "member-paid":
       if (ev.isCash) {
-        dctrl.cash += parseFloat(ev.amount)
+        dctrl.cash += parseFloat(ev.paid)
       }
       break
     case "cash-increase":
@@ -51,7 +51,7 @@ function applyMembers(members, ev) {
       case "member-paid":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
-                  member.balance += parseFloat(ev.amount)
+                  member.balance += parseFloat(ev.paid)
               }
           })
           break
@@ -62,21 +62,28 @@ function applyMembers(members, ev) {
               }
           })
           break
-      case "supplies-used":
+      case "supplies-stocked":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
-                  member.address = ev.newAddress
+                  member.balance += parseFloat(ev.paid)
               }
           })
           break
-      case "bounty-claimed":
+      case "supplies-used":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
-                  member.balance += ev.paid
+                  member.balance -= parseFloat(ev.charged)
               }
           })
           break
 
+      case "bounty-claimed":
+          members.forEach( member => {
+              if (member.memberId === ev.memberId){
+                  member.balance += parseFloat(ev.paid)
+              }
+          })
+          break
   }
 }
 

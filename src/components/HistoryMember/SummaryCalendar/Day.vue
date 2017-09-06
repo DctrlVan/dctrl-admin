@@ -40,7 +40,7 @@ export default {
 								self.month == a.getMonth()
 						)
 						if ( isToday ){
-								let amount = parseFloat(ev.amount)
+								let amount = parseFloat(ev.paid)
 								if (amount > 0){
 										paid += amount
 								}

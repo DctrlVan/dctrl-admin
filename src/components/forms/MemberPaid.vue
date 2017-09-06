@@ -4,7 +4,7 @@
     shared-title(:title='calcTitle')
     form-box(btntxt="Cash Placed in Safe"  endpoint='/member_pay' v-bind:data='member')
         label amount
-        input(autofocus="autofocus" v-model='member.amount' type='text')
+        input(autofocus="autofocus" v-model='member.paid' type='text')
         label notes
         input(v-model='member.notes' type='text')
 
@@ -25,7 +25,7 @@ export default {
         return {
             member: {
                 memberId: '',
-                amount: '',
+                paid: '',
                 isCash: true,
                 notes: ''
             }

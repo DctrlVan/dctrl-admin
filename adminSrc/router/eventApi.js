@@ -1,5 +1,6 @@
 const config = require('../../configuration')
 const events = require('../events')
+const state = require('../state')
 const bodyParser = require('body-parser')
 
 function buildResCallback(res){
@@ -33,7 +34,7 @@ module.exports = function eventApi(app){
       app.post('/events/member_pay', (req, res) => {
         events.memberPaid(
           req.body.memberId,
-          req.body.amount,
+          req.body.paid,
           req.body.isCash,
           req.body.notes,
           buildResCallback(res)
@@ -103,12 +104,20 @@ module.exports = function eventApi(app){
       })
 
       app.post('/events/supplies_stock', (req, res) => {
-          // need to expand types
-          let memberId = req.body.memberId
-          let credit = req.body.credit
+          // the client sends us a fob not a memberId, we have it in state
+          let memberId = false
+          state.getState().members.forEach(member => {
+              if (member.fob == req.body.fob){
+                  memberId = member.memberId
+              }
+          })
+          if (!memberId) return res.status(401).send('invalid fob')
+          console.log('member id found success, now create event')
+          let supplyType = req.body.supplyType
           let amount = req.body.amount
+          let paid = req.body.paid
           let notes = req.body.notes
-          events.suppliesStock(amount, notes, buildResCallback(res))
+          events.suppliesStock(memberId, supplyType, amount, paid,  notes, buildResCallback(res))
       })
 
       app.post('/events/supplies_use', (req, res) => {

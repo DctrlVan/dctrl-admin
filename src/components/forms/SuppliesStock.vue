@@ -1,12 +1,17 @@
-<template lang='jade'>
+c<template lang='jade'>
 
 #stocksupplies
     shared-title(title='Stock BitPepsi')
     form-box(btntxt="Loaded"  endpoint='/supplies_stock' v-bind:data='info')
-        label New Cans Stocked:
+        label Cans Stocked:
         input(v-model='info.amount' type='text')
+        label Reciept value
+        input(v-model='info.paid' type='text')
         label notes
         input(v-model='info.notes' type='text')
+        label Member Fob (Tap it!)
+        input(v-model='info.fob' type='text')
+
 
 </template>
 
@@ -15,12 +20,16 @@
 import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
 
+// TODO: supplies stocked affect member...
 export default {
     data(){
       return {
           info: {
+              fob: '',
+              paid: '',
               amount:'',
-              notes: ''
+              notes: '',
+              supplyType: 'bitpepsi' //
           }
       }
     },

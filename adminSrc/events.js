@@ -20,11 +20,11 @@ function memberCreate(name, email, fob, callback) {
   })
 }
 
-function memberPaid(memberId, amount, isCash, notes, callback) {
+function memberPaid(memberId, paid, isCash, notes, callback) {
   let newEvent = {
       type: "member-paid",
       memberId,
-      amount,
+      paid,
       isCash,
       notes
   }
@@ -122,11 +122,13 @@ function cashExpense(amount, notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function suppliesStock(memberId, amount, notes, callback) {
+function suppliesStock(memberId, supplyType, amount, paid,  notes, callback) {
   let newEvent = {
       type: 'supplies-stocked',
+      memberId,
+      supplyType,
       amount,
-      supplyType: 'bitpepsi',
+      paid,
       notes,
   }
   dctrlDb.insertEvent(newEvent, callback)

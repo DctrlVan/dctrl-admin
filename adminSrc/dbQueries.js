@@ -19,6 +19,7 @@ function getEventsForMember( memberId, callback ){
                         memberChargedEvents.push(ev)
                         break
                     case 'member-paid':
+                    case 'supplies-stocked':
                         memberPaidEvents.push(ev)
                         break
                 }
