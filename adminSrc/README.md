@@ -21,7 +21,7 @@ This file defines mutations that determine a new state. These functions are used
 You are here.
 
 ### router.js
-This file defines the API and serves the web app.
+This file defines the API and serves the web app. There is /db/ routes that wrap queries for db history, /state/ routes that serve up the current state and /events/
 
 ### spec.js
 This file contains the field validation functions used by the events functions to verify fields. Would like to think of a way to be able to use this on frontend like the mutations.
