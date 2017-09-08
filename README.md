@@ -3,7 +3,7 @@
 Start by cloning this repo. In the new folder do:
 - `npm install`
 
-This will start the dev server
+Once npm is installed, you can start the dev server by running the following:
 - `npm run dev`
 
 The admin-server depends on:
@@ -28,11 +28,11 @@ module.exports = {
 }
 ```
 
-``
-Once the above are started run
+`
+Once the above are started, run the following command:
 - `npm run serve`
 
-When running the server exposes an api defined in the file `./adminSrc/router.js`.
+When running, the server exposes an api defined in the file `./adminSrc/router/EventApi.js`.
 
 For example to charge a member manually for dress code infractions:
 ```
