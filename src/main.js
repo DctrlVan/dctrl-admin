@@ -41,8 +41,12 @@ import CashExpense from './components/forms/CashExpense'
 import CashReceived from './components/forms/CashReceived'
 
 //Resource components
+import Resources from './components/Resources'
+import Resource from './components/Resource'
 // Resource forms
-
+import ResourceCreate from './components/forms/ResourceCreate'
+import ResourceUsed from './components/forms/ResourceUsed'
+import ResourceUpdated from './components/forms/ResourceUpdated'
 
 const routes = [{
     path: '/',
@@ -71,6 +75,21 @@ const routes = [{
     },{
       path: '/member/*',
       component: Member
+    },{
+      path: '/resources',
+      component: Resources
+    },{
+      path: '/resource/*',
+      component: Resource
+    },{
+      path: '/resource_create',
+      component: ResourceCreate
+    },{
+      path: '/resource_used/*',
+      component: ResourceUsed
+    },{
+      path: '/resource_updated/*',
+      component: ResourceUpdated
     },{
       path: '/member_paid_btc/*',
       component: MemberPaidBtc

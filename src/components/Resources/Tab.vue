@@ -5,8 +5,8 @@ table
         th
         th Name
         //- th address
-        th Balance
-        th Payment Options
+        th Top User
+        th Location
         th History
     slot
 

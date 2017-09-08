@@ -3,6 +3,7 @@ import { applyDctrl } from '../../../adminSrc/mutations'
 
 const state = {
     cash: 0,
+    resources: 0,
     supplies: {
         bitpepsi: 0
     }
@@ -11,6 +12,7 @@ const state = {
 const mutations = {
     setCurrentDctrl(dctrl, current){
         dctrl.cash = current.cash
+        dctrl.resources = current.resources
         dctrl.supplies = current.supplies
     },
     applyEvent: applyDctrl
@@ -22,6 +24,7 @@ const actions = {
           .end((err, res)=>{
               console.log(res.body)
               commit('setCurrentMembers', res.body.members)
+              commit('setCurrentResources', res.body.resources)
               commit('setCurrentBounties', res.body.bounties)
               commit('setCurrentDctrl', res.body.dctrl)
           })
