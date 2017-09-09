@@ -26,7 +26,7 @@ export default {
             let qr = qrcode(typeNumber, errorCorrectionLevel);
             let address = 'x'
             this.$store.state.members.forEach( member => {
-                if (member['member-id'] === this.member.memberId){
+                if (member.memberId === this.member.memberId){
                     address = member.address
                 }
             })
@@ -41,7 +41,7 @@ export default {
         calcTitle(){
             let name = 'nobodies'
             this.$store.state.members.forEach( member => {
-                if (member['member-id'] === this.member.memberId){
+                if (member.memberId === this.member.memberId){
                     name = member.name
                 }
             })

@@ -29,6 +29,6 @@ function checkInitial(address, group){
         })
     })
 }
-
-initializeWatchedAddresses() //
+// TODO: 
+initializeWatchedMembersAddresses() //
 module.exports = currentAccounts

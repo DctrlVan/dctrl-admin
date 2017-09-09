@@ -62,7 +62,7 @@ export default {
 								this.year == a.getFullYear() &&
 								this.month == a.getMonth()
 						){
-								let amount = parseFloat(ev.amount)
+								let amount = parseFloat(ev.charged)
 								if (amount > 0){
 										charged += amount
 								}
