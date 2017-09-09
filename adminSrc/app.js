@@ -1,5 +1,5 @@
 // Admin Server
-require("../bitcoinSrc") // initialize address watching
+// require("../bitcoinSrc") // initialize address watching
 let PORT = process.env.PORT || 8003
 
 const express = require('express')

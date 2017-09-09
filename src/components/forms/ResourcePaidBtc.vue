@@ -26,7 +26,7 @@ export default {
             let qr = qrcode(typeNumber, errorCorrectionLevel);
             let address = 'x'
             this.$store.state.resources.forEach( resource => {
-                if (resource['resource-id'] === this.resource.resourceId){
+                if (resource.resourceId === this.resource.resourceId){
                     address = resource.address
                 }
             })
@@ -41,7 +41,7 @@ export default {
         calcTitle(){
             let name = 'nobodies'
             this.$store.state.resources.forEach( resource => {
-                if (resource['resource-id'] === this.resource.resourceId){
+                if (resource.resourceId === this.resource.resourceId){
                     name = resource.name
                 }
             })

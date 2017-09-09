@@ -28,7 +28,7 @@ export default {
             // todo how often?
             console.log('calc getTitle')
             this.$store.state.bounties.forEach(b => {
-                if (b['bounty-id'] == this.info.bountyId){
+                if (b.bountyId == this.info.bountyId){
                     title = "Boost " + b.name + " Bounty!"
                 }
             })

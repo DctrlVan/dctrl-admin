@@ -10,14 +10,14 @@ const client = new Client({
 })
 
 var ready = false
-// client.importFromMnemonic(config.secret, {}, (err, wallet)=> {
-//     if (err){
-//         // TODO
-//         return console.log('error importing', {err})
-//     }
-//     console.log('import success', {wallet})
-//     ready = true
-// })
+client.importFromMnemonic(config.secret, {}, (err, wallet)=> {
+    if (err){
+        // TODO
+        return console.log('error importing', {err})
+    }
+    console.log('import success', {wallet})
+    ready = true
+})
 
 function getNewAddress(callback){
     return callback( null, "1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX")
@@ -32,22 +32,6 @@ function getNewAddress(callback){
     })
 }
 
-// function updateAddress(member, callback){
-//     if (!getNewAddress){
-//         return callback('wallet import not complete')
-//     }
-//     getNewAddress(addr => {
-//         request
-//             .post({
-//                   type: 'member-update-address',
-//                   "member-id": member['member-id'],
-//                   "new-address": addr
-//             })
-//             .end(callback)
-//     })
-// }
-
 module.exports = {
   getNewAddress,
-  // updateAddress
 }
