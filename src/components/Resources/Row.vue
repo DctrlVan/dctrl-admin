@@ -2,15 +2,37 @@
 
 tr
     td
+        dctrl-active(:r='r')
+    td
         span {{r.name}}
+    td
+        span {{bal}}
+    td
+        router-link(:to='payBtcLocation')
+            img.pay(src='../../assets/images/bitcoin.svg')
+    td
+        router-link(:to='resourceLocation')
+            img(src='../../assets/images/calendar.svg')
 
 </template>
 
-
 <script>
+import DctrlActive from './DctrlActive'
 
 export default {
-    props: ['r'],
+  props: ['r'],
+  components: {DctrlActive},
+  computed: {
+      payBtcLocation(){
+          return '/RESOURCE_PAID_BTC/' + this.r.resourceId
+      },
+      resourceLocation(){
+          return '/RESOURCE/' + this.r.resourceId
+      },
+      bal(){
+          return parseFloat(this.r.balance).toFixed(2)
+      },
+  }
 }
 
 </script>

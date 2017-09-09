@@ -5,8 +5,9 @@ table
         th
         th Name
         //- th address
-        th Top User
         th Location
+        th FAQs
+        th Top User
         th History
     slot
 
@@ -16,7 +17,7 @@ table
 <script>
 
 export default {
-    props: ['m'],
+    props: ['r'],
     components: {  },
 }
 
