@@ -2,38 +2,30 @@ const request = require('superagent')
 const config = require('../configuration')
 const bitcoindRpc = require('./bitcoindRpc')
 const addressManager = require('./addressManager')
+const state = require('../adminSrc/state')
 
 const currentAccounts = []
 
-function initializeWatchedAddresses(){
-    request
-        .get(config.brainLocation + 'members')
-        .end((err, res)=> {
-            if (err || res.body.err){
-                return console.log('unable to get members, braindead')
-            }
-
-            res.body.forEach( member => {
-                if (member.address){
-                    checkInitial(member.address)
-                } else {
-                    addressManager.getNewAddress( (err, success)=> {
-                        console.log({err,success})
-                        //TODO
-                    })
-                }
-            })
-        })
+function initializeWatchedMembersAddresses(){
+    state.getState().members.forEach( member => {
+        checkInitial(member.address, 'member')
+    })
 }
 
+function initializeWatchedResourcesAddresses(){
+  state.getState().resources.forEach( resource => {
+      checkInitial(resource.address, 'resource')
+  })
+}
 
-function checkInitial(address){
+function checkInitial(address, group){
     if (!address) return console.log('address required')
     bitcoindRpc.getBalance(address, (err, balance)=> {
         if (err) return console.log('getbalance err:', err);
         currentAccounts.push({
             address,
-            balance
+            balance,
+            group
         })
     })
 }

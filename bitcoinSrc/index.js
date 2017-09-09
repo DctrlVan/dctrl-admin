@@ -3,7 +3,8 @@ const request = require('superagent')
 const bitcoindZmq = require('./bitcoindZmq')
 const bitcoindRpc = require('./bitcoindRpc')
 const exchangeRate = require('./exchangeRate')
-
+const events = require('../adminSrc/events')
+const state = require('../adminSrc/state')
 const currentAccounts = require('./currentAccounts')
 
 // check on new blocks
@@ -18,7 +19,14 @@ function checkForPayments(){
             if (watchedAddress.balance !== balance){
                 let amount = parseFloat(balance) - parseFloat(watchedAddress.balance)
                 watchedAddress.balance = balance
-                recordPayment(amount, watchedAddress.address)
+                switch(watchedAddress.group){
+                    case 'member':
+                        recordMemberPayment(amount, watchedAddress.address)
+                        break
+                    case 'resource':
+                        recordResourcePayment(amount, watchedAddress.address)
+                        break
+                }
             } else {
                 console.log('no payment received', watchedAddress)
             }
@@ -26,44 +34,52 @@ function checkForPayments(){
     })
 }
 
-function recordPayment(amount, address){
-    console.log("TODO: recordPayment:", {amount, address})
-    getMemberIdFromAddress(address, (err, memberId)=>{
-        exchangeRate.getCadPrice( (err, exchangeRate)=> {
+function recordMemberPayment(amount, address){
+    console.log("TODO: recordMemberPayment:", {amount, address})
+    let memberId = getMemberIdFromAddress(address)
+    exchangeRate.getCadPrice( (err, exchangeRate)=> {
             let amount = (exchangeRate * amount).toFixed(6).toString()
-            console.log("Now creating member paid event: ", {amount, memberId})
-            request
-                .post(config.brainLocation + 'members')
-                .send({
-                    action: {
-                        type: "member-paid",
-                        "member-id": memberId,
-                        amount,
-                        "cash?": false,
-                        notes: "bitcoind" // TODO: txid here, prevent double count?
-                    }
-                })
-                .end((err, res)=> {
-                    console.log({err,body:res.body})
-                })
-        })
+            let isCash = false
+            let notes = 'dctrl-admin' // bring in the transaction ID, instead of this.
+            events.memberPaid(memberId, amount, isCash, notes, (err, res)=>{
+                //
+            })
     })
 }
 
-function getMemberIdFromAddress(address, callback){
-    request
-        .get(config.brainLocation + 'members')
-        .end( (err, res)=> {
-            if (err) return callback(err)
-            let id = null
-            res.body.forEach( member => {
-                if (member.address == address){
-                    id = member["member-id"]
-                }
-            })
-            callback(null, id)
-        })
+function getMemberIdFromAddress(address){
+  let memberId
+  state.getState().members.forEach( member => {
+      if (member.address == address){
+          memberId = member.memberId
+      }
+  })
+  return memberId
 }
+
+function recordResourcePayment(amount, address){
+    console.log("TODO: recordResourcePayment:", {amount, address})
+    let resourceId = getResourceIdFromAddress(address)
+    exchangeRate.getCadPrice( (err, exchangeRate)=> {
+            let notes = 'dctrl-admin' // bring in the transaction ID, instead of this.
+            let amount = (exchangeRate * amount).toFixed(6).toString()
+            events.resourcePaid(resourceId, amount, isCash, notes, (err, res)=>{
+                // get the things from resource here, instead of the member stuff
+            })
+    })
+}
+
+
+function getResourceIdFromAddress(address, callback){
+  let resourceId
+  state.getState().resources.forEach( resource => {
+      if (resource.address == address){
+          resourceId = resource.resourceId
+      }
+  })
+  return resourceId
+}
+
 
 function removeWatch(){
     // TODO: _.pullAllWith(array, values, [comparator]) ??

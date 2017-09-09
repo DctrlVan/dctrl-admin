@@ -24,7 +24,6 @@ function applyDctrl(dctrl, ev) {
 function applyMembers(members, ev) {
   switch (ev.type){
       case "member-created":
-          delete ev.type
           members.push(ev)
           break
       case "member-activated":
@@ -87,12 +86,39 @@ function applyMembers(members, ev) {
   }
 }
 
+function applyResources(resources, ev) {
+  switch (ev.type){
+      case "resource-created":
+          resources.push(ev)
+          break
+      // case "resource-activated":
+      //     resources.forEach( resource => {
+      //         if (resource.resourceId === ev.resourceId){
+      //             resource.active ++
+      //         }
+      //     })
+      //     break
+      // case "resource-updated":
+      //     resources.forEach( resource => {
+      //         if (resource.resourceId === ev.resourceId){
+      //             resource.balance -= parseFloat(ev.updated)
+      //         }
+      //     })
+      //     break
+      // case "resource-used":
+      //     resources.forEach( resource => {
+      //         if (resource.resourceId === ev.resourceId){
+      //             resource.balance += parseFloat(ev.used)
+      //         }
+      //     })
+      //     break
+  }
+}
+
 function applyBounties(bounties, ev) {
   switch (ev.type) {
     case "bounty-created":
-      var clonedEv = Object.assign({}, ev);
-      delete clonedEv.type
-      bounties.push(clonedEv)
+      bounties.push(ev)
       break
     case "bounty-claimed":
       bounties.forEach(bounty => {
@@ -122,5 +148,6 @@ function applyBounties(bounties, ev) {
 module.exports = {
   applyDctrl,
   applyMembers,
+  applyResources,
   applyBounties,
 }

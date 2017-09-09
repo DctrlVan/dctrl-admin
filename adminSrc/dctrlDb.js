@@ -7,10 +7,11 @@ const changeFeed = Kefir.stream( e => {
     eventEmitter = e
 }).log('dbfeed')
 
-// Uncomment to initialize rethink db & table
+//Uncomment to initialize rethink db & table 
 // setTimeout(()=>{
-//   initializeRethink()
+// initializeRethink()
 // }, 5555)
+
 function initializeRethink(){
   if (!conn) return console.log("wait for connection")
   r.dbCreate('dctrl').run(conn, (err, result)=>{
@@ -54,7 +55,7 @@ function startFeed(){
 
 function insertEvent(ev, callback){
     if (!conn) return callback("No rethinkdb connection")
-    if (!ev.timestamp){ 
+    if (!ev.timestamp){
         ev.timestamp = Date.now()
     }
     r

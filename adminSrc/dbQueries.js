@@ -65,7 +65,39 @@ function getEventsForBounty( bountyId, callback ){
       })
 }
 
+function getEventsForResource( resourceId, callback ){
+  let conn = dctrlDb.getConnection()
+  if (!conn) return console.log('wait for connection')
+  r
+      .table('events')
+      .filter({resourceId})
+      .run(conn, function(err, cursor) {
+          const resourceUsedEvents = []
+          const resourceUpdatedEvents = []
+
+          cursor.each( (err, ev)=>{
+                switch (ev.type) {
+                    case 'resource-updated':
+                    case 'resource-used':
+                        resourceUpdatedEvents.push(ev)
+                        break
+                    case 'resource-paid':                     //needs to be added
+                        resourcePaidEvents.push(ev)
+                        break
+                }
+          }, (err, results)=> { // on cursor end
+            if (err) return callback(err);
+            callback(null, {
+                resourceUsedEvents,
+                resourceUpdatedEvents,
+            })
+
+          })
+      })
+}
+
 module.exports = {
     getEventsForBounty,
-    getEventsForMember
+    getEventsForMember,
+    getEventsForResource
 }

@@ -127,4 +127,13 @@ module.exports = function eventApi(app){
           events.suppliesUse(memberId, supplyType, charged,  notes, buildResCallback(res))
       })
 
+      app.post('/events/resource_create', (req, res) => {
+        events.resourceCreate(
+            req.body.name,
+            req.body.location,
+            req.body.howTo,
+            buildResCallback(res)
+        )
+      })
+
 }

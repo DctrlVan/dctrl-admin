@@ -15,6 +15,12 @@ module.exports = function resourceApi(app) {
 		})
 	})
 
+	app.get('/db/resource/:resourceId', (req, res) => {
+		dbQueries.getEventsForResource(req.params.resourceId, (err, resourceHistory) => {
+			res.json(resourceHistory)
+		})
+	})
+
 	app.get('/state', (req, res) => {
 		res.json(state.getState())
 	})
@@ -58,5 +64,25 @@ module.exports = function resourceApi(app) {
 			return res.send('no match')
 		}
 		res.json(responseMember)
+	})
+
+	app.get('/state/resources', (req, res) => {
+		res.json(state.getState().resources)
+	})
+
+	app.get('/state/resources/:id', (req, res) => {
+		let id = req.params.id
+		let responseResource = false
+		state.getState().resources.forEach(resource => {
+			// RFID tag instead of fob?
+			if (resource.fob == id || resource.resourceId == id) {
+				responseResource = resource
+			}
+		})
+
+		if (!responseResource) {
+			return res.send('no match')
+		}
+		res.json(responseResource)
 	})
 }

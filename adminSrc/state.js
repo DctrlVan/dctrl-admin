@@ -3,6 +3,7 @@ const mutations = require('./mutations')
 
 const state = {
   members: [],
+  resources: [],
   bounties: [],
   dctrl: {
     cash: 12,
@@ -16,6 +17,7 @@ function applyEvent(ev){
     mutations.applyBounties(state.bounties, ev)
     mutations.applyDctrl(state.dctrl, ev)
     mutations.applyMembers(state.members, ev)
+    mutations.applyResources(state.resources, ev)
 }
 
 function initialize() {

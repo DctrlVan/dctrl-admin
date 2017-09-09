@@ -29,9 +29,6 @@ export default {
       resourceLocation(){
           return '/RESOURCE/' + this.r.resourceId
       },
-      bal(){
-          return parseFloat(this.r.balance).toFixed(2)
-      },
   }
 }
 

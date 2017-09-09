@@ -2,11 +2,15 @@
 #newresource
 	shared-title(title='Create New Resource')
 	form-box(btntxt="Welcome New Resource"  endpoint='/resource_create' v-bind:data='resource')
-			label resource name
+			label Resource Name
 			input(v-model='resource.name' type='text' )
-			label Resource QR Code! (scan it)
-			input(type='file')
-			// do we need a QRcode instead of a fob?
+			label How To Use This Resource
+			input(v-model='resource.howTo' type='text' )
+			label Where is it?
+			input(v-model='resource.location' type='text' )
+			//- label Resource QR Code! (scan it)
+			//- input(type='file')
+			//TODO: needs to be fixed
 
 </template>
 
@@ -20,7 +24,8 @@ export default {
     return {
       resource: {
         name: '',
-        QRcode: '', // instead of email?
+				location: '',
+        howTo: '',
       }
     }
   },

@@ -145,6 +145,20 @@ function suppliesUse(memberId, supplyType, charged, notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
+function resourceCreate(name, location, howTo, callback) {
+  addressManager.getNewAddress((err, addr) => {
+    let newEvent = {
+        type: "resource-created",
+        resourceId: uuidV1(),
+        name,
+        location,
+        howTo,
+        address: addr,
+    }
+    dctrlDb.insertEvent(newEvent, callback)
+  })
+}
+
 module.exports = {
   memberCreate,
   memberPaid,
@@ -159,4 +173,5 @@ module.exports = {
   cashExpense,
   suppliesStock,
   suppliesUse,
+  resourceCreate,
 }
