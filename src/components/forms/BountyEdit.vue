@@ -26,7 +26,7 @@ export default {
         getTitle(){
             let title
             this.$store.state.bounties.forEach(b => {
-                if (b['bounty-id'] == this.info.bountyId){
+                if (b.bountyId == this.info.bountyId){
                     title = "Edit " + b.name + " Bounty!"
                 }
             })

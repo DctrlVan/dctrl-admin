@@ -5,7 +5,6 @@ const state = []
 
 const mutations = {
     setCurrentBounties(bounties, current){
-        bounties = []
         current.forEach( bounty => {
             bounties.push(bounty)
         })

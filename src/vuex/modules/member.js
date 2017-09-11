@@ -35,6 +35,17 @@ const mutations = {
                     state.memberChargedEvents.push(ev)
                 }
                 break
+            case 'supplies-used':
+                if (ev.memberId == state.memberId){
+                    state.memberChargedEvents.push(ev)
+                }
+                break
+            case 'supplies-stocked':
+                if (ev.memberId == state.memberId){
+                    state.memberPaidEvents.push(ev)
+                }
+                break
+
         }
     }
 }

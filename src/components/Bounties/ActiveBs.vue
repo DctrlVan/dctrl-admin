@@ -53,13 +53,13 @@ export default {
     },
     computed: {
         historyLocation(){
-            return '/HISTORY_BOUNTY/' + this.b['bounty-id']
+            return '/HISTORY_BOUNTY/' + this.b.bountyId
         },
         boostLocation(){
-            return '/BOOST_BOUNTY/' + this.b['bounty-id']
+            return '/BOOST_BOUNTY/' + this.b.bountyId
         },
         editLocation(){
-            return '/EDIT_BOUNTY/' + this.b['bounty-id']
+            return '/EDIT_BOUNTY/' + this.b.bountyId
         }
     },
 }
