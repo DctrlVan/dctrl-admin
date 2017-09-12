@@ -1,9 +1,7 @@
 <template lang='jade'>
 
 #member
-    router-link(to='/MEMBER_CREATE').crazybtn
-        span New Member
-        img(src='../../assets/images/active10.svg')
+    crazy-btn(to='/MEMBER_CREATE' text='New Member')
     shared-title(title='List of Members')
     tab
         row(v-for="m in members", :m="m")
@@ -16,6 +14,7 @@ import Row from "./Row"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
 import Tab from './Tab'
+import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
     computed: {
@@ -26,7 +25,8 @@ export default {
     components:{
         SharedTitle,
         Row,
-        Tab
+        Tab,
+        CrazyBtn
     }
 }
 
@@ -40,5 +40,8 @@ export default {
 #member
     width: 100%
 
+
+.left
+    float: left
 
 </style>

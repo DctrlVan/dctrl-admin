@@ -1,9 +1,7 @@
 <template lang='jade'>
 
 #resource
-    router-link(to='/RESOURCE_CREATE').crazybtn
-        span New Resource
-        img(src='../../assets/images/active15.svg')
+    crazy-btn(to='/RESOURCE_CREATE' text='New Resource')
     shared-title(title='List of Resources')
     tab
         row(v-for="r in resources", :r="r")
@@ -16,6 +14,7 @@ import Row from "./Row"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
 import Tab from './Tab'
+import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
     computed: {
@@ -26,7 +25,8 @@ export default {
     components:{
         SharedTitle,
         Row,
-        Tab
+        Tab,
+        CrazyBtn
     }
 }
 

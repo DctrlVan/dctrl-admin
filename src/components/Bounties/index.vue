@@ -1,8 +1,7 @@
 <template lang='jade'>
 
 #ActiveBounties
-    router-link(to='/BOUNTY_CREATE').crazybtn
-        span New Bounty
+    crazy-btn(to='/BOUNTY_CREATE' text='New Bounty')
     shared-title(title='Active Bounties')
     table.u-full-width
         thead
@@ -26,7 +25,7 @@
                     li If loaded before empty it is much easier; currently there are {{ bitpepsiStock }} left in the machine;
                     li When you claim record the number loaded and the value.
                     li Place the reciept in the admin locker.
-                    li You can be redeemed in btc or membership credit. 
+                    li You can be redeemed in btc or membership credit.
                 td
             active-bs(v-for="b in bounties", :b="b")
 </template>
@@ -35,6 +34,7 @@
 import ActiveBs from "./ActiveBs"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
+import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
   computed: {
@@ -48,7 +48,8 @@ export default {
   },
     components:{
         SharedTitle,
-        ActiveBs
+        ActiveBs,
+        CrazyBtn
     },
 }
 
