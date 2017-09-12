@@ -22,10 +22,11 @@
                 td 4
                 td
                     li Load the bitpepsi two cans deep.
-                    li The first row must be on the metal lip.
-                    li If loaded before empty it is much easier.
-                    li If
-                    li There are {{ bitpepsiStock }}
+                    li The first row must be placed on the metal lip.
+                    li If loaded before empty it is much easier; currently there are {{ bitpepsiStock }} left in the machine;
+                    li When you claim record the number loaded and the value.
+                    li Place the reciept in the admin locker.
+                    li You can be redeemed in btc or membership credit. 
                 td
             active-bs(v-for="b in bounties", :b="b")
 </template>
