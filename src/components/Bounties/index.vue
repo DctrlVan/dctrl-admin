@@ -12,7 +12,7 @@
                 th Incentive($)
                 th
                 th Boost
-                th Description
+                th Instructions
         tbody
             tr
                 //- special bounty always there, link to supplies stocked

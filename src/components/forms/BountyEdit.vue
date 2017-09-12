@@ -27,7 +27,7 @@ export default {
             let title
             this.$store.state.bounties.forEach(b => {
                 if (b.bountyId == this.info.bountyId){
-                    title = "Edit " + b.name + " Bounty!"
+                    title = "Set monthly value for " + b.name + " !"
                 }
             })
             return title

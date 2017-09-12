@@ -6,7 +6,6 @@ tr
             img(src='../../assets/images/claim.svg')
     td {{b.name}}
     td {{currentValue}}
-        span(v-if='b.boost > 0').boost (+ {{b.boost}})
     td
         router-link(:to='editLocation')
             img.pencil(src='../../assets/images/control.svg')
@@ -25,10 +24,10 @@ import {calculateBountyPayout} from '../../../adminSrc/calculations'
 export default {
     props: ['b'],
     mounted(){
-        this.currentValue = calculateBountyPayout(this.b).toFixed(6)
+        this.currentValue = calculateBountyPayout(this.b).toFixed(2)
         setInterval( ()=>{
-            this.currentValue = calculateBountyPayout(this.b).toFixed(6)
-        },1111)
+            this.currentValue = calculateBountyPayout(this.b).toFixed(2)
+        },11111)
     },
     data() {
         return {
