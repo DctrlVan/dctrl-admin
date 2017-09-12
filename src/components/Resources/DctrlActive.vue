@@ -4,6 +4,7 @@ div
   img(v-if='r.location == "mainroom"' src='../../assets/images/space_main-room.svg')
   img(v-if='r.location == "backroom"' src='../../assets/images/space_back-room.svg')
   img(v-if='r.location == "hallway"' src='../../assets/images/space_hall-way.svg')
+  img(v-if='r.location == "recordingroom"' src='../../assets/images/space_main-room.svg')
 
 </template>
 

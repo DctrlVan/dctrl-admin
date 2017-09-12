@@ -3,8 +3,8 @@
 table
     tr
         th Name
-        //- th address
         th Location
+        th
         th FAQs
         th Address
     slot

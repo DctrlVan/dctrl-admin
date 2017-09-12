@@ -2,7 +2,6 @@
 
 #resource
     router-link(to='/RESOURCE_CREATE').crazybtn
-        //- img.left(src='../../assets/images/active14.svg')
         span New Resource
         img(src='../../assets/images/active15.svg')
     shared-title(title='List of Resources')

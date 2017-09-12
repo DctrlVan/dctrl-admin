@@ -2,11 +2,11 @@
 
 tr
     td
-    span {{r.name}}
+        span {{r.name}}
+    td.p
+        dctrl-active(:r='r')
     td
-    span {{r.location}}
-    td
-    dctrl-active(:r='r')
+        span {{r.location}}
     td
         span {{r.howTo}}
     td
@@ -36,6 +36,9 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../../styles/colours'
+
+.p
+    background: accent1
 
 .or
     font-size: 1.3em
