@@ -2,13 +2,11 @@
 
 table
     tr
-        th
         th Name
         //- th address
         th Location
         th FAQs
-        th Top User
-        th History
+        th Address
     slot
 
 </template>

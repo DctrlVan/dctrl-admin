@@ -7,7 +7,7 @@ const changeFeed = Kefir.stream( e => {
     eventEmitter = e
 }).log('dbfeed')
 
-//Uncomment to initialize rethink db & table 
+//Uncomment to initialize rethink db & table
 // setTimeout(()=>{
 // initializeRethink()
 // }, 5555)

@@ -5,8 +5,6 @@ const state = {
     resourceUsedEvents: [{
     }],
     resourceUpdateEvents: [{
-      // type: 'resource-updated',
-      // amount: 9001
     }]
 }
 

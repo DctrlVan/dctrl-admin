@@ -2,17 +2,17 @@
 
 tr
     td
-        dctrl-active(:r='r')
+    span {{r.name}}
     td
-        span {{r.name}}
+    span {{r.location}}
     td
-        span {{bal}}
+    dctrl-active(:r='r')
     td
-        router-link(:to='payBtcLocation')
-            img.pay(src='../../assets/images/bitcoin.svg')
+        span {{r.howTo}}
     td
-        router-link(:to='resourceLocation')
-            img(src='../../assets/images/calendar.svg')
+        span {{r.address}}
+
+
 
 </template>
 

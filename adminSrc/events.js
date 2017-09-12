@@ -1,7 +1,7 @@
 const request = require('superagent')
 const uuidV1 = require('uuid/v1')
 const dctrlDb = require('./dctrlDb')
-// const addressManager = require('../bitcoinSrc/addressManager')
+const addressManager = require('../bitcoinSrc/addressManager')
 const config = require('../configuration')
 
 function memberCreate(name, email, fob, callback) {
