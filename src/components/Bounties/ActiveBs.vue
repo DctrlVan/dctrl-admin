@@ -7,13 +7,12 @@ tr
     td {{b.name}}
     td {{currentValue}}
     td
+        li(v-for='i in instructions') {{i}}.
+    td
         router-link(:to='editLocation')
             img.pencil(src='../../assets/images/control.svg')
-    td
         router-link(:to='boostLocation')
             img(src='../../assets/images/boost.svg')
-    td
-        {{b.description}}
 
 </template>
 
@@ -35,6 +34,9 @@ export default {
         }
     },
     computed: {
+        instructions(){
+            return this.b.description.split('.').filter(Boolean)
+        },
         boostLocation(){
             return '/BOUNTY_BOOST/' + this.b.bountyId
         },
@@ -64,5 +66,8 @@ td
 
 img
     height: 55px
+
+li
+    text-align: left
 
 </style>

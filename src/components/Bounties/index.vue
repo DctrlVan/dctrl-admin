@@ -9,10 +9,9 @@
             tr
                 th
                 th Task
-                th Incentive($)
-                th
-                th Boost
+                th Reward
                 th Instructions
+                th
         tbody
             tr
                 //- special bounty always there, link to supplies stocked
@@ -22,13 +21,12 @@
                 td stock bitpepsi
                 td 4
                 td
-                td
-                td
                     li Load the bitpepsi two cans deep.
                     li The first row must be on the metal lip.
                     li If loaded before empty it is much easier.
                     li If
                     li There are {{ bitpepsiStock }}
+                td
             active-bs(v-for="b in bounties", :b="b")
 </template>
 
@@ -59,6 +57,10 @@ export default {
 
 @import '../../styles/colours'
 @import '../../styles/crazybtn'
+
+thead
+    tr
+        text-align: center
 
 td
     vertical-align: middle
