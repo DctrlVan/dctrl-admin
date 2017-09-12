@@ -6,13 +6,7 @@ tr
     td.p
         dctrl-active(:r='r')
     td
-<<<<<<< Updated upstream
         span {{r.location}}
-=======
-      span {{r.location}}
-    td
-      dctrl-active(:r='r')
->>>>>>> Stashed changes
     td
         span {{r.howTo}}
     td
