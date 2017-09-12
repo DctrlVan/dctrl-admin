@@ -23,7 +23,12 @@
                 td 4
                 td
                 td
-                td Load the bitpepsi two cans deep. The first row must be on the metal lip.
+                td
+                    li Load the bitpepsi two cans deep.
+                    li The first row must be on the metal lip.
+                    li If loaded before empty it is much easier.
+                    li If
+                    li There are {{ bitpepsiStock }}
             active-bs(v-for="b in bounties", :b="b")
 </template>
 
@@ -37,6 +42,9 @@ export default {
       bounties(){
           let bounties = this.$store.state.bounties
           return bounties
+      },
+      bitpepsiStock(){
+          return this.$store.state.dctrl.supplies.bitpepsi
       }
   },
     components:{
@@ -55,35 +63,15 @@ export default {
 td
     vertical-align: middle
     color: accent2
-    font-size: 1.4em
+    font-size: 1.34em
     text-align: center
 
-.or
-    font-size: 1.3em
+li
+    text-align: left
 
-.pad
-    margin-right: 5px
-
-span
-    color: accent1
-    font-size: 1.4em
-    text-align: center
-    margin: 10px
-    width:100%
-    padding:1em
-
-
-.small
-    font-size: .5em
-
-
-button
-    background: accent1
-    color: black
-    border: none
 
 img
-    height: 55px
+    height: 3.9em
 
 table
     text-align:center
@@ -94,9 +82,8 @@ th
     font-size: 1.1em
     color: accent1
     border-color: accent1
+
 td
     color: accent3
-tr
-    color: accent2
-    // TODO: style .inactive / or .active
+
 </style>

@@ -1,18 +1,11 @@
 <template lang='jade'>
 
 ul.navigation
-    label Explore
-    li
-        router-link(to='/MEMBERS') Members
-    li
-        router-link(to='/BOUNTIES') Bounties
-    li
-        router-link(to='/resources') Resources
-    label Manage $$ ({{cash}})
-    li
-        router-link(to='/CASH_EXPENSE') Expend
-    li
-        router-link(to='/cash_received') Receive
+    router-link(to='/MEMBERS') Members
+    router-link(to='/BOUNTIES') Bounties
+    router-link(to='/resources') Resources
+    router-link(to='/CASH_EXPENSE') Expenses
+    //- router-link(to='/tasks') Tasks
 
 </template>
 
@@ -60,13 +53,6 @@ export default {
 .red
     color: red
 
-li:hover, .router-link-active
-    border-bottom-style:solid
-    border-width:1px
-    border-color:accent2
-    font-family:sans-serif
-    color:accent2
-
 label
     font-family:sans-serif
     font-weight: lighter
@@ -76,21 +62,26 @@ label
     padding: .1em
     padding-left:1em
 
-li
-    margin-bottom: 0;
-    border-bottom-style:solid
-    border-width:1px
-    border-color:accent1
-    list-style: none;
-    font-family:sans-serif
-    display: block;
-
 a
   text-decoration: none;
-  color: #fff;
-  display: block
+  color: main
   padding: 10px 20px;
+  margin-bottom: 0;
+  border-style:solid
+  border-width:3px
+  border-radius: 30px
+  margin-left: 3em
+  border-color:accent1
+  list-style: none;
+  font-family:sans-serif
+  display: block;
+  color:accent4
+  margin-bottom:.54321em
 
 
+a:hover, .router-link-active
+  background-color: accent1
+  border-radius:30px
+  color:main
 
 </style>

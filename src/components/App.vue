@@ -49,7 +49,7 @@ export default {
     position:absolute
     z-index: -100
     left: 100px
-
+@import "../styles/normalize"
 @import "../styles/breakpoints"
 @import "../styles/framework"
 @import "../styles/colours"
@@ -60,7 +60,6 @@ main
   margin: 0;
   padding: 0;
   display: flex;
-  background:main
   color: accent1
   font-family:font
 
