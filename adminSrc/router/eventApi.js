@@ -2,6 +2,7 @@ const config = require('../../configuration')
 const events = require('../events')
 const state = require('../state')
 const bodyParser = require('body-parser')
+const calculations = require('../calculations')
 
 function buildResCallback(res){
     return (err, dbResponse) => {
@@ -15,8 +16,20 @@ function buildResCallback(res){
     }
 }
 
-module.exports = function eventApi(app){
+function memberIdFromFob(fob){
+  let memberId
+  state.getState().members.forEach(member => {
+      console.log(member.fob)
+      if (member.fob == fob){
+          console.log('setting memberId')
+          memberId = member.memberId
+      }
+  })
+  console.log(memberId)
+  return memberId
+}
 
+module.exports = function eventApi(app){
       app.use(bodyParser.json())
       app.use(bodyParser.urlencoded({
           extended: true
@@ -63,25 +76,34 @@ module.exports = function eventApi(app){
       app.post('/events/bounty_create', (req, res) => {
           let name = req.body.name
           let description = req.body.description
-          let value = req.body.value
+          let monthlyValue = req.body.monthlyValue
           let boost = req.body.boost
           let cap = req.body.cap
           let fob = req.body.fob
-          events.bountyCreate(name, description, value, cap, boost, fob, buildResCallback(res) )
+          let oneTime = req.body.oneTime
+          events.bountyCreate(name, description, monthlyValue, cap, boost, fob, oneTime, buildResCallback(res) )
       })
 
-      app.post('events/bounty_claim', (req, res) => {
-          let memberId = req.body.memberId
+      app.post('/events/bounty_claim', (req, res) => {
+          let memberId = memberIdFromFob(req.body.fob)
+          if (!memberId) return res.status(401).send('invalid fob')
           let bountyId = req.body.bountyId
-          let paid = req.body.paid
-          bountyClaim( bountyId, memberId, paid, buildResCallback(res) )
+          // This type of logic may not belong here, getting messy?
+          let thisBounty
+          state.getState().bounties.forEach( bounty => {
+            if (bounty.bountyId == bountyId){
+                thisBounty = bounty
+            }
+          })
+          let paid = calculations.calculateBountyPayout(thisBounty)
+          events.bountyClaim( bountyId, memberId, paid, buildResCallback(res) )
       })
 
-      app.post('/events/bounty_edit', (req,res)=> {
+      app.post('/events/bounty_monthly_update', (req,res)=> {
           let bountyId = req.body.bountyId
           let amount = req.body.amount
           let notes = req.body.notes
-          events.bountyEdit(bountyId, amount, notes, buildResCallback(res))
+          events.bountyMonthlyUpdate(bountyId, amount, notes, buildResCallback(res))
       })
 
       app.post('/events/bounty_boost', (req,res)=> {
@@ -104,14 +126,8 @@ module.exports = function eventApi(app){
       })
 
       app.post('/events/supplies_stock', (req, res) => {
-          let memberId = false
-          state.getState().members.forEach(member => {
-              if (member.fob == req.body.fob){
-                  memberId = member.memberId
-              }
-          })
+          let memberId = memberIdFromFob(req.body.fob)
           if (!memberId) return res.status(401).send('invalid fob')
-          console.log('member id found success, now create event')
           let supplyType = req.body.supplyType
           let amount = req.body.amount
           let paid = req.body.paid

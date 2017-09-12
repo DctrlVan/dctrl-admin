@@ -7,20 +7,23 @@
     table.u-full-width
         thead
             tr
-                th Claim
-                th Bounty Name
-                th Current Value ($)
                 th
+                th Task
+                th Incentive($)
                 th
+                th Boost
+                th Description
         tbody
             tr
+                //- special bounty always there, link to supplies stocked
                 td
                     router-link(to='/supplies_stock')
-                        img(src='../../assets/images/doge.png')
+                        img(src='../../assets/images/claim.svg')
                 td stock bitpepsi
                 td 4
                 td
                 td
+                td Load the bitpepsi two cans deep. The first row must be on the metal lip.
             active-bs(v-for="b in bounties", :b="b")
 </template>
 

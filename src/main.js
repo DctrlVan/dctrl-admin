@@ -106,7 +106,7 @@ const routes = [{
       path: '/bounty_create',
       component: BountyCreate
     },{
-      path: '/bounty_claim',
+      path: '/bounty_claim/*',
       component: BountyClaim
     },{
       path: '/bounty_edit/*',

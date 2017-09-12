@@ -1,3 +1,5 @@
+const _ = require('lodash')
+
 
 function applyDctrl(dctrl, ev) {
   switch (ev.type) {
@@ -123,22 +125,28 @@ function applyBounties(bounties, ev) {
     case "bounty-claimed":
       bounties.forEach(bounty => {
         if (bounty.bountyId === ev.bountyId) {
-          bounty.lastClaimed = Date.now()
-          bounty.boost = 0
+          if (bounty.oneTime){
+            _.remove(bounties, function(bounty) {
+                return (bounty.bountyId === ev.bountyId)
+            })
+          } else {
+            bounty.lastClaimed = Date.now()
+            bounty.boost = 0
+          }
         }
       })
       break
-    case "bounty-update-value":
+    case "bounty-monthly-updated":
       bounties.forEach(bounty => {
         if (bounty.bountyId === ev.bountyId) {
-          bounty.value = ev.amount
+          bounty.monthlyValue = parseFloat(ev.amount)
         }
       })
       break
     case "bounty-boosted":
       bounties.forEach(bounty => {
         if (bounty.bountyId === ev.bountyId) {
-          bounty.boost = ev.boost
+          bounty.boost = parseFloat(ev.amount)
         }
       })
       break

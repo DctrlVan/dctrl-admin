@@ -8,9 +8,11 @@
         label description
         input(v-model='bounty.description' type='text')
         label Monthly Value
-        input(v-model='bounty.value' type='text')
+        input(v-model='bounty.monthlyValue' type='text')
         label Maximum Payout
         input(v-model='bounty.cap' type='text')
+        label One time bounty?
+        input(v-model='bounty.oneTime' type='checkbox')
         label Bounty Fob! (tap it)
         input(v-model='bounty.fob' type='text')
 
@@ -27,8 +29,9 @@ export default {
             bounty: {
                 name: '',
                 description: '',
-                value: '',
-                cap: ''
+                monthlyValue: '',
+                cap: '',
+                oneTime: false
             }
         }
     },
@@ -42,5 +45,7 @@ export default {
 <style lang='stylus' scoped>
 @import '../../styles/colours'
 
+.onetime
+    display: inline
 
 </style>

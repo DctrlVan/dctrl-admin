@@ -1,7 +1,7 @@
 const request = require('superagent')
 const uuidV1 = require('uuid/v1')
 const dctrlDb = require('./dctrlDb')
-const addressManager = require('../bitcoinSrc/addressManager')
+// const addressManager = require('../bitcoinSrc/addressManager')
 const config = require('../configuration')
 
 function memberCreate(name, email, fob, callback) {
@@ -57,17 +57,18 @@ function memberActivate(memberId, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function bountyCreate(name, description, value, cap, boost, fob, callback) {
+function bountyCreate(name, description, monthlyValue, cap, boost, fob, oneTime, callback) {
   let newEvent = {
     type: "bounty-created",
     bountyId: uuidV1(),
     lastClaimed: Date.now(),
     name,
     description,
-    value,
+    monthlyValue,
     fob,
     cap,
     boost: 0,
+    oneTime: !!oneTime
   }
   dctrlDb.insertEvent(newEvent, callback)
 }
@@ -93,10 +94,10 @@ function bountyBoost(bountyId, amount, notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function bountyEdit(bountyId, amount, notes, callback) {
+function bountyMonthlyUpdate(bountyId, amount, notes, callback) {
   let newEvent = {
-    type: "bounty-update-value",
-    value: amount,
+    type: "bounty-monthly-updated",
+    amount,
     bountyId,
     notes,
   }
@@ -165,7 +166,7 @@ module.exports = {
   memberCharged,
   memberDeactivate,
   memberActivate,
-  bountyEdit,
+  bountyMonthlyUpdate,
   bountyBoost,
   bountyCreate,
   bountyClaim,
