@@ -1,20 +1,17 @@
 <template lang='jade'>
 #newresource
-	shared-title(title='Create New Resource')
-	form-box(btntxt="New Resource Form"  endpoint='/resource_create' v-bind:data='resource')
-			label Resource Name
-			input(v-model='resource.name' type='text' )
-			label How do you use it?
-			input(v-model='resource.howTo' type='text' )
-			label Where is it?
+	shared-title(title='Space Uses')
+	form-box(btntxt="Suggest new use for the space"  endpoint='/resource_create' v-bind:data='resource')
+			label Which Space?
 			select(v-model='resource.location')
 				option(value = "mainroom") Main Room
 				option(value = "backroom") Back Room
 				option(value = "hallway") Hall Way
 				option(value = "recordingroom") Recording Room
-			//- label Resource QR Code! (scan it)
-			//- input(type='file')
-			//TODO: needs to be fixed
+			label Use it to...
+			input(v-model='resource.name' type='text' )
+			label How?
+			input(v-model='resource.howTo' type='text' )
 
 </template>
 

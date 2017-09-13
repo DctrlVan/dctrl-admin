@@ -10,11 +10,11 @@
         .three.columns
             table
                 tr
-                    td.chargedbox.signcell
-                    td.ch charged
+                    td.availablebox.signcell
+                    td.ch Available
                 tr
-                    td.paidbox.signcell
-                    td.do donated
+                    td.bookedbox.signcell
+                    td.do Booked
     .row.menu
         .three.columns(@click='prevMonth')
             img(src='../../../assets/images/left.svg')
@@ -130,13 +130,13 @@ export default {
 td
     border: none
 
-.paidbox, .chargedbox
+.availablebox, .bookedbox
     height: 20px
     width: 20px
 
-.paidbox
+.bookedbox
     background-color: green
-.chargedbox
+.availablebox
     background-color: accent2
 .signcell
     max-width: 0px
