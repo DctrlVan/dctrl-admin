@@ -5,8 +5,8 @@ tr
         span {{r.name}}
     td.p
         dctrl-active(:r='r')
-    td
         span {{r.location}}
+    td
     td
         span {{r.howTo}}
     td
@@ -40,6 +40,7 @@ export default {
 
 .p
     background: accent1
+    hover: +100
 
 .or
     font-size: 1.3em

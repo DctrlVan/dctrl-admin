@@ -140,6 +140,7 @@ function suppliesUse(memberId, supplyType, amount, charged, notes, callback) {
       type: 'supplies-used',
       memberId,
       supplyType,
+      amount,
       charged,
       amount,
       notes

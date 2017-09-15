@@ -2,11 +2,11 @@
 
 table
     tr
-        th Name
-        th Location
+        th Use
+        th Where
         th
-        th FAQs
-        th Address
+        th Details
+        th Book Space
     slot
 
 </template>
