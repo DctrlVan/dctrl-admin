@@ -6,7 +6,7 @@ const calculations = require('../calculations')
 
 function buildResCallback(res){
     return (err, dbResponse) => {
-        if (err || !dbResponse) {
+        if (err) {
             console.log({err})
             res.status(500).send('error')
         } else {
@@ -19,13 +19,10 @@ function buildResCallback(res){
 function memberIdFromFob(fob){
   let memberId
   state.getState().members.forEach(member => {
-      console.log(member.fob)
       if (member.fob == fob){
-          console.log('setting memberId')
           memberId = member.memberId
       }
   })
-  console.log(memberId)
   return memberId
 }
 
@@ -85,6 +82,7 @@ module.exports = function eventApi(app){
       })
 
       app.post('/events/bounty_claim', (req, res) => {
+          // required: (member)fob, bountyId, notes?
           let memberId = memberIdFromFob(req.body.fob)
           if (!memberId) return res.status(401).send('invalid fob')
           let bountyId = req.body.bountyId
@@ -140,7 +138,8 @@ module.exports = function eventApi(app){
           let charged = req.body.charged
           let supplyType = req.body.supplyType
           let notes = req.body.notes
-          events.suppliesUse(memberId, supplyType, charged,  notes, buildResCallback(res))
+          let amount = req.body.amount
+          events.suppliesUse(memberId, supplyType, amount, charged,  notes, buildResCallback(res))
       })
 
       app.post('/events/resource_create', (req, res) => {

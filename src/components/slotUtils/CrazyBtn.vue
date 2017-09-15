@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+
 .crazybtn
     position: absolute
     top:50px

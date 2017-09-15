@@ -135,12 +135,13 @@ function suppliesStock(memberId, supplyType, amount, paid,  notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function suppliesUse(memberId, supplyType, charged, notes, callback) {
+function suppliesUse(memberId, supplyType, amount, charged, notes, callback) {
   let newEvent = {
       type: 'supplies-used',
       memberId,
       supplyType,
       charged,
+      amount,
       notes
   }
   dctrlDb.insertEvent(newEvent, callback)
