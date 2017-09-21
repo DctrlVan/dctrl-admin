@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { applyMembers } from '../../../adminSrc/mutations'
+import { membersMuts } from '../../../adminSrc/mutations'
 
 const state = [] // aka members (in this file):
 
@@ -9,7 +9,7 @@ const mutations = {
             members.push(member)
         })
     },
-    applyEvent: applyMembers
+    applyEvent: membersMuts
 }
 
 const actions = {}

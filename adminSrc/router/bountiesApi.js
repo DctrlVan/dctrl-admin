@@ -4,33 +4,15 @@ const state = require('../state')
 const bodyParser = require('body-parser')
 const calculations = require('../calculations')
 
-function buildResCallback(res){
-    return (err, dbResponse) => {
-        if (err) {
-            console.log({err})
-            res.status(500).send('error')
-        } else {
-            console.log({dbResponse})
-            res.send(dbResponse)
-        }
-    }
-}
-
-function memberIdFromFob(fob){
-  let memberId
-  state.getState().members.forEach(member => {
-      if (member.fob == fob){
-          memberId = member.memberId
-      }
-  })
-  return memberId
-}
-
 module.exports = function eventApi(app){
       app.use(bodyParser.json())
       app.use(bodyParser.urlencoded({
           extended: true
       }))
+
+      app.get('/state/bounties', (req, res) => {
+        res.json(state.getState().bounties)
+      })
 
       app.post('/events/member_create', (req, res) => {
         events.memberCreate(
@@ -109,37 +91,6 @@ module.exports = function eventApi(app){
           let amount = req.body.amount
           let notes = req.body.notes
           events.bountyBoost(bountyId, amount, notes, buildResCallback(res))
-      })
-
-      app.post('/events/cash_expense', (req, res) => {
-          let amount = req.body.amount
-          let notes = req.body.notes
-          events.cashExpense(amount, notes, buildResCallback(res))
-      })
-
-      app.post('/events/cash_received', (req, res) => {
-          let amount = req.body.amount
-          let notes = req.body.notes
-          events.cashReceived(amount, notes, buildResCallback(res) )
-      })
-
-      app.post('/events/supplies_stock', (req, res) => {
-          let memberId = memberIdFromFob(req.body.fob)
-          if (!memberId) return res.status(401).send('invalid fob')
-          let supplyType = req.body.supplyType
-          let amount = req.body.amount
-          let paid = req.body.paid
-          let notes = req.body.notes
-          events.suppliesStock(memberId, supplyType, amount, paid,  notes, buildResCallback(res))
-      })
-
-      app.post('/events/supplies_use', (req, res) => {
-          let memberId = req.body.memberId
-          let charged = req.body.charged
-          let supplyType = req.body.supplyType
-          let notes = req.body.notes
-          let amount = req.body.amount
-          events.suppliesUse(memberId, supplyType, amount, charged,  notes, buildResCallback(res))
       })
 
       app.post('/events/resource_create', (req, res) => {

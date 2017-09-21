@@ -3,8 +3,8 @@
 ul.navigation
     router-link(to='/MEMBERS') Members
     router-link(to='/BOUNTIES') Bounties
-    router-link(to='/resources') Resources
-    router-link(to='/CASH_EXPENSE') Expenses
+    router-link(to='/RESOURCES') Resources
+    router-link(to='/BUYS') Commons Buys
     //- router-link(to='/tasks') Tasks
 
 </template>
@@ -53,18 +53,9 @@ export default {
 .red
     color: red
 
-label
-    font-family:sans-serif
-    font-weight: lighter
-    margin-top: .5em
-    background: accent4
-    color: accent3
-    padding: .1em
-    padding-left:1em
-
 a
   text-decoration: none;
-  color: main
+  color: accent1
   padding: 10px 20px;
   margin-bottom: 0;
   border-style:solid
@@ -75,12 +66,11 @@ a
   list-style: none;
   font-family:sans-serif
   display: block;
-  color:accent4
   margin-bottom:.54321em
 
 
 a:hover, .router-link-active
-  background-color: accent1
+  background-color: accent4
   border-radius:30px
   color:main
 

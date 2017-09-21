@@ -14,10 +14,10 @@ const state = {
 }
 
 function applyEvent(ev){
-    mutations.applyBounties(state.bounties, ev)
-    mutations.applyDctrl(state.dctrl, ev)
-    mutations.applyMembers(state.members, ev)
-    mutations.applyResources(state.resources, ev)
+    mutations.bountiesMuts(state.bounties, ev)
+    mutations.dctrlMuts(state.dctrl, ev)
+    mutations.membersMuts(state.members, ev)
+    mutations.resourcesMuts(state.resources, ev)
 }
 
 function initialize() {
@@ -28,6 +28,10 @@ function initialize() {
 }
 
 function getState() {
+    return state
+}
+
+function getCleanState() {
     return state
 }
 

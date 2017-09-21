@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { applyBounties } from '../../../adminSrc/mutations'
+import { bountiesMuts } from '../../../adminSrc/mutations'
 
 const state = []
 
@@ -9,7 +9,7 @@ const mutations = {
             bounties.push(bounty)
         })
     },
-    applyEvent: applyBounties
+    applyEvent: bountiesMuts
 }
 
 const actions = {

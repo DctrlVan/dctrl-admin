@@ -8,7 +8,7 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "deploy": "node build/build.js; cp -r ./dist/* ../d-ctrl.github.io/;",
-    "serve": "node build/build.js; node ./adminSrc/app.js",
+    "serve": "node build/build.js; babel-node ./adminSrc/app.js",
     "bitcoin": "babel-node ./bitcoinSrc/index.js"
   },
   "dependencies": {

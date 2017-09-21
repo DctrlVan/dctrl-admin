@@ -11,8 +11,8 @@ Contains functions that calls into the event-log for more detail such as all of 
 ### dctrlDb.js
 This file initializes the connection to the rethinkDb database. It exposes the changefeed as a kefir stream and also a function for inserting new events.
 
-### events.js
-This file defines the events and exposes functions that create them in the database.
+### events
+This folder defines the events and exposes functions that create them in the database.
 
 ### mutations.js
 This file defines mutations that determine a new state. These functions are used by the server and by vuex in each client to all maintain current state from the eventstream.

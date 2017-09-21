@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { applyDctrl } from '../../../adminSrc/mutations'
+import { dctrlMuts } from '../../../adminSrc/mutations'
 
 const state = {
     cash: 0,
@@ -15,14 +15,14 @@ const mutations = {
         dctrl.resources = current.resources
         dctrl.supplies = current.supplies
     },
-    applyEvent: applyDctrl
+    applyEvent: dctrlMuts
 }
 
 const actions = {
   loadCurrent({ commit }){
       request.get('/state')
           .end((err, res)=>{
-              console.log(res.body)
+              console.log("res to state?", res.body)
               commit('setCurrentMembers', res.body.members)
               commit('setCurrentResources', res.body.resources)
               commit('setCurrentBounties', res.body.bounties)
