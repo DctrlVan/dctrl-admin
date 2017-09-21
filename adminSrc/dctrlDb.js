@@ -66,7 +66,7 @@ function insertEvent(ev, callback){
 }
 
 r
-    .connect({
+    .connect({ 
         db: 'dctrl',
         host: config.rethinkLocation
     }).then(rethinkDbConnection => {

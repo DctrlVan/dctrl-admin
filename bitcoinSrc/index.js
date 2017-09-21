@@ -1,11 +1,11 @@
-const config = require('../configuration')
-const request = require('superagent')
-const bitcoindZmq = require('./bitcoindZmq')
-const bitcoindRpc = require('./bitcoindRpc')
-const exchangeRate = require('./exchangeRate')
-const events = require('../adminSrc/events')
-const state = require('../adminSrc/state')
-const currentAccounts = require('./currentAccounts')
+import config from '../configuration'
+import request from 'superagent'
+import bitcoindZmq from './bitcoindZmq'
+import bitcoindRpc from './bitcoindRpc'
+import exchangeRate from './exchangeRate'
+import events from '../adminSrc/events'
+import state from '../adminSrc/state'
+import currentAccounts from './currentAccounts'
 
 // check on new blocks
 bitcoindZmq.hashblockStream.onValue( checkForPayments )
