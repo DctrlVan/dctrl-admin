@@ -1,6 +1,5 @@
 const uuidV1 = require('uuid/v1')
-const dctrlDb = require('./dctrlDb')
-const addressManager = require('../bitcoinSrc/addressManager')
+const dctrlDb = require('../dctrlDb')
 
 module.exports = {
   memberCreate,

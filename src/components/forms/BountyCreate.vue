@@ -3,18 +3,23 @@
 #createbounty
     shared-title(title='Create Bounty')
     form-box(btntxt="Create New Bounty" endpoint='/bounty_create' v-bind:data="bounty")
-        label name
+        label One time bounty?
+        input(v-model='bounty.oneTime' type='checkbox')
+        label title
         input(v-model='bounty.name' type='text')
         label description
         input(v-model='bounty.description' type='text')
-        label Monthly Value
-        input(v-model='bounty.monthlyValue' type='text')
-        label Maximum Payout
-        input(v-model='bounty.cap' type='text')
-        label One time bounty?
-        input(v-model='bounty.oneTime' type='checkbox')
+        span(v-if="bounty.oneTime")
+            label Value
+            input(v-model='bounty.boost' type='text')
+        span(v-else)
+            label Monthly Value
+            input(v-model='bounty.monthlyValue' type='text')
+            label Maximum Payout
+            input(v-model='bounty.cap' type='text')
         label Bounty Fob! (tap it)
         input(v-model='bounty.fob' type='text')
+
 
 </template>
 
@@ -29,9 +34,10 @@ export default {
             bounty: {
                 name: '',
                 description: '',
-                monthlyValue: '',
+                monthlyValue: 0,
                 cap: '',
-                oneTime: false
+                oneTime: false,
+                boost: 0
             }
         }
     },

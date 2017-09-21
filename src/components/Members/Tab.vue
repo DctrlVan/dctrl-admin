@@ -3,11 +3,11 @@
 table
     tr
         th
-        th Name
+        th hackername
         //- th address
-        th Balance
-        th Payment Options
-        th History
+        th balance
+        th payment
+        th history
     slot
 
 </template>

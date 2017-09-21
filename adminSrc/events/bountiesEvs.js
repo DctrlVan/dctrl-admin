@@ -1,5 +1,5 @@
 const uuidV1 = require('uuid/v1')
-const dctrlDb = require('./dctrlDb')
+const dctrlDb = require('../dctrlDb')
 
 module.exports = {
   bountyMonthlyUpdate,
@@ -18,9 +18,10 @@ function bountyCreate(name, description, monthlyValue, cap, boost, fob, oneTime,
     monthlyValue,
     fob,
     cap,
-    boost: 0,
+    boost,
     oneTime: !!oneTime
   }
+  console.log({newEvent})
   dctrlDb.insertEvent(newEvent, callback)
 }
 
