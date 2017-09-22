@@ -2,9 +2,8 @@
 
 table
     tr
-        th Use
-        th Where
         th
+        th Where
         th Details
         th Book Space
     slot

@@ -1,5 +1,7 @@
 const state = require('../state')
 const dbQueries = require('../dbQueries')
+const utils = require('./utils')
+const events = require('../events')
 
 module.exports = (app) => {
 	app.get('/state/resources', (req, res) => {
@@ -12,4 +14,22 @@ module.exports = (app) => {
 		})
 	})
 
+	app.post('/events/resource_create', (req, res) => {
+		let memberId = utils.memberIdFromFob(req.body.fob)
+		events.resourceCreate(
+				req.body.name,
+				req.body.location,
+				req.body.howTo,
+				utils.buildResCallback(res)
+		)
+	})
+
+	app.post('/events/resource_use', (req, res) => {
+		let memberId = utils.memberIdFromFob(req.body.fob)
+		events.resourceUse(
+				req.body.resourceId,
+				memberId,
+				utils.buildResCallback(res)
+		)
+	})
 }

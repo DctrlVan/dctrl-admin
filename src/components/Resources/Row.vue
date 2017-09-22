@@ -2,11 +2,10 @@
 
 tr
     td
-        span {{r.name}}
+        current(v-for='memberId in r.current', :memberId='memberId')
     td.p
-        dctrl-active(:r='r')
+        dctrl-map(:r='r')
         span {{r.location}}
-    td
     td
         span {{r.howTo}}
     td
@@ -18,11 +17,12 @@ tr
 </template>
 
 <script>
-import DctrlActive from './DctrlActive'
+import DctrlMap from './DctrlMap'
+import Current from './Current'
 
 export default {
   props: ['r'],
-  components: {DctrlActive},
+  components: {DctrlMap, Current},
   computed: {
       payBtcLocation(){
           return '/RESOURCE_PAID_BTC/' + this.r.resourceId
@@ -30,7 +30,10 @@ export default {
       resourceLocation(){
           return '/RESOURCE/' + this.r.resourceId
       },
-  }
+      resourceUseLocation(){
+          return '/RESOURCE_USE/' + this.r.resourceId
+      },
+  },
 }
 
 </script>
@@ -40,7 +43,6 @@ export default {
 
 .p
     background: accent1
-    hover: +100
 
 .or
     font-size: 1.3em

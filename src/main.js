@@ -45,9 +45,9 @@ import Resources from './components/Resources'
 import Resource from './components/Resource'
 // Resource forms
 import ResourceCreate from './components/forms/ResourceCreate'
-import ResourceUsed from './components/forms/ResourceUsed'
-import ResourceUpdated from './components/forms/ResourceUpdated'
-import ResourcePaidBtc from './components/forms/ResourcePaidBtc'
+import ResourceUse from './components/forms/ResourceUse'
+
+// TODO refactor this by module too?
 const routes = [{
     path: '/',
     component: App,
@@ -85,14 +85,8 @@ const routes = [{
       path: '/resource_create',
       component: ResourceCreate
     },{
-      path: '/resource_used/*',
-      component: ResourceUsed
-    },{
-      path: '/resource_updated/*',
-      component: ResourceUpdated
-    },{
-      path: '/resource_paid_btc/*',
-      component: ResourcePaidBtc
+      path: '/resource_use/*',
+      component: ResourceUse
     },{
       path: '/member_paid_btc/*',
       component: MemberPaidBtc

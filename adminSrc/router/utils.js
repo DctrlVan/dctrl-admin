@@ -1,3 +1,4 @@
+const state = require('../state')
 
 // we use this function to build a callback that can be passed
 // to the

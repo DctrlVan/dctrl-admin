@@ -1,8 +1,8 @@
 <template lang='jade'>
 
 #resource
-    crazy-btn(to='/RESOURCE_CREATE' text='Suggest New Use')
-    shared-title(title='Common Uses of the Space')
+    crazy-btn(to='/RESOURCE_CREATE' text='New Resource')
+    shared-title(title='Resources')
     tab
         row(v-for="r in resources", :r="r")
 

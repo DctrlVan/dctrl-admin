@@ -11,18 +11,7 @@ div
 
 <script>
 
-
-
 export default {
-    methods: {
-        calcUse(r){
-            if (Math.random() > .8765 ){
-                return {
-                    use:true
-                }
-            }
-        }
-    },
     props: ['r'],
 }
 

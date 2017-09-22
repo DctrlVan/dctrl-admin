@@ -38,7 +38,7 @@ export default {
                     name = resource.name
                 }
             })
-            return name + "'s was used last by  " //last member to use the resource
+            return "Use " + name //last member to use the resource
         }
     }
 }
