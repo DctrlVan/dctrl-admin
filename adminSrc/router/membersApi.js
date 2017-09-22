@@ -1,6 +1,7 @@
 const state = require('../state')
 const dbQueries = require('../dbQueries')
 const events = require('../events')
+const utils = require('./utils')
 
 module.exports = (app) => {
 		app.get('/db/member/:memberId', (req, res) => {
@@ -34,7 +35,7 @@ module.exports = (app) => {
           req.body.name,
           req.body.email,
           req.body.fob,
-          buildResCallback(res)
+          utils.buildResCallback(res)
       )
     })
 
@@ -44,7 +45,7 @@ module.exports = (app) => {
         req.body.paid,
         req.body.isCash,
         req.body.notes,
-        buildResCallback(res)
+        utils.buildResCallback(res)
       )
     })
 
@@ -53,17 +54,17 @@ module.exports = (app) => {
         req.body.memberId,
         req.body.amount,
         req.body.notes,
-        buildResCallback(res)
+        utils.buildResCallback(res)
       )
     })
 
     app.post('/events/member_deactivate', (req, res) => {
         let memberId = req.body.memberId
-        events.memberDeactivate( memberId, buildResCallback(res) )
+        events.memberDeactivate( memberId, utils.buildResCallback(res) )
     })
 
     app.post('/events/member_activate', (req, res) => {
         let memberId = req.body.memberId
-        events.memberActivate( memberId, buildResCallback(res) )
+        events.memberActivate( memberId, utils.buildResCallback(res) )
     })
 }
