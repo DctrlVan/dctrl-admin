@@ -3,8 +3,8 @@
 #newmember
     shared-title(title='Member Charged')
     form-box(btntxt="Credit Member Account"  endpoint='/member_charge' v-bind:data='member')
-        label address
-        input(v-model='member.address' type='text')
+        label member id
+        input(v-model='member.memberId' type='text')
         label amount
         input(autofocus="autofocus" v-model='member.amount' type='text')
         label notes
@@ -18,15 +18,15 @@ import FormBox from '../slotUtils/FormBox'
 
 export default {
     mounted(){
-        let address = this.$router.currentRoute.path.split('/')[2]
-        if (address){
-          this.member.address = address
+        let memberId = this.$router.currentRoute.path.split('/')[2]
+        if (memberId){
+          this.member.memberId = memberId
         }
     },
     data(){
         return {
             member: {
-                address: '',
+                memberId: '',
                 amount: '',
                 notes: ''
             }

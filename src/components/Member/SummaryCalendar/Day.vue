@@ -29,11 +29,6 @@ export default {
 
 				this.$store.state.member.memberPaidEvents.forEach( ev => {
 						var a = new Date(ev.timestamp)
-						console.log(
-							a.getDate(),
-							a.getFullYear(),
-							a.getMonth()
-						)
 						let isToday = (
 								self.day == a.getDate() &&
 								self.year == a.getFullYear() &&
@@ -46,7 +41,6 @@ export default {
 								}
 						}
 				})
-				console.log({paid})
 				if (paid > 0){
 						return paid.toFixed(2)
 				}else {

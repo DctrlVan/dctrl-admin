@@ -61,7 +61,7 @@ const routes = [{
       path: '/member_paid/*',
       component: MemberPaid
     },{
-      path: '/member_charged/*',
+      path: '/member_charge/*',
       component: MemberCharged
     },{
       path: '/member_deactivate',
