@@ -8,8 +8,7 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "deploy": "node build/build.js; cp -r ./dist/* ../d-ctrl.github.io/;",
-    "serve": "node build/build.js; babel-node ./adminSrc/app.js",
-    "bitcoin": "babel-node ./bitcoinSrc/index.js"
+    "start": "babel-node ./bitcoinSrc/index.js; babel-node ./adminSrc/app.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.20.0",
