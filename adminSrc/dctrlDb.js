@@ -65,11 +65,15 @@ function insertEvent(ev, callback){
         .run(conn, callback)
 }
 
+if (config.rethinkLocation) {
+  config.rethink = {
+    db: 'dctrl',
+    host: config.rethinkLocation
+  }
+}
+
 r
-    .connect({ 
-        db: 'dctrl',
-        host: config.rethinkLocation
-    }).then(rethinkDbConnection => {
+    .connect(config.rethink).then(rethinkDbConnection => {
         console.log("db connected")
         conn = rethinkDbConnection
         startFeed()
