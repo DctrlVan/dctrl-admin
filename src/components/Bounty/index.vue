@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 .bountysummary
     shared-title(title='Bounty: ')

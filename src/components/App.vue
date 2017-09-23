@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #app
     //- img#tronstuff(src='../assets/images/tronStuff.svg')

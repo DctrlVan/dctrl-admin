@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
 .event
   img.logo.header-container__block(

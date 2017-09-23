@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 router-link.crazybtn(:to='to')
     span {{text}}

@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #deactivatemember
     shared-title(title='Deactivate Member')

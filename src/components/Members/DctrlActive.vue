@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 div
   div(v-if='m.active > 0')

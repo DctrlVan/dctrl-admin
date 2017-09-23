@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #createbounty
     shared-title(title='Create Bounty')

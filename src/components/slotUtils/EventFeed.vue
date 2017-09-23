@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
 transition(name='fade')
     .feed(v-if='eventstream.showEvent')

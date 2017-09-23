@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #newresource
     shared-title(title='Resource Updated')

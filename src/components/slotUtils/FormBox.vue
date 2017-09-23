@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 form(v-on:submit.prevent="")
     div(v-if='response')

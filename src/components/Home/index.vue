@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #home
     shared-title(title='dctrl community commons')

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
 .modal(v-show='visible', @click='close')
   .modal-content(v-bind:class='contentClass', @click.stop='')

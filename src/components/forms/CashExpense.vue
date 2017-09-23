@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #cashexpense
     shared-title(title='Cash Expense')

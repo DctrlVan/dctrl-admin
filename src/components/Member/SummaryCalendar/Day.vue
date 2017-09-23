@@ -1,15 +1,12 @@
-<template lang="jade">
-
+<template lang="pug">
 .day
-		.date {{ day }}
-				div
-						.six.columns.p.b(v-if='paidThisDay > 0')
-								div {{ paidThisDay }}
-						.six.columns(v-else) &nbsp;
-						.six.columns.c.b(v-if='chargedThisDay > 0')
-								div {{ chargedThisDay }}
-	//- main-event(v-for='e in daysEvents', :e='e')
-
+  .date {{ day }}
+    div
+      .six.columns.p.b(v-if='paidThisDay > 0')
+        div {{ paidThisDay }}
+      .six.columns(v-else) &nbsp;
+        .six.columns.c.b(v-if='chargedThisDay > 0')
+          div {{ chargedThisDay }}
 </template>
 
 <script>

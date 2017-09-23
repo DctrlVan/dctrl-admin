@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
 #mobileheading
     a.hamburger(href="#", @click.prevent='toggleHeaderNav')

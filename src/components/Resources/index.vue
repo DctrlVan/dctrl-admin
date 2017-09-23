@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #resource
     crazy-btn(to='/RESOURCE_CREATE' text='New Resource')

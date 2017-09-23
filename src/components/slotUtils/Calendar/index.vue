@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
 #calendar
     div(@click='prevMonth')

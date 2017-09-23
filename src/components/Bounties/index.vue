@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #ActiveBounties
     crazy-btn(to='/BOUNTY_CREATE' text='New Bounty')

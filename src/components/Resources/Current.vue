@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 div
     img(src='../../assets/images/active15.svg')

@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 #newresource
 	shared-title(title='Space Uses')
 	form-box(btntxt="Suggest new use for the space"  endpoint='/resource_create' v-bind:data='resource')

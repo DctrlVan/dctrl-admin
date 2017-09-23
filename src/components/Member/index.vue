@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 .membersummary
     shared-title(:title='calcTitle')

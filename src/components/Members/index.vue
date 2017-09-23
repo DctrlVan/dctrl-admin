@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 #member
     crazy-btn(to='/MEMBER_CREATE' text='New Member')

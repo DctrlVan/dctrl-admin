@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 ul.navigation
     router-link(to='/MEMBERS') Members

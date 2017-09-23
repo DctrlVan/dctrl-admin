@@ -1,8 +1,8 @@
-<template lang="jade">
+<template lang="pug">
 
 .day
-		.date {{ day }}
-				li(v-for='claim in claimedToday') {{ claim }}
+  .date {{ day }}
+    li(v-for='claim in claimedToday') {{ claim }}
 
 </template>
 

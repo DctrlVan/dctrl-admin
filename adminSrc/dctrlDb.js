@@ -72,12 +72,11 @@ if (config.rethinkLocation) {
   }
 }
 
-r
-    .connect(config.rethink).then(rethinkDbConnection => {
-        console.log("db connected")
-        conn = rethinkDbConnection
-        startFeed()
-    })
+r.connect(config.rethink).then(rethinkDbConnection => {
+    console.log("db connected")
+    conn = rethinkDbConnection
+    startFeed()
+})
 
 function getConnection(){
     return conn

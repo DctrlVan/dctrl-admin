@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 
 .arrow_box
   h5 test

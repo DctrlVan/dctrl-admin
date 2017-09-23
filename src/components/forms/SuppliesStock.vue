@@ -1,4 +1,4 @@
-c<template lang='jade'>
+c<template lang='pug'>
 
 #stocksupplies
     shared-title(title='stock bitpepsi')

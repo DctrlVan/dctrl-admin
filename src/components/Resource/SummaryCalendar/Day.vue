@@ -1,15 +1,12 @@
-<template lang="jade">
-
+<template lang="pug">
 .day
-		.date {{ day }}
-				div
-						.six.columns.p.b(v-if='usedThisDay > 0')
-								div {{ usedThisDay }}
-						.six.columns(v-else) &nbsp;
-						.six.columns.c.b(v-if='updatedThisDay > 0')
-								div {{ updatedThisDay }}
-	//- main-event(v-for='e in daysEvents', :e='e')
-
+  .date {{ day }}
+    div
+      .six.columns.p.b(v-if='usedThisDay > 0')
+        div {{ usedThisDay }}
+      .six.columns(v-else) &nbsp;
+        .six.columns.c.b(v-if='updatedThisDay > 0')
+          div {{ updatedThisDay }}
 </template>
 
 <script>

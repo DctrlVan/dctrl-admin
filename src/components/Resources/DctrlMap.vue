@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 
 div
   img(v-if='r.location == "mainroom"' src='../../assets/images/space_main-room.svg')

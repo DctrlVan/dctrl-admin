@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang='pug'>
 #newmember
 	shared-title(title='Create New Member')
 	form-box(btntxt="Welcome New Member"  endpoint='/member_create' v-bind:data='member')
