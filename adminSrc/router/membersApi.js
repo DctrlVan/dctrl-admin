@@ -30,41 +30,4 @@ module.exports = (app) => {
 			res.json(responseMember)
 		})
 
-    app.post('/events/member_create', (req, res) => {
-      events.memberCreate(
-          req.body.name,
-          req.body.email,
-          req.body.fob,
-          utils.buildResCallback(res)
-      )
-    })
-
-    app.post('/events/member_pay', (req, res) => {
-      events.memberPaid(
-        req.body.memberId,
-        req.body.paid,
-        req.body.isCash,
-        req.body.notes,
-        utils.buildResCallback(res)
-      )
-    })
-
-    app.post('/events/member_charge', (req, res) => {
-      events.memberCharged(
-        req.body.memberId,
-        req.body.amount,
-        req.body.notes,
-        utils.buildResCallback(res)
-      )
-    })
-
-    app.post('/events/member_deactivate', (req, res) => {
-        let memberId = req.body.memberId
-        events.memberDeactivate( memberId, utils.buildResCallback(res) )
-    })
-
-    app.post('/events/member_activate', (req, res) => {
-        let memberId = req.body.memberId
-        events.memberActivate( memberId, utils.buildResCallback(res) )
-    })
 }

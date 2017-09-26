@@ -16,10 +16,10 @@ module.exports = function applyRouter(app){
         extended: true
     }))
 
-    dctrlApi(app)
-    bountiesApi(app)
-    membersApi(app)
-    resourcesApi(app)
+    // dctrlApi(app)
+    // bountiesApi(app)
+    // membersApi(app)
+    // resourcesApi(app)
 
     // TODO: clean/ remove ?
     app.get('/state', (req, res) => {

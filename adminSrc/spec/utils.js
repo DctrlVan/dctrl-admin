@@ -14,6 +14,7 @@ function buildResCallback(res){
 
 function memberIdFromFob(fob){
   let memberId
+  // TODO: hide fob in server side state
   state.getState().members.forEach(member => {
       if (member.fob == fob){
           memberId = member.memberId

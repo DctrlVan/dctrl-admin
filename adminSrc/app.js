@@ -9,8 +9,12 @@ const socketIo = require('socket.io')
 const dctrlDb = require('./dctrlDb')
 
 const applyRouter = require('./router')
+const spec = require('./spec')
 
 applyRouter(app)
+
+app.use(spec)
+
 const server = app.listen(PORT, err => {
     console.log("Listening on port", PORT)
 })
