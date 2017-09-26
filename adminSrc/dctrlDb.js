@@ -1,6 +1,7 @@
 const r = require('rethinkdb')
 const Kefir = require('kefir')
 const config = require('../configuration')
+const _ = require('lodash')
 
 var conn, eventEmitter
 const changeFeed = Kefir.stream( e => {
@@ -12,11 +13,23 @@ const changeFeed = Kefir.stream( e => {
 // initializeRethink()
 // }, 5555)
 
+function dbCheck(){
+  r.dbList().run(conn, (err,list)=>{
+      console.log({err,list})
+      if (_.includes(list, 'dctrl')){
+          startFeed()
+      } else {
+          initializeRethink()
+      }
+  })
+}
+
 function initializeRethink(){
   if (!conn) return console.log("wait for connection")
-  r.dbCreate('dctrl').run(conn, (err, result)=>{
+  return r.dbCreate('dctrl').run(conn, (err, result)=>{
       r.db('dctrl').tableCreate('events').run(conn, (err, result2)=>{
           console.log({result, result2})
+          startFeed()
       })
   })
 }
@@ -75,7 +88,8 @@ if (config.rethinkLocation) {
 r.connect(config.rethink).then(rethinkDbConnection => {
     console.log("db connected")
     conn = rethinkDbConnection
-    startFeed()
+    dbCheck()
+    // startFeed()
 })
 
 function getConnection(){
