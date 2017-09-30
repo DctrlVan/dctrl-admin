@@ -1,7 +1,5 @@
 ## Welcome to dctrl app.
 
-//TODO: Write a detailed introduction of why we created this, and why we want more communities to use it. 
-
 Start by cloning this repo. In the new folder do:
 - `npm install`
 
