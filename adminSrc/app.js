@@ -15,6 +15,7 @@ applyRouter(app)
 
 app.use(spec)
 
+console.log('starting server?')
 const server = app.listen(PORT, err => {
     console.log("Listening on port", PORT)
 })

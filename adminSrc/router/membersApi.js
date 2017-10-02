@@ -1,7 +1,6 @@
 const state = require('../state')
 const dbQueries = require('../dbQueries')
 const events = require('../events')
-const utils = require('./utils')
 
 module.exports = (app) => {
 		app.get('/db/member/:memberId', (req, res) => {
