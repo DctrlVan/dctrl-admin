@@ -1,33 +1,32 @@
-
-
-function isName(val){
-    return { valid: true, err: null }
-}
-
-function isUuid(val){
-    return { valid: true, err: null }
-}
-
-function isAmount(val){
-    return { valid: true, err: null }
-}
-
-function isPositiveAmount(val){
-    return { valid: true, err: null }
-}
-
-function isFob(val){
-    return { valid: true, err: null }
-}
-
-function isText(val){
-    return { valid: true, err: null }
-}
-
-function isAddress(val){
-    return { valid: true, err: null }
-}
-
-function isMultisigAddress(val){
-    return { valid: true, err: null }
+module.exports = {
+  isName(val, errRes){
+      return true
+  },
+  isUuid(val, errRes){
+      return true
+  },
+  isAmount(val, errRes){
+      return true
+  },
+  isFob(val, errRes){
+      return true
+  },
+  isText(val, errRes){
+      return true
+  },
+  isMultisigAddress(val, errRes){
+      return true
+  },
+  isAddress(val, errRes){
+      return true
+  },
+  isMemberId(val, errRes){
+      return true
+  },
+  isBool(val, errRes){
+      return true
+  },
+  isNotes(val, errRes){
+      return true
+  }
 }

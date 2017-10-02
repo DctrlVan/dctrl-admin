@@ -9,7 +9,7 @@
     "build": "node build/build.js",
     "deploy": "node build/build.js; cp -r ./dist/* ../d-ctrl.github.io/;",
     "serve": "npm run build; npm run start",
-    "start": "babel-node ./bitcoinSrc/index.js; babel-node ./adminSrc/app.js"
+    "start": "babel-node ./adminSrc/app.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.20.0",

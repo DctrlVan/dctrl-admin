@@ -23,15 +23,15 @@ export default {
           memberFob: ""
        }
     },
-    props: ['endpoint', 'data', 'btntxt'],
+    props: ['event', 'data', 'btntxt'],
     components: { },
     methods: {
       post(){
         let vue = this
         this.response = {} // hides forms
-
+        this.data.type = this.event
         request
-            .post('/events' + this.endpoint)
+            .post('/events')
             .send(this.data)
             .end((err,res)=>{
                 console.log({err, resBody: res.body})

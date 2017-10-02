@@ -2,7 +2,7 @@
 
 #newmember
     shared-title(:title='member.memberId')
-    form-box(btntxt="Credit Member Account"  endpoint='/member_activate' v-bind:data='member')
+    form-box(btntxt="Credit Member Account"  event='member-activated' v-bind:data='member')
 
 </template>
 

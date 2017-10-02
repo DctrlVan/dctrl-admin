@@ -2,7 +2,7 @@
 
 #deactivatemember
     shared-title(title='Deactivate Member')
-        form-box(btntxt="Farewell"  endpoint='/member_deactivate' v-bind:data='member')
+        form-box(btntxt="Farewell"  event='member-deactivated' v-bind:data='member')
             label address
             input(v-model='member.address' type='text')
 

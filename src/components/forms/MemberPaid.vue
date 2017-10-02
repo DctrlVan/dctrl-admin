@@ -2,7 +2,7 @@
 
 #newmember
     shared-title(:title='calcTitle')
-    form-box(btntxt="Cash Placed in Safe"  endpoint='/member_pay' v-bind:data='member')
+    form-box(btntxt="Cash Placed in Safe"  event='member-paid' v-bind:data='member')
         label amount
         input(autofocus="autofocus" v-model='member.paid' type='text')
         label notes

@@ -1,11 +1,12 @@
 import utils from './utils'
 import validators from './validators'
+import events from '../events'
 
 // export single middleware for each type
 module.exports = function(req,res, next){
   switch (req.body.type){
       case 'member-created':
-           specMemberCreate(req, res, next)
+           specMemberCreated(req, res, next)
            break
       case 'member-paid':
           specMemberPaid(req, res, next)
@@ -28,12 +29,10 @@ function specMemberCreated(req, res, next){
   let errRes = ''
   if (
     validators.isName(req.body.name, errRes) &&
-    validators.isMultisigAddress(req.body.address, errRes) &&
     validators.isFob(req.body.fob, errRes)
   ){
-    events.memberCreate(
+    events.memberCreated(
       req.body.name,
-      req.body.address,
       req.body.fob,
       utils.buildResCallback(res)
     )
@@ -42,49 +41,68 @@ function specMemberCreated(req, res, next){
   }
 }
 
-function specMemberPay(req, res, next){
+function specMemberPaid(req, res, next){
   let errRes = ''
   if (
-    validators.isName(req.body.name, errRes) &&
-    validators.isMultisigAddress(req.body.address, errRes) &&
-    validators.isFob(req.body.fob, errRes)
+    validators.isMemberId(req.body.memberId, errRes) &&
+    validators.isAmount(req.body.paid, errRes) &&
+    validators.isBool(req.body.isCash, errRes) &&
+    validators.isNotes(req.body.fob, errRes)
   ){
-    events.memberCreate(
-      req.body.name,
-      req.body.address,
-      req.body.fob,
+    events.memberPaid(
+      req.body.memberId,
+      req.body.paid,
+      req.body.isCash,
+      req.body.notes,
       utils.buildResCallback(res)
     )
   } else {
     res.status(500).send(errRes)
   }
 }
-    //
-    // app.post('/events/member_pay', (req, res) => {
-    //   events.memberPaid(
-    //     req.body.memberId,
-    //     req.body.paid,
-    //     req.body.isCash,
-    //     req.body.notes,
-    //     utils.buildResCallback(res)
-    //   )
-    // })
-    //
-    // app.post('/events/member_charge', (req, res) => {
-    //   events.memberCharged(
-    //     req.body.memberId,
-    //     req.body.amount,
-    //     req.body.notes,
-    //     utils.buildResCallback(res)
-    //   )
-    // })
-    //
-    // app.post('/events/member_deactivate', (req, res) => {
-    //     let memberId = req.body.memberId
-    //     events.memberDeactivate( memberId, utils.buildResCallback(res) )
-    // })
-    //
-    // app.post('/events/member_activate', (req, res) => {
-    //     let memberId = req.body.memberId
-    //     events.memberActivate( memberId, utils.buildResCallback(res) )
-    // })
+
+function specMemberCharged(req, res, next){
+  let errRes = ''
+  if (
+    validators.isMemberId(req.body.memberId, errRes) &&
+    validators.isAmount(req.body.charged, errRes) &&
+    validators.isNotes(req.body.notes, errRes)
+  ){
+    events.memberCharged(
+      req.body.memberId,
+      req.body.charged,
+      req.body.notes,
+      utils.buildResCallback(res)
+    )
+  } else {
+    res.status(500).send(errRes)
+  }
+}
+
+function specMemberDeactivated(req, res, next){
+  let errRes = ''
+  if (
+    validators.isMemberId(req.body.memberId, errRes)
+  ){
+    events.memberDeactivate(
+      req.body.memberId,
+      utils.buildResCallback(res)
+    )
+  } else {
+    res.status(500).send(errRes)
+  }
+}
+
+function specMemberActivated(req, res, next){
+  let errRes = ''
+  if (
+    validators.isMemberId(req.body.memberId, errRes)
+  ){
+    events.memberActivated(
+      req.body.memberId,
+      utils.buildResCallback(res)
+    )
+  } else {
+    res.status(500).send(errRes)
+  }
+}

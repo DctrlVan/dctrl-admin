@@ -9,20 +9,15 @@ const socketIo = require('socket.io')
 const dctrlDb = require('./dctrlDb')
 
 const applyRouter = require('./router')
-const spec = require('./spec')
-
 applyRouter(app)
 
-app.use(spec)
-
-console.log('starting server?')
 const server = app.listen(PORT, err => {
     console.log("Listening on port", PORT)
 })
-const io = socketIo(server)
 
+const io = socketIo(server)
 io.sockets.on('connection', function(socket){
     dctrlDb.changeFeed.onValue(ev => {
         socket.emit('eventstream', ev);
     })
-});
+})
