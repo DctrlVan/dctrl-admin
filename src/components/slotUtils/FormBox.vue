@@ -6,7 +6,7 @@ form(v-on:submit.prevent="")
             .three.columns
                 img(src='../../assets/images/clippy.svg')
             .nine.columns
-                h1 ERROR: {{ errTxt }}
+                h3 ERROR: {{ errTxt }}
         .row(v-if='response.type')
     slot(v-else)
     button(v-if='!response' @click.prevent='post') {{ btntxt }}
@@ -36,7 +36,6 @@ export default {
             .post('/events')
             .send(this.data)
             .end((err,res)=>{
-                console.log({err, resBody: res.body})
                 if (err){
                     vue.showError = true
                     vue.errTxt = res.body[0]

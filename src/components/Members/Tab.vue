@@ -22,7 +22,7 @@ export default {
 
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 
 @import '../../styles/colours'
 
@@ -34,9 +34,5 @@ th
     font-family: sans-serif
     font-weight: lighter
     font-size: 1.1em
-
-
-td, tr, th
-    border-color: accent4
 
 </style>

@@ -6,7 +6,6 @@
     tab
         row(v-for="m in members", :m="m")
 
-
 </template>
 
 <script>
@@ -39,7 +38,6 @@ export default {
 
 #member
     width: 100%
-
 
 .left
     float: left

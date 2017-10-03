@@ -70,4 +70,11 @@ img
 li
     text-align: left
 
+tr
+    border-color: accent4
+    border-top-style: solid
+    border-bottom-style: solid
+    border-width: 3px
+    vertical-align:middle
+
 </style>
