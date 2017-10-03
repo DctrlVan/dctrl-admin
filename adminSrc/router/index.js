@@ -8,6 +8,8 @@ const resourcesApi = require('./resourcesApi')
 const bountiesApi = require('./bountiesApi')
 const dctrlApi = require('./dctrlApi')
 
+const spec = require('../spec')
+
 module.exports = function applyRouter(app){
     app.use(express.static(path.join(__dirname, '../../dist')));
 
@@ -16,9 +18,13 @@ module.exports = function applyRouter(app){
         extended: true
     }))
 
+    // handles event creation
+    app.use(spec)
+
+    // TODO: replace with more generic db & state access
+    membersApi(app)
     dctrlApi(app)
     bountiesApi(app)
-    membersApi(app)
     resourcesApi(app)
 
     // TODO: clean/ remove ?

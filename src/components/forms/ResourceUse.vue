@@ -2,7 +2,7 @@
 
 #newresource
     shared-title(:title='calcTitle')
-    form-box(btntxt="Register Use"  endpoint='/resource_use' v-bind:data='resource')
+    form-box(btntxt="Register Use"  event='resource-used' v-bind:data='resource')
         label Tap Fob!
         input(autofocus="autofocus" v-model='resource.fob' type='text')
 

@@ -13,7 +13,6 @@
       .content
           router-view
 
-
 </template>
 
 <script>
@@ -45,10 +44,6 @@ export default {
 
 <style lang="stylus">
 
-#tronstuff
-    position:absolute
-    z-index: -100
-    left: 100px
 @import "../styles/normalize"
 @import "../styles/breakpoints"
 @import "../styles/framework"
@@ -62,8 +57,6 @@ main
   display: flex;
   color: accent1
   font-family:font
-
-.feed
 
 .side_bar, .content
   display: flex;

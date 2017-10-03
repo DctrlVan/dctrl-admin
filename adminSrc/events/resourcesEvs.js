@@ -2,11 +2,11 @@ import uuidV1 from 'uuid/v1'
 import dctrlDb from '../dctrlDb'
 
 module.exports = {
-    resourceCreate,
-    resourceUse
+    resourceCreated,
+    resourceUsed
 }
 
-function resourceCreate(name, location, howTo, callback) {
+function resourceCreated(name, location, howTo, callback) {
     let newEvent = {
         type: "resource-created",
         resourceId: uuidV1(),
@@ -18,7 +18,7 @@ function resourceCreate(name, location, howTo, callback) {
     dctrlDb.insertEvent(newEvent, callback)
 }
 
-function resourceUse(resourceId, memberId, callback) {
+function resourceUsed(resourceId, memberId, callback) {
     let newEvent = {
         type: "resource-used",
         resourceId,

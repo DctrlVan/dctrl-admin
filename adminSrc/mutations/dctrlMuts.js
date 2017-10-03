@@ -1,9 +1,9 @@
 module.exports = (dctrl, ev) => {
 	switch (ev.type) {
-		case "cash-increase":
+		case "cash-increased":
 			dctrl.cash += parseFloat(ev.amount)
 			break
-		case "cash-decrease":
+		case "cash-decreased":
 			dctrl.cash -= parseFloat(ev.amount)
 			break
 		case "supplies-stocked":

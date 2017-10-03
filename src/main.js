@@ -47,6 +47,8 @@ import Resource from './components/Resource'
 import ResourceCreate from './components/forms/ResourceCreate'
 import ResourceUse from './components/forms/ResourceUse'
 
+import Manage from './components/Manage'
+
 // TODO refactor this by module too?
 const routes = [{
     path: '/',
@@ -117,6 +119,9 @@ const routes = [{
     },{
       path: '/bounty_boost/*',
       component: BountyBoost
+    },{
+      path:'/manage',
+      component: Manage
     }]
   }]
 

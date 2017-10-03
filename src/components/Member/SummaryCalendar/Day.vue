@@ -33,9 +33,7 @@ export default {
 						)
 						if ( isToday ){
 								let amount = parseFloat(ev.paid)
-								if (amount > 0){
-										paid += amount
-								}
+								paid += amount
 						}
 				})
 				if (paid > 0){

@@ -2,7 +2,7 @@
 
 #newmember
     shared-title(:title='getTitle')
-    form-box(btntxt="Claim Bounty", v-bind:data="info", endpoint='/bounty_claim')
+    form-box(btntxt="Claim Bounty", v-bind:data="info", event='bounty-claimed')
         label Member Fob! (Tap it)
         input(v-model='info.fob' type='text')
 

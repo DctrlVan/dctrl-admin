@@ -2,18 +2,18 @@ const uuidV1 = require('uuid/v1')
 const dctrlDb = require('../dctrlDb')
 
 module.exports = {
-  memberCreate,
+  memberCreated,
   memberPaid,
   memberCharged,
-  memberDeactivate,
-  memberActivate,
+  memberDeactivated,
+  memberActivated,
 }
 
-function memberCreate(name, address, fob, callback) {
+function memberCreated(name, fob, callback) {
     let newEvent = {
         type: "member-created",
         memberId: uuidV1(),
-        address,
+        address: '', // TODO: generate multisig
         fob,
         active: 1,
         balance: 0,
@@ -43,7 +43,7 @@ function memberCharged(memberId, charged, notes, callback) {
     dctrlDb.insertEvent(newEvent, callback)
 }
 
-function memberDeactivate(memberId, callback) {
+function memberDeactivated(memberId, callback) {
   let newEvent = {
     type: "member-deactivated",
     memberId,
@@ -51,7 +51,7 @@ function memberDeactivate(memberId, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function memberActivate(memberId, callback) {
+function memberActivated(memberId, callback) {
   let newEvent = {
     type: "member-activated",
     memberId,

@@ -45,4 +45,5 @@ img
 
 .left
     float: left
+    
 </style>

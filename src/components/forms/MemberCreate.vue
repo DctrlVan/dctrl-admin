@@ -1,7 +1,7 @@
 <template lang='pug'>
 #newmember
 	shared-title(title='Create New Member')
-	form-box(btntxt="Welcome New Member"  endpoint='/member_create' v-bind:data='member')
+	form-box(btntxt="Welcome New Member"  event='member-created' v-bind:data='member')
 			label hacker name
 			input(v-model='member.name' type='text' )
 			label Member Fob! (tap it)
