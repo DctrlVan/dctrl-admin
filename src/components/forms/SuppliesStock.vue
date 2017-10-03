@@ -2,7 +2,7 @@ c<template lang='pug'>
 
 #stocksupplies
     shared-title(title='stock bitpepsi')
-    form-box(btntxt="Loaded"  endpoint='/supplies_stock' v-bind:data='info')
+    form-box(btntxt="Loaded"  event='supplies_stocked' v-bind:data='info')
         label Cans Stocked:
         input(v-model='info.amount' type='text')
         label Reciept value

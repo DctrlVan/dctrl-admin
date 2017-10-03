@@ -2,7 +2,7 @@
 
 #newmember
     shared-title(title='Cash Received')
-    form-box(btntxt="Cash Safed"  endpoint='/cash_received' v-bind:data='details')
+    form-box(btntxt="Cash Safed"  event='cash-increased' v-bind:data='details')
         label amount
         input(v-model='details.amount' type='text')
         label notes

@@ -31,5 +31,8 @@ module.exports = {
   },
   isNotes(val, errRes){
       return true
+  },
+  isSupplyType(val, errRes){
+      return true
   }
 }
