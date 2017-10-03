@@ -1,7 +1,6 @@
 <template lang='pug'>
 
 #newmember
-    shared-title(title='Cash Received')
     form-box(btntxt="Cash Safed"  event='cash-increased' v-bind:data='details')
         label amount
         input(v-model='details.amount' type='text')

@@ -1,7 +1,6 @@
 <template lang='pug'>
 
 #cashexpense
-    shared-title(title='Cash Expense')
     form-box(btntxt="Expend"  event='cash-decreased' v-bind:data='details')
         label amount
         input(v-model='details.amount' type='text')

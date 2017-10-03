@@ -4,8 +4,8 @@ ul.navigation
     router-link(to='/MEMBERS') Members
     router-link(to='/BOUNTIES') Bounties
     router-link(to='/RESOURCES') Resources
-    router-link(to='/BUYS') Commons Buys
-    //- router-link(to='/tasks') Tasks
+    router-link(to='/MANAGE') Manage
+    router-link(to='/WISHLIST') Wish List
 
 </template>
 
@@ -14,14 +14,12 @@ export default {
     methods:{
         match(route){
             let matched = route == this.$router.currentRoute.path
-            console.log({route, matched})
             return {
                 selected: matched
             }
         }
     },
     data(){
-        console.log("current route 2412312@#@#", this.$router.currentRoute.path)
         return {
             current: this.$router.currentRoute.path
         }
