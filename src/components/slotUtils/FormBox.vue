@@ -3,7 +3,10 @@
 form(v-on:submit.prevent="")
     .response(v-if='response')
         div(v-if='showError')
-            h1 ERROR: {{ errTxt }}
+            .three.columns
+                img(src='../../assets/images/clippy.svg')
+            .nine.columns
+                h1 ERROR: {{ errTxt }}
         .row(v-if='response.type')
     slot(v-else)
     button(v-if='!response' @click.prevent='post') {{ btntxt }}
@@ -52,14 +55,13 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
+@import '../../styles/framework'
 
 .response
-  color: accent2
+  color: red
 
-
-.hidden
-  display:none
-
+img
+  height: 17em
 
 form
   padding: 0em
@@ -68,9 +70,9 @@ form
   margin: 1em
 
 label
-    font-family: sans-serif
-    font-weight: lighter
-    font-size: 1.2em
+  font-family: sans-serif
+  font-weight: lighter
+  font-size: 1.2em
 
 button
   width: 100%
@@ -85,6 +87,6 @@ input
   width:100%
 
 img
-    width: 100%
+  width: 100%
 
 </style>

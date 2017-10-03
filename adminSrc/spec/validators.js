@@ -6,16 +6,19 @@ module.exports = {
       return true
   },
   isAmount(val, errRes){
-      console.log('validating amount')
       if (val <= 0){
-        console.log('')
         errRes.push('amount must be positive number')
         return false
       }
       return true
   },
   isFob(val, errRes){
-      return true
+      let regex = /^[0-9]{10}$/
+      let result = regex.test(val)
+      if (!result){
+        errRes.push('invalid fob format')
+      }
+      return result
   },
   isMultisigAddress(val, errRes){
       return true
@@ -24,16 +27,38 @@ module.exports = {
       return true
   },
   isMemberId(val, errRes){
-      return true
+      let result = false
+      state.getState().members.forEach(member =>{
+          if (val == member.memberId){
+            result = true
+          }
+      })
+      return result
   },
   isBountyId(val, errRes){
-      return true
+      let result = false
+      state.getState().bounties.forEach(bounty =>{
+          if (val == bounty.bountyId){
+            result = true
+          }
+      })
+      return result
   },
   isResourceId(val, errRes){
-      return true
+      let result = false
+      state.getState().resources.forEach(resource =>{
+          if (val == resource.resourceId){
+            result = true
+          }
+      })
+      return result
   },
   isBool(val, errRes){
-      return true
+      let isBool = (typeof val === 'boolean')
+      if (!isBool){
+          errRes.push('field requires boolean')
+      }
+      return isBool
   },
   isNotes(val, errRes){
       return true
