@@ -26,7 +26,7 @@ module.exports = function(req,res, next){
 }
 
 function specMemberCreated(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isName(req.body.name, errRes) &&
     validators.isFob(req.body.fob, errRes)
@@ -37,12 +37,12 @@ function specMemberCreated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specMemberPaid(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isMemberId(req.body.memberId, errRes) &&
     validators.isAmount(req.body.paid, errRes) &&
@@ -57,12 +57,13 @@ function specMemberPaid(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    console.log('specMemberPaid', {errRes})
+    res.status(400).send(errRes)
   }
 }
 
 function specMemberCharged(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isMemberId(req.body.memberId, errRes) &&
     validators.isAmount(req.body.charged, errRes) &&
@@ -75,12 +76,12 @@ function specMemberCharged(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specMemberDeactivated(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isMemberId(req.body.memberId, errRes)
   ){
@@ -89,12 +90,12 @@ function specMemberDeactivated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specMemberActivated(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isMemberId(req.body.memberId, errRes)
   ){
@@ -103,6 +104,6 @@ function specMemberActivated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }

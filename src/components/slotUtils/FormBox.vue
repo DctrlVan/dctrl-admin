@@ -1,14 +1,11 @@
 <template lang='pug'>
 
 form(v-on:submit.prevent="")
-    div(v-if='response')
-        div(v-if='response.error')
-            h5 Uh oh something went wrong, check your fields.
+    .response(v-if='response')
+        div(v-if='showError')
+            h1 ERROR: {{ errTxt }}
         .row(v-if='response.type')
-
     slot(v-else)
-    .hidden
-        input#fob(v-model='memberFob' type='text')
     button(v-if='!response' @click.prevent='post') {{ btntxt }}
 
 </template>
@@ -20,7 +17,9 @@ export default {
     data(){
       return {
           response: false,
-          memberFob: ""
+          memberFob: "",
+          showError: false,
+          errTxt: '...'
        }
     },
     props: ['event', 'data', 'btntxt'],
@@ -28,19 +27,19 @@ export default {
     methods: {
       post(){
         let vue = this
-        this.response = {} // hides forms
-        this.data.type = this.event
+        vue.response = true // hides forms
+        vue.data.type = vue.event
         request
             .post('/events')
             .send(this.data)
             .end((err,res)=>{
                 console.log({err, resBody: res.body})
                 if (err){
-                    this.response.error = true
-                    setTimeout( ()=>{ this.response = false } , 5000)
-                }
-                if (res.body && res.body.error){
-                    setTimeout( ()=>{ this.response = false } , 5000)
+                    vue.showError = true
+                    vue.errTxt = res.body[0]
+                    return setTimeout( ()=>{
+                      vue.response = false
+                    } , 3456)
                 }
                 vue.$router.push('/')
             })
@@ -53,6 +52,10 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
+
+.response
+  color: accent2
+
 
 .hidden
   display:none

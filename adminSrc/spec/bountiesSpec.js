@@ -24,7 +24,7 @@ module.exports = function(req,res, next){
 }
 //
 function specBountyCreated(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isName(req.body.name, errRes) &&
     validators.isNotes(req.body.description, errRes) &&
@@ -45,12 +45,12 @@ function specBountyCreated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specBountyClaimed(req, res, next){
-  let errRes = ''
+  let errRes = []
   // TODO: this member-fob conversion in earlier middleware, (new name authFob?)
   let paid
   state.getState().bounties.forEach( bounty => {
@@ -71,12 +71,12 @@ function specBountyClaimed(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specBountyMonthlyUpdated(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isBountyId(req.body.bountyId, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
@@ -89,12 +89,12 @@ function specBountyMonthlyUpdated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specBountyBoosted(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isBountyId(req.body.bountyId, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
@@ -107,6 +107,6 @@ function specBountyBoosted(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }

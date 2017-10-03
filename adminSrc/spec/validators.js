@@ -1,17 +1,20 @@
+import state from '../state'
+import _ from 'lodash'
+
 module.exports = {
   isName(val, errRes){
       return true
   },
-  isUuid(val, errRes){
-      return true
-  },
   isAmount(val, errRes){
+      console.log('validating amount')
+      if (val <= 0){
+        console.log('')
+        errRes.push('amount must be positive number')
+        return false
+      }
       return true
   },
   isFob(val, errRes){
-      return true
-  },
-  isText(val, errRes){
       return true
   },
   isMultisigAddress(val, errRes){

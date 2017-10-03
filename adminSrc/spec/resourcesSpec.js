@@ -18,7 +18,7 @@ module.exports = function(req,res, next){
 }
 
 function specResourceCreated(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isName(req.body.name, errRes) &&
     validators.isNotes(req.body.location, errRes) &&
@@ -31,12 +31,12 @@ function specResourceCreated(req, res, next){
 			utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specResourceUsed(req, res, next){
-  let errRes = ''
+  let errRes = []
   let memberId = utils.memberIdFromFob(req.body.fob)
   if (
     validators.isMemberId(memberId, errRes) &&
@@ -50,6 +50,6 @@ function specResourceUsed(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }

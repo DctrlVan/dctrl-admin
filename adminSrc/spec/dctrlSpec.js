@@ -24,7 +24,7 @@ module.exports = function(req,res, next){
 }
 
 function specCashIncreased(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isAmount(req.body.amount, errRes) &&
     validators.isNotes(req.body.notes, errRes)
@@ -35,12 +35,12 @@ function specCashIncreased(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specCashDecreased(req, res, next){
-  let errRes = ''
+  let errRes = []
   if (
     validators.isAmount(req.body.amount, errRes) &&
     validators.isNotes(req.body.notes, errRes)
@@ -51,12 +51,12 @@ function specCashDecreased(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specSuppliesUsed(req, res, next){
-  let errRes = ''
+  let errRes = []
   let memberId = utils.memberIdFromFob(req.body.fob)
   if (
     validators.isMemberId(memberId, errRes) &&
@@ -74,12 +74,12 @@ function specSuppliesUsed(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
 function specSuppliesStocked(req, res, next){
-  let errRes = ''
+  let errRes = []
   let memberId = utils.memberIdFromFob(req.body.fob)
   if (
     validators.isMemberId(memberId, errRes) &&
@@ -97,6 +97,6 @@ function specSuppliesStocked(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(500).send(errRes)
+    res.status(400).send(errRes)
   }
 }
