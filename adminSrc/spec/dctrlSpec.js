@@ -57,15 +57,16 @@ function specCashDecreased(req, res, next){
 
 function specSuppliesUsed(req, res, next){
   let errRes = ''
+  let memberId = utils.memberIdFromFob(req.body.fob)
   if (
-    validators.isMemberId(req.body.memberId, errRes) &&
+    validators.isMemberId(memberId, errRes) &&
     validators.isSupplyType(req.body.supplyType, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
     validators.isAmount(req.body.charged, errRes) &&
     validators.isNotes(req.body.notes, errRes)
   ){
     events.suppliesUsed(
-      req.body.memberId,
+      memberId,
       req.body.supplyType,
       req.body.amount,
       req.body.charged,
@@ -79,18 +80,19 @@ function specSuppliesUsed(req, res, next){
 
 function specSuppliesStocked(req, res, next){
   let errRes = ''
+  let memberId = utils.memberIdFromFob(req.body.fob)
   if (
-    validators.isMemberId(req.body.memberId, errRes) &&
+    validators.isMemberId(memberId, errRes) &&
     validators.isSupplyType(req.body.supplyType, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
-    validators.isAmount(req.body.charged, errRes) &&
+    validators.isAmount(req.body.paid, errRes) &&
     validators.isNotes(req.body.notes, errRes)
   ){
     events.suppliesStocked(
-      req.body.memberId,
+      memberId,
       req.body.supplyType,
       req.body.amount,
-      req.body.charged,
+      req.body.paid,
       req.body.notes,
       utils.buildResCallback(res)
     )

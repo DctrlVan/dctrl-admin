@@ -26,6 +26,9 @@ module.exports = {
   isBountyId(val, errRes){
       return true
   },
+  isResourceId(val, errRes){
+      return true
+  },
   isBool(val, errRes){
       return true
   },

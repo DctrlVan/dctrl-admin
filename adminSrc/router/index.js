@@ -23,9 +23,9 @@ module.exports = function applyRouter(app){
 
     // TODO: replace with more generic db & state access
     membersApi(app)
-    // dctrlApi(app)
-    // bountiesApi(app)
-    // resourcesApi(app)
+    dctrlApi(app)
+    bountiesApi(app)
+    resourcesApi(app)
 
     // TODO: clean/ remove ?
     app.get('/state', (req, res) => {

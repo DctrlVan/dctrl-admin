@@ -1,7 +1,7 @@
 <template lang='pug'>
 #newresource
 	shared-title(title='Space Uses')
-	form-box(btntxt="Suggest new use for the space"  endpoint='/resource_create' v-bind:data='resource')
+	form-box(btntxt="Suggest new use for the space"  event='resource-created' v-bind:data='resource')
 			label Which Space?
 			select(v-model='resource.location')
 				option(value = "mainroom") Main Room
