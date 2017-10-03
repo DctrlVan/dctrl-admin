@@ -2,13 +2,13 @@ const uuidV1 = require('uuid/v1')
 const dctrlDb = require('../dctrlDb')
 
 module.exports = {
-  bountyMonthlyUpdate,
-  bountyBoost,
-  bountyCreate,
-  bountyClaim,
+  bountyMonthlyUpdated,
+  bountyBoosted,
+  bountyCreated,
+  bountyClaimed,
 }
 
-function bountyCreate(name, description, monthlyValue, cap, boost, fob, oneTime, callback) {
+function bountyCreated(name, description, monthlyValue, cap, boost, fob, oneTime, callback) {
   let newEvent = {
     type: "bounty-created",
     bountyId: uuidV1(),
@@ -21,11 +21,10 @@ function bountyCreate(name, description, monthlyValue, cap, boost, fob, oneTime,
     boost,
     oneTime: !!oneTime
   }
-  console.log({newEvent})
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function bountyClaim(bountyId, memberId, paid,  callback) {
+function bountyClaimed(bountyId, memberId, paid,  callback) {
   let newEvent = {
     type: "bounty-claimed",
     bountyId,
@@ -36,7 +35,7 @@ function bountyClaim(bountyId, memberId, paid,  callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function bountyBoost(bountyId, amount, notes, callback) {
+function bountyBoosted(bountyId, amount, notes, callback) {
   let newEvent = {
       type: "bounty-boosted",
       bountyId,
@@ -46,7 +45,7 @@ function bountyBoost(bountyId, amount, notes, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function bountyMonthlyUpdate(bountyId, amount, notes, callback) {
+function bountyMonthlyUpdated(bountyId, amount, notes, callback) {
   let newEvent = {
     type: "bounty-monthly-updated",
     amount,

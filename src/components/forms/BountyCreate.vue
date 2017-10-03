@@ -2,7 +2,7 @@
 
 #createbounty
     shared-title(title='Create Bounty')
-    form-box(btntxt="Create New Bounty" endpoint='/bounty_create' v-bind:data="bounty")
+    form-box(btntxt="Create New Bounty" event='bounty-created' v-bind:data="bounty")
         label One time bounty?
         input(v-model='bounty.oneTime' type='checkbox')
         label title

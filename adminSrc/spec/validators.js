@@ -23,6 +23,9 @@ module.exports = {
   isMemberId(val, errRes){
       return true
   },
+  isBountyId(val, errRes){
+      return true
+  },
   isBool(val, errRes){
       return true
   },
