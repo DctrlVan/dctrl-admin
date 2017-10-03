@@ -12,6 +12,8 @@ tr
             img.pay(src='../../assets/images/cash1.svg')
         router-link(:to='payBtcLocation')
             img.pay(src='../../assets/images/bitcoin.svg')
+        router-link(:to='payStuffLocation')
+            img.pay(src='../../assets/images/abundance.svg')
     td
         router-link(:to='memberLocation')
             img(src='../../assets/images/calendar.svg')
@@ -34,6 +36,9 @@ export default {
         },
         payBtcLocation(){
             return '/MEMBER_PAID_BTC/' + this.m.memberId
+        },
+        payStuffLocation(){
+            return '/MEMBER_PAID_STUFF/' + this.m.memberId
         },
         memberLocation(){
             return '/MEMBER/' + this.m.memberId
@@ -73,6 +78,7 @@ button
 
 img
     height: 45px
+    padding: .2345em
 
 tr
     border-color: accent4

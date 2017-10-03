@@ -19,6 +19,7 @@ import MemberDeactivate from './components/forms/MemberDeactivate'
 import MemberCharged from './components/forms/MemberCharged'
 import MemberCreate from './components/forms/MemberCreate'
 import MemberPaid from './components/forms/MemberPaid'
+import MemberPaidStuff from './components/forms/MemberPaidStuff'
 import MemberActivate from './components/forms/MemberActivate'
 import MemberPaidBtc from './components/forms/MemberPaidBtc'
 
@@ -45,9 +46,10 @@ import Resources from './components/Resources'
 import Resource from './components/Resource'
 // Resource forms
 import ResourceCreate from './components/forms/ResourceCreate'
-import ResourceUse from './components/forms/ResourceUse'
+import ResourceUsed from './components/forms/ResourceUsed'
 
 import Manage from './components/Manage'
+import CashHistory from './components/CashHistory'
 
 // TODO refactor this by module too?
 const routes = [{
@@ -78,6 +80,12 @@ const routes = [{
       path: '/member/*',
       component: Member
     },{
+      path: '/member_paid_stuff/*',
+      component: MemberPaidStuff
+    },{
+      path: '/member_paid_btc/*',
+      component: MemberPaidBtc
+    },{
       path: '/resources',
       component: Resources
     },{
@@ -87,11 +95,8 @@ const routes = [{
       path: '/resource_create',
       component: ResourceCreate
     },{
-      path: '/resource_use/*',
-      component: ResourceUse
-    },{
-      path: '/member_paid_btc/*',
-      component: MemberPaidBtc
+      path: '/resource_used/*',
+      component: ResourceUsed
     },{
       path:'/cash_expense',
       component: CashExpense
@@ -122,7 +127,11 @@ const routes = [{
     },{
       path:'/manage',
       component: Manage
-    }]
+    },{
+      path: '/cash_history',
+      component: CashHistory
+    }
+    ]
   }]
 
 const router = new VueRouter({
