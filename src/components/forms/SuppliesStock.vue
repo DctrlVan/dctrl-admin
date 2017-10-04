@@ -12,7 +12,6 @@ c<template lang='pug'>
         label Member Fob (Tap it!)
         input(v-model='info.fob' type='text')
 
-
 </template>
 
 <script>
