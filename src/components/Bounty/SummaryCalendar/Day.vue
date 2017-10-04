@@ -2,32 +2,32 @@
 
 .day
   .date {{ day }}
-    li(v-for='claim in claimedToday') {{ claim }}
+    .b(v-for='claim in claimedToday') {{ claim.name }}: {{ claim.amount }}
 
 </template>
 
 <script>
-import MainEvent from './MainEvent.vue'
-import Tooltip from 'tether-tooltip'
-import Vue from 'vue'
 
 export default {
-  components: {
-    MainEvent
-  },
   props: ['day', 'month', 'year'],
   computed: {
 		claimedToday() {
 				var claimedToday = []
-				this.$store.state.bounty.listOfBountyPaidActions.forEach( action => {
-						if (
-								this.day == action.day &&
-								this.year == action.year &&
-								this.month == action.month
-						){
+				this.$store.state.bounty.bountyClaimedEvents.forEach( ev => {
+            var a = new Date(ev.timestamp)
+            let isToday = (
+                this.day == a.getDate() &&
+                this.year == a.getFullYear() &&
+                this.month == a.getMonth()
+            )
+            if ( isToday ){
 								this.$store.state.members.forEach( member => {
-										if (member.address == action.address) {
-												claimedToday.push( member.name)
+										if (member.memberId == ev.memberId) {
+                        console.log('member matched, pushing to displayarray')
+												claimedToday.push({
+                            name: member.name,
+                            amount: ev.paid.toFixed(2)
+                        })
 										}
 								})
 						}
@@ -41,6 +41,13 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../../styles/colours'
+
+  .b
+      text-align: center
+      border-radius: 8%
+      color: accent4
+      font-size: .8em
+      background: accent1
 
   .day
     background-color: main

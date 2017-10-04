@@ -1,17 +1,18 @@
-const config = require('../../configuration')
-const events = require('../events')
 const state = require('../state')
-const bodyParser = require('body-parser')
-const calculations = require('../calculations')
+const dbQueries = require('../dbQueries')
+
 
 module.exports = function eventApi(app){
-      app.use(bodyParser.json())
-      app.use(bodyParser.urlencoded({
-          extended: true
-      }))
+
+      app.get('/db/bounty/:bountyId', (req, res) => {
+        dbQueries.getEventsForBounty(req.params.bountyId, (err, bountyHistory) => {
+          console.log('returning', {bountyHistory})
+          res.json(bountyHistory)
+        })
+      })
 
       app.get('/state/bounties', (req, res) => {
         res.json(state.getState().bounties)
       })
-      
+
 }

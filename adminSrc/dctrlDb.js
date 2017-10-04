@@ -89,7 +89,6 @@ r.connect(config.rethink).then(rethinkDbConnection => {
     console.log("db connected")
     conn = rethinkDbConnection
     dbCheck()
-    // startFeed()
 })
 
 function getConnection(){

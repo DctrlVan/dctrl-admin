@@ -1,6 +1,5 @@
 const state = require('../state')
 const dbQueries = require('../dbQueries')
-const events = require('../events')
 
 module.exports = (app) => {
 		app.get('/db/member/:memberId', (req, res) => {
@@ -10,7 +9,6 @@ module.exports = (app) => {
 		})
 
 		app.get('/state/members', (req, res) => {
-			// clean
 			res.json(state.getState().members)
 		})
 

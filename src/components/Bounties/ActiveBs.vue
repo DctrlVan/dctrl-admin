@@ -13,6 +13,10 @@ tr
             img.pencil(src='../../assets/images/control.svg')
         router-link(:to='boostLocation')
             img(src='../../assets/images/boost.svg')
+    td
+      router-link(:to='historyLocation')
+        img(src='../../assets/images/calendar.svg')
+
 
 </template>
 
@@ -45,6 +49,9 @@ export default {
         },
         claimLocation(){
             return '/BOUNTY_CLAIM/' + this.b.bountyId
+        },
+        historyLocation(){
+            return '/BOUNTY/' + this.b.bountyId
         }
     },
 }

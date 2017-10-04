@@ -5,27 +5,37 @@ const state = {
     bountyClaimedEvents: []
 }
 
+function applyEvent(state, ev){
+    switch (ev.type){
+        case 'bounty-claimed':
+            console.log('actually pushing onto object')
+            state.bountyClaimedEvents.push(ev)
+            break
+    }
+}
+
 const mutations = {
-    setClaimedEvents(state, ev){
-        state.bountyClaimed = ev
-    },
+    applyEvent,
+    applyBountyEvent: applyEvent,
     setBountyId(state, bountyId){
         state.bountyId = bountyId
     },
 }
 
 const actions = {
-    getBountyHistory({ state, commit }, bountyId){
-        let reqLoc = '/db/bounty/' + bountyId
+    getBountyHistory({ commit }, bountyId){
         commit('setBountyId', bountyId)
-        commit('setPaidEvents', [])
         request
-            .get(reqLoc)
+            .get('/db/bounty/' + bountyId)
             .end((err, res)=> {
                 if (err || !res.body) {
                     return console.log('no res')
                 }
-                commit('setClaimedEvents', res.body.listOfBountyClaimedEvents)
+                console.log('res body', res.body)
+                res.body.forEach( ev => {
+                    console.log('applying event?' , {ev})
+                    commit('applyBountyEvent', ev)
+                })
             })
     }
 }
