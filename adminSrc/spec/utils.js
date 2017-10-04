@@ -23,6 +23,17 @@ function memberIdFromFob(fob){
   return memberId
 }
 
+function bountyFromFob(fob){
+  let memberId
+  // TODO: hide fob in server side state
+  state.getState().bounties.forEach(bounty => {
+      if (bounty.fob == fob){
+          bounty = bounty
+      }
+  })
+  return bounty
+}
+
 // TODO, smarter addressManager
 
 module.exports = {

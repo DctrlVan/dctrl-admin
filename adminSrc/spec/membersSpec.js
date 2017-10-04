@@ -57,7 +57,6 @@ function specMemberPaid(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    console.log('specMemberPaid', {errRes})
     res.status(400).send(errRes)
   }
 }
