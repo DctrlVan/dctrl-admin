@@ -6,6 +6,7 @@ const calculations = require('../calculations')
 var activeBounty = false
 
 module.exports = function(req, res, next){
+  activeBounty = utils.bountyFromFob(req.body.fob) || activeBounty
   if (activeBounty){
     let memberId = utils.memberIdFromFob(req.body.fob)
     if (memberId){
@@ -17,10 +18,9 @@ module.exports = function(req, res, next){
           utils.buildResCallback(res)
         )
     }
-    // Either way tried so reset the active bounty
+    // Either way tried so reset the active bounty, (don't call next?)
     activeBounty = false
   } else {
-    activeBounty = utils.bountyFromFob(req.body.fob)
-    if (!activeBounty) return next();
+      return next()
   }
 }
