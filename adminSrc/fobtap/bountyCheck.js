@@ -6,7 +6,7 @@ const calculations = require('../calculations')
 var activeBounty = false
 
 module.exports = function(req, res, next){
-  activeBounty = utils.bountyFromFob(req.body.fob) || activeBounty
+  console.log('bountyCheck', req.body)
   if (activeBounty){
     let memberId = utils.memberIdFromFob(req.body.fob)
     if (memberId){
@@ -21,6 +21,8 @@ module.exports = function(req, res, next){
     // Either way tried so reset the active bounty, (don't call next?)
     activeBounty = false
   } else {
-      return next()
+      activeBounty = utils.bountyFromFob(req.body.fob)
+      // don't have an active bounty and wasnt a bounty, check vend
+      if (!activeBounty) return next();
   }
 }

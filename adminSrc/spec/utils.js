@@ -39,4 +39,5 @@ function bountyFromFob(fob){
 module.exports = {
   buildResCallback,
   memberIdFromFob,
+  bountyFromFob
 }

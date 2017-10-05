@@ -5,9 +5,8 @@ const events = require('../events')
 
 
 // bitpepsi handles the fob bounty claiming
-
 module.exports = function(req, res, next){
-    console.log('now trying to process vend')
+    console.log('now trying to process vend', req.body)
     let memberId = utils.memberIdFromFob(req.body.fob)
     if (memberId && validators.isSupplyType(req.body.tapId, []) ){
         events.suppliesUsed(
@@ -19,5 +18,4 @@ module.exports = function(req, res, next){
           utils.buildResCallback(res)
         )
     }
-
 }
