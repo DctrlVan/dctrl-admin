@@ -8,11 +8,6 @@ const changeFeed = Kefir.stream( e => {
     eventEmitter = e
 }).log('dbfeed')
 
-//Uncomment to initialize rethink db & table
-// setTimeout(()=>{
-// initializeRethink()
-// }, 5555)
-
 function dbCheck(){
   r.dbList().run(conn, (err,list)=>{
       console.log({err,list})
@@ -76,13 +71,6 @@ function insertEvent(ev, callback){
         .table("events")
         .insert(ev)
         .run(conn, callback)
-}
-
-if (config.rethinkLocation) {
-  config.rethink = {
-    db: 'dctrl',
-    host: config.rethinkLocation
-  }
 }
 
 r.connect(config.rethink).then(rethinkDbConnection => {

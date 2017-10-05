@@ -22,7 +22,10 @@ You must create a new file in the root of the directory, and call it `configurat
 
 ```
 module.exports = {
-    rethinkLocation: "localhost",
+    rethink: {
+      db: 'dctrl',
+      host: 'localhost'
+    },
     secret: "copay wallet seed random words secret very...",
     bitcoindClient: {
         host: 'localhost',

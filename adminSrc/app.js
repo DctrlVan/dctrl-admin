@@ -9,6 +9,7 @@ const socketIo = require('socket.io')
 const dctrlDb = require('./dctrlDb')
 
 const applyRouter = require('./router')
+
 applyRouter(app)
 
 const server = app.listen(PORT, err => {

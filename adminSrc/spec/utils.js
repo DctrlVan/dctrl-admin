@@ -23,9 +23,24 @@ function memberIdFromFob(fob){
   return memberId
 }
 
+function bountyFromFob(fob){
+  let bounty
+  // TODO: hide fob in server side state
+  state.getState().bounties.forEach(b => {
+      console.log('checking fob')
+      if (b.fob == fob){
+          console.log('setting bounty')
+          bounty = b
+      }
+  })
+  console.log('returning: ', {bounty} )
+  return bounty
+}
+
 // TODO, smarter addressManager
 
 module.exports = {
   buildResCallback,
   memberIdFromFob,
+  bountyFromFob
 }

@@ -9,6 +9,7 @@ const bountiesApi = require('./bountiesApi')
 const dctrlApi = require('./dctrlApi')
 
 const spec = require('../spec')
+const fobtap = require('../fobtap')
 
 module.exports = function applyRouter(app){
     app.use(express.static(path.join(__dirname, '../../dist')));
@@ -18,8 +19,8 @@ module.exports = function applyRouter(app){
         extended: true
     }))
 
-    // handles event creation
-    app.use(spec)
+    app.use(spec) // handles event creation
+    app.use(fobtap) // handles tap devices
 
     // TODO: replace with more generic db & state access
     dctrlApi(app)
