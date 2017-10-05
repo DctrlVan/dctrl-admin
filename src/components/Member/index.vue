@@ -38,6 +38,7 @@ export default {
         let component = this
         let memberId = this.$router.currentRoute.path.split('/')[2]
         this.memberId = memberId
+        console.log('component mounted')
         this.$store.dispatch('getMemberHistory', memberId)
     }
 }

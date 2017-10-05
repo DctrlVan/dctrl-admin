@@ -4,6 +4,7 @@ const dbQueries = require('../dbQueries')
 module.exports = (app) => {
 		app.get('/db/member/:memberId', (req, res) => {
 			dbQueries.getEventsForMember(req.params.memberId, (err, memberHistory) => {
+				console.log('get db/member:', {memberHistory})
 				res.json(memberHistory)
 			})
 		})

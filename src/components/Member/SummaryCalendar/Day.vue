@@ -7,7 +7,7 @@
       .six.columns(v-else) &nbsp;
       .six.columns.c.b(v-if='chargedThisDay > 0')
         div {{ chargedThisDay }}
-        
+
 </template>
 
 <script>
@@ -89,7 +89,7 @@ export default {
 		text-align: center
 		border-radius: 8%
 		color: main
-		font-size: .8em
+		font-size: .6em
 
 .p
 		background-color: green

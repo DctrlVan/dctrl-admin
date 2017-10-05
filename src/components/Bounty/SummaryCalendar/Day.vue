@@ -46,7 +46,8 @@ export default {
       text-align: center
       border-radius: 8%
       color: accent4
-      font-size: .8em
+      font-size: .55em
+      padding:.05em
       background: accent1
 
   .day
@@ -61,12 +62,6 @@ export default {
     font-weight: bolder
     font-size: .9em
     padding: 5px 5px 5px 5px
-
-.b
-		text-align: center
-		border-radius: 8%
-		color: main
-		font-size: .8em
 
 .p
 		background-color: accent1

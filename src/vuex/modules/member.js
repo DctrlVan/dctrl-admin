@@ -11,6 +11,7 @@ function applyEvent(state, ev){
         case 'member-charged':
         case 'supplies-used':
             if (ev.memberId == state.memberId){
+                console.log('inserting member charged')
                 state.memberChargedEvents.push(ev)
             }
             break
@@ -18,6 +19,7 @@ function applyEvent(state, ev){
         case 'supplies-stocked':
         case 'bounty-claimed':
             if (ev.memberId == state.memberId){
+                console.log('inserting member paid')
                 state.memberPaidEvents.push(ev)
             }
             break
@@ -25,7 +27,7 @@ function applyEvent(state, ev){
 }
 
 const mutations = {
-    setIdandReset(state, memberId){
+    setMemberIdandReset(state, memberId){
         state.memberId = memberId
         state.memberChargedEvents = []
         state.memberPaidEvents = []
@@ -34,10 +36,19 @@ const mutations = {
     applyMemberEvent: applyEvent
 }
 
+var activeMember = null
 const actions = {
     getMemberHistory({ state, commit }, memberId){
+        console.log('get member history')
+        // we need a guard here because the mounted function in Member
+        // was getting called twice. TODO: better solution
+        if (activeMember === memberId) {
+            return console.log('preventing double call')
+        } else {
+          activeMember = memberId
+        }
         let reqLoc = '/db/member/' + memberId
-        commit('setIdandReset', memberId)
+        commit('setMemberIdandReset', memberId)
         request
             .get(reqLoc)
             .end((err, res)=> {

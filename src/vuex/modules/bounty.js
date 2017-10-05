@@ -17,14 +17,24 @@ function applyEvent(state, ev){
 const mutations = {
     applyEvent,
     applyBountyEvent: applyEvent,
-    setBountyId(state, bountyId){
+    setBountyIdandReset(state, bountyId){
         state.bountyId = bountyId
+        state.bountyClaimedEvents = []
     },
 }
 
+var activeBounty
 const actions = {
     getBountyHistory({ commit }, bountyId){
-        commit('setBountyId', bountyId)
+        console.log('get member history')
+        // we need a guard here because the mounted function in Bounty
+        // was getting called twice. TODO: better solution
+        if (activeBounty === bountyId) {
+            return console.log('preventing double call')
+        } else {
+          activeBounty = bountyId
+        }
+        commit('setBountyIdandReset', bountyId)
         request
             .get('/db/bounty/' + bountyId)
             .end((err, res)=> {
