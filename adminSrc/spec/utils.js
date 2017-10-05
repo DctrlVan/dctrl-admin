@@ -24,13 +24,16 @@ function memberIdFromFob(fob){
 }
 
 function bountyFromFob(fob){
-  let memberId
+  let bounty
   // TODO: hide fob in server side state
-  state.getState().bounties.forEach(bounty => {
-      if (bounty.fob == fob){
-          bounty = bounty
+  state.getState().bounties.forEach(b => {
+      console.log('checking fob')
+      if (b.fob == fob){
+          console.log('setting bounty')
+          bounty = b
       }
   })
+  console.log('returning: ', {bounty} )
   return bounty
 }
 
