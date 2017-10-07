@@ -37,6 +37,7 @@
     "superagent": "^3.4.3",
     "tether-tooltip": "^1.2.0",
     "tooltip.js": "^1.1.5",
+    "trezor.js": "^6.1.1",
     "uuid": "^3.0.1",
     "vue": "^2.1.8",
     "vue-router": "^2.1.1",

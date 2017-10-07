@@ -2,6 +2,7 @@
 
 #home
     shared-title(title='Manage Cash')
+    trezor-pin
     table
       tr
         td
@@ -28,10 +29,11 @@
 import SharedTitle from '../slotUtils/SharedTitle'
 import CashExpense from '../forms/CashExpense'
 import CashReceived from '../forms/CashReceived'
+import TrezorPin from './TrezorPin'
 
 export default {
     components:{
-        SharedTitle, CashExpense, CashReceived
+        SharedTitle, CashExpense, CashReceived, TrezorPin
     },
     computed:{
       bal(){
