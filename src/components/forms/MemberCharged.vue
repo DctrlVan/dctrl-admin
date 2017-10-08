@@ -5,8 +5,8 @@
     form-box(btntxt="Credit Member Account"  event='member-charged' v-bind:data='member')
         label member id
         input(v-model='member.memberId' type='text')
-        label amount
-        input(autofocus="autofocus" v-model='member.amount' type='text')
+        label charged
+        input(autofocus="autofocus" v-model='member.charged' type='text')
         label notes
         input(v-model='member.notes' type='text')
 
@@ -27,7 +27,7 @@ export default {
         return {
             member: {
                 memberId: '',
-                amount: '',
+                charged: '',
                 notes: ''
             }
         }
