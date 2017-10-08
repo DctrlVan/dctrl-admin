@@ -3,22 +3,22 @@
 #pin
   table(v-if='showPin')
     tr
-      td(@click='addToPin(1)') x
-      td(@click='addToPin(2)') x
-      td(@click='addToPin(3)') x
+      td(@click='addToPin(7)') x
+      td(@click='addToPin(8)') x
+      td(@click='addToPin(9)') x
     tr
       td(@click='addToPin(4)') x
       td(@click='addToPin(5)') x
       td(@click='addToPin(6)') x
     tr
-      td(@click='addToPin(7)') x
-      td(@click='addToPin(8)') x
-      td(@click='addToPin(9)') x
+      td(@click='addToPin(1)') x
+      td(@click='addToPin(2)') x
+      td(@click='addToPin(3)') x
     tr
       td {{currentPin}}
       td
       td
-          button(@click='cb') send-pin
+          button(@click='submitPin') send-pin
 
 </template>
 
@@ -50,6 +50,8 @@ list.on('connectUnacquired', function (device) {
 });
 
 
+var pinCallback
+
 
 export default {
     data(){
@@ -59,8 +61,12 @@ export default {
       }
     },
     methods: {
-      cb(callback){
+      submitPin(){
           // XXX
+          this.showPin = false
+          if (pinCallback){
+              pinCallback(null, this.currentPin)
+          }
       },
       addToPin(n){
           this.currentPin += n
@@ -77,11 +83,9 @@ export default {
             // device.on('button', buttonCallback);
 
             device.on('pin', (type, callback)=> {
-              console.log({type, callback})
-              let button = document.getElementById("sendpin")
-              console.log({button})
-              // TODO: callback with user inputted pin.
-              console.log('need to be able to call this callback in a vue method')
+              // set global variable to this callback.
+              // button method on pin pad to call with user input
+              pinCallback = callback
             });
 
             // triggering session emits the pin event above
