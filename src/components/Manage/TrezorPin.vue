@@ -114,6 +114,37 @@ export default {
           // able to use as key to createmultisig in bitcoindRpc
           console.log( 'pubkey?', hdNode.getPublicKeyBuffer().toString('hex') )
 
+          let hash = bitcoin
+              .bufferutils
+              .reverse('0114134cc07f6ed0a09976e92a85a2ffe93978575a8ae852427a1ebca4191a58')
+              .toString('hex')
+
+          let info = {
+              inputs: [{
+                hash,
+                index: 0
+              }],
+              outputs: [{
+                value: 0.01,
+                address: "n1NjGcfjN1QwNTXf6JnqBMgK8Nhn2woAqy"
+              }]
+          }
+
+          var tx = new bitcoin.Transaction.fromHex("01000000000101189b48a348d7b5cae3aaa144ab7511402be496be1643019143769a79c5ad1aea01000000171600146e16a297f9f1e0f02ce9ff7a199c14b43c138305ffffffff0280a4bf070000000017a914ca714fcade78407ce31cf389115d1f0f40e0192a876093886e2e00000017a914ba81b88ba924b8881ace0f6bee720b42d49c401c8702483045022100926a04b93ca4190dbfe387a430948e43e97ddcd0e1b751b00c082ec2b3478f7d022041e15e46637946ee792a20b4e9beee25ee41a312872e55dfc6917c68a73b332b012102991257475d628583621291aa7969acd7cb2ca42e8227de911e17c1ffe3d0d9a100000000")
+
+          console.log({tx})
+          let refTx = [
+
+          ]
+
+          let nodes = [hdNode]
+          device.waitForSessionAndRun(function(session) {
+            return session.signBjsTx(info, refTx, nodes, 'testnet')
+          })
+          .then( signed => {
+              console.log({signed})
+          })
+
           // from hdNode
           // mg8VoRoa79w54azo7DUXL7nYwYeaY9wVKR
           // pubkey 0 : 030df3fd96b1e396d50eb82a331691e1a0b643fa81e9e5f624fb9828f7c7dc74e4
