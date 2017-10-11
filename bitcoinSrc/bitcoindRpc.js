@@ -41,7 +41,7 @@ function getAddressHistory(address, callback){
 function createMultiSig( callback ){
     client.createMultiSig(1 , [
       'mtw1xAnqGYgzuoa1SKmqkSKbkCuccMbx8Z',
-      'mhQANhN5izytVbBpSVSoQZz7Z9QZQNiE82'
+      '030df3fd96b1e396d50eb82a331691e1a0b643fa81e9e5f624fb9828f7c7dc74e4'
     ], (err, result)=>{
         console.log({err, result})
     })

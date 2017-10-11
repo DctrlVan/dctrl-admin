@@ -1,0 +1,3 @@
+- The tagged release of bitcoinjs-lib was not properly decoding the multisig transaction I was attempting to decode.
+- This folder is the snapshot of the current master branch which
+- Need to keep an eye on this repo.
