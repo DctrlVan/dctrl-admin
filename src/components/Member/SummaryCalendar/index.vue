@@ -1,20 +1,13 @@
 <template lang="pug">
 
 #calendar
-    .row.legend
-        .eight.columns &nbsp;
-        .one.columns
-            table
-                tr
-                    td.downhalfbox member
-        .three.columns
-            table
-                tr
-                    td.chargedbox.signcell
-                    td.ch charged
-                tr
-                    td.paidbox.signcell
-                    td.do donated
+    table.legend
+        tr
+            td.chargedbox.signcell
+            td.ch charged
+        tr
+            td.paidbox.signcell
+            td.do donated
     .row.menu
         .three.columns(@click='prevMonth')
             img(src='../../../assets/images/left.svg')
@@ -125,14 +118,17 @@ export default {
     font-size: .666em
 
 .legend
-    margin-top: -70px
+    float: right
+    margin-top: -77px
+    margin-right: 1em
+    background: main
 
 td
     border: none
 
 .paidbox, .chargedbox
-    height: 20px
-    width: 20px
+    height: 1em
+    min-width: 2em
 
 .paidbox
     background-color: green
@@ -146,6 +142,8 @@ td
 
 table
     font-size: .7em
+    border-style: solid
+    border-color: main
 
 tr, td
     padding:0
