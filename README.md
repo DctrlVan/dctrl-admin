@@ -51,8 +51,9 @@ For example to charge a member manually for dress code infractions, you can run 
 ```
 const request = require('superagent')
 request
-    .post('<ip-of-dctrladmin>:8003/events/member_charge')
+    .post('<ip-of-dctrladmin>:8003/events')
     .send({
+        type: 'member-charged',
         memberId: '19116730-8b8d-11e7-8171-1518d628ef09',
         amount: 10,
         notes: 'dress code #15.3'
