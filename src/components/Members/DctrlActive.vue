@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 div
-  div(v-if='m.active > 0')
+  div(v-if='m.active > 0' :class='c')
       img(:class='calcSpin(m)' v-if='m.active == 1' src='../../assets/images/active1.svg')
       img(:class='calcSpin(m)' v-if='m.active == 2' src='../../assets/images/active2.svg')
       img(:class='calcSpin(m)' v-if='m.active == 3' src='../../assets/images/active3.svg')
@@ -27,6 +27,11 @@ div
 
 
 export default {
+    computed: {
+        c(){
+            test: true
+        }
+    },
     methods: {
         calcSpin(m){
             if (Math.random() > .8765 ){
@@ -43,6 +48,9 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../../styles/spinners'
+
+.test
+    display: none
 
 img
     height: 60px

@@ -1,4 +1,3 @@
-
 let memes = [
     'very database',
     'such create',
@@ -34,7 +33,6 @@ const actions = {
         }, 3456)
     }
 }
-
 
 module.exports = {
   state,

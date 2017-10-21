@@ -18,15 +18,35 @@ const mutations = {
     applyEvent: dctrlMuts
 }
 
+function loadTestState(commit){
+    let i = 0
+    while (i < 10){
+      i++
+      commit('applyEvent', {
+        type: 'member-created',
+        name: 'test',
+        balance: i - 5,
+        active: i
+      })
+    }
+}
+
+
 const actions = {
   loadCurrent({ commit }){
+    console.log('trying to commit load current ')
       request.get('/state')
           .end((err, res)=>{
-              console.log("res to state?", res.body)
-              commit('setCurrentMembers', res.body.members)
-              commit('setCurrentResources', res.body.resources)
-              commit('setCurrentBounties', res.body.bounties)
-              commit('setCurrentDctrl', res.body.dctrl)
+              if (err || !res.body) {
+                  loadTestState(commit)
+              } else {
+                  console.log(err, res)
+                  commit('setCurrentMembers', res.body.members)
+                  commit('setCurrentResources', res.body.resources)
+                  commit('setCurrentBounties', res.body.bounties)
+                  commit('setCurrentDctrl', res.body.dctrl)
+              }
+
           })
   }
 }

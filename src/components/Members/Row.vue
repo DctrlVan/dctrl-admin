@@ -6,8 +6,6 @@ tr
     td
         span {{m.name}}
     td
-        span {{bal}}
-    td
         router-link.pad(:to='payLocation')
             img.pay(src='../../assets/images/cash1.svg')
         router-link(:to='payBtcLocation')
@@ -81,9 +79,12 @@ img
     padding: .2345em
 
 tr
-    border-color: accent4
+    border-left-color: accent2
+    border-bottom-color: accent4
+    border-top-color: accent4
     border-top-style: solid
     border-bottom-style: solid
+    border-left-style: solid
     border-width: 3px
     vertical-align:middle
 

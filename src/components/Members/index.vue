@@ -4,7 +4,10 @@
     crazy-btn(to='/MEMBER_CREATE' text='New Member')
     shared-title(title='List of Members')
     tab
-        row(v-for="m in members", :m="m")
+        label active
+        row(v-for="m in active", :m="m")
+        label pending
+        row(v-for="m in pending", :m="m")
 
 </template>
 
@@ -17,8 +20,11 @@ import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
     computed: {
-        members(){
-            return this.$store.state.members
+        active(){
+            return this.$store.state.members.filter(m => (m.balance >= 0))
+        },
+        pending(){
+            return this.$store.state.members.filter(m => (m.balance < 0))
         }
     },
     components:{
@@ -35,6 +41,14 @@ export default {
 
 @import '../../styles/colours'
 @import '../../styles/crazybtn'
+
+label
+    margin-top: 2em
+    font-size: 1.4em
+    border-bottom-style: solid
+    border-color: accent2
+    margin-bottom: -1px
+
 
 #member
     width: 100%

@@ -1,13 +1,12 @@
 <template lang='pug'>
 
 table
-    tr
-        th
-        th hackername
-        //- th address
-        th balance
-        th payment
-        th history
+    //- tr
+    //-     th ?
+    //-     th
+    //-     //- th address
+    //-     th ?
+    //-     th history
     slot
 
 </template>
