@@ -18,8 +18,10 @@ export default {
 
 <style lang='stylus' scoped>
 
+@import '../../styles/colours'
+
 .crazybtn
-    position: absolute
+    float: right
     top:50px
     right:100px
     background: accent1
@@ -32,6 +34,7 @@ export default {
     border-style: solid
     border-width: 2px
     border-color: main
+    margin-top: 1.111em
 
 .crazybtn:hover
     background: accent2

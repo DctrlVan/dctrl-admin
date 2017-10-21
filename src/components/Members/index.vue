@@ -40,7 +40,6 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
-@import '../../styles/crazybtn'
 
 label
     margin-top: 2em

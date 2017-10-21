@@ -34,7 +34,6 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
-@import '../../styles/crazybtn'
 
 #resource
     width: 100%
@@ -45,5 +44,5 @@ img
 
 .left
     float: left
-    
+
 </style>
