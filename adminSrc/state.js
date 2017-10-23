@@ -4,18 +4,15 @@ const mutations = require('./mutations')
 const state = {
   members: [],
   resources: [],
-  bounties: [],
+  tasks: [],
   dctrl: {
-    cash: 12,
-    supplies: {
-      bitpepsi: 110
-    }
+    cash: 12
   },
 }
 
 function applyEvent(ev){
-    mutations.bountiesMuts(state.bounties, ev)
     mutations.dctrlMuts(state.dctrl, ev)
+    mutations.tasksMuts(state.tasks, ev)
     mutations.membersMuts(state.members, ev)
     mutations.resourcesMuts(state.resources, ev)
 }

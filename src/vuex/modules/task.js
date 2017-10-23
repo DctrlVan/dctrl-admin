@@ -1,42 +1,42 @@
 import request from 'superagent'
 
 const state = {
-    bountyId: null,
-    bountyClaimedEvents: []
+    taskId: null,
+    taskClaimedEvents: []
 }
 
 function applyEvent(state, ev){
     switch (ev.type){
-        case 'bounty-claimed':
+        case 'task-claimed':
             console.log('actually pushing onto object')
-            state.bountyClaimedEvents.push(ev)
+            state.taskClaimedEvents.push(ev)
             break
     }
 }
 
 const mutations = {
     applyEvent,
-    applyBountyEvent: applyEvent,
-    setBountyIdandReset(state, bountyId){
-        state.bountyId = bountyId
-        state.bountyClaimedEvents = []
+    applyTaskEvent: applyEvent,
+    setTaskIdandReset(state, taskId){
+        state.taskId = taskId
+        state.taskClaimedEvents = []
     },
 }
 
-var activeBounty
+var activeTask
 const actions = {
-    getBountyHistory({ commit }, bountyId){
+    getTaskHistory({ commit }, taskId){
         console.log('get member history')
-        // we need a guard here because the mounted function in Bounty
+        // we need a guard here because the mounted function in Task
         // was getting called twice. TODO: better solution
-        if (activeBounty === bountyId) {
+        if (activeTask === taskId) {
             return console.log('preventing double call')
         } else {
-          activeBounty = bountyId
+          activeTask = taskId
         }
-        commit('setBountyIdandReset', bountyId)
+        commit('setTaskIdandReset', taskId)
         request
-            .get('/db/bounty/' + bountyId)
+            .get('/db/task/' + taskId)
             .end((err, res)=> {
                 if (err || !res.body) {
                     return console.log('no res')
@@ -44,7 +44,7 @@ const actions = {
                 console.log('res body', res.body)
                 res.body.forEach( ev => {
                     console.log('applying event?' , {ev})
-                    commit('applyBountyEvent', ev)
+                    commit('applyTaskEvent', ev)
                 })
             })
     }

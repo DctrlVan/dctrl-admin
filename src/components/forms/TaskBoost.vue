@@ -1,8 +1,8 @@
 <template lang='pug'>
 
-#editbounty
+#boost-task
     shared-title(:title='getTitle')
-    form-box(btntxt="Edit Bounty" event='bounty-boosted' v-bind:data="info")
+    form-box(btntxt="Edit task" event='task-boosted' v-bind:data="info")
         label Boost Amount
         input(v-model='info.amount' type='text')
         label notes
@@ -17,17 +17,17 @@ import FormBox from '../slotUtils/FormBox'
 
 export default {
     mounted(){
-        let bountyId = this.$router.currentRoute.path.split('/')[2]
-        if (bountyId){
-          this.info.bountyId = bountyId
+        let taskId = this.$router.currentRoute.path.split('/')[2]
+        if (taskId){
+          this.info.taskId = taskId
         }
     },
     computed: {
         getTitle(){
             let title
-            this.$store.state.bounties.forEach(b => {
-                if (b.bountyId == this.info.bountyId){
-                    title = "Boost " + b.name + " Bounty!"
+            this.$store.state.tasks.forEach(b => {
+                if (b.taskId == this.info.taskId){
+                    title = "Boost " + b.name + " task!"
                 }
             })
             return title
@@ -36,7 +36,7 @@ export default {
     data(){
         return {
             info: {
-                bountyId: '',
+                taskId: '',
                 amount:'',
                 notes: ''
             }

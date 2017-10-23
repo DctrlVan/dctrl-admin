@@ -6,7 +6,7 @@ Overview of what each file is doing:
 Main script that runs express server and socket client. Changefeed from the database is passed to the socket for real time updates.Run this file with node to start the server. (i.e. `node ./adminSrc/app.js`).
 
 ### dbQueries.js
-Contains functions that calls into the event-log for more detail such as all of the paid/charged events for a specific member or bounty.
+Contains functions that calls into the event-log for more detail such as all of the paid/charged events for a specific member or task.
 
 ### dctrlDb.js
 This file initializes the connection to the rethinkDb database. It exposes the changefeed as a kefir stream and also a function for inserting new events.

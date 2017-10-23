@@ -5,12 +5,12 @@ function calculateMsThisMonth(){
     return daysThisMonth * 24 * 60 * 60 * 1000
 }
 
-function calculateBountyPayout(bounty){
+function calculateBountyPayout(task){
     let msThisMonth = calculateMsThisMonth()
-    let msSince = Date.now() - parseFloat(bounty.lastClaimed)
-    let payout = (msSince / msThisMonth) * parseFloat(bounty.monthlyValue)
-    let cap = parseFloat(bounty.cap)
-    let boost = parseFloat(bounty.boost) || 0
+    let msSince = Date.now() - parseFloat(task.lastClaimed)
+    let payout = (msSince / msThisMonth) * parseFloat(task.monthlyValue)
+    let cap = parseFloat(task.cap)
+    let boost = parseFloat(task.boost) || 0
     if (cap > 0){
         return Math.min(payout, cap) + boost
     }

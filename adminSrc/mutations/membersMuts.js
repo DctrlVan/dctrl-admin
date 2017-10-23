@@ -60,7 +60,7 @@ module.exports = (members, ev)=> {
           })
           break
 
-      case "bounty-claimed":
+      case "task-claimed":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
                   member.balance += parseFloat(ev.paid)

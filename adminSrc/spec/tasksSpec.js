@@ -6,24 +6,24 @@ import calculations from '../calculations'
 
 module.exports = function(req,res, next){
   switch (req.body.type){
-      case 'bounty-created':
-           specBountyCreated(req, res, next)
+      case 'task-created':
+           specTaskCreated(req, res, next)
            break
-      case 'bounty-claimed':
-          specBountyClaimed(req, res, next)
+      case 'task-claimed':
+          specTaskClaimed(req, res, next)
           break
-      case 'bounty-boosted':
-          specBountyBoosted(req, res, next)
+      case 'task-boosted':
+          specTaskBoosted(req, res, next)
           break
-      case 'bounty-monthly-updated':
-          specBountyMonthlyUpdated(req, res, next)
+      case 'task-monthly-updated':
+          specTaskRateUpdated(req, res, next)
           break
       default:
           next()
   }
 }
 //
-function specBountyCreated(req, res, next){
+function specTaskCreated(req, res, next){
   let errRes = []
   if (
     validators.isName(req.body.name, errRes) &&
@@ -34,7 +34,7 @@ function specBountyCreated(req, res, next){
     validators.isBool(req.body.oneTime, errRes) &&
     validators.isFob(req.body.fob, errRes)
   ){
-    events.bountyCreated(
+    events.taskCreated(
       req.body.name,
       req.body.description,
       req.body.monthlyValue,
@@ -49,23 +49,23 @@ function specBountyCreated(req, res, next){
   }
 }
 
-function specBountyClaimed(req, res, next){
+function specTaskClaimed(req, res, next){
   let errRes = []
   // TODO: this member-fob conversion in earlier middleware, (new name authFob?)
   let paid
-  state.getState().bounties.forEach( bounty => {
-    if (bounty.bountyId == req.body.bountyId){
-        paid = calculations.calculateBountyPayout(bounty)
+  state.getState().tasks.forEach( task => {
+    if (task.taskId == req.body.taskId){
+        paid = calculations.calculatetaskPayout(task)
     }
   })
   let memberId = utils.memberIdFromFob(req.body.fob)
   if (
-    validators.isBountyId(req.body.bountyId, errRes) &&
+    validators.istaskId(req.body.taskId, errRes) &&
     validators.isMemberId(memberId, errRes) &&
     validators.isAmount(paid, errRes)
   ){
-    events.bountyClaimed(
-      req.body.bountyId,
+    events.taskClaimed(
+      req.body.taskId,
       memberId,
       paid,
       utils.buildResCallback(res)
@@ -75,15 +75,15 @@ function specBountyClaimed(req, res, next){
   }
 }
 
-function specBountyMonthlyUpdated(req, res, next){
+function specTaskRateUpdated(req, res, next){
   let errRes = []
   if (
-    validators.isBountyId(req.body.bountyId, errRes) &&
+    validators.istaskId(req.body.taskId, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
     validators.isNotes(req.body.notes, errRes)
   ){
-    events.bountyMonthlyUpdated(
-      req.body.bountyId,
+    events.taskMonthlyUpdated(
+      req.body.taskId,
       req.body.amount,
       req.body.notes,
       utils.buildResCallback(res)
@@ -93,15 +93,15 @@ function specBountyMonthlyUpdated(req, res, next){
   }
 }
 
-function specBountyBoosted(req, res, next){
+function specTaskBoosted(req, res, next){
   let errRes = []
   if (
-    validators.isBountyId(req.body.bountyId, errRes) &&
+    validators.istaskId(req.body.taskId, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
     validators.isNotes(req.body.notes, errRes)
   ){
-    events.bountyBoosted(
-      req.body.bountyId,
+    events.taskBoosted(
+      req.body.taskId,
       req.body.amount,
       req.body.notes,
       utils.buildResCallback(res)

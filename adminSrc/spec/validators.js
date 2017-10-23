@@ -6,7 +6,7 @@ module.exports = {
       return true
   },
   isAmount(val, errRes){
-      if (val <= 0){
+      if (val < 0){
         errRes.push('amount must be positive number')
         return false
       }
@@ -37,8 +37,8 @@ module.exports = {
   },
   isBountyId(val, errRes){
       let result = false
-      state.getState().bounties.forEach(bounty =>{
-          if (val == bounty.bountyId){
+      state.getState().tasks.forEach(task =>{
+          if (val == task.taskId){
             result = true
           }
       })

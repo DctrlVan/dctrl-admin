@@ -3,7 +3,7 @@
 #home
     shared-title(title='dctrl community commons')
     p Welcome to community management software for a peer-to-peer commons.
-    p All the code is open source including this web application & rethinkdb driven mutation/event database (dctrl-admin) and rfid fob reading for bounty claiming, beverage vending, and door opening (dctrl-fobtap).
+    p All the code is open source including this web application & rethinkdb driven mutation/event database (dctrl-admin) and rfid fob reading for task claiming, beverage vending, and door opening (dctrl-fobtap).
     p We host &nbsp;
         a(href='https://www.meetup.com/dctrlvan/') meetups &nbsp;
         span that focus on decentralization: Decentralized Currency (Bitcoin), Decentralized Law (cooperatives, escrow contracts), Decentralized Production (3D printing, vertical farming, solar (nuclear?) energy), and Decentralized Communication (encryption, metaverse, tor).

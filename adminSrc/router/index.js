@@ -5,7 +5,7 @@ const state = require('../state')
 
 const membersApi = require('./membersApi')
 const resourcesApi = require('./resourcesApi')
-const bountiesApi = require('./bountiesApi')
+const tasksApi = require('./tasksApi')
 const dctrlApi = require('./dctrlApi')
 
 const spec = require('../spec')
@@ -25,7 +25,7 @@ module.exports = function applyRouter(app){
     // TODO: replace with more generic db & state access
     dctrlApi(app)
     membersApi(app)
-    bountiesApi(app)
+    tasksApi(app)
     resourcesApi(app)
 
     // TODO: clean/ remove ?

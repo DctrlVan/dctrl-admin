@@ -13,7 +13,7 @@ export default {
   computed: {
 		claimedToday() {
 				var claimedToday = []
-				this.$store.state.bounty.bountyClaimedEvents.forEach( ev => {
+				this.$store.state.task.taskClaimedEvents.forEach( ev => {
             var a = new Date(ev.timestamp)
             let isToday = (
                 this.day == a.getDate() &&
@@ -23,7 +23,6 @@ export default {
             if ( isToday ){
 								this.$store.state.members.forEach( member => {
 										if (member.memberId == ev.memberId) {
-                        console.log('member matched, pushing to displayarray')
 												claimedToday.push({
                             name: member.name,
                             amount: ev.paid.toFixed(2)

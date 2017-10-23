@@ -4,7 +4,7 @@ const dctrlDb = require('./dctrlDb')
 
 function slackReq(callback){
     request
-        .post(config.bountiesSlack)
+        .post(config.tasksSlack)
         .send({text: activeBounty.name + ' was claimed by ' + claimant.name+ ' for $'+ payoutRequest.action.amount})
         .end(callback)
 }

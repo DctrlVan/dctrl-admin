@@ -1,24 +1,24 @@
 <template lang='pug'>
 
-#createbounty
+#createtask
     shared-title(title='Create Bounty')
-    form-box(btntxt="Create New Bounty" event='bounty-created' v-bind:data="bounty")
-        label One time bounty?
-        input(v-model='bounty.oneTime' type='checkbox')
+    form-box(btntxt="Create New Bounty" event='task-created' v-bind:data="task")
+        label One time task?
+        input(v-model='task.oneTime' type='checkbox')
         label title
-        input(v-model='bounty.name' type='text')
+        input(v-model='task.name' type='text')
         label description
-        input(v-model='bounty.description' type='text')
-        span(v-if="bounty.oneTime")
+        input(v-model='task.description' type='text')
+        span(v-if="task.oneTime")
             label Value
-            input(v-model='bounty.boost' type='text')
+            input(v-model='task.boost' type='text')
         span(v-else)
             label Monthly Value
-            input(v-model='bounty.monthlyValue' type='text')
+            input(v-model='task.monthlyValue' type='text')
             label Maximum Payout
-            input(v-model='bounty.cap' type='text')
+            input(v-model='task.cap' type='text')
         label Bounty Fob! (tap it)
-        input(v-model='bounty.fob' type='text')
+        input(v-model='task.fob' type='text')
 
 
 </template>
@@ -31,11 +31,11 @@ import FormBox from '../slotUtils/FormBox'
 export default {
     data(){
         return {
-            bounty: {
+            task: {
                 name: '',
                 description: '',
                 monthlyValue: 0,
-                cap: '',
+                cap: 0,
                 oneTime: false,
                 boost: 0
             }

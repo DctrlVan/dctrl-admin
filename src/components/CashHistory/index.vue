@@ -1,6 +1,6 @@
 <template lang='pug'>
 
-.bountysummary
+.tasksummary
     shared-title(title='Bounty: ')
     calendar
 
@@ -14,7 +14,7 @@ import SharedTitle from '../slotUtils/SharedTitle'
 export default {
     data(){
         return {
-            bountyId: '',
+            taskId: '',
         }
     },
     computed: {
@@ -27,9 +27,9 @@ export default {
     },
     mounted(){
         let component = this
-        let bountyId = this.$router.currentRoute.path.split('/')[2]
-        this.bountyId = bountyId
-        this.$store.dispatch('getBountyHistory', bountyId)
+        let taskId = this.$router.currentRoute.path.split('/')[2]
+        this.taskId = taskId
+        this.$store.dispatch('getBountyHistory', taskId)
     }
 }
 

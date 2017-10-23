@@ -24,11 +24,29 @@ function loadTestState(commit){
       i++
       commit('applyEvent', {
         type: 'member-created',
-        name: 'test',
+        name: 'Test ' + i * (11 + i*i),
         balance: i - 5,
         active: i
       })
     }
+
+    i = 0
+    while (i < 10){
+      i++
+      commit('applyEvent', {
+        type: "task-created",
+        // taskId: uuidV1(),
+        lastClaimed: Date.now(),
+        name: 'test',
+        description: 'test 1. test 2. test 3.',
+        monthlyValue: 10000,
+        // fob: ,
+        cap: 10,
+        boost: 1,
+        oneTime: false
+      })
+    }
+
 }
 
 
@@ -43,7 +61,7 @@ const actions = {
                   console.log(err, res)
                   commit('setCurrentMembers', res.body.members)
                   commit('setCurrentResources', res.body.resources)
-                  commit('setCurrentBounties', res.body.bounties)
+                  commit('setCurrentTasks', res.body.tasks)
                   commit('setCurrentDctrl', res.body.dctrl)
               }
 

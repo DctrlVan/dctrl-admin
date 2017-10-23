@@ -1,11 +1,11 @@
 import dctrlMuts from './dctrlMuts'
 import membersMuts from './membersMuts'
-import bountiesMuts from './bountiesMuts'
+import tasksMuts from './tasksMuts'
 import resourcesMuts from './resourcesMuts'
 
 module.exports = {
     dctrlMuts,
     membersMuts,
-    bountiesMuts,
+    tasksMuts,
     resourcesMuts
 }

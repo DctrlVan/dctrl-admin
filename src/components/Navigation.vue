@@ -2,54 +2,19 @@
 
 ul.navigation
     router-link(to='/MEMBERS') Members
-    router-link(to='/BOUNTIES') Bounties
     router-link(to='/RESOURCES') Resources
     router-link(to='/MANAGE') Manage
-    router-link(to='/WISHLIST') Wish List
+    router-link(to='/TASKS') Tasks
 
 </template>
 
 <script>
-export default {
-    methods:{
-        match(route){
-            let matched = route == this.$router.currentRoute.path
-            return {
-                selected: matched
-            }
-        }
-    },
-    data(){
-        return {
-            current: this.$router.currentRoute.path
-        }
-    },
-    computed: {
-        supplies(){
-            return this.$store.state.dctrl.supplies.bitpepsi
-        },
-        low(){
-            return this.supplies < 100
-        },
-        cash(){
-            return this.$store.state.dctrl.cash
-        },
-    }
-}
+export default {}
 </script>
 
 <style lang="stylus" scoped>
 
 @import '../styles/colours'
-
-.navigation
-    color: accent1
-
-.setup, .lists, .cash
-    padding:10px
-
-.red
-    color: red
 
 a
   text-decoration: none;
@@ -65,7 +30,6 @@ a
   font-family:sans-serif
   display: block;
   margin-bottom:.54321em
-
 
 a:hover, .router-link-active
   background-color: accent4

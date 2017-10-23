@@ -17,7 +17,7 @@ function applyEvent(state, ev){
             break
         case 'member-paid':
         case 'supplies-stocked':
-        case 'bounty-claimed':
+        case 'task-claimed':
             if (ev.memberId == state.memberId){
                 console.log('inserting member paid')
                 state.memberPaidEvents.push(ev)

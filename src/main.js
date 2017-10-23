@@ -15,38 +15,35 @@ import Home from './components/Home'
 import Member from './components/Member'
 import Members from './components/Members'
 // Member forms
-import MemberDeactivate from './components/forms/MemberDeactivate'
-import MemberCharged from './components/forms/MemberCharged'
 import MemberCreate from './components/forms/MemberCreate'
+import MemberDeactivate from './components/forms/MemberDeactivate'
+import MemberCharge from './components/forms/MemberCharge'
 import MemberPaid from './components/forms/MemberPaid'
 import MemberPaidStuff from './components/forms/MemberPaidStuff'
 import MemberActivate from './components/forms/MemberActivate'
 import MemberPaidBtc from './components/forms/MemberPaidBtc'
 
-// Bounty components
-import Bounty from './components/Bounty'
-import Bounties from './components/Bounties'
-// Bounty forms
-import BountyBoost from './components/forms/BountyBoost'
-import BountyClaim from './components/forms/BountyClaim'
-import BountyCreate from './components/forms/BountyCreate'
-import BountyEdit from './components/forms/BountyEdit'
+// Task components
+import Task from './components/Task'
+import Tasks from './components/Tasks'
+// Task forms
+import TaskBoost from './components/forms/TaskBoost'
+import TaskClaim from './components/forms/TaskClaim'
+import TaskCreate from './components/forms/TaskCreate'
+import TaskRateUpdate from './components/forms/TaskRateUpdate'
 
-// Supply components
-// Supply forms
-import SuppliesStock from './components/forms/SuppliesStock'
-
-//Cash components
 // Cash forms
 import CashExpense from './components/forms/CashExpense'
-import CashReceived from './components/forms/CashReceived'
+import CashReceive from './components/forms/CashReceive'
 
 //Resource components
 import Resources from './components/Resources'
 import Resource from './components/Resource'
+
 // Resource forms
 import ResourceCreate from './components/forms/ResourceCreate'
-import ResourceUsed from './components/forms/ResourceUsed'
+import ResourceUse from './components/forms/ResourceUse'
+import ResourceStock from './components/forms/ResourceStock'
 
 import Manage from './components/Manage'
 import CashHistory from './components/CashHistory'
@@ -66,7 +63,7 @@ const routes = [{
       component: MemberPaid
     },{
       path: '/member_charge/*',
-      component: MemberCharged
+      component: MemberCharge
     },{
       path: '/member_deactivate',
       component: MemberDeactivate
@@ -95,35 +92,35 @@ const routes = [{
       path: '/resource_create',
       component: ResourceCreate
     },{
-      path: '/resource_used/*',
-      component: ResourceUsed
+      path: '/resource_use/*',
+      component: ResourceUse
+    },{
+      path: '/resource_stock/*',
+      component: ResourceStock
     },{
       path:'/cash_expense',
       component: CashExpense
     },{
-      path: '/cash_received',
-      component: CashReceived
+      path: '/cash_receive',
+      component: CashReceive
     },{
-      path: '/bounty_create',
-      component: BountyCreate
+      path: '/task_create',
+      component: TaskCreate
     },{
-      path: '/bounty_claim/*',
-      component: BountyClaim
+      path: '/task_claim/*',
+      component: TaskClaim
     },{
-      path: '/bounty_edit/*',
-      component: BountyEdit
+      path: '/task_rate_update/*',
+      component: TaskRateUpdate
     },{
-      path: '/supplies_stock',
-      component: SuppliesStock
+      path: '/tasks',
+      component: Tasks
     },{
-      path: '/BOUNTIES',
-      component: Bounties
+      path: '/task/*',
+      component: Task
     },{
-      path: '/BOUNTY/*',
-      component: Bounty
-    },{
-      path: '/bounty_boost/*',
-      component: BountyBoost
+      path: '/task_boost/*',
+      component: TaskBoost
     },{
       path:'/manage',
       component: Manage

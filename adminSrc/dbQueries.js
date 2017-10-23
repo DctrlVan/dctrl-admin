@@ -15,12 +15,12 @@ function getEventsForMember( memberId, callback ){
       })
 }
 
-function getEventsForBounty( bountyId, callback ){
+function getEventsForTask( taskId, callback ){
   let conn = dctrlDb.getConnection()
   if (!conn) return console.log('wait for connection')
   r
       .table('events')
-      .filter({bountyId})
+      .filter({taskId})
       .run(conn, (err, cursor)=>{
         if (err) return callback(err);
         cursor.toArray(callback)
@@ -39,7 +39,7 @@ function getEventsForResource( resourceId, callback ){
 }
 
 module.exports = {
-    getEventsForBounty,
+    getEventsForTask,
     getEventsForMember,
     getEventsForResource
 }

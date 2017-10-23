@@ -2,7 +2,7 @@
 
 #newmember
     shared-title(:title='getTitle')
-    form-box(btntxt="Claim Bounty", v-bind:data="info", event='bounty-claimed')
+    form-box(btntxt="Claim task", v-bind:data="info", event='task-claimed')
         label Member Fob! (Tap it)
         input(v-model='info.fob' type='text')
 
@@ -14,16 +14,16 @@ import FormBox from '../slotUtils/FormBox'
 
 export default {
     mounted(){
-        let bountyId = this.$router.currentRoute.path.split('/')[2]
-        if (bountyId){
-          this.info.bountyId = bountyId
+        let taskId = this.$router.currentRoute.path.split('/')[2]
+        if (taskId){
+          this.info.taskId = taskId
         }
     },
     computed: {
         getTitle(){
             let title = '...loadin'
-            this.$store.state.bounties.forEach(b => {
-                if (b.bountyId == this.info.bountyId){
+            this.$store.state.tasks.forEach(t => {
+                if (t.taskId == this.info.taskId){
                     title = "Claim " + b.name + "!"
                 }
             })
@@ -33,7 +33,7 @@ export default {
     data(){
         return {
             info: {
-                bountyId: '',
+                taskId: '',
                 fob: ''
             }
         }

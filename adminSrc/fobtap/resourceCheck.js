@@ -3,15 +3,15 @@ const utils = require('../spec/utils')
 const validators = require('../spec/validators')
 const events = require('../events')
 
-
-// bitpepsi handles the fob bounty claiming
+// bitpepsi handles the fob task claiming
 module.exports = function(req, res, next){
     console.log('now trying to process vend', req.body)
     let memberId = utils.memberIdFromFob(req.body.fob)
-    if (memberId && validators.isSupplyType(req.body.tapId, []) ){
+
+    if (memberId && validators.isResource(req.body.resourceId, []) ){
         events.suppliesUsed(
           memberId,
-          req.body.tapId,
+          req.body.resourceId,
           1, // amount
           3, // charged
           'vendCheck',

@@ -5,14 +5,8 @@ tr
         router-link(:to='claimLocation')
             img(src='../../assets/images/claim.svg')
     td {{b.name}}
-    td {{currentValue}}
     td
         li(v-for='i in instructions') {{i}}.
-    td
-        router-link(:to='editLocation')
-            img.pencil(src='../../assets/images/control.svg')
-        router-link(:to='boostLocation')
-            img(src='../../assets/images/boost.svg')
     td
       router-link(:to='historyLocation')
         img(src='../../assets/images/calendar.svg')
@@ -39,19 +33,19 @@ export default {
     },
     computed: {
         instructions(){
-            return this.b.description.split('.').filter(Boolean)
+            return this.b.instructions.split('.').filter(Boolean).slice(0,2)
         },
         boostLocation(){
-            return '/BOUNTY_BOOST/' + this.b.bountyId
+            return '/TASK_BOOST/' + this.b.taskId
         },
         editLocation(){
-            return '/BOUNTY_EDIT/' + this.b.bountyId
+            return '/TASK_EDIT/' + this.b.taskId
         },
         claimLocation(){
-            return '/BOUNTY_CLAIM/' + this.b.bountyId
+            return '/TASK_CLAIM/' + this.b.taskId
         },
         historyLocation(){
-            return '/BOUNTY/' + this.b.bountyId
+            return '/TASK/' + this.b.taskId
         }
     },
 }

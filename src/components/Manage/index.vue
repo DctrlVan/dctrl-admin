@@ -1,6 +1,6 @@
 <template lang='pug'>
 
-#home
+#manage
     shared-title(title='Manage Cash')
     table
       tr
@@ -11,11 +11,11 @@
                 img(src='../../assets/images/calendar.svg')
     .full.row
       .six.columns
+          label Cash Receive
+          cash-receive
+      .six.columns
           label Cash Expense
           cash-expense
-      .six.columns
-          label Cash Received
-          cash-received
     .mobile
         label Cash Expense
         cash-expense
@@ -27,11 +27,11 @@
 
 import SharedTitle from '../slotUtils/SharedTitle'
 import CashExpense from '../forms/CashExpense'
-import CashReceived from '../forms/CashReceived'
+import CashReceive from '../forms/CashReceive'
 
 export default {
     components:{
-        SharedTitle, CashExpense, CashReceived
+        SharedTitle, CashExpense, CashReceive
     },
     computed:{
       bal(){

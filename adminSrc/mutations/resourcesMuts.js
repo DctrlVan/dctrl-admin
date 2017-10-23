@@ -10,5 +10,13 @@ module.exports = (resources, ev) => {
 				}
 			})
 			break
+		case "resource-stocked":
+			resources.forEach( resource => {
+				if (resource.resourceId == ev.resourceId){
+					resource.
+					resource.current.push( ev.memberId )
+				}
+			})
+			break
 	}
 }
