@@ -49,10 +49,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../../styles/spinners'
 
-.test
-    display: none
-
 img
-    height: 60px
+    height: 4em
 
 </style>

@@ -1,17 +1,17 @@
 <template lang='pug'>
 
-tr
+tr(class="")
     td
         dctrl-active(:m='m')
     td
         span {{m.name}}
     td
-        router-link.pad(:to='payLocation')
-            img.pay(src='../../assets/images/cash1.svg')
-        router-link(:to='payBtcLocation')
-            img.pay(src='../../assets/images/bitcoin.svg')
         router-link(:to='payStuffLocation')
             img.pay(src='../../assets/images/abundance.svg')
+        router-link(:to='payBtcLocation')
+            img.pay(src='../../assets/images/bitcoin.svg')
+        router-link.pad(:to='payLocation')
+            img.pay(src='../../assets/images/cash1.svg')
     td
         router-link(:to='memberLocation')
             img(src='../../assets/images/calendar.svg')
@@ -75,18 +75,25 @@ button
     border: none
 
 img
-    height: 45px
-    padding: .2345em
+    height: 4em
+    padding-left: .2345em
+    padding-right: .2345em
+
+.active
+.pending
+.inactive
 
 tr
     border-left-color: accent2
-    border-bottom-color: accent4
-    border-top-color: accent4
-    border-top-style: solid
-    border-bottom-style: solid
-    border-left-style: solid
-    border-width: 3px
+    border-bottom-color: accent5
+    border-top-color: accent5
+    border-style: dotted
+    border-right-style: none
+    border-left-style: none
+    border-width: 2px
     vertical-align:middle
 
+td
+    padding: .3em
 
 </style>

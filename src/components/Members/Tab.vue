@@ -1,12 +1,6 @@
 <template lang='pug'>
 
 table
-    //- tr
-    //-     th ?
-    //-     th
-    //-     //- th address
-    //-     th ?
-    //-     th history
     slot
 
 </template>

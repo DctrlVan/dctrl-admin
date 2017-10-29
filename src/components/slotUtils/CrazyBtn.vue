@@ -24,20 +24,24 @@ export default {
     float: right
     top:50px
     right:100px
-    background: accent1
+    background: main
     border-radius: 25px
     width: 291px
-    color: main
+    color: accent1
     cursor: pointer
     font-size: 1.4em
     text-decoration: none
-    border-style: solid
-    border-width: 2px
-    border-color: main
+    border-style:solid
+    border-width:3px
+    border-radius: 30px
     margin-top: 1.111em
+    margin-right: 0.3em
+    padding-top: .123em
+    padding-bottom: .123em
 
 .crazybtn:hover
     background: accent2
+    color: main
 
 img
     height: 2.6789em

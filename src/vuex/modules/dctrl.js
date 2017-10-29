@@ -38,7 +38,7 @@ function loadTestState(commit){
         // taskId: uuidV1(),
         lastClaimed: Date.now(),
         name: 'test',
-        description: 'test 1. test 2. test 3.',
+        instructions: 'test 1. test 2. test 3.',
         monthlyValue: 10000,
         // fob: ,
         cap: 10,
@@ -46,7 +46,6 @@ function loadTestState(commit){
         oneTime: false
       })
     }
-
 }
 
 

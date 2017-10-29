@@ -1,7 +1,7 @@
 <template lang="pug">
 
 div
-    h2 {{ title }}
+    h3 {{ title }}
     slot
 
 </template>
