@@ -6,6 +6,7 @@ module.exports = (resources, ev) => {
 		case "resource-used":
 			resources.forEach( resource => {
 				if (resource.resourceId == ev.resourceId){
+					resource.stock -= parseFloat(ev.amount)
 					resource.current.push( ev.memberId )
 				}
 			})
@@ -13,8 +14,7 @@ module.exports = (resources, ev) => {
 		case "resource-stocked":
 			resources.forEach( resource => {
 				if (resource.resourceId == ev.resourceId){
-					resource.
-					resource.current.push( ev.memberId )
+					resource.stock += parseFloat(ev.amount)
 				}
 			})
 			break

@@ -16,14 +16,14 @@ tr
 
 <script>
 
-import {calculateBountyPayout} from '../../../adminSrc/calculations'
+import {calculateTaskPayout} from '../../../adminSrc/calculations'
 
 export default {
     props: ['b'],
     mounted(){
-        this.currentValue = calculateBountyPayout(this.b).toFixed(2)
+        this.currentValue = calculateTaskPayout(this.b).toFixed(2)
         setInterval( ()=>{
-            this.currentValue = calculateBountyPayout(this.b).toFixed(2)
+            this.currentValue = calculateTaskPayout(this.b).toFixed(2)
         },11111)
     },
     data() {

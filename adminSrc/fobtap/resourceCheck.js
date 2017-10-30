@@ -3,19 +3,19 @@ const utils = require('../spec/utils')
 const validators = require('../spec/validators')
 const events = require('../events')
 
-// bitpepsi handles the fob task claiming
 module.exports = function(req, res, next){
-    console.log('now trying to process vend', req.body)
     let memberId = utils.memberIdFromFob(req.body.fob)
-
-    if (memberId && validators.isResource(req.body.resourceId, []) ){
-        events.suppliesUsed(
-          memberId,
+    let resource = utils.getResource(req.body.resourceId)
+    if (memberId && resource){
+        events.resourceUsed(
           req.body.resourceId,
-          1, // amount
-          3, // charged
-          'vendCheck',
+          memberId,
+          resource.amount,
+          resource.charged,
+          req.body.notes || '~ resourceCheck',
           utils.buildResCallback(res)
         )
+    } else {
+        next()
     }
 }

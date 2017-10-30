@@ -24,6 +24,11 @@ div
     padding-top: 3em
     background: accent4
     padding-left:3.4567em
+    padding-top: 1.5em
+    padding-bottom: 1.5em
+    h3
+        font-size: 2.2em
+        margin:0
 
 
 </style>

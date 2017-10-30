@@ -5,7 +5,7 @@ function calculateMsThisMonth(){
     return daysThisMonth * 24 * 60 * 60 * 1000
 }
 
-function calculateBountyPayout(task){
+function calculateTaskPayout(task){
     let msThisMonth = calculateMsThisMonth()
     let msSince = Date.now() - parseFloat(task.lastClaimed)
     let payout = (msSince / msThisMonth) * parseFloat(task.monthlyValue)
@@ -20,5 +20,5 @@ function calculateBountyPayout(task){
 }
 
 module.exports = {
-  calculateBountyPayout
+  calculateTaskPayout
 }

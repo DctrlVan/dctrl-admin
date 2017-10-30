@@ -25,16 +25,22 @@ function memberIdFromFob(fob){
 
 function taskFromFob(fob){
   let task
-  // TODO: hide fob in server side state
-  state.getState().tasks.forEach(b => {
-      console.log('checking fob')
-      if (b.fob == fob){
-          console.log('setting task')
-          task = b
+  state.getState().tasks.forEach(t => {
+      if (t.fob == fob){
+          task = t
       }
   })
-  console.log('returning: ', {task} )
   return task
+}
+
+function getResource(resourceId){
+  let resource
+  state.getState().resources.forEach(r => {
+      if (r.resourceId == resourceId){
+          resource = r
+      }
+  })
+  return resource
 }
 
 // TODO, smarter addressManager
@@ -42,5 +48,6 @@ function taskFromFob(fob){
 module.exports = {
   buildResCallback,
   memberIdFromFob,
-  taskFromFob
+  taskFromFob,
+  getResource
 }

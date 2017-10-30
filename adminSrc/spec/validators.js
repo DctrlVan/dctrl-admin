@@ -35,7 +35,7 @@ module.exports = {
       })
       return result
   },
-  isBountyId(val, errRes){
+  isTaskId(val, errRes){
       let result = false
       state.getState().tasks.forEach(task =>{
           if (val == task.taskId){

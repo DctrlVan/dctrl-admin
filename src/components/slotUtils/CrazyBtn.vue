@@ -1,8 +1,8 @@
 <template lang='pug'>
 
 router-link.crazybtn(:to='to')
-    span {{text}}
-    img(src='../../assets/images/active10.svg')
+    span + {{text}}
+    img.spin(src='../../assets/images/active10.svg')
 
 </template>
 
@@ -19,6 +19,8 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
+@import '../../styles/spinners'
+
 
 .crazybtn
     float: right
@@ -26,7 +28,7 @@ export default {
     right:100px
     background: main
     border-radius: 25px
-    width: 291px
+    width: 222px
     color: accent1
     cursor: pointer
     font-size: 1.4em
@@ -34,7 +36,7 @@ export default {
     border-style:solid
     border-width:3px
     border-radius: 30px
-    margin-top: 1.111em
+    margin-top: .5em
     margin-right: 0.3em
     padding-top: .123em
     padding-bottom: .123em
@@ -46,6 +48,7 @@ export default {
 img
     height: 2.6789em
     float: right
+
 
 span
     float:left

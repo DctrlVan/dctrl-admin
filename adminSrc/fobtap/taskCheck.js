@@ -9,29 +9,27 @@ var taskCheck = {
 }
 
 module.exports = function(req, res, next){
-  console.log('taskCheck start', req.body)
-  if (taskCheck.active){
+  if (!taskCheck.active){
+    let task = utils.taskFromFob(req.body.fob)
+    if (task){
+        taskCheck.active = true
+        taskCheck.task = task
+        res.send('task assigned')
+    } else {
+        next()
+    }
+  } else {
     let memberId = utils.memberIdFromFob(req.body.fob)
     if (memberId){
-        let paid = calculations.calculateBountyPayout(taskCheck.task)
+        let paid = calculations.calculateTaskPayout(taskCheck.task)
         events.taskClaimed(
           taskCheck.task.taskId,
           memberId,
           paid,
+          'taskCheck', // notes
           utils.buildResCallback(res)
         )
     }
-    // Either way tried so reset the active task, (don't call next?)
     taskCheck.active = false
-  } else {
-      let task = utils.taskFromFob(req.body.fob)
-      if (task){
-        taskCheck.active = true
-        taskCheck.task = task
-        console.log('taskcheck active; vend should not check')
-      } else {
-        console.log('pass to vend')
-        next()
-      }
   }
 }

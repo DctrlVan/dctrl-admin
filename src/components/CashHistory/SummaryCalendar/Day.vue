@@ -19,7 +19,7 @@ export default {
   computed: {
 		claimedToday() {
 				var claimedToday = []
-				this.$store.state.task.listOfBountyPaidActions.forEach( action => {
+				this.$store.state.task.listOfTaskPaidActions.forEach( action => {
 						if (
 								this.day == action.day &&
 								this.year == action.year &&

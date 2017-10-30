@@ -1,8 +1,8 @@
 <template lang='pug'>
 
 #createtask
-    shared-title(title='Create Bounty')
-    form-box(btntxt="Create New Bounty" event='task-created' v-bind:data="task")
+    shared-title(title='Create Task')
+    form-box(btntxt="Create New Task" event='task-created' v-bind:data="task")
         label One time task?
         input(v-model='task.oneTime' type='checkbox')
         label title
@@ -17,7 +17,7 @@
             input(v-model='task.monthlyValue' type='text')
             label Maximum Payout
             input(v-model='task.cap' type='text')
-        label Bounty Fob! (tap it)
+        label Task Fob! (tap it)
         input(v-model='task.fob' type='text')
 
 

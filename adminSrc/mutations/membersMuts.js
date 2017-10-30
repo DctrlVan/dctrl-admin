@@ -44,7 +44,7 @@ module.exports = (members, ev)=> {
           })
           break
 
-      case "supplies-stocked":
+      case "resource-stocked":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
                   member.balance += parseFloat(ev.paid)
@@ -52,7 +52,7 @@ module.exports = (members, ev)=> {
           })
           break
 
-      case "supplies-used":
+      case "resource-used":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
                   member.balance -= parseFloat(ev.charged)

@@ -7,14 +7,15 @@ module.exports = {
     resourceStocked,
 }
 
-function resourceCreated(name, location, howTo, balance, callback) {
+function resourceCreated(name, location, instructions, charged, callback) {
     let newEvent = {
         type: "resource-created",
         resourceId: uuidV1(),
         name,
         location,
-        howTo,
-        balance,
+        instructions,
+        charged,
+        stock: 0,
         recent: [], // array for recent memberIds
     }
     dctrlDb.insertEvent(newEvent, callback)

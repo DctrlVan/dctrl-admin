@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 .tasksummary
-    shared-title(title='Bounty: ')
+    shared-title(title='Task: ')
     calendar
 
 </template>
@@ -29,7 +29,7 @@ export default {
         let component = this
         let taskId = this.$router.currentRoute.path.split('/')[2]
         this.taskId = taskId
-        this.$store.dispatch('getBountyHistory', taskId)
+        this.$store.dispatch('getTaskHistory', taskId)
     }
 }
 
