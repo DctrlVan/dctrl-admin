@@ -36,6 +36,10 @@ module.exports = {
     bitcoinAverage: {
         pub: "3232...",
         secret: "HSDH..."
+    },
+    nodemailer:{
+        user: '',
+        pass: ''
     }
 }
 ```

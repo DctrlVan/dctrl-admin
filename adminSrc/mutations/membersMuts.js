@@ -43,7 +43,6 @@ module.exports = (members, ev)=> {
               }
           })
           break
-
       case "resource-stocked":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -51,7 +50,6 @@ module.exports = (members, ev)=> {
               }
           })
           break
-
       case "resource-used":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -59,11 +57,17 @@ module.exports = (members, ev)=> {
               }
           })
           break
-
       case "task-claimed":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
                   member.balance += parseFloat(ev.paid)
+              }
+          })
+          break
+      case "member-address-updated":
+          members.forEach( member => {
+              if (member.memberId === ev.memberId){
+                  member.addess = ev.address
               }
           })
           break

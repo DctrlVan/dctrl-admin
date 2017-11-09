@@ -20,8 +20,27 @@ module.exports = function(req,res, next){
       case 'member-deactivated':
           specMemberDeactivated(req, res, next)
           break
+      case 'member-address-updated':
+          specMemberAddressUpdated(req, res, next)
+          break
       default:
           next()
+  }
+}
+
+function specMemberAddressUpdated(req, res, next){
+  let errRes = []
+  if (
+    validators.isId(req.body.memberId, errRes) &&
+    validators.isAddress(req.body.address, errRes)
+  ){
+    events.memberAddressUpdated(
+      req.body.memberId,
+      req.body.address,
+      utils.buildResCallback(res)
+    )
+  } else {
+    res.status(400).send(errRes)
   }
 }
 

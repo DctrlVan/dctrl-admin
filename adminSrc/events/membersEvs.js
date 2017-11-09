@@ -7,6 +7,7 @@ module.exports = {
   memberCharged,
   memberDeactivated,
   memberActivated,
+  memberAddressUpdated
 }
 
 function memberCreated(name, fob, callback) {
@@ -55,6 +56,15 @@ function memberActivated(memberId, callback) {
   let newEvent = {
     type: "member-activated",
     memberId,
+  }
+  dctrlDb.insertEvent(newEvent, callback)
+}
+
+function memberAddressUpdated(memberId, address, callback){
+  let newEvent = {
+    type: "member-address-updated",
+    memberId,
+    address,
   }
   dctrlDb.insertEvent(newEvent, callback)
 }

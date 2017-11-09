@@ -4,6 +4,9 @@
 	form-box(btntxt="Welcome New Member"  event='member-created' v-bind:data='member')
 			label hacker name
 			input(v-model='member.name' type='text' )
+			// XXX
+			//	- label email
+			//- input(v-model='')
 			label Member Fob! (tap it)
 			input(v-model='member.fob' type='text')
 

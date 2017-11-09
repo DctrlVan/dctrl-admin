@@ -30,6 +30,7 @@
     "popper.js": "^1.12.5",
     "qrcode-generator": "^1.2.0",
     "rethinkdb": "^2.3.3",
+    "sendgrid": "^5.2.3",
     "socket.io": "^2.0.3",
     "socket.io-client": "^2.0.3",
     "stylus": "^0.54.5",
