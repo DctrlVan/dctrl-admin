@@ -4,3 +4,4 @@ dist/
 npm-debug.log
 configuration.js
 rethinkdb_data/
+scripts/addresses.js

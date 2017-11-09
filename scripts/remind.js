@@ -17,21 +17,16 @@ let emailBody = templateReader('template.html')
 request
     .get('http://192.168.0.110:8003/state')
     .end((err, res) => {
-        res.body.members.forEach( member => {
-            request
-                .post('http://192.168.0.110:8003/events')
-                .send({
-                    type: 'member-address-updated',
-                    memberId: member.memberId,
-                    address: addresses.pop()
-                })
-                .end((err, res)=> {
-                    console.log({err,res})
-                })
-        })
+        res.body.members
+            .filter( member => {
+                return (!!member.email && member.name === 'Cam')
+            })
+            .forEach( remind )
     })
 
 function remind(member){
+
+    return (console.log(member))
     let mail = new helper.Mail()
     let from_email = new helper.Email(config.sendgrid.from)
     let personalization = new helper.Personalization()
@@ -41,7 +36,7 @@ function remind(member){
     mail.setSubject(config.sendgrid.subject)
     personalization.addTo(to_email)
 
-    substitution = new helper.Substitution("%address%", member.address)
+    substitution = new helper.Substitution("%btcaddr%", member.address)
     personalization.addSubstitution(substitution)
 
     substitution = new helper.Substitution("%name%", member.name)
@@ -55,13 +50,13 @@ function remind(member){
     content = new helper.Content('text/html', emailBody)
     mail.addContent(content)
 
-    request = sg.emptyRequest({
+    let sgReq = sg.emptyRequest({
         method: 'POST',
         path: '/v3/mail/send',
         body: mail.toJSON()
     })
 
-    sg.API(request, function(error, response) {
+    sg.API(sgReq, function(error, response) {
         console.log(response.statusCode);
         console.log(response.body);
         console.log(response.headers);

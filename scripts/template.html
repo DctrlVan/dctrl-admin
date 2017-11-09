@@ -1,0 +1,485 @@
+<head>
+<style type=3D"text/css">
+  p{
+    margin:10px 0;
+    padding:0;
+  }
+  table{
+    border-collapse:collapse;
+  }
+  h1,h2,h3,h4,h5,h6{
+    display:block;
+    margin:0;
+    padding:0;
+  }
+  img,a img{
+    border:0;
+    height:auto;
+    outline:none;
+    text-decoration:none;
+  }
+  body,#bodyTable,#bodyCell{
+    height:100%;
+    margin:0;
+    padding:0;
+    width:100%;
+  }
+  #outlook a{
+    padding:0;
+  }
+  img{
+    -ms-interpolation-mode:bicubic;
+  }
+  table{
+    mso-table-lspace:0pt;
+    mso-table-rspace:0pt;
+  }
+  .ReadMsgBody{
+    width:100%;
+  }
+  .ExternalClass{
+    width:100%;
+  }
+  p,a,li,td,blockquote{
+    mso-line-height-rule:exactly;
+  }
+  a[href^=3Dtel],a[href^=3Dsms]{
+    color:inherit;
+    cursor:default;
+    text-decoration:none;
+  }
+  p,a,li,td,body,table,blockquote{
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%;
+  }
+  .ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.Ext 
+ernalClass span,.ExternalClass font{
+    line-height:100%;
+  }
+  a[x-apple-data-detectors]{
+    color:inherit !important;
+    text-decoration:none !important;
+    font-size:inherit !important;
+    font-family:inherit !important;
+    font-weight:inherit !important;
+    line-height:inherit !important;
+  }
+  #bodyCell{
+    padding:10px;
+  }
+  .templateContainer{
+    max-width:600px !important;
+  }
+  a.mcnButton{
+    display:block;
+  }
+  .mcnImage{
+    vertical-align:bottom;
+  }
+  .mcnTextContent{
+    word-break:break-word;
+  }
+  .mcnTextContent img{
+    height:auto !important;
+  }
+  .mcnDividerBlock{
+    table-layout:fixed !important;
+  }
+  body,#bodyTable{
+    background-color:#FAFAFA;
+  }
+  #bodyCell{
+    border-top:0;
+  }
+  .templateContainer{
+    border:0;
+  }
+  h1{
+    color:#202020;
+    font-family:Helvetica;
+    font-size:26px;
+    font-style:normal;
+    font-weight:bold;
+    line-height:125%;
+    letter-spacing:normal;
+    text-align:left;
+  }
+  h2{
+    color:#202020;
+    font-family:Helvetica;
+    font-size:22px;
+    font-style:normal;
+    font-weight:bold;
+    line-height:125%;
+    letter-spacing:normal;
+    text-align:left;
+  }
+  h3{
+    color:#202020;
+    font-family:Helvetica;
+    font-size:20px;
+    font-style:normal;
+    font-weight:bold;
+    line-height:125%;
+    letter-spacing:normal;
+    text-align:left;
+  }
+  h4{
+    color:#202020;
+    font-family:Helvetica;
+    font-size:18px;
+    font-style:normal;
+    font-weight:bold;
+    line-height:125%;
+    letter-spacing:normal;
+    text-align:left;
+  }
+  #templatePreheader{
+    background-color:#FAFAFA;
+    background-image:none;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    border-top:0;
+    border-bottom:0;
+    padding-top:9px;
+    padding-bottom:9px;
+  }
+  #templatePreheader .mcnTextContent,#templatePreheader .mcnTextContent p{
+    color:#656565;
+    font-family:Helvetica;
+    font-size:12px;
+    line-height:150%;
+    text-align:left;
+  }
+  #templatePreheader .mcnTextContent a,#templatePreheader .mcnTextContent p 
+ a{
+    color:#656565;
+    font-weight:normal;
+    text-decoration:underline;
+  }
+  #templateHeader{
+    background-color:#FFFFFF;
+    background-image:none;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    border-top:0;
+    border-bottom:0;
+    padding-top:9px;
+    padding-bottom:0;
+  }
+  #templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
+    color:#202020;
+    font-family:Helvetica;
+    font-size:16px;
+    line-height:150%;
+    text-align:left;
+  }
+  #templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p a{
+    color:#2BAADF;
+    font-weight:normal;
+    text-decoration:underline;
+  }
+  #templateBody{
+    background-color:#FFFFFF;
+    background-image:none;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    border-top:0;
+    border-bottom:2px solid #EAEAEA;
+    padding-top:0;
+    padding-bottom:9px;
+  }
+  #templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+    color:#202020;
+    font-family:Helvetica;
+    font-size:16px;
+    line-height:150%;
+    text-align:left;
+  }
+  #templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
+    color:#2BAADF;
+    font-weight:normal;
+    text-decoration:underline;
+  }
+  #templateFooter{
+    background-color:#FAFAFA;
+    background-image:none;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    border-top:0;
+    border-bottom:0;
+    padding-top:9px;
+    padding-bottom:9px;
+  }
+  #templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
+    color:#656565;
+    font-family:Helvetica;
+    font-size:12px;
+    line-height:150%;
+    text-align:center;
+  }
+  #templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
+    color:#656565;
+    font-weight:normal;
+    text-decoration:underline;
+  }
+  @media only screen and (min-width:768px){
+    .templateContainer{
+      width:600px !important;
+    }
+
+  }
+  @media only screen and (max-width: 480px){
+      body,table,td,p,a,li,blockquote{
+        -webkit-text-size-adjust:none !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      body{
+        width:100% !important;
+        min-width:100% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      #bodyCell{
+        padding-top:10px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnImage{
+        width:100% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnC 
+aptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer, 
+.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCapt 
+ionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCapti 
+onRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImag 
+eCardRightTextContentContainer{
+        max-width:100% !important;
+        width:100% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnBoxedTextContentContainer{
+        min-width:100% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnImageGroupContent{
+        padding:9px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOu 
+ter .mcnTextContent{
+        padding-top:9px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnImageCardTopImageContent,.mcnCaptionBlockInner .mcnCaptionTopCont 
+ent:last-child .mcnTextContent{
+        padding-top:18px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnImageCardBottomImageContent{
+        padding-bottom:9px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnImageGroupBlockInner{
+        padding-top:0 !important;
+        padding-bottom:0 !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnImageGroupBlockOuter{
+        padding-top:9px !important;
+        padding-bottom:9px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnTextContent,.mcnBoxedTextContentColumn{
+        padding-right:18px !important;
+        padding-left:18px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+        padding-right:18px !important;
+        padding-bottom:0 !important;
+        padding-left:18px !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcpreview-image-uploader{
+        display:none !important;
+        width:100% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      h1{
+        font-size:22px !important;
+        line-height:125% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      h2{
+        font-size:20px !important;
+        line-height:125% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      h3{
+        font-size:18px !important;
+        line-height:125% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      h4{
+        font-size:16px !important;
+        line-height:150% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      .mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentCon 
+tainer .mcnTextContent p{
+        font-size:14px !important;
+        line-height:150% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      #templatePreheader{
+        display:block !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      #templatePreheader .mcnTextContent,#templatePreheader .mcnTextContent 
+ p{
+        font-size:14px !important;
+        line-height:150% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      #templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
+        font-size:16px !important;
+        line-height:150% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      #templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+        font-size:16px !important;
+        line-height:150% !important;
+      }
+
+  }
+  @media only screen and (max-width: 480px){
+      #templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
+        font-size:14px !important;
+        line-height:150% !important;
+      }
+  }
+</style>
+</head>
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl 
+e=3D"max-width: 100%;min-width: 100%;border-collapse: collapse;mso-table-ls 
+pace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-siz 
+e-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+  <tbody>
+    <tr>
+      <td valign=3D"top" class=3D"mcnTextContent" style=3D"padding-top: 0;p 
+adding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-r 
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word 
+-break: break-word;color: #202020;font-family: Helvetica;font-size: 16px;li 
+ne-height: 150%;text-align: left;">
+        <h1 class=3D"null" style=3D"text-align: center;display: block;margi 
+n: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 26px;font- 
+style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;"> 
+DCTRL Vancouver</h1>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas 
+s=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-t 
+able-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t 
+ext-size-adjust: 100%;">
+  <tbody class=3D"mcnTextBlockOuter">
+    <tr>
+      <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding-top:  
+9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-s 
+ize-adjust: 100%;">
+        <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D 
+"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: collapse;mso- 
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit- 
+text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+          <tbody>
+            <tr>
+              <td valign=3D"top" class=3D"mcnTextContent" style=3D"padding- 
+top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line- 
+height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 1 
+00%;word-break: break-word;color: #202020;font-family: Helvetica;font-size: 
+ 16px;line-height: 150%;text-align: left;">
+                <h1 style=3D"display: block;margin: 0;padding: 0;color: #20 
+2020;font-family: Helvetica;font-size: 26px;font-style: normal;font-weight: 
+ bold;line-height: 125%;letter-spacing: normal;text-align: left;">It's rene 
+wal time!</h1>
+                <p style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: 
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: # 
+202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: 
+ left;">Hello&nbsp;%name%,&nbsp;<br>
+                  <br>
+                  Your unique address for membership dues and/or donations  
+to the space is %btcaddr%<br>
+                  <br>
+                  This months payment is $%amount%<br>
+                  <br>
+                  You can view your QR Code <a href=3D"https://chart.google 
+apis.com/chart?chs=3D250x250&amp;cht=3Dqr&amp;chl=%btcaddr%" target=3D"_bla 
+nk" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk 
+it-text-size-adjust: 100%;color: #2BAADF;font-weight: normal;text-decoratio 
+n: underline;">HERE</a><br>
+                  <br>
+                  Please have your payment in as soon as you can&nbsp;as ou 
+r rent is due. If you wish to pay without BTC please contact a senior membe 
+r via slack or other means.<br>
+                  <br>
+                  Thank you!&nbsp;
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

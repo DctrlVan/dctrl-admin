@@ -35,14 +35,6 @@ module.exports = (members, ev)=> {
               }
           })
           break
-
-      case "member-update-address":
-          members.forEach( member => {
-              if (member.memberId === ev.memberId){
-                  member.address = ev.newAddress
-              }
-          })
-          break
       case "resource-stocked":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -67,7 +59,7 @@ module.exports = (members, ev)=> {
       case "member-address-updated":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
-                  member.addess = ev.address
+                  member.address = ev.address
               }
           })
           break
