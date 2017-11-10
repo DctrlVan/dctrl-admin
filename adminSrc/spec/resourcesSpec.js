@@ -44,12 +44,14 @@ function specResourceUsed(req, res, next){
   if (
     validators.isMemberId(memberId, errRes) &&
     validators.isResourceId(req.body.resourceId, errRes) &&
-    validators.isNotes(req.body.location, errRes) &&
-    validators.isNotes(req.body.howTo, errRes)
+    validators.isAmount(req.body.amount, errRes) &&
+    validators.isAmount(req.body.charged, errRes)
   ){
     events.resourceUsed(
       req.body.resourceId,
       memberId,
+      req.body.amount,
+      req.body.charged,
       utils.buildResCallback(res)
     )
   } else {
@@ -68,7 +70,7 @@ function specResourceStocked(req, res, next){
   ){
     // memberId, resourceId, amount, paid,  notes,
     events.resourceStocked(
-      
+
       memberId,
       req.body.resourceId,
       utils.buildResCallback(res)

@@ -12,6 +12,9 @@ module.exports = {
       }
       return true
   },
+  isId(val, errRes){
+      return true
+  },
   isFob(val, errRes){
       let regex = /^[0-9]{10}$/
       let result = regex.test(val)
