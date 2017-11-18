@@ -10,8 +10,8 @@ module.exports = function(req, res, next){
         events.resourceUsed(
           req.body.resourceId,
           memberId,
-          resource.amount,
-          resource.charged,
+          resource.amount || 0,
+          resource.charged || 0,
           req.body.notes || '~ resourceCheck',
           utils.buildResCallback(res)
         )
