@@ -11,12 +11,11 @@ tr
       router-link(:to='historyLocation')
         img(src='../../assets/images/calendar.svg')
 
-
 </template>
 
 <script>
 
-import {calculateTaskPayout} from '../../../adminSrc/calculations'
+import {calculateTaskPayout} from '../../calculations'
 
 export default {
     props: ['b'],

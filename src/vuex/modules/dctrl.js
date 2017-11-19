@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { dctrlMuts } from '../../../adminSrc/mutations'
+import { dctrlMuts } from '../../mutations'
 
 const state = {
     cash: 0,

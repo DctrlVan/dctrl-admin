@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { resourcesMuts } from '../../../adminSrc/mutations'
+import { resourcesMuts } from '../../mutations'
 
 const state = [] // aka resources (in this file):
 

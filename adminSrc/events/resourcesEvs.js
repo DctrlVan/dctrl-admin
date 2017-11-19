@@ -16,7 +16,7 @@ function resourceCreated(name, location, instructions, charged, callback) {
         instructions,
         charged,
         stock: 0,
-        recent: [], // array for recent memberIds
+        current: [], // array for recent memberIds
     }
     dctrlDb.insertEvent(newEvent, callback)
 }

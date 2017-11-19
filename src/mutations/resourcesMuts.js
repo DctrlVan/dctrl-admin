@@ -7,7 +7,7 @@ module.exports = (resources, ev) => {
 			resources.forEach( resource => {
 				if (resource.resourceId == ev.resourceId){
 					resource.stock -= parseFloat(ev.amount)
-					resource.current.push( ev.memberId )
+					resource.current.push(ev)
 				}
 			})
 			break

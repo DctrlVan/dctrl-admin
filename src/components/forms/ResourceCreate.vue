@@ -1,8 +1,16 @@
 <template lang='pug'>
 #newresource
 	shared-title(title='Space Uses')
-	form-box(btntxt="Suggest new use for the space"  event='resource-created' v-bind:data='resource')
-			
+	form-box(btntxt="Create Resource"  event='resource-created' v-bind:data='resource')
+			label name
+			input(v-model='resource.name' type='text')
+			label location
+			input(v-model='resource.location' type='text')
+			label instructions
+			input(v-model='resource.instructions' type='text')
+			label charged
+			input(v-model='resource.charged' type='number')
+
 </template>
 
 <script>
@@ -14,9 +22,10 @@ export default {
   data() {
     return {
       resource: {
-        name: '',
+				name: '',
 				location: '',
-        howTo: '',
+				instructions: '',
+				charged: 0,
       }
     }
   },

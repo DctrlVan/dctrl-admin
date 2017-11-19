@@ -3,16 +3,15 @@
 #resource
     crazy-btn(to='/RESOURCE_CREATE' text='New Resource')
     shared-title(title='Resources')
-    tab
-        row(v-for="r in resources", :r="r")
+    row(v-for="r in resources", :r="r")
 
 </template>
 
 <script>
+
 import Row from "./Row"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
-import Tab from './Tab'
 import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
@@ -24,7 +23,6 @@ export default {
     components:{
         SharedTitle,
         Row,
-        Tab,
         CrazyBtn
     }
 }

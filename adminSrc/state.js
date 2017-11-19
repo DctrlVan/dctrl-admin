@@ -1,5 +1,5 @@
 const dctrlDb = require('./dctrlDb')
-const mutations = require('./mutations')
+const mutations = require('../src/mutations')
 
 const state = {
   members: [],

@@ -2,7 +2,7 @@ import utils from './utils'
 import validators from './validators'
 import events from '../events'
 import state from '../state'
-import calculations from '../calculations'
+import calculations from '../../src/calculations'
 
 module.exports = function(req,res, next){
   switch (req.body.type){
@@ -25,12 +25,14 @@ function specResourceCreated(req, res, next){
   if (
     validators.isName(req.body.name, errRes) &&
     validators.isNotes(req.body.location, errRes) &&
-    validators.isNotes(req.body.howTo, errRes)
+    validators.isNotes(req.body.instructions, errRes) &&
+    validators.isAmount(req.body.charged, errRes)
   ){
     events.resourceCreated(
 			req.body.name,
 			req.body.location,
-			req.body.howTo,
+			req.body.instructions,
+      req.body.charged,
 			utils.buildResCallback(res)
     )
   } else {

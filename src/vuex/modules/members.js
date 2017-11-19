@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { membersMuts } from '../../../adminSrc/mutations'
+import { membersMuts } from '../../mutations'
 
 const state = [] // aka members (in this file):
 

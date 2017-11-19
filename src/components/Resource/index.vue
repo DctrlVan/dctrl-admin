@@ -17,29 +17,9 @@ export default {
             resourceId: '',
         }
     },
-    computed: {
-        totalCharged(){
-            return 'todo'
-        },
-        calcTitle(){
-            let title = 'none'
-            this.$store.state.resources.forEach( resource => {
-                if (resource.resourceId === this.resourceId){
-                    title = resource.name
-                }
-            })
-            return title
-        }
-    },
     components:{
         SharedTitle, Calendar
     },
-    mounted(){
-        let component = this
-        let resourceId = this.$router.currentRoute.path.split('/')[2]
-        this.resourceId = resourceId
-        this.$store.dispatch('getResourceHistory', resourceId)
-    }
 }
 
 </script>

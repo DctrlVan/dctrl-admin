@@ -1,7 +1,7 @@
 const state = require('../state')
 const utils = require('../spec/utils')
 const events = require('../events')
-const calculations = require('../calculations')
+const calculations = require('../../src/calculations')
 
 var taskCheck = {
   active: false,

@@ -1,18 +1,12 @@
 <template lang='pug'>
 
-tr
-    td
-        current(v-for='memberId in r.current', :memberId='memberId')
-    td.p
-        dctrl-map(:r='r')
-        span {{r.location}}
-    td
-        span {{r.howTo}}
-    td
-      router-link(:to='resourceLocation')
-          img(src='../../assets/images/calendar.svg')
-
-
+  tr(@click='toResourceLocation')
+      td
+          current(v-for='memberId in currentMembers', :memberId='memberId')
+      td.p
+          dctrl-map(:r='r')
+      td {{r.name}}
+      td {{r.instructions}}
 
 </template>
 
@@ -23,15 +17,20 @@ import Current from './Current'
 export default {
   props: ['r'],
   components: {DctrlMap, Current},
+  methods:{
+      toResourceLocation(){
+          this.$router.push( '/RESOURCE/' + this.r.resourceId)
+      },
+  },
   computed: {
-      payBtcLocation(){
-          return '/RESOURCE_PAID_BTC/' + this.r.resourceId
-      },
-      resourceLocation(){
-          return '/RESOURCE/' + this.r.resourceId
-      },
-      resourceUseLocation(){
-          return '/RESOURCE_USE/' + this.r.resourceId
+      currentMembers(){
+          let currentMembers = []
+          this.r.current.forEach(curr => {
+              if ( currentMembers.indexOf(curr.memberId) !== -1 ){
+                  currentMembers.push(curr.memberId)
+              }
+          })
+          return currentMembers
       },
   },
 }
@@ -76,5 +75,7 @@ tr
     border-bottom-style: solid
     border-width: 3px
     vertical-align:middle
-    
+    width:100%
+    cursor: pointer
+
 </style>
