@@ -1,22 +1,21 @@
 <template lang='pug'>
 
-  tr(@click='toResourceLocation')
-      td
-          current(v-for='memberId in currentMembers', :memberId='memberId')
-      td.p
-          dctrl-map(:r='r')
-      td {{r.name}}
-      td {{r.instructions}}
+  .row(@click='toResourceLocation')
+    .four.grid
+      label {{r.resourceId}}
+    .four.grid
+      current(v-for='memberId in currentMembers', :memberId='memberId')
+
 
 </template>
 
 <script>
-import DctrlMap from './DctrlMap'
+
 import Current from './Current'
 
 export default {
   props: ['r'],
-  components: {DctrlMap, Current},
+  components: {Current},
   methods:{
       toResourceLocation(){
           this.$router.push( '/RESOURCE/' + this.r.resourceId)
@@ -39,6 +38,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../../styles/colours'
+@import '../../styles/grid'
 
 .p
     background: accent1

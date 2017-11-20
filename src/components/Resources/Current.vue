@@ -7,7 +7,6 @@ div
 </template>
 
 <script>
-import DctrlMap from './DctrlMap'
 
 export default {
   props: ['memberId'],

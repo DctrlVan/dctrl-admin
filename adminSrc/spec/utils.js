@@ -7,7 +7,7 @@ function buildResCallback(res){
         if (err) {
             res.status(500).send('db err')
         } else {
-            res.send(dbResponse)
+            res.status(201).send(dbResponse)
         }
     }
 }

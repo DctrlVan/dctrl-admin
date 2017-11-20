@@ -13,6 +13,7 @@ module.exports = {
       return true
   },
   isId(val, errRes){
+      //XXX not in use
       return true
   },
   isFob(val, errRes){
@@ -55,6 +56,18 @@ module.exports = {
           }
       })
       return result
+  },
+  isNewResourceId(val, errRes){
+      let isNew = true
+      state.getState().resources.forEach(resource =>{
+          if (val == resource.resourceId){
+            isNew = false
+          }
+      })
+      if (!isNew){
+          errRes.push('resourceId exists')
+      }
+      return isNew
   },
   isBool(val, errRes){
       let isBool = (typeof val === 'boolean')

@@ -40,7 +40,7 @@ function specMemberAddressUpdated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
 
@@ -56,7 +56,7 @@ function specMemberCreated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
 
@@ -76,7 +76,7 @@ function specMemberPaid(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
 
@@ -94,7 +94,7 @@ function specMemberCharged(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
 
@@ -108,7 +108,7 @@ function specMemberDeactivated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
 
@@ -122,6 +122,6 @@ function specMemberActivated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }

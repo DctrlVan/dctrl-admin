@@ -23,20 +23,16 @@ module.exports = function(req,res, next){
 function specResourceCreated(req, res, next){
   let errRes = []
   if (
-    validators.isName(req.body.name, errRes) &&
-    validators.isNotes(req.body.location, errRes) &&
-    validators.isNotes(req.body.instructions, errRes) &&
+    validators.isNewResourceId(req.body.resourceId, errRes) &&
     validators.isAmount(req.body.charged, errRes)
   ){
     events.resourceCreated(
-			req.body.name,
-			req.body.location,
-			req.body.instructions,
+      req.body.resourceId,
       req.body.charged,
 			utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
 
@@ -57,7 +53,7 @@ function specResourceUsed(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
 
@@ -67,17 +63,19 @@ function specResourceStocked(req, res, next){
   if (
     validators.isMemberId(memberId, errRes) &&
     validators.isResourceId(req.body.resourceId, errRes) &&
-    validators.isNotes(req.body.location, errRes) &&
-    validators.isNotes(req.body.howTo, errRes)
+    validators.isAmount(req.body.amount, errRes) &&
+    validators.isAmount(req.body.paid, errRes) &&
+    validators.isNotes(req.body.notes, errRes)
   ){
-    // memberId, resourceId, amount, paid,  notes,
     events.resourceStocked(
-
       memberId,
       req.body.resourceId,
+      req.body.amount,
+      req.body.paid,
+      req.body.notes,
       utils.buildResCallback(res)
     )
   } else {
-    res.status(400).send(errRes)
+    res.status(200).send(errRes)
   }
 }
