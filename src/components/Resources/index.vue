@@ -1,7 +1,6 @@
 <template lang='pug'>
 
 #resource
-    crazy-btn(to='/RESOURCE_CREATE' text='New Resource')
     shared-title(title='Resources')
     row(v-for="r in resources", :r="r")
 
@@ -12,7 +11,7 @@
 import Row from "./Row"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
-import CrazyBtn from '../slotUtils/CrazyBtn'
+// import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
     computed: {
@@ -23,7 +22,7 @@ export default {
     components:{
         SharedTitle,
         Row,
-        CrazyBtn
+        // CrazyBtn
     }
 }
 
