@@ -8,7 +8,9 @@ import state from '../adminSrc/state'
 import currentAccounts from './currentAccounts'
 
 // check on new blocks
-bitcoindZmq.hashblockStream.onValue( checkForPayments )
+bitcoindZmq.hashblockStream
+    .log('block found')
+    .onValue( checkForPayments )
 
 function checkForPayments(){
     console.log("CHECKING FOR PAYMENTS.")

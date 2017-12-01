@@ -9,14 +9,14 @@ const state = {
 function applyEvent(state, ev){
     switch(ev.type){
         case 'member-charged':
-        case 'supplies-used':
+        case 'resource-used':
             if (ev.memberId == state.memberId){
                 console.log('inserting member charged')
                 state.memberChargedEvents.push(ev)
             }
             break
         case 'member-paid':
-        case 'supplies-stocked':
+        case 'resource-stocked':
         case 'task-claimed':
             if (ev.memberId == state.memberId){
                 console.log('inserting member paid')

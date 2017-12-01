@@ -1,7 +1,6 @@
 const request = require('superagent')
 const config = require('../configuration')
 const bitcoindRpc = require('./bitcoindRpc')
-const addressManager = require('./addressManager')
 const state = require('../adminSrc/state')
 
 const currentAccounts = []
@@ -29,6 +28,6 @@ function checkInitial(address, group){
         })
     })
 }
-// TODO: 
+// TODO:
 initializeWatchedMembersAddresses() //
 module.exports = currentAccounts
