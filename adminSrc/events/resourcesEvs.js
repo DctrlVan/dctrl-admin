@@ -13,8 +13,7 @@ function resourceCreated(resourceId, charged, callback) {
         resourceId,
         charged,
         stock: 0,
-        current: [], // array for recent memberIds
-        // XXX create edit event to add info detail
+        current: [],
         info: {}
     }
     dctrlDb.insertEvent(newEvent, callback)

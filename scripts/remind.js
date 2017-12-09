@@ -17,16 +17,19 @@ let emailBody = templateReader('template.html')
 request
     .get('http://192.168.0.110:8003/state')
     .end((err, res) => {
+        if (err){
+            return console.log(err)
+        }
         res.body.members
             .filter( member => {
-                return (!!member.email && member.name === 'Cam')
+                return (!!member.email && (member.name === 'Rhodes' || member.name === 'Cam') )
             })
             .forEach( remind )
     })
 
 function remind(member){
+    console.log(member)
 
-    return (console.log(member))
     let mail = new helper.Mail()
     let from_email = new helper.Email(config.sendgrid.from)
     let personalization = new helper.Personalization()
@@ -36,7 +39,8 @@ function remind(member){
     mail.setSubject(config.sendgrid.subject)
     personalization.addTo(to_email)
 
-    substitution = new helper.Substitution("%btcaddr%", member.address)
+    let substitution
+    substitution = new helper.Substitution("%BTCAddr%", member.address)
     personalization.addSubstitution(substitution)
 
     substitution = new helper.Substitution("%name%", member.name)
@@ -47,7 +51,7 @@ function remind(member){
 
     mail.addPersonalization(personalization)
 
-    content = new helper.Content('text/html', emailBody)
+    let content = new helper.Content('text/html', emailBody)
     mail.addContent(content)
 
     let sgReq = sg.emptyRequest({

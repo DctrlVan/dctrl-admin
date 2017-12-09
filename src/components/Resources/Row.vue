@@ -26,8 +26,7 @@ export default {
       currentMembers(){
           let currentMembers = []
           this.r.current.forEach(curr => {
-              console.log({curr})
-              if ( currentMembers.indexOf(curr.memberId) !== -1 ){
+              if ( currentMembers.indexOf(curr.memberId) === -1 ){
                   currentMembers.push(curr.memberId)
               }
           })

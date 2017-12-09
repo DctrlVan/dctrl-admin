@@ -34,6 +34,16 @@ function loadTestState(commit){
     while (i < 10){
       i++
       commit('applyEvent', {
+        type: "resource-created",
+        resourceId: 'test-id',
+        charged: 3,
+        stock: 0,
+        current: [{
+          memberId: 'test'
+        }],
+        info: {}
+      })
+      commit('applyEvent', {
         type: "task-created",
         // taskId: uuidV1(),
         lastClaimed: Date.now(),

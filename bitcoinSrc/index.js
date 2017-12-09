@@ -43,9 +43,7 @@ function recordMemberPayment(amount, address){
             let amount = (exchangeRate * amount).toFixed(6).toString()
             let isCash = false
             let notes = 'dctrl-admin' // bring in the transaction ID, instead of this.
-            events.memberPaid(memberId, amount, isCash, notes, (err, res)=>{
-                //
-            })
+            events.memberPaid(memberId, amount, isCash, notes)
     })
 }
 
