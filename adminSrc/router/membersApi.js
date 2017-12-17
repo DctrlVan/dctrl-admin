@@ -23,7 +23,7 @@ module.exports = (app) => {
 			})
 
 			if (!responseMember) {
-				return res.send('no match')
+				return res.status(404).send('no match')
 			}
 			res.json(responseMember)
 		})

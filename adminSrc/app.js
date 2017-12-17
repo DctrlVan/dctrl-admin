@@ -18,7 +18,9 @@ const server = app.listen(PORT, err => {
 
 const io = socketIo(server)
 io.sockets.on('connection', function(socket){
-    dctrlDb.changeFeed.onValue(ev => {
+    dctrlDb.changeFeed
+    // TODO filter private details
+    .onValue(ev => {
         socket.emit('eventstream', ev);
     })
 })
