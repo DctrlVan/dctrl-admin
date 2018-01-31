@@ -34,6 +34,7 @@ export default {
         vue.data.type = vue.event
         request
             .post('/events')
+            .set('Authorization', this.$store.state.loader.token)
             .send(this.data)
             .end((err,res)=>{
                 if (err){
@@ -55,6 +56,7 @@ export default {
 
 @import '../../styles/colours'
 @import '../../styles/framework'
+@import '../../styles/button'
 
 .response
   color: red
@@ -69,15 +71,6 @@ form
   margin: 1em
 
 label
-  font-family: sans-serif
-  font-weight: lighter
-  font-size: 1.2em
-
-button
-  width: 100%
-  color:main
-  background:accent2
-  border-color: accent2
   font-family: sans-serif
   font-weight: lighter
   font-size: 1.2em

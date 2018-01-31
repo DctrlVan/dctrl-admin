@@ -6,13 +6,13 @@ const state = require('../adminSrc/state')
 const currentAccounts = []
 
 function initializeWatchedMembersAddresses(){
-    state.getState().members.forEach( member => {
+    state.state.members.forEach( member => {
         checkInitial(member.address, 'member')
     })
 }
 
 function initializeWatchedResourcesAddresses(){
-  state.getState().resources.forEach( resource => {
+  state.state.resources.forEach( resource => {
       checkInitial(resource.address, 'resource')
   })
 }

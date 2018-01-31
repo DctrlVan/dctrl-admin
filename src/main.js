@@ -12,7 +12,6 @@ import App from './components/App'
 import Home from './components/Home'
 
 // Member components
-import Member from './components/Member'
 import Members from './components/Members'
 // Member forms
 import MemberCreate from './components/forms/MemberCreate'
@@ -24,7 +23,6 @@ import MemberActivate from './components/forms/MemberActivate'
 import MemberPaidBtc from './components/forms/MemberPaidBtc'
 
 // Task components
-import Task from './components/Task'
 import Tasks from './components/Tasks'
 // Task forms
 import TaskBoost from './components/forms/TaskBoost'
@@ -38,7 +36,6 @@ import CashReceive from './components/forms/CashReceive'
 
 //Resource components
 import Resources from './components/Resources'
-import Resource from './components/Resource'
 
 // Resource forms
 import ResourceCreate from './components/forms/ResourceCreate'
@@ -47,6 +44,7 @@ import ResourceStock from './components/forms/ResourceStock'
 
 import Manage from './components/Manage'
 import CashHistory from './components/CashHistory'
+import Auth from './components/Auth'
 
 // TODO refactor this by module too?
 const routes = [{
@@ -55,6 +53,9 @@ const routes = [{
     children: [{
       path: '/',
       component: Home
+    },{
+      path: '/auth',
+      component: Auth
     },{
       path: '/member_create',
       component: MemberCreate
@@ -74,9 +75,6 @@ const routes = [{
       path: '/members',
       component: Members
     },{
-      path: '/member/*',
-      component: Member
-    },{
       path: '/member_paid_stuff/*',
       component: MemberPaidStuff
     },{
@@ -85,9 +83,6 @@ const routes = [{
     },{
       path: '/resources',
       component: Resources
-    },{
-      path: '/resource/*',
-      component: Resource
     },{
       path: '/resource_create',
       component: ResourceCreate
@@ -115,9 +110,6 @@ const routes = [{
     },{
       path: '/tasks',
       component: Tasks
-    },{
-      path: '/task/*',
-      component: Task
     },{
       path: '/task_boost/*',
       component: TaskBoost

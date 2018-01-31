@@ -4,8 +4,8 @@ import { resourcesMuts } from '../../mutations'
 const state = [] // aka resources (in this file):
 
 const mutations = {
-    setCurrentResources(resources, current){
-        current.forEach( resource => {
+    setCurrent(resources, current){
+        current.resources.forEach( resource => {
             resources.push(resource)
         })
     },

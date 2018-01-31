@@ -2,6 +2,10 @@
 
 #newmember
     shared-title(:title='calcTitle')
+    label input amount
+    select
+        option BTC
+        option CAD
     div(v-html='imgTag')
 
 </template>
@@ -10,7 +14,6 @@
 import SharedTitle from '../slotUtils/SharedTitle'
 import FormBox from '../slotUtils/FormBox'
 import qrcode from 'qrcode-generator'
-
 
 export default {
     mounted(){
@@ -37,7 +40,6 @@ export default {
             let margin = 10
             return qr.createImgTag(cellsize, margin)
         },
-
         calcTitle(){
             let name = 'nobodies'
             this.$store.state.members.forEach( member => {

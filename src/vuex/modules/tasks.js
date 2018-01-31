@@ -4,8 +4,8 @@ import { tasksMuts } from '../../mutations'
 const state = []
 
 const mutations = {
-    setCurrentTasks(tasks, current){
-        current.forEach( task => {
+    setCurrent(tasks, current){
+        current.tasks.forEach( task => {
             tasks.push(task)
         })
     },

@@ -35,7 +35,7 @@ export default {
     },
     computed:{
       bal(){
-          return '$' + this.$store.state.dctrl.cash.toFixed(2)
+          return '$' + this.$store.state.cash.cash.toFixed(2)
       }
     }
 }

@@ -50,7 +50,8 @@ const actions = {
         let reqLoc = '/db/member/' + memberId
         commit('setMemberIdandReset', memberId)
         request
-            .get(reqLoc)
+            .set('auth')
+            .post(reqLoc)
             .end((err, res)=> {
                 if (err || !res.body) {
                     return console.log('no res', err)

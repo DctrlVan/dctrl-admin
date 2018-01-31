@@ -4,8 +4,8 @@ import { membersMuts } from '../../mutations'
 const state = [] // aka members (in this file):
 
 const mutations = {
-    setCurrentMembers(members, current){
-        current.forEach( member => {
+    setCurrent(members, current){
+        current.members.forEach( member => {
             members.push(member)
         })
     },

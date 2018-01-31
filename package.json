@@ -9,7 +9,7 @@
     "build": "node build/build.js",
     "deploy": "node build/build.js; cp -r ./dist/* ../d-ctrl.github.io/;",
     "serve": "npm run build; npm run start",
-    "start": "babel-node ./adminSrc/app.js"
+    "start": "babel-node ./server/app.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.20.0",
@@ -40,7 +40,7 @@
     "tether-tooltip": "^1.2.0",
     "tooltip.js": "^1.1.5",
     "uuid": "^3.0.1",
-    "vue": "^2.1.8",
+    "vue": "^2.5.13",
     "vue-router": "^2.1.1",
     "vuex": "^2.1.1",
     "zmq": "^2.15.3"
@@ -70,9 +70,9 @@
     "shelljs": "^0.7.4",
     "tape": "^4.8.0",
     "url-loader": "^0.5.7",
-    "vue-loader": "^10.0.0",
+    "vue-loader": "^10.3.0",
     "vue-style-loader": "^1.0.0",
-    "vue-template-compiler": "^2.1.0",
+    "vue-template-compiler": "^2.5.13",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",

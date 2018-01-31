@@ -17,6 +17,7 @@ export default {
 @import '../../styles/colours'
 
 div
+    width: 100%
     border-bottom-style: solid
     border-bottom-width: .4em
     border-color: accent2
