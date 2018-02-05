@@ -15,18 +15,19 @@ function applyEvent(ev) {
     mutations.tasksMuts(state.tasks, ev)
     mutations.sessionsMuts(state.sessions, ev)
     mutations.resourcesMuts(state.resources, ev)
+    console.log('new state', state)
 }
 
-function initialize() {
+function initialize(callback) {
     dctrlDb.getAll((err, all) => {
-        if (err) return console.log({err})
-        console.log('initializing')
+        if (err) return callback(err)
         all.forEach(applyEvent)
-        dctrlDb.changeFeed.onValue(applyEvent)
+        callback(null)
     })
 }
 
 module.exports = {
     state,
     initialize,
+    applyEvent
 }

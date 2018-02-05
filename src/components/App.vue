@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 #app
-    //- img#tronstuff(src='../assets/images/tronStuff.svg')
+    // TODO add cool visuals- img#tronstuff(src='../assets/images/tronStuff.svg')
     .feed
         event-feed
     .mobile
@@ -28,20 +28,18 @@ export default {
     mounted(){
         let token = window.localStorage.token
         let session = window.localStorage.session
-        console.log('on reload: ', { token, session })
         if (token && session){
             this.$store.commit('setAuth', token)
             this.$store.commit('setSession', session)
             this.$store.dispatch('loadCurrent')
-            this.$router.push('/')
+
             var socket = io.connect()
-            socket.on(session, ev => {
+
+            socket.on('eventstream', ev => {
                 this.$store.commit('applyEvent', ev)
                 this.$store.dispatch('displayEvent', ev)
             })
             this.$store.dispatch('loadCurrent')
-        } else {
-            this.$router.push('/auth')
         }
     },
     components: {

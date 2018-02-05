@@ -46,6 +46,8 @@ import Manage from './components/Manage'
 import CashHistory from './components/CashHistory'
 import Auth from './components/Auth'
 
+import Calendar from './components/EventsCalendar'
+
 // TODO refactor this by module too?
 const routes = [{
     path: '/',
@@ -56,6 +58,9 @@ const routes = [{
     },{
       path: '/auth',
       component: Auth
+    },{
+      path: '/calendar',
+      component: Calendar
     },{
       path: '/member_create',
       component: MemberCreate

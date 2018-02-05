@@ -12,26 +12,35 @@ const state = require('./state')
 
 const applyRouter = require('./router')
 
-applyRouter(app)
-
 
 dctrlDb.startDb( (err, conn) => {
 
-    state.initialize()
+    state.initialize( err => {
+        console.log('State initialized', state.state)
 
-    const server = app.listen(PORT, err => {
-        console.log("Listening on port", PORT)
-    })
+        const evStream = dctrlDb.changeFeed.onValue( state.applyEvent ) // updates server state
 
-    const io = socketIo(server)
+        applyRouter(app)
 
-    io.sockets.on('connection', function(socket){
-      console.log('socket keys', Object.keys(socket))
+        const server = app.listen(PORT, err => {
+            console.log("Listening on port", PORT)
 
-      dctrlDb.changeFeed
-          // TODO filter private details // secure to sessions
-          .onValue(ev => {
-                socket.emit('eventstream', ev)
-          })
+            const io = socketIo(server)
+
+            const filteredStream = evStream.log('filtering of ev todo').onValue(ev => {
+                console.log('broadcasting event?', ev)
+                io.emit('eventstream', ev)
+            })
+
+            // TODO
+            io.sockets.on('connection', function(socket){
+              // TODO: record connections?
+              console.log('connection found')
+
+            })
+        })
     })
 })
+
+
+// seperate ioConfig

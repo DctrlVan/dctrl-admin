@@ -1,11 +1,10 @@
 <template lang='pug'>
 
 #auth
-  shared-title(title='Login')
   .container(v-if='!confirmed')
       br
       label hackername
-      input(type='text' v-model='name' placeholder='enter name')
+      input#name(type='text' v-model='name' placeholder='enter name')
       label pass -
           span(v-for="a in pass") &nbsp;*&nbsp;
       input.secret(type='text' v-model='pass')
@@ -28,20 +27,29 @@ export default {
   name: 'Auth',
   components: { SharedTitle, FormBox },
   data(){
-      let confirmed = false
-      if (this.$store.state.loader.auth){
-          confirmed = true
-      }
+
       return {
           name: '',
           pass: '',
-          confirmed,
       }
   },
+  mounted(){
+      // TODO: why doesn't this work?! (cursor to name field)
+      // document.getElementById('name').select()
+  },
   computed: {
-      id(){
-          return this.$store.state.members
+      confirmed(){
+          return this.$store.state.loader.token
       },
+      id(){
+          let id
+          this.$store.state.members.forEach( member => {
+              if (this.name === member.name) {
+                  id = member.memberId
+              }
+          })
+          return id
+      }
   },
   methods: {
       createSession(){
@@ -68,11 +76,9 @@ export default {
 
                   window.localStorage.setItem("token", token)
                   window.localStorage.setItem("session", session)
-                  window.localStorage.setItem("id", id)
+                  window.localStorage.setItem("id", this.id)
 
-                  console.log('token and session should be in', window.localStorage)
                   this.$store.dispatch('loadCurrent')
-                  this.$router.push('/')
               })
       },
       killSession(){

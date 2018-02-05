@@ -14,15 +14,13 @@ const getSecret = function(id){
 
 module.exports = function auth(req, res, next){
     // a session is a random uuid created client side
-    // if these fields are present {session, authorization, memberId} the client is attempting to create a new session
-    // proves access to member pass
+    // if these headers are present {session, authorization, id} the client is attempting to create a new session
     let secret = getSecret(req.headers.id)
     if (secret && req.headers.authorization && req.headers.session){
         let sessionKey = cryptoUtils.createHash(req.headers.session + req.headers.id + secret)
         let token = cryptoUtils.hmacHex(req.headers.session, sessionKey)
         if (token === req.headers.authorization){
             // client able to create the token, must have secret
-            // so add to session array
             events.sessionCreated(req.headers.id, req.headers.session, token, utils.buildResCallback(res))
         }
     } else {

@@ -43,8 +43,10 @@ export default {
                     return setTimeout( ()=>{
                       vue.response = false
                     } , 3456)
+                } else {
+                    vue.$router.push('/')
                 }
-                vue.$router.push('/')
+
             })
       },
     }

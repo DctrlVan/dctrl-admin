@@ -3,35 +3,40 @@ const uuidV1 = require('uuid/v1')
 
 const actions = {
   loadCurrent({ commit, state }){
-
-      request
-          .get('/state')
-          .end((err, res) => {
-              if (err || !res.body) {
-                  loadTestState(commit)
-              } else {
-                  console.log(err, res)
+      console.log('partial?', state)
+      if (state.token){
+        // loggin in get priv state
+        request
+            .post('/state')
+            .set("Authorization", state.token)
+            .end((err, res)=>{
+                if (err || !res.body) {
+                    // loadTestState(commit)
+                } else {
                   commit('setCurrent', res.body)
-              }
-          })
+                }
+            })
 
-      // request
-      //     .post('/state')
-      //     .set("Authorization", state.auth)
-      //     .end((err, res)=>{
-      //         if (err || !res.body) {
-      //             // loadTestState(commit)
-      //         } else {
-      //             commit('setCurrentOrders', res.body.orders)
-      //             commit('setCurrentMerchants', res.body.merchants)
-      //         }
-      //     })
+      } else {
+        // not logged in req public state
+        request
+            .get('/state')
+            .end((err, res) => {
+              if (err || !res.body) {
+                loadTestState(commit)
+              } else {
+                commit('setCurrent', res.body)
+              }
+            })
+
+      }
+
   }
 }
 
 const state = {
-    token: "",
-    session: "",
+    token: '',
+    session: '',
     id: ''
 }
 

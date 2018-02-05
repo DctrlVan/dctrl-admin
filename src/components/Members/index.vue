@@ -1,19 +1,24 @@
 <template lang='pug'>
 
 #member
-    crazy-btn(to='/MEMBER_CREATE' text='New Member')
+    crazy-btn(v-if='loggedIn' to='/member_create' text='new member')
     shared-title(title='Illuminati Hit List')
-    tab
-        label active
-        row(v-for="m in active", :m="m")
-        label pending
-        row(v-for="m in pending", :m="m")
-        label inactive
-        row(v-for="m in inactive", :m="m")
+    .list(v-if='loggedIn')
+        tab
+            row(v-for="m in members", :m="m")
+    .padding(v-else)
+        h5 dctrl member
+        ol
+            li Believer in a transcendent future.
+            li Possess dctrl rfid tag.
+            li Possible human, magical entity, fairy, cyborg or alien.
+        p
+            strong visit a node to find out more
 
 </template>
 
 <script>
+
 import Row from "./Row"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
@@ -22,14 +27,11 @@ import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
     computed: {
-        active(){
+        loggedIn(){
+            return this.$store.state.loader.token
+        },
+        members(){
             return this.$store.state.members.filter(m => (m.balance >= 0))
-        },
-        pending(){
-            return this.$store.state.members.filter(m => (m.balance < 0 && m.active >= 0))
-        },
-        inactive(){
-            return this.$store.state.members.filter(m => (m.balance < 0 && m.active < 0))
         }
     },
     components:{
@@ -58,6 +60,13 @@ label
 
 #member
     width: 100%
+
+.padding
+    padding: 1.987654321em
+
+li
+    margin-left: 1em
+
 
 .left
     float: left
