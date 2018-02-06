@@ -16,31 +16,35 @@
 </template>
 
 <script>
+import io from 'socket.io-client'
 
 import MainMenu from './MainMenu'
 import MobileHeading from './MobileHeading'
 import EventFeed from './slotUtils/EventFeed'
-import io from 'socket.io-client'
-
-const socket = io()
 
 export default {
     mounted(){
         let token = window.localStorage.token
         let session = window.localStorage.session
         if (token && session){
-            this.$store.commit('setAuth', token)
-            this.$store.commit('setSession', session)
-            this.$store.dispatch('loadCurrent')
-
-            var socket = io.connect()
-
-            socket.on('eventstream', ev => {
-                this.$store.commit('applyEvent', ev)
-                this.$store.dispatch('displayEvent', ev)
-            })
+            let auth = {token, session}
+            this.$store.commit('setAuth', auth)
             this.$store.dispatch('loadCurrent')
         }
+        this.$store.dispatch('loadCurrent')
+
+        const socket = io()
+        socket.on('connect', ()=> {
+            socket.emit('authentication', this.$store.state.loader)
+            socket.on('authenticated', ()=> {
+                // use the socket as usual
+                console.log('socket authenticated')
+                socket.on('eventstream', ev => {
+                    this.$store.commit('applyEvent', ev)
+                    this.$store.dispatch('displayEvent', ev)
+                })
+            });
+        });
     },
     components: {
         MainMenu, MobileHeading, EventFeed

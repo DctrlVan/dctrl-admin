@@ -5,11 +5,12 @@ module.exports = {
   sessionCreated
 }
 
-function sessionCreated(id, session, token, callback) {
+function sessionCreated(ownerId, session, token, callback) {
     let newEvent = {
         type: "session-created",
         session,
         token,
+        ownerId
     }
     dctrlDb.insertEvent(newEvent, callback)
 }

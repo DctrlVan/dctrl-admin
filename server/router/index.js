@@ -1,31 +1,29 @@
-const express = require('express')
-const path = require("path")
-const bodyParser = require('body-parser')
-const state = require('../state')
+import express from 'express'
+import path from 'path'
+import bodyParser from 'body-parser'
+import state from '../state'
+import spec from '../spec'
+import fobtap from '../fobtap'
 
-const membersApi = require('./membersApi')
-const resourcesApi = require('./resourcesApi')
-const tasksApi = require('./tasksApi')
+import membersApi from './membersApi'
+import resourcesApi from './resourcesApi'
+import tasksApi from './tasksApi'
 
-const spec = require('../spec')
-const fobtap = require('../fobtap')
-
-const auth = require('../auth')
+import { serverAuth } from '../auth'
 
 module.exports = function applyRouter(app){
 
     app.use(express.static(path.join(__dirname, '../../dist')))
 
     app.get('/state', (req, res) => {
-        // TODO: split public / server state
-        res.json(state.state)
+        res.json(state.serverState) // TODO - this is for dev only
     })
 
     app.get('/*', function(req, res) {
         res.sendFile(path.join(__dirname, '../../dist/index.html'))
     })
 
-    app.use(auth)
+    app.use(serverAuth)
 
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({
@@ -33,7 +31,7 @@ module.exports = function applyRouter(app){
     }))
 
     app.use(spec)   // handles event creation
-    app.use(fobtap) // handles rfid scan devices 
+    app.use(fobtap) // handles rfid scan devices
 
     // TODO: replace with more generic db & state access
     membersApi(app)

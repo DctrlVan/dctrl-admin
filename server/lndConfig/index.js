@@ -1,4 +1,4 @@
-// Cert will be located depending on your machine
+// Cert will be located depending on your machine // lnd multiplatform config lovingly stolen from zap-wallet
 // Mac OS X: /Users/user/Library/Application Support/Lnd/tls.cert
 // Linux: ~/.lnd/tls.cert
 // Windows: TODO find out where cert is located for windows machine

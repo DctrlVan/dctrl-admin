@@ -41,42 +41,29 @@ export default {
       confirmed(){
           return this.$store.state.loader.token
       },
-      id(){
-          let id
-          this.$store.state.members.forEach( member => {
-              if (this.name === member.name) {
-                  id = member.memberId
-              }
-          })
-          return id
-      }
   },
   methods: {
       createSession(){
           let session = uuidV1()
-          console.log('attempting auth', this.id, this.pass)
-          let sessionKey = cryptoUtils.createHash(session + this.id + this.pass)
+          let sessionKey = cryptoUtils.createHash(session + this.pass)
           let token = cryptoUtils.hmacHex(session, sessionKey)
           request
               .post('/session')
               .set('Authorization', token)
               .set('Session', session)
-              .set('id', this.id)
+              .set('name', this.name)
               .end((err,res)=>{
                   if (err) return console.log(err);
                   console.log('Authentication creation response', res.body)
-                  this.confirmed = true
                   this.pass = ""
 
                   this.$store.commit('setAuth', {
                       token,
                       session,
-                      id: this.id
                   })
 
                   window.localStorage.setItem("token", token)
                   window.localStorage.setItem("session", session)
-                  window.localStorage.setItem("id", this.id)
 
                   this.$store.dispatch('loadCurrent')
               })

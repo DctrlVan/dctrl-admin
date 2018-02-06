@@ -1,11 +1,9 @@
 import request from 'superagent'
-const uuidV1 = require('uuid/v1')
+import uuidV1 from 'uuid/v1'
 
 const actions = {
   loadCurrent({ commit, state }){
-      console.log('partial?', state)
       if (state.token){
-        // loggin in get priv state
         request
             .post('/state')
             .set("Authorization", state.token)
@@ -13,24 +11,10 @@ const actions = {
                 if (err || !res.body) {
                     // loadTestState(commit)
                 } else {
-                  commit('setCurrent', res.body)
+                    commit('setCurrent', res.body)
                 }
             })
-
-      } else {
-        // not logged in req public state
-        request
-            .get('/state')
-            .end((err, res) => {
-              if (err || !res.body) {
-                loadTestState(commit)
-              } else {
-                commit('setCurrent', res.body)
-              }
-            })
-
       }
-
   }
 }
 
@@ -44,7 +28,6 @@ const mutations = {
     setAuth(loader, auth){
         loader.token = auth.token
         loader.session = auth.session
-        loader.id = auth.id
     }
 }
 

@@ -1,43 +1,51 @@
-// Admin Server
-// require("../bitcoinSrc") // initialize
-// address watching
+
 let PORT = process.env.PORT || 8003
 
 const express = require('express')
 const path = require("path")
-const app = express()
 const socketIo = require('socket.io')
 const dctrlDb = require('./dctrlDb')
 const state = require('./state')
 
+import socketProtector from 'socketio-auth'
+
 const applyRouter = require('./router')
 
+import { socketAuth } from './auth'
+
+const app = express()
+applyRouter(app)
 
 dctrlDb.startDb( (err, conn) => {
 
     state.initialize( err => {
-        console.log('State initialized', state.state)
+        console.log('State initialized server', state.serverState)
+        console.log('public', state.pubState)
 
-        const evStream = dctrlDb.changeFeed.onValue( state.applyEvent ) // updates server state
-
-        applyRouter(app)
+        // now we listen on the changefeed and keep the state up to date
+        const evStream = dctrlDb.changeFeed.onValue( ev => {
+            state.applyEvent(state.serverState, ev)
+        }) // updates server state
 
         const server = app.listen(PORT, err => {
             console.log("Listening on port", PORT)
 
             const io = socketIo(server)
-
-            const filteredStream = evStream.log('filtering of ev todo').onValue(ev => {
-                console.log('broadcasting event?', ev)
-                io.emit('eventstream', ev)
+            socketProtector(io, {
+                authenticate: socketAuth,
+                // TODO
+                // postAuthenticate:
+                // disconnect:
+                // timeout:
             })
 
-            // TODO
-            io.sockets.on('connection', function(socket){
-              // TODO: record connections?
-              console.log('connection found')
+            const filteredStream = evStream
+                .map(state.removeSensitive)
+                .onValue( ev => {
+                    state.applyEvent(state.pubState, ev)
+                    io.emit('eventstream', ev)
+                })
 
-            })
         })
     })
 })

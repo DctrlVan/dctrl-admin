@@ -6,6 +6,7 @@
     table
         tbody
             active-tasks(v-for="b in tasks", :b="b")
+
 </template>
 
 <script>
@@ -17,8 +18,7 @@ import CrazyBtn from '../slotUtils/CrazyBtn'
 export default {
   computed: {
       tasks(){
-          let tasks = this.$store.state.tasks
-          return tasks
+          return this.$store.state.tasks
       }
   },
     components:{
