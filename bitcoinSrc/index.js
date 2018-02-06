@@ -49,7 +49,7 @@ function recordMemberPayment(amount, address){
 
 function getMemberIdFromAddress(address){
   let memberId
-  state.getState().members.forEach( member => {
+  state.pubState.members.forEach( member => {
       if (member.address == address){
           memberId = member.memberId
       }
@@ -72,7 +72,7 @@ function recordResourcePayment(amount, address){
 
 function getResourceIdFromAddress(address, callback){
   let resourceId
-  state.getState().resources.forEach( resource => {
+  state.pubState.resources.forEach( resource => {
       if (resource.address == address){
           resourceId = resource.resourceId
       }

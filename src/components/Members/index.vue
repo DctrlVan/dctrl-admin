@@ -61,14 +61,11 @@ label
 #member
     width: 100%
 
+li
+    margin-left: 1em
+    
 .padding
     padding: 1.987654321em
 
-li
-    margin-left: 1em
-
-
-.left
-    float: left
 
 </style>

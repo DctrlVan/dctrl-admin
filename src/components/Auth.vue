@@ -9,6 +9,7 @@
           span(v-for="a in pass") &nbsp;*&nbsp;
       input.secret(type='text' v-model='pass')
       br
+      p.red {{ err }}
       button(@click="createSession") login
   .container(v-else)
       h3 session active
@@ -31,6 +32,7 @@ export default {
       return {
           name: '',
           pass: '',
+          err: ''
       }
   },
   mounted(){
@@ -53,10 +55,14 @@ export default {
               .set('Session', session)
               .set('name', this.name)
               .end((err,res)=>{
-                  if (err) return console.log(err);
+                  if (err) {
+                      console.log(err)
+                      this.pass = ''
+                      return this.err = err.message
+                  }
+
                   console.log('Authentication creation response', res.body)
                   this.pass = ""
-
                   this.$store.commit('setAuth', {
                       token,
                       session,
@@ -93,5 +99,8 @@ export default {
 
 .container
     width: 100%
+
+.red
+    color: accent2
 
 </style>

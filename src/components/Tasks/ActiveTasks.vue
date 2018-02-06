@@ -4,6 +4,7 @@ tr
     td
         router-link(:to='claimLocation')
             img(src='../../assets/images/claim.svg')
+        span.val ${{currentValue}}
     td {{b.name}}
     td
         li(v-for='i in instructions') {{i}}.
@@ -19,16 +20,16 @@ import {calculateTaskPayout} from '../../calculations'
 
 export default {
     props: ['b'],
+    data() {
+        return {
+            currentValue: '...calc'
+        }
+    },
     mounted(){
         this.currentValue = calculateTaskPayout(this.b).toFixed(2)
         setInterval( ()=>{
             this.currentValue = calculateTaskPayout(this.b).toFixed(2)
         },11111)
-    },
-    data() {
-        return {
-            currentValue: '...calculating'
-        }
     },
     computed: {
         instructions(){
@@ -61,6 +62,9 @@ td
     font-size: 1.4em
     text-align: center
 
+.val
+    color: accent2
+
 .pencil
     height: 39px
 
@@ -76,5 +80,6 @@ tr
     border-bottom-style: solid
     border-width: 3px
     vertical-align:middle
+    width: 100%
 
 </style>

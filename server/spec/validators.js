@@ -32,34 +32,43 @@ module.exports = {
   },
   isMemberId(val, errRes){
       let result = false
-      state.getState().members.forEach(member =>{
-          if (val == member.memberId){
+      state.pubState.members.forEach(member =>{
+          if (val === member.memberId){
             result = true
           }
       })
+      if (!result) {
+          errRes.push('invalid member')
+      }
       return result
   },
   isTaskId(val, errRes){
       let result = false
-      state.getState().tasks.forEach(task =>{
+      state.pubState.tasks.forEach(task =>{
           if (val == task.taskId){
             result = true
           }
       })
+      if (!result) {
+          errRes.push('invalid task')
+      }
       return result
   },
   isResourceId(val, errRes){
       let result = false
-      state.getState().resources.forEach(resource =>{
+      state.pubState.resources.forEach(resource =>{
           if (val == resource.resourceId){
             result = true
           }
       })
+      if (!result) {
+          errRes.push('invalid resource')
+      }
       return result
   },
   isNewResourceId(val, errRes){
       let isNew = true
-      state.getState().resources.forEach(resource =>{
+      state.pubState.resources.forEach(resource =>{
           if (val == resource.resourceId){
             isNew = false
           }

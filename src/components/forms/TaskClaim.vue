@@ -3,6 +3,8 @@
 #newmember
     shared-title(:title='getTitle')
     form-box(btntxt="Claim task", v-bind:data="info", event='task-claimed')
+        label Notes (optional)
+        input(v-model='info.notes' type='text')
         label Member Fob! (Tap it)
         input(v-model='info.fob' type='text')
 
@@ -19,23 +21,24 @@ export default {
           this.info.taskId = taskId
         }
     },
+    data(){
+        return {
+            info: {
+                taskId: '',
+                fob: '',
+                notes: ''
+            }
+        }
+    },
     computed: {
         getTitle(){
             let title = '...loadin'
             this.$store.state.tasks.forEach(t => {
                 if (t.taskId == this.info.taskId){
-                    title = "Claim " + b.name + "!"
+                    title = "Claim " + t.name + "!"
                 }
             })
             return title
-        }
-    },
-    data(){
-        return {
-            info: {
-                taskId: '',
-                fob: ''
-            }
         }
     },
     components: {

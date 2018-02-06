@@ -29,15 +29,15 @@ export default {
         if (token && session){
             let auth = {token, session}
             this.$store.commit('setAuth', auth)
-            this.$store.dispatch('loadCurrent')
         }
-        this.$store.dispatch('loadCurrent')
 
         const socket = io()
         socket.on('connect', ()=> {
             socket.emit('authentication', this.$store.state.loader)
             socket.on('authenticated', ()=> {
                 // use the socket as usual
+                this.$store.dispatch('loadCurrent')
+
                 console.log('socket authenticated')
                 socket.on('eventstream', ev => {
                     this.$store.commit('applyEvent', ev)

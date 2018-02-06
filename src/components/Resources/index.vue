@@ -2,7 +2,14 @@
 
 #resource
     shared-title(title='Resources')
-    row(v-for="r in resources", :r="r")
+    .list(v-if='loggedIn')
+        row(v-for="r in resources", :r="r")
+    .padding(v-else)
+        h5 dctrl resource
+        ol
+            li Raspberry pi running dctrl-fobtap rfid scan point.
+            li Dctrl-admin compatible lightning point of sale service
+            li Possible human, magical entity, fairy, cyborg or alien.
 
 </template>
 
@@ -18,6 +25,11 @@ export default {
         resources(){
             return this.$store.state.resources
         }
+    },
+    computed: {
+        loggedIn(){
+            return this.$store.state.loader.token
+        },
     },
     components:{
         SharedTitle,
@@ -35,11 +47,9 @@ export default {
 #resource
     width: 100%
 
-img
-    height: 40px
-    float:right
-
-.left
-    float: left
+.padding
+    padding: 1.987654321em
+li
+    margin-left: 1em
 
 </style>

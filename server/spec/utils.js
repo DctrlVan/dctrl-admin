@@ -1,7 +1,6 @@
 const state = require('../state')
 
-// we use this function to build a callback that can be passed
-// to the
+// we use this function to build a callback for auto response to db create attempt
 function buildResCallback(res){
     return (err, dbResponse) => {
         if (err) {
@@ -15,7 +14,7 @@ function buildResCallback(res){
 function memberIdFromFob(fob){
   let memberId
   // TODO: hide fob in server side state
-  state.getState().members.forEach(member => {
+  state.serverState.members.forEach(member => {
       if (member.fob == fob){
           memberId = member.memberId
       }
@@ -25,7 +24,7 @@ function memberIdFromFob(fob){
 
 function taskFromFob(fob){
   let task
-  state.getState().tasks.forEach(t => {
+  state.serverState.tasks.forEach(t => {
       if (t.fob == fob){
           task = t
       }
@@ -35,15 +34,13 @@ function taskFromFob(fob){
 
 function getResource(resourceId){
   let resource
-  state.getState().resources.forEach(r => {
+  state.serverState.resources.forEach(r => {
       if (r.resourceId == resourceId){
           resource = r
       }
   })
   return resource
 }
-
-// TODO, smarter addressManager
 
 module.exports = {
   buildResCallback,

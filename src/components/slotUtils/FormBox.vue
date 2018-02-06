@@ -6,7 +6,7 @@ form(v-on:submit.prevent="")
             .three.columns
                 img(src='../../assets/images/clippy.svg')
             .nine.columns
-                h3 ERROR: {{ errTxt }}
+                label ERROR: {{ errTxt }}
         .row(v-if='response.type')
     slot(v-else)
     button(v-if='!response' @click.prevent='post') {{ btntxt }}
@@ -39,9 +39,11 @@ export default {
             .end((err,res)=>{
                 if (err){
                     vue.showError = true
+                    console.log('in the error handling with', res.body)
                     vue.errTxt = res.body[0]
+                    // TODO: explain this error handling
                     return setTimeout( ()=>{
-                      vue.response = false
+                        vue.response = false
                     } , 3456)
                 } else {
                     vue.$router.push('/')

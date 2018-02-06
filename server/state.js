@@ -7,7 +7,8 @@ const serverState = {
   sessions: [],
   members: [],
   tasks: [],
-  resources: []
+  resources: [],
+  cash: { cash: 0 }
 }
 
 const pubState = {
@@ -15,7 +16,8 @@ const pubState = {
   sessions: [],
   members: [],
   tasks: [],
-  resources: []
+  resources: [],
+  cash: { cash: 0 }
 }
 
 function applyEvent(state, ev) {

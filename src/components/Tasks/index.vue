@@ -3,9 +3,18 @@
 #tasks
     crazy-btn(to='/TASK_CREATE' text='New Task')
     shared-title(title='Active tasks')
-    table
-        tbody
-            active-tasks(v-for="b in tasks", :b="b")
+    .list(v-if='loggedIn')
+        table
+            tbody
+                active-tasks(v-for="b in tasks", :b="b")
+    .padding(v-else)
+        h5 dctrl task
+        ol
+            li Essential task to maintain community resource.
+            li Need of skill, tool, or energy.
+            li Collaboration & cooperation.
+        p
+            strong visit a node to find out more
 
 </template>
 
@@ -19,6 +28,9 @@ export default {
   computed: {
       tasks(){
           return this.$store.state.tasks
+      },
+      loggedIn(){
+          return this.$store.state.loader.token
       }
   },
     components:{
@@ -73,5 +85,11 @@ th
 
 td
     color: accent3
+
+.padding
+    padding: 1.987654321em
+
+li
+    margin-left: 1em
 
 </style>

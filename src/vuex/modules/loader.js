@@ -3,14 +3,17 @@ import uuidV1 from 'uuid/v1'
 
 const actions = {
   loadCurrent({ commit, state }){
+      console.log('loading current?', state)
       if (state.token){
         request
             .post('/state')
             .set("Authorization", state.token)
             .end((err, res)=>{
                 if (err || !res.body) {
+                    console.log(err)
                     // loadTestState(commit)
                 } else {
+                    console.log('response from server /state:', res.body)
                     commit('setCurrent', res.body)
                 }
             })

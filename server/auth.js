@@ -43,6 +43,9 @@ function serverAuth(req, res, next){
         if (token === req.headers.authorization){
             // client able to create the token, must have secret
             events.sessionCreated(ownerId, req.headers.session, token, utils.buildResCallback(res))
+        } else {
+            console.log('unauthorized creation')
+            res.status(401).end('unauthorized')
         }
     } else {
         let authorized = false

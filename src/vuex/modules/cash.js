@@ -7,7 +7,7 @@ const state = {
 
 const mutations = {
     setCurrent(state, current){
-        state.cash = current.cash
+        state.cash = current.cash.cash
     },
     applyEvent: cashMuts
 }

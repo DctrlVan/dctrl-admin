@@ -8,7 +8,7 @@
     p We host &nbsp;
         a(href='https://www.meetup.com/dctrlvan/') meetups &nbsp;
         span that focus on decentralization: Decentralized Currency (Bitcoin), Decentralized Law (cooperatives, smart contracts), Decentralized Production (3D printing, vertical farming, solar energy), and Decentralized Communication (encryption, pgp, meshnet, tor).
-    p Fork us on github <3: &nbsp;
+    p Proudly open source: &nbsp;
         a(href='https://github.com/DecentralVan/dctrl-admin')
             button dctrl-admin
         a(href='https://github.com/decentralvan/dctrl-fobtap')

@@ -53,32 +53,35 @@ function specTaskClaimed(req, res, next){
   let errRes = []
   // TODO: this member-fob conversion in earlier middleware, (new name authFob?)
   let paid
-  state.getState().tasks.forEach( task => {
+  state.pubState.tasks.forEach( task => {
     if (task.taskId == req.body.taskId){
-        paid = calculations.calculatetaskPayout(task)
+        paid = calculations.calculateTaskPayout(task)
     }
   })
   let memberId = utils.memberIdFromFob(req.body.fob)
+  console.log('payout ready', paid, memberId)
   if (
-    validators.istaskId(req.body.taskId, errRes) &&
+    validators.isTaskId(req.body.taskId, errRes) &&
     validators.isMemberId(memberId, errRes) &&
-    validators.isAmount(paid, errRes)
+    validators.isAmount(paid, errRes) &&
+    validators.isNotes(req.body.notes, errRes)
   ){
     events.taskClaimed(
       req.body.taskId,
       memberId,
       paid,
+      req.body.notes,
       utils.buildResCallback(res)
     )
   } else {
-    res.status(200).send(errRes)
+      res.status(400).send(errRes)
   }
 }
 
 function specTaskRateUpdated(req, res, next){
   let errRes = []
   if (
-    validators.istaskId(req.body.taskId, errRes) &&
+    validators.isTaskId(req.body.taskId, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
     validators.isNotes(req.body.notes, errRes)
   ){
@@ -96,7 +99,7 @@ function specTaskRateUpdated(req, res, next){
 function specTaskBoosted(req, res, next){
   let errRes = []
   if (
-    validators.istaskId(req.body.taskId, errRes) &&
+    validators.isTaskId(req.body.taskId, errRes) &&
     validators.isAmount(req.body.amount, errRes) &&
     validators.isNotes(req.body.notes, errRes)
   ){
