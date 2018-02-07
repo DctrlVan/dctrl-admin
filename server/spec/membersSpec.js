@@ -48,11 +48,13 @@ function specMemberCreated(req, res, next){
   let errRes = []
   if (
     validators.isName(req.body.name, errRes) &&
-    validators.isFob(req.body.fob, errRes)
+    validators.isFob(req.body.fob, errRes) &&
+    validators.isNotes(req.body.secret)
   ){
     events.memberCreated(
       req.body.name,
       req.body.fob,
+      req.body.secret,
       utils.buildResCallback(res)
     )
   } else {

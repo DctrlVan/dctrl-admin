@@ -10,15 +10,16 @@ module.exports = {
   memberAddressUpdated
 }
 
-function memberCreated(name, fob, callback) {
+function memberCreated(name, fob, secret, callback) {
     let newEvent = {
         type: "member-created",
         memberId: uuidV1(),
-        address: '', // TODO: generate multisig
+        address: '',
         fob,
         active: 1,
         balance: 0,
         name,
+        secret
     }
     dctrlDb.insertEvent(newEvent, callback)
 }
