@@ -2,6 +2,8 @@
 
 tr(class="")
     td
+        label {{m.balance.toFixed(2)}}
+    td
         dctrl-active(:m='m')
     td
         span {{m.name}}

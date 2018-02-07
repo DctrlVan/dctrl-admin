@@ -1,4 +1,5 @@
 <template lang='pug'>
+
 #newmember
 	shared-title(title='Create New Member')
 	form-box(btntxt="Welcome New Member"  event='member-created' v-bind:data='member')

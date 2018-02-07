@@ -31,7 +31,7 @@ export default {
             return this.$store.state.loader.token
         },
         members(){
-            return this.$store.state.members.filter(m => (m.balance >= 0))
+            return this.$store.state.members
         }
     },
     components:{
@@ -63,7 +63,7 @@ label
 
 li
     margin-left: 1em
-    
+
 .padding
     padding: 1.987654321em
 

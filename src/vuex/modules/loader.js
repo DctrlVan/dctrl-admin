@@ -11,7 +11,6 @@ const actions = {
             .end((err, res)=>{
                 if (err || !res.body) {
                     console.log(err)
-                    // loadTestState(commit)
                 } else {
                     console.log('response from server /state:', res.body)
                     commit('setCurrent', res.body)

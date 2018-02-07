@@ -9,7 +9,6 @@ const getSecret = function(id){
 }
 
 const getIdSecret = function(name){
-    console.log('getIdSecret', {name})
     let ownerId, secret
     state.serverState.members.forEach( member => {
         if (member.name === name){
@@ -17,7 +16,6 @@ const getIdSecret = function(name){
             secret = member.secret
         }
     })
-    console.log('getId', {ownerId, secret})
     return {ownerId, secret}
 }
 

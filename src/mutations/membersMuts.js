@@ -32,10 +32,6 @@ module.exports = (members, ev)=> {
           members.forEach( member => {
               if (member.memberId === ev.memberId){
                   member.balance += parseFloat(ev.paid)
-                  if (ev.paid > 70){
-                      let now = new Date()
-                      member.membershipDue = now.addMonths(1).toISOString
-                  }
               }
           })
           break
