@@ -12,6 +12,7 @@
     "start": "babel-node ./server/app.js"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.20.0",
     "babel-preset-env": "^1.6.0",
     "bcoin": "^0.15.0",
