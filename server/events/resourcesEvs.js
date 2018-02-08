@@ -7,7 +7,7 @@ module.exports = {
     resourceStocked,
 }
 
-function resourceCreated(resourceId, charged, callback) {
+function resourceCreated(resourceId, name, charged, callback) {
     let newEvent = {
         type: "resource-created",
         resourceId,

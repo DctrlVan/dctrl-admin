@@ -4,8 +4,10 @@ const state = require('../state')
 function buildResCallback(res){
     return (err, dbResponse) => {
         if (err) {
+            console.log('build res error', {err})
             res.status(500).send('db err')
         } else {
+            console.log('res 201', {dbResponse})
             res.status(201).send(dbResponse)
         }
     }

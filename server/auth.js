@@ -32,8 +32,9 @@ function socketAuth(socket, data, callback){
 
 // express middleware auth
 function serverAuth(req, res, next){
+    console.log('at serverAuth')
     // a session is a random uuid created client side
-    // if these headers are present {session, authorization, id} the client is attempting to create a new session
+    // if these headers are present {session, authorization, name} the client is attempting to create a new session
     const {ownerId, secret} = getIdSecret(req.headers.name)
     if (secret && req.headers.authorization && req.headers.session){
         let sessionKey = cryptoUtils.createHash(req.headers.session + secret)
@@ -46,6 +47,8 @@ function serverAuth(req, res, next){
             res.status(401).end('unauthorized')
         }
     } else {
+        // otherwise we validate there authorization code is in the header
+        console.log('attempting auth on' , req.headers)
         let authorized = false
         state.serverState.sessions.forEach(session => {
             if (session.token === req.headers.authorization){

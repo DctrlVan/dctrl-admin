@@ -19,13 +19,11 @@ applyRouter(app)
 dctrlDb.startDb( (err, conn) => {
 
     state.initialize( err => {
-        console.log('State initialized server', state.serverState)
-        console.log('public', state.pubState)
-
+        console.log(state.serverState.sessions)
         // now we listen on the changefeed and keep the state up to date
         const evStream = dctrlDb.changeFeed.onValue( ev => {
             state.applyEvent(state.serverState, ev)
-        }) // updates server state
+        })
 
         const server = app.listen(PORT, err => {
             console.log("Listening on port", PORT)

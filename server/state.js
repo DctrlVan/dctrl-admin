@@ -26,7 +26,6 @@ function applyEvent(state, ev) {
     mutations.tasksMuts(state.tasks, ev)
     mutations.sessionsMuts(state.sessions, ev)
     mutations.resourcesMuts(state.resources, ev)
-    console.log('new state', {serverState, pubState})
 }
 
 function initialize(callback) {
