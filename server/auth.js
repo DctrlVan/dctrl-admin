@@ -8,14 +8,22 @@ const getSecret = function(id){
   return '1234'
 }
 
-const getIdSecret = function(name){
+const getIdSecret = function(identifier){
     let ownerId, secret
     state.serverState.members.forEach( member => {
-        if (member.name === name){
+        if (member.name === identifier || member.memberId === identifier){
             ownerId = member.memberId
             secret = member.secret
         }
     })
+
+    state.serverState.resources.forEach( resource => {
+        if (resource.name === identifier || resource.resourceId === identifier) {
+            ownerId = resource.resourceId
+            secret = resource.secret
+        }
+    })
+
     return {ownerId, secret}
 }
 
@@ -36,6 +44,7 @@ function serverAuth(req, res, next){
     // a session is a random uuid created client side
     // if these headers are present {session, authorization, name} the client is attempting to create a new session
     const {ownerId, secret} = getIdSecret(req.headers.name)
+    console.log({ownerId, secret})
     if (secret && req.headers.authorization && req.headers.session){
         let sessionKey = cryptoUtils.createHash(req.headers.session + secret)
         let token = cryptoUtils.hmacHex(req.headers.session, sessionKey)
@@ -47,7 +56,7 @@ function serverAuth(req, res, next){
             res.status(401).end('unauthorized')
         }
     } else {
-        // otherwise we validate there authorization code is in the header
+        // otherwise we validate there authorization token in the header
         console.log('attempting auth on' , req.headers)
         let authorized = false
         state.serverState.sessions.forEach(session => {
@@ -55,6 +64,7 @@ function serverAuth(req, res, next){
                 authorized = true
             }
         })
+
         if (authorized){
             console.log('authorized!')
             next()

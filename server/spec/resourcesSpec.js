@@ -24,13 +24,15 @@ function specResourceCreated(req, res, next){
   let errRes = []
   if (
     validators.isNewResourceId(req.body.resourceId, errRes) &&
-    validators.isNotes(req.body.name) &&
-    validators.isAmount(req.body.charged, errRes)
+    validators.isNotes(req.body.name, errRes) &&
+    validators.isAmount(req.body.charged, errRes) &&
+    validators.isNotes(req.body.secret, errRes)
   ){
     events.resourceCreated(
       req.body.resourceId,
       req.body.name,
       req.body.charged,
+      req.body.secret,
 			utils.buildResCallback(res)
     )
   } else {
