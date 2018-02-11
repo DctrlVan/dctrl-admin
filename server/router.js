@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import state from './state'
 import spec from './spec'
 import fobtap from './fobtap'
+import bloom from './bloom'
 // import dbAccess from ''
 
 import { serverAuth } from './auth'
@@ -26,6 +27,7 @@ module.exports = function applyRouter(app){
 
     app.use(spec)   // handles event creation
     app.use(fobtap) // handles rfid scan devices
+    app.use(bloom) // backup way for door to use
 
     // TODO: db access api
 

@@ -3,7 +3,9 @@
 #resource
     shared-title(title='Resources')
     .list(v-if='loggedIn')
-        row(v-for="r in resources", :r="r")
+        table
+            tbody
+                row(v-for="r in resources", :r="r")
     .padding(v-else)
         h5 dctrl resource
         ol
@@ -24,9 +26,7 @@ export default {
     computed: {
         resources(){
             return this.$store.state.resources
-        }
-    },
-    computed: {
+        },
         loggedIn(){
             return this.$store.state.loader.token
         },

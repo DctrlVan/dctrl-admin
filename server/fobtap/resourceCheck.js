@@ -4,6 +4,7 @@ const validators = require('../spec/validators')
 const events = require('../events')
 
 module.exports = function(req, res, next){
+    console.log('resource check middleware')
     let memberId = utils.memberIdFromFob(req.body.fob)
     let resource = utils.getResource(req.body.resourceId)
     if (memberId && resource){

@@ -19,6 +19,7 @@
     "bitcoin": "^3.0.1",
     "bitcoinjs-lib": "^2.3.0",
     "bitcore-wallet-client": "^5.4.0",
+    "bloom-filter": "^0.2.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.17.2",
     "bs58check": "^2.0.1",
