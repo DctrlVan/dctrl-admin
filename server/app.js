@@ -19,7 +19,6 @@ applyRouter(app)
 dctrlDb.startDb( (err, conn) => {
 
     state.initialize( err => {
-        console.log(state.serverState.sessions)
         // now we listen on the changefeed and keep the state up to date
         const evStream = dctrlDb.changeFeed.onValue( ev => {
             state.applyEvent(state.serverState, ev)
@@ -31,7 +30,7 @@ dctrlDb.startDb( (err, conn) => {
             const io = socketIo(server)
             socketProtector(io, {
                 authenticate: socketAuth,
-                // TODO
+                // TODO:
                 // postAuthenticate:
                 // disconnect:
                 // timeout:
@@ -41,6 +40,7 @@ dctrlDb.startDb( (err, conn) => {
                 .map(state.removeSensitive)
                 .onValue( ev => {
                     state.applyEvent(state.pubState, ev)
+                    console.log('emitting event')
                     io.emit('eventstream', ev)
                 })
 

@@ -29,12 +29,13 @@ const getIdSecret = function(identifier){
 
 function socketAuth(socket, data, callback){
     let authorized
+    console.log('at socket auth', data)
     state.serverState.sessions.forEach(session => {
         if (session.token === data.token){
             authorized = true
         }
     })
-    console.log('socket auth', {authorized})
+    console.log('socket auth result:', {authorized})
     callback(null, authorized)
 }
 
