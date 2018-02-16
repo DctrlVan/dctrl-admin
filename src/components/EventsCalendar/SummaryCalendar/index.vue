@@ -1,28 +1,13 @@
 <template lang="pug">
 
 #calendar
-    .row.legend
-        .eight.columns &nbsp;
-        .one.columns
-            table
-                tr
-                    td.downhalfbox resource
-        .three.columns
-            table
-                tr
-                    td.availablebox.signcell
-                    td.ch Available
-                tr
-                    td.bookedbox.signcell
-                    td.do Booked
     .row.menu
         .three.columns(@click='prevMonth')
             img(src='../../../assets/images/left.svg')
         .six.columns {{ monthName }} - {{year}}
         .three.columns(@click='nextMonth')
             img(src='../../../assets/images/right.svg')
-    slot
-    .weekday(v-for='dayName in DAYS_OF_WEEK') {{dayName}}
+    .weekday(v-for='day in DAYS_OF_WEEK') {{ day }}
     .placeholder(v-for='placeholder in firstDay')
     day(v-for='day in days', :day="day", :month='month', :year='year')
 

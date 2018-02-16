@@ -20,6 +20,7 @@ const pubState = {
   cash: { cash: 0 }
 }
 
+
 function applyEvent(state, ev) {
     mutations.connectionsMuts(state.connections, ev)
     mutations.membersMuts(state.members, ev)
@@ -48,5 +49,5 @@ module.exports = {
     pubState,
     initialize,
     applyEvent,
-    removeSensitive
+    removeSensitive,
 }

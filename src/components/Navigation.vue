@@ -1,11 +1,11 @@
 <template lang='pug'>
 
 ul.navigation
+    router-link(v-if='isLoggedIn' to='/mypage') My Page
     router-link(to='/MEMBERS') Members
     router-link(to='/RESOURCES') Resources
     router-link(to='/TASKS') Tasks
     router-link(to='/CALENDAR') Calendar
-
     .admin(v-if='isAdmin')
         label admin
         router-link(to='/HISTORY') View All Events
@@ -17,6 +17,10 @@ ul.navigation
 export default {
     name: 'navigation',
     computed: {
+        // TODO - vuex getters for this?
+        isLoggedIn(){
+            return true
+        },
         isAdmin(){
             return true // TODO
         }

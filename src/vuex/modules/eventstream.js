@@ -16,6 +16,7 @@ const state = {
 
 const mutations = {
     show(state, ev){
+        state.meme = bestMeme()
         state.type = ev.type
         state.showEvent = true
     },
@@ -26,11 +27,10 @@ const mutations = {
 
 const actions = {
     displayEvent({commit}, ev){
-        console.log("attempting to display event:", ev)
         commit('show', ev)
         setTimeout(()=>{
             commit('hide')
-        }, 3456)
+        }, 4567)
     }
 }
 

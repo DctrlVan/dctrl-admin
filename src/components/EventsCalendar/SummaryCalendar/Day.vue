@@ -1,20 +1,63 @@
 <template lang="pug">
 .day
   .date {{ day }}
+  .amount.inc(v-if='balChange > 0') {{ balChange }}
+  .amount.dec(v-if='balChange < 0') {{ balChange }}
+  template(v-for='t in evTypes')
+      label.type {{ t }}
 
 </template>
 
 <script>
+import _ from 'lodash'
 import MainEvent from './MainEvent.vue'
 import Tooltip from 'tether-tooltip'
 import Vue from 'vue'
+
+function getDMY(ts){
+    let d = new Date(ts)
+    let day =  d.getDate()
+    let month = d.getMonth()
+    let year = d.getFullYear()
+    return { day, month, year}
+}
 
 export default {
   components: {
     MainEvent
   },
   props: ['day', 'month', 'year'],
-  computed: { },
+  computed: {
+      todaysEvents(){
+          let evTypes = []
+          return this.$store.state.events.events.filter( ev => {
+              let {day, month, year} = getDMY(ev.timestamp)
+              let isToday = (this.day == day && this.month == month && this.year == year)
+              return isToday
+          })
+      },
+      balChange(){
+          let amount = 0
+          this.todaysEvents.forEach( ev => {
+              if (ev.paid) amount += parseFloat( ev.paid )
+              if (ev.charged) amount -= parseFloat( ev.charged )
+          })
+          return amount.toFixed(2)
+      },
+      evTypes(){
+          let evTypes = []
+          this.todaysEvents.forEach( ev => {
+              evTypes.push(ev.type)
+          })
+          if (evTypes.length > 0){
+              console.log({evTypes})
+              console.log(_.uniq(evTypes))
+          }
+          return _.uniq(evTypes)
+      }
+
+
+  },
 }
 </script>
 
@@ -22,11 +65,22 @@ export default {
 
 @import '../../../styles/colours'
 
-  .day
+label
+    padding: 0
+    margin: 0
+
+.type
+    font-size: .5em
+    float: left
+    white-space: nowrap;
+    // font-size
+
+.day
+    position: relative
     background-color: main
     overflow: visible
 
-  .date
+.date
     text-align:right
     height: 30px
     margin-top: 0
@@ -34,6 +88,22 @@ export default {
     font-weight: bolder
     font-size: .9em
     padding: 5px 5px 5px 5px
+
+
+
+.amount
+    font-size: .49em
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+.inc
+    color: accent2
+
+.dec
+    color: red
+
+
 
 .b
 		text-align: center
@@ -46,6 +116,6 @@ export default {
 		border-right-style: solid
 		border-color: green
 .c
-		background-color: accent2
+		background-color: green
 
 </style>

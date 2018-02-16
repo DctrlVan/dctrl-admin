@@ -43,11 +43,12 @@ import ResourceUse from './components/forms/ResourceUse'
 import ResourceStock from './components/forms/ResourceStock'
 
 import Manage from './components/Manage'
-import CashHistory from './components/CashHistory'
 import Auth from './components/Auth'
 
 import Calendar from './components/EventsCalendar'
 import List from './components/EventsList'
+
+import MyPage from './components/MyPage'
 
 // TODO refactor this by module too?
 const routes = [{
@@ -62,6 +63,9 @@ const routes = [{
     },{
       path: '/history',
       component: List
+    },{
+      path: '/mypage',
+      component: MyPage
     },{
       path: '/calendar',
       component: Calendar
@@ -125,11 +129,7 @@ const routes = [{
     },{
       path:'/manage',
       component: Manage
-    },{
-      path: '/cash_history',
-      component: CashHistory
-    }
-    ]
+    }]
   }]
 
 const router = new VueRouter({

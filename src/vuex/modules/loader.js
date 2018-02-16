@@ -3,7 +3,6 @@ import uuidV1 from 'uuid/v1'
 
 const actions = {
   loadCurrent({ commit, state }){
-      console.log('loading current?', state)
       if (state.token){
         request
             .post('/state')
@@ -14,6 +13,23 @@ const actions = {
                 } else {
                     console.log('response from server /state:', res.body)
                     commit('setCurrent', res.body)
+                }
+            })
+      }
+  },
+  loadEvents({ commit, state }, forWho ){
+      console.log('attempting to load events', {forWho})
+      if (state.token){
+        request
+            .post('/events')
+            .set("Authorization", state.token)
+            .send(forWho)
+            .end((err, res)=>{
+                if (err || !res.body) {
+                    console.log(err)
+                } else {
+                    console.log('response from server /events:', res.body)
+                    commit('setEvents', res.body)
                 }
             })
       }

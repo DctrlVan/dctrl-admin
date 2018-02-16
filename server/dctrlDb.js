@@ -9,42 +9,31 @@ const changeFeed = Kefir.stream(e => {
   eventEmitter = e
 }).log('dbfeed')
 
-module.exports = {
-  conn,
-  startDb,
-  getAll,
-  changeFeed,
-  insertEvent
-}
 
 function initializeRethink() {
   if (!conn) return console.log("wait for connection")
   return r.dbCreate('dctrl').run(conn, (err, result) => {
     r.db('dctrl').tableCreate('events').run(conn, (err, result2) => {
-      console.log({
-        result,
-        result2
-      })
       startFeed()
     })
   })
 }
 
 function getAll(callback) {
-  if (!conn) return console.log("wait for connection")
-  r
-    .table('events')
-    .orderBy('timestamp') //todo index
-    .run(conn, (err, cursor) => {
-      if (err) return console.log('err getting feed', err)
-      let all = []
-      cursor.each((err, ev) => {
-        if (err) return console.log('err getting event', err)
-        all.push(ev)
-      }, (err, res) => {
-        callback(null, all)
-      })
-    })
+    if (!conn) return console.log("wait for connection")
+    r
+        .table('events')
+        .orderBy('timestamp') //todo index
+        .run(conn, (err, cursor) => {
+            if (err) return console.log('err getting feed', err)
+            let all = []
+            cursor.each((err, ev) => {
+              if (err) return console.log('err getting event', err)
+              all.push(ev)
+            }, (err, res) => {
+              callback(null, all)
+            })
+        })
 }
 
 
@@ -76,13 +65,9 @@ function insertEvent(ev, callback) {
 
 function startDb(callback){
   r.connect(config.rethink).then(rethinkDbConnection => {
-    console.log("db connected")
     conn = rethinkDbConnection // conn is global to this file
+    console.log("db connected", conn)
     r.dbList().run(conn, (err, list) => {
-      console.log({
-        err,
-        list
-      })
       if (_.includes(list, 'dctrl')) { // TODO check for table too
         startFeed()
       } else {
@@ -91,4 +76,18 @@ function startDb(callback){
       callback(null, conn)
     })
   })
+}
+
+function getConn(){
+    return conn
+}
+
+
+module.exports = {
+  conn:conn,
+  startDb,
+  getAll,
+  changeFeed,
+  insertEvent,
+  getConn
 }
