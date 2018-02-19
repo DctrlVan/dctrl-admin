@@ -2,24 +2,22 @@ import request from 'superagent'
 import uuidV1 from 'uuid/v1'
 
 const actions = {
-  loadCurrent({ commit, state }){
-      if (state.token){
+    loadCurrent({ commit, state }){
         request
             .post('/state')
             .set("Authorization", state.token)
             .end((err, res)=>{
                 if (err || !res.body) {
                     console.log(err)
+                    loadTestState(commit)
                 } else {
                     console.log('response from server /state:', res.body)
                     commit('setCurrent', res.body)
                 }
             })
-      }
-  },
-  loadEvents({ commit, state }, forWho ){
-      console.log('attempting to load events', {forWho})
-      if (state.token){
+    },
+    loadEvents({ commit, state }, forWho ){
+        console.log('attempting to load events', {forWho})
         request
             .post('/events')
             .set("Authorization", state.token)
@@ -32,8 +30,7 @@ const actions = {
                     commit('setEvents', res.body)
                 }
             })
-      }
-  }
+    }
 }
 
 const state = {
@@ -57,11 +54,13 @@ export default {
 
 
 function loadTestState(commit){
+    console.log('loading test state')
     let i = 0
     while (i < 10){
       i++
+      let memberId = uuidV1()
       commit('applyEvent', {
-        memberId: uuidV1(),
+        memberId,
         type: 'member-created',
         name: 'Test ' + i * (11 + i*i),
         balance: i - 5,
@@ -75,7 +74,7 @@ function loadTestState(commit){
         charged: 3,
         stock: 0,
         current: [{
-          memberId: 'test'
+          memberId
         }],
         info: {}
       })

@@ -4,9 +4,10 @@ tr
     td
         current(v-for='memberId in currentMembers', :memberId='memberId')
     td
-        label {{r.resourceId}}
-    td {{ r.charged }}
-
+        router-link(:to='"/resource_stock/" + r.resourceId')
+            button.btn stock
+    td
+        label current stock: {{ r.stock }}
 
 </template>
 
@@ -32,5 +33,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
+@import '../../styles/button'
+@import '../../styles/colours'
+
+tr
+    width: 100%
+
 
 </style>

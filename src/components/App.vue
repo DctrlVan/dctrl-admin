@@ -24,6 +24,8 @@ import EventFeed from './slotUtils/EventFeed'
 
 export default {
     mounted(){
+        this.$store.dispatch('loadCurrent')
+
         let token = window.localStorage.token
         let session = window.localStorage.session
         if (token && session){

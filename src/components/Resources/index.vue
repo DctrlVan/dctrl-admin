@@ -2,7 +2,7 @@
 
 #resource
     shared-title(title='Resources')
-    .list(v-if='loggedIn')
+    .list(v-if='true')
         table
             tbody
                 row(v-for="r in resources", :r="r")
