@@ -14,9 +14,14 @@ function createFilter(members){
     return filter.toObject()
 }
 
-router.use('/bloom', (req, res, next) => {
+router.post('/bloom', (req, res, next) => {
+    console.log('in the bloom req')
     let filter = createFilter(state.serverState.members)
-    res.send({filter})
+    let f = JSON.stringify(filter)
+    console.log({f})
+    res.status(200)
+    console.log('sending res:')
+    res.send(f)
 })
 
 module.exports = router

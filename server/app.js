@@ -29,6 +29,7 @@ dctrlDb.startDb( (err, conn) => {
             console.log("Listening on port", PORT)
 
             const io = socketIo(server)
+
             socketProtector(io, {
                 authenticate: socketAuth,
                 // TODO

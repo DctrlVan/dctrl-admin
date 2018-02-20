@@ -6,8 +6,8 @@ import events from '../events'
 module.exports = function(req,res, next){
   switch (req.body.type){
       case 'invoice-created':
-           specInvoiceCreated(req, res, next)
-           break
+          specInvoiceCreated(req, res, next)
+          break
       case 'invoice-paid':
           specInvoicePaid(req, res, next)
           break
@@ -19,12 +19,12 @@ module.exports = function(req,res, next){
 function specInvoiceCreated(req, res, next){
   let errRes = []
   if (
-    validators.isId(req.body.id, errRes) &&
+    validators.isId(req.body.ownerId, errRes) &&
     validators.isNotes(req.body.memo, errRes) &&
     validators.isAmount(req.body.value, errRes)
   ){
     events.invoiceCreated(
-      req.body.id,
+      req.body.ownerId,
       req.body.memo,
       req.body.value,
       utils.buildResCallback(res)

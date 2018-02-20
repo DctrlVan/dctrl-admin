@@ -24,7 +24,8 @@ function getEventsForTask( taskId, callback ){
       .run(conn, (err, cursor)=>{
         if (err) return callback(err);
         cursor.toArray(callback)
-      })}
+      })
+}
 
 function getEventsForResource( resourceId, callback ){
   let conn = dctrlDb.getConnection()

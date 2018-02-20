@@ -10,14 +10,14 @@ module.exports = {
     invoicePaid
 }
 
-function invoiceCreated(id, memo, value, callback) {
+function invoiceCreated(ownerId, memo, value, callback) {
     lnd.addInvoice({ memo, value }, meta, (err, response) => {
         if (err) {
             callback(err);
         } else {
           let newEvent = {
               type: "invoice-created",
-              id,
+              ownerId,
               r_hash: response.r_hash,
               payment_request: response.payment_request,
               memo,

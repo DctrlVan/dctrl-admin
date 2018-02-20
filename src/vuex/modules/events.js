@@ -22,7 +22,7 @@ const actions = {
 }
 
 module.exports = {
-  state,
-  mutations,
-  actions
+    state,
+    mutations,
+    actions
 }
