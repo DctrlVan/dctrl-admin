@@ -27,8 +27,10 @@ module.exports = (resources, ev) => {
 			})
 			break
 		case "resource-stocked":
+			console.log('resource stocked mutation')
 			resources.forEach( resource => {
 				if (resource.resourceId == ev.resourceId){
+					console.log('adjusting stock, ', ev.amount)
 					resource.stock += parseFloat(ev.amount)
 				}
 			})

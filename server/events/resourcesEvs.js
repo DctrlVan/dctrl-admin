@@ -11,6 +11,7 @@ function resourceCreated(resourceId, name, charged, secret, callback) {
     let newEvent = {
         type: "resource-created",
         resourceId,
+        name,
         charged,
         stock: 0,
         current: [],

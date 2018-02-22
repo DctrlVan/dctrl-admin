@@ -10,7 +10,7 @@ module.exports = {
         errRes.push('amount must be positive number')
         return false
       }
-      return true
+      return (val >= 0)
   },
   isId(val, errRes){
       //XXX not in use
@@ -57,7 +57,7 @@ module.exports = {
   isResourceId(val, errRes){
       let result = false
       state.pubState.resources.forEach(resource =>{
-          if (val == resource.resourceId){
+          if (val === resource.resourceId){
             result = true
           }
       })
@@ -85,9 +85,11 @@ module.exports = {
       }
       return isBool
   },
+  // TODO
   isNotes(val, errRes){
       return true
   },
+  // TODO
   isSupplyType(val, errRes){
       return true
   }

@@ -36,13 +36,11 @@ import CashReceive from './components/forms/CashReceive'
 
 //Resource components
 import Resources from './components/Resources'
-
-// Resource forms
 import ResourceCreate from './components/forms/ResourceCreate'
 import ResourceUse from './components/forms/ResourceUse'
 import ResourceStock from './components/forms/ResourceStock'
 
-
+// Invoice components
 import Invoices from './components/Invoices'
 import InvoiceCreate from './components/forms/InvoiceCreate'
 

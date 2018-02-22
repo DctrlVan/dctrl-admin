@@ -20,7 +20,6 @@ import SharedTitle from '../slotUtils/SharedTitle'
 export default {
     computed: {
         invoices(){
-            console.log('should be invoices?', this.$store.state.invoices)
             return this.$store.state.invoices
         },
         isLoggedIn(){

@@ -23,9 +23,8 @@ import FormBox from '../slotUtils/FormBox'
 export default {
     mounted(){
         let resourceId = this.$router.currentRoute.path.split('/')[2]
-        if (resourceId){
-            this.info.resourceId = resourceId
-        }
+        console.log('setting resourceId', {resourceId})
+        this.info.resourceId = resourceId
     },
     data(){
         return {

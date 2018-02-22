@@ -42,7 +42,8 @@ export default new Vuex.Store({
           return isAdmin
       },
       isLoggedIn(state, getters){
-          return !!getters.memberId
+          let isLoggedIn = !!getters.memberId
+          return isLoggedIn
       }
   },
   middlewares: [],

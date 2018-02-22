@@ -2,7 +2,7 @@
 
 #resource
     shared-title(title='Resources')
-    .list(v-if='true')
+    .list(v-if='isLoggedIn')
         row(v-for="r in resources", :r="r")
     .padding(v-else)
         h5 dctrl resource
@@ -18,7 +18,7 @@
 import Row from "./Row"
 import request from "superagent"
 import SharedTitle from '../slotUtils/SharedTitle'
-import CrazyBtn from '../slotUtils/CrazyBtn'
+// import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
     computed: {
@@ -32,7 +32,7 @@ export default {
     components:{
         SharedTitle,
         Row,
-        CrazyBtn
+        // CrazyBtn
     }
 }
 

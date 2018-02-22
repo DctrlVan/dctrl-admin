@@ -19,7 +19,8 @@ applyRouter(app)
 dctrlDb.startDb( (err, conn) => {
 
     state.initialize( err => {
-        console.log(state.serverState.sessions)
+        if (err) return console.log('state initialize failed:', err)
+        console.log('state initialized!')
         // now we listen on the changefeed and keep the state up to date
         const evStream = dctrlDb.changeFeed.onValue( ev => {
             state.applyEvent(state.serverState, ev)

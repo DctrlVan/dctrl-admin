@@ -36,7 +36,6 @@ function getAll(callback) {
         })
 }
 
-
 function startFeed() {
   console.log("starting feed...")
   r
@@ -66,7 +65,7 @@ function insertEvent(ev, callback) {
 function startDb(callback){
   r.connect(config.rethink).then(rethinkDbConnection => {
     conn = rethinkDbConnection // conn is global to this file
-    console.log("db connected", conn)
+    console.log("db connected")
     r.dbList().run(conn, (err, list) => {
       if (_.includes(list, 'dctrl')) { // TODO check for table too
         startFeed()
@@ -81,7 +80,6 @@ function startDb(callback){
 function getConn(){
     return conn
 }
-
 
 module.exports = {
   conn:conn,

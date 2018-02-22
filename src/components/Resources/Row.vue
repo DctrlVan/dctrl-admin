@@ -1,17 +1,17 @@
 <template lang='pug'>
 
 .resources
-  h3 {{ r.name }}
-      span(v-if='r.stock > 0') - {{ r.stock }}
-  .row
-      .six.columns
-          label recently used by:
-          current(v-for='memberId in currentMembers', :memberId='memberId')
-      .six.columns
-          router-link(:to='"/invoice_create/" + r.resourceId')
-              button purchase
-          router-link(:to='"/resource_stock/" + r.resourceId')
-              button.refill refill
+    h3.stock {{ r.stock }}
+    h3 {{ r.name }}
+    .row
+        .six.columns
+            label recently used by:
+            current(v-for='memberId in currentMembers', :memberId='memberId')
+        .six.columns
+            router-link(:to='"/invoice_create/" + r.resourceId')
+                button purchase
+            router-link(:to='"/resource_stock/" + r.resourceId')
+                button.refill refill
 
 </template>
 
@@ -20,18 +20,13 @@
 import Current from './Current'
 
 export default {
-  props: ['r'],
-  components: {Current},
-  methods:{
-      toResourceLocation(){
-          this.$router.push( '/RESOURCE/' + this.r.resourceId)
-      },
-  },
-  computed: {
-      currentMembers(){
-          return this.r.current.map(ev => ev.memberId)
-      },
-  },
+    props: ['r'],
+    components: { Current },
+    computed: {
+        currentMembers(){
+            return this.r.current.map(ev => ev.memberId)
+        },
+    },
 }
 
 </script>
@@ -44,9 +39,14 @@ export default {
 
 .resources
     width: 100%
+    border-style: dotted
+    border-color: accent2
+    border-width: 1px
+    padding: 1em
 
-h3
-    text-align:center
+.stock
+    float: right
+    color: accent2
 
 .refill
     color: main
