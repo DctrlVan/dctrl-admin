@@ -1,11 +1,10 @@
 <template lang='pug'>
 
 ul.navigation
+    router-link(v-if='isLoggedIn', to='/mypage') My Page
     router-link(to='/MEMBERS') Members
     router-link(to='/RESOURCES') Resources
     router-link(to='/TASKS') Tasks
-    router-link(to='/CALENDAR') Calendar
-
     .admin(v-if='isAdmin')
         label admin
         router-link(to='/HISTORY') View All Events
@@ -17,11 +16,13 @@ ul.navigation
 export default {
     name: 'navigation',
     computed: {
-        isAdmin(){
-            return true // TODO
-        }
+        memberId(){
+            return this.$store.getters.memberId
+        },
+        isLoggedIn(){
+            return this.$store.getters.isLoggedIn
+        },
     }
-
 }
 </script>
 

@@ -14,5 +14,6 @@ router.use('/events', membersSpec)
 router.use('/events', dctrlSpec)
 router.use('/events', tasksSpec)
 router.use('/events', resourcesSpec)
+router.use('/events', invoicesSpec)
 
 module.exports = router

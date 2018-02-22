@@ -4,6 +4,7 @@
     shared-title(title='dctrl community commons')
     auth
     p Welcome to dctrl, smart community application for the singularity.
+    p 
     p ... TODO
     p We host &nbsp;
         a(href='https://www.meetup.com/dctrlvan/') meetups &nbsp;

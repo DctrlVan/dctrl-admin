@@ -24,7 +24,7 @@ export default {
     },
     computed: {
         imgTag(){
-            let typeNumber = 4;
+            let typeNumber = 10;
             let errorCorrectionLevel = 'L';
             let qr = qrcode(typeNumber, errorCorrectionLevel);
             let address = 'x'

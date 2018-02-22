@@ -41,7 +41,7 @@ export default {
             return '/MEMBER_PAID_STUFF/' + this.m.memberId
         },
         memberLocation(){
-            return '/MEMBER/' + this.m.memberId
+            return '/calendar/' + this.m.memberId
         },
         bal(){
             return parseFloat(this.m.balance).toFixed(2)

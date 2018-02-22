@@ -1,29 +1,26 @@
 <template lang='pug'>
 
 #resource
-    shared-title(title='Resources')
+    shared-title(title='Invoices')
     .list(v-if='isLoggedIn')
-        row(v-for="r in resources", :r="r")
+        row(v-for="i in invoices", :i="i")
     .padding(v-else)
-        h5 dctrl resource
+        h5 dctrl invoices
         ol
-            li Raspberry pi running dctrl-fobtap rfid scan point.
-            li Dctrl-admin compatible lightning point of sale service
-            li Possible human, magical entity, fairy, cyborg or alien.
+            li lightning network payment requests to account or resource
 
 </template>
 
 <script>
 
-import Row from "./Row"
 import request from "superagent"
+import Row from "./Row"
 import SharedTitle from '../slotUtils/SharedTitle'
-// import CrazyBtn from '../slotUtils/CrazyBtn'
 
 export default {
     computed: {
-        resources(){
-            return this.$store.state.resources
+        invoices(){
+            return this.$store.state.invoices
         },
         isLoggedIn(){
             return this.$store.getters.isLoggedIn
@@ -32,7 +29,6 @@ export default {
     components:{
         SharedTitle,
         Row,
-        // CrazyBtn
     }
 }
 

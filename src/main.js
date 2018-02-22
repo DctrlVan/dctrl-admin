@@ -36,18 +36,21 @@ import CashReceive from './components/forms/CashReceive'
 
 //Resource components
 import Resources from './components/Resources'
-
-// Resource forms
 import ResourceCreate from './components/forms/ResourceCreate'
 import ResourceUse from './components/forms/ResourceUse'
 import ResourceStock from './components/forms/ResourceStock'
 
+// Invoice components
+import Invoices from './components/Invoices'
+import InvoiceCreate from './components/forms/InvoiceCreate'
+
 import Manage from './components/Manage'
-import CashHistory from './components/CashHistory'
 import Auth from './components/Auth'
 
-import Calendar from './components/EventsCalendar'
+import MemberCalendar from './components/MemberCalendar'
 import List from './components/EventsList'
+
+import MyPage from './components/MyPage'
 
 // TODO refactor this by module too?
 const routes = [{
@@ -63,8 +66,17 @@ const routes = [{
       path: '/history',
       component: List
     },{
-      path: '/calendar',
-      component: Calendar
+      path: '/invoices',
+      component: Invoices
+    },{
+      path: '/invoice_create/*',
+      component: InvoiceCreate
+    },{
+      path: '/mypage',
+      component: MyPage
+    },{
+      path: '/calendar/*',
+      component: MemberCalendar
     },{
       path: '/member_create',
       component: MemberCreate
@@ -125,11 +137,7 @@ const routes = [{
     },{
       path:'/manage',
       component: Manage
-    },{
-      path: '/cash_history',
-      component: CashHistory
-    }
-    ]
+    }]
   }]
 
 const router = new VueRouter({

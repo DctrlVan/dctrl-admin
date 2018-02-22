@@ -58,14 +58,12 @@ function serverAuth(req, res, next){
         }
     } else {
         // otherwise we validate there authorization token in the header
-        console.log('attempting auth on' , req.headers)
         let authorized = false
         state.serverState.sessions.forEach(session => {
             if (session.token === req.headers.authorization){
                 authorized = true
             }
         })
-
         if (authorized){
             console.log('authorized!')
             next()

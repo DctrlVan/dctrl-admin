@@ -5,10 +5,7 @@
     table
       tr
         td
-            span Current Cash: {{bal}}
-        td
-            router-link(to='CASH_HISTORY')
-                img(src='../../assets/images/calendar.svg')
+          span Current Cash: {{bal}}
     .full.row
       .six.columns
           label Cash Receive

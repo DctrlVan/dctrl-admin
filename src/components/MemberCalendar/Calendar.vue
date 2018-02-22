@@ -1,21 +1,13 @@
 <template lang="pug">
 
 #calendar
-    .row.legend
-        .nine.columns &nbsp;
-        .three.columns
-            table
-                tr
-                    td.paidbox.signcell
-                    td Paid
     .row.menu
         .three.columns(@click='prevMonth')
-            img(src='../../../assets/images/left.svg')
+            img(src='../../assets/images/left.svg')
         .six.columns {{ monthName }} - {{year}}
         .three.columns(@click='nextMonth')
-            img(src='../../../assets/images/right.svg')
-    slot
-    .weekday(v-for='dayName in DAYS_OF_WEEK') {{dayName}}
+            img(src='../../assets/images/right.svg')
+    .weekday(v-for='day in DAYS_OF_WEEK') {{ day }}
     .placeholder(v-for='placeholder in firstDay')
     day(v-for='day in days', :day="day", :month='month', :year='year')
 
@@ -28,7 +20,7 @@ export default {
   components: {
     Day
   },
-  methods:  {
+  methods: {
       nextMonth(){
           if (this.month == 11){
             this.year++
@@ -58,7 +50,6 @@ export default {
     firstDay(){
       let date = new Date(this.year, this.month, 1)
       let firstDay = date.getDay()
-      console.log({date, firstDay})
       return firstDay
     },
     days(){
@@ -83,7 +74,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-@import '../../../styles/colours'
+@import '../../styles/colours'
 #calendar
     color: accent1
     font-size:2em
@@ -124,16 +115,19 @@ export default {
 td
     border: none
 
-.paidbox, .chargedbox
+.availablebox, .bookedbox
     height: 20px
     width: 20px
 
-.paidbox
-    background-color: accent1
-.chargedbox
+.bookedbox
+    background-color: green
+.availablebox
     background-color: accent2
 .signcell
     max-width: 0px
+
+.downhalfbox
+    padding-top: 10px
 
 table
     font-size: .7em
@@ -143,6 +137,9 @@ tr, td
     padding-left: 11px
 .ch
     color: accent2
+
+.do
+    color: green
 
 img
     height: 30px

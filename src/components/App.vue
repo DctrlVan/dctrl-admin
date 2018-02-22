@@ -12,6 +12,8 @@
           main-menu
       .content
           router-view
+    img(src='../assets/images/decent_logo_alpha_no_text.svg')
+
 
 </template>
 
@@ -24,6 +26,8 @@ import EventFeed from './slotUtils/EventFeed'
 
 export default {
     mounted(){
+        this.$store.dispatch('loadCurrent')
+
         let token = window.localStorage.token
         let session = window.localStorage.session
         if (token && session){

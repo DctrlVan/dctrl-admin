@@ -29,24 +29,23 @@ export default {
     components: { },
     methods: {
       post(){
-        let vue = this
-        vue.response = true // hides forms
-        vue.data.type = vue.event
+
+        this.response = true // hides forms
+        this.data.type = this.event
         request
             .post('/events')
             .set('Authorization', this.$store.state.loader.token)
             .send(this.data)
             .end((err,res)=>{
                 if (err){
-                    vue.showError = true
-                    console.log('in the error handling with', res.body)
-                    vue.errTxt = res.body[0]
-                    // TODO: explain this error handling
+                    this.showError = true
+                    console.log('err from /events', err )
+                    if (res.body) this.errTxt = res.body[0];
                     return setTimeout( ()=>{
-                        vue.response = false
+                        this.response = false
                     } , 3456)
                 } else {
-                    vue.$router.push('/')
+                    this.$router.push('/')
                 }
 
             })

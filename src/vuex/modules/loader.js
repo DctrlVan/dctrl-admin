@@ -2,22 +2,35 @@ import request from 'superagent'
 import uuidV1 from 'uuid/v1'
 
 const actions = {
-  loadCurrent({ commit, state }){
-      console.log('loading current?', state)
-      if (state.token){
+    loadCurrent({ commit, state }){
         request
             .post('/state')
             .set("Authorization", state.token)
             .end((err, res)=>{
                 if (err || !res.body) {
                     console.log(err)
+                    loadTestState(commit)
                 } else {
                     console.log('response from server /state:', res.body)
                     commit('setCurrent', res.body)
                 }
             })
-      }
-  }
+    },
+    loadEvents({ commit, state }, forWho ){
+        console.log('attempting to load events', {forWho})
+        request
+            .post('/evdb')
+            .set("Authorization", state.token)
+            .send(forWho)
+            .end((err, res)=>{
+                if (err || !res.body) {
+                    console.log(err)
+                } else {
+                    console.log('response from server /events:', res.body)
+                    commit('setEvents', res.body)
+                }
+            })
+    }
 }
 
 const state = {
@@ -41,26 +54,28 @@ export default {
 
 
 function loadTestState(commit){
+    console.log('loading test state')
     let i = 0
+    let current = []
     while (i < 10){
       i++
+      let memberId = uuidV1()
       commit('applyEvent', {
-        memberId: uuidV1(),
+        memberId,
         type: 'member-created',
         name: 'Test ' + i * (11 + i*i),
         balance: i - 5,
         active: i
       })
 
+      current.push({memberId})
       commit('applyEvent', {
         resourceId: uuidV1(),
+        name: 'bitpepsi',
         type: "resource-created",
-        resourceId: 'test-id',
         charged: 3,
-        stock: 0,
-        current: [{
-          memberId: 'test'
-        }],
+        stock: 52,
+        current,
         info: {}
       })
 
