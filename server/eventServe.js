@@ -6,8 +6,8 @@ import dctrlDb from './dctrlDb'
 
 const router = express.Router()
 
-router.use('/events', (req, res, next) => {
-    console.log('inside the event serving middleware', req.body, dctrlDb)
+router.post('/evdb', (req, res, next) => {
+    console.log('inside the event serving middleware. filter:', req.body)
     r
         .table('events')
         .orderBy('timestamp') //todo index

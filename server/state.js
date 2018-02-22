@@ -4,6 +4,7 @@ import mutations from '../src/mutations'
 
 const serverState = {
   connections: [],
+  invoices: [],
   sessions: [],
   members: [],
   tasks: [],
@@ -12,6 +13,7 @@ const serverState = {
 }
 
 const pubState = {
+  invoices: [],
   connections: [],
   sessions: [],
   members: [],
@@ -27,6 +29,7 @@ function applyEvent(state, ev) {
     mutations.tasksMuts(state.tasks, ev)
     mutations.sessionsMuts(state.sessions, ev)
     mutations.resourcesMuts(state.resources, ev)
+    mutations.invoicesMuts(state.invoices, ev)
 }
 
 function initialize(callback) {

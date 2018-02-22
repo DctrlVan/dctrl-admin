@@ -1,19 +1,15 @@
 <template lang='pug'>
 
 .resourcesummary
-    //- img(src='../../assets/images/decent_logo_alpha_no_text.svg')
-    //- .padding
-    //-     input(v-model='search')
-    //-     span search by name of resource/member/task
-    //- button(@click='load')
     shared-title(:title='calcTitle')
     calendar
 
 </template>
 
 <script>
+
 import request from 'superagent'
-import Calendar from './SummaryCalendar'
+import Calendar from './Calendar'
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
@@ -24,26 +20,11 @@ export default {
         }
     },
     mounted(){
-        this.load()
-    },
-    methods: {
-        load(){
-            let id
-            let session = this.$store.state.loader.session
-
-            console.log('loader session?',this.$store.state.loader.session)
-            console.log('loading for', {session})
-
-            this.$store.state.sessions.forEach( s => {
-              if (s.session === session){
-                id = s.ownerId
-              }
-            })
-            console.log('mounted loading', {id})
-            this.id = id
-            console.log('loading.... id:', this.id)
-            this.$store.dispatch('loadEvents', { memberId: this.id })
-        }
+      let memberId = this.$router.currentRoute.path.split('/')[2]
+      if (!memberId){
+          memberId = this.$store.getters.memberId
+      }
+      this.$store.dispatch('loadEvents', { memberId })
     },
     computed: {
         calcTitle(){

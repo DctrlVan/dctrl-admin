@@ -19,7 +19,7 @@ const actions = {
     loadEvents({ commit, state }, forWho ){
         console.log('attempting to load events', {forWho})
         request
-            .post('/events')
+            .post('/evdb')
             .set("Authorization", state.token)
             .send(forWho)
             .end((err, res)=>{
@@ -56,6 +56,7 @@ export default {
 function loadTestState(commit){
     console.log('loading test state')
     let i = 0
+    let current = []
     while (i < 10){
       i++
       let memberId = uuidV1()
@@ -67,15 +68,14 @@ function loadTestState(commit){
         active: i
       })
 
+      current.push({memberId})
       commit('applyEvent', {
         resourceId: uuidV1(),
+        name: 'bitpepsi',
         type: "resource-created",
-        resourceId: 'test-id',
         charged: 3,
-        stock: 0,
-        current: [{
-          memberId
-        }],
+        stock: 52,
+        current,
         info: {}
       })
 

@@ -4,15 +4,12 @@
   .amount.inc(v-if='balChange > 0') {{ balChange }}
   .amount.dec(v-if='balChange < 0') {{ balChange }}
   template(v-for='t in evTypes')
-      label.type {{ t }}
+    label.type {{ t }}
 
 </template>
 
 <script>
 import _ from 'lodash'
-import MainEvent from './MainEvent.vue'
-import Tooltip from 'tether-tooltip'
-import Vue from 'vue'
 
 function getDMY(ts){
     let d = new Date(ts)
@@ -23,9 +20,7 @@ function getDMY(ts){
 }
 
 export default {
-  components: {
-    MainEvent
-  },
+  components: {},
   props: ['day', 'month', 'year'],
   computed: {
       todaysEvents(){
@@ -49,21 +44,15 @@ export default {
           this.todaysEvents.forEach( ev => {
               evTypes.push(ev.type)
           })
-          if (evTypes.length > 0){
-              console.log({evTypes})
-              console.log(_.uniq(evTypes))
-          }
           return _.uniq(evTypes)
       }
-
-
   },
 }
 </script>
 
 <style lang='stylus' scoped>
 
-@import '../../../styles/colours'
+@import '../../styles/colours'
 
 label
     padding: 0

@@ -1,6 +1,6 @@
 <template lang='pug'>
 
-div
+span
     img(src='../../assets/images/active15.svg')
     span {{ name }}
 

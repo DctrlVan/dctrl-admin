@@ -18,6 +18,7 @@ module.exports = function(req,res, next){
 
 function specInvoiceCreated(req, res, next){
   let errRes = []
+  console.log('specInvoiceCreated: req body --', req.body)
   if (
     validators.isId(req.body.ownerId, errRes) &&
     validators.isNotes(req.body.memo, errRes) &&

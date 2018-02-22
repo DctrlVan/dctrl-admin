@@ -2,17 +2,22 @@
 
 #home
     shared-title(title='name here')
-    p TODO
+    p TODO - way to change password
+    calendar
 
 </template>
 
 <script>
 
+import Calendar from '../MemberCalendar'
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
     components:{
-        SharedTitle
+        SharedTitle, Calendar
+    },
+    methods: {
+
     }
 }
 
@@ -21,6 +26,5 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
-
 
 </style>

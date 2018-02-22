@@ -12,6 +12,8 @@
           main-menu
       .content
           router-view
+    img(src='../assets/images/decent_logo_alpha_no_text.svg')
+
 
 </template>
 

@@ -34,10 +34,10 @@ function getCadPrice(callback){
             .get('https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCCAD')
             .set('X-signature', createBitcoinAverageSignature())
             .end((err, res)=> {
-              if (err) return callback(err);
-                  currentCadPrice = res.body.last
-                  callback(null, currentCadPrice)
-                  setTimeout(resetCadPrice , 30000)
+                if (err) return callback(err);
+                currentCadPrice = res.body.last
+                callback(null, currentCadPrice)
+                setTimeout(resetCadPrice , 30000)
             })
     } else {
         console.log('req throttled using', {currentCadPrice})

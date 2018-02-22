@@ -42,10 +42,14 @@ import ResourceCreate from './components/forms/ResourceCreate'
 import ResourceUse from './components/forms/ResourceUse'
 import ResourceStock from './components/forms/ResourceStock'
 
+
+import Invoices from './components/Invoices'
+import InvoiceCreate from './components/forms/InvoiceCreate'
+
 import Manage from './components/Manage'
 import Auth from './components/Auth'
 
-import Calendar from './components/EventsCalendar'
+import MemberCalendar from './components/MemberCalendar'
 import List from './components/EventsList'
 
 import MyPage from './components/MyPage'
@@ -64,11 +68,17 @@ const routes = [{
       path: '/history',
       component: List
     },{
+      path: '/invoices',
+      component: Invoices
+    },{
+      path: '/invoice_create/*',
+      component: InvoiceCreate
+    },{
       path: '/mypage',
       component: MyPage
     },{
-      path: '/calendar',
-      component: Calendar
+      path: '/calendar/*',
+      component: MemberCalendar
     },{
       path: '/member_create',
       component: MemberCreate

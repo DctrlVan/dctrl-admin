@@ -1,13 +1,17 @@
 <template lang='pug'>
 
-tr
-    td
-        current(v-for='memberId in currentMembers', :memberId='memberId')
-    td
-        router-link(:to='"/resource_stock/" + r.resourceId')
-            button.btn stock
-    td
-        label current stock: {{ r.stock }}
+.resources
+  h3 {{ r.name }}
+      span(v-if='r.stock > 0') - {{ r.stock }}
+  .row
+      .six.columns
+          label recently used by:
+          current(v-for='memberId in currentMembers', :memberId='memberId')
+      .six.columns
+          router-link(:to='"/invoice_create/" + r.resourceId')
+              button purchase
+          router-link(:to='"/resource_stock/" + r.resourceId')
+              button.refill refill
 
 </template>
 
@@ -25,7 +29,7 @@ export default {
   },
   computed: {
       currentMembers(){
-          return this.r.current
+          return this.r.current.map(ev => ev.memberId)
       },
   },
 }
@@ -35,10 +39,18 @@ export default {
 <style lang="stylus" scoped>
 
 @import '../../styles/button'
+@import '../../styles/grid'
 @import '../../styles/colours'
 
-tr
+.resources
     width: 100%
 
+h3
+    text-align:center
+
+.refill
+    color: main
+    background: green
+    border-color: green
 
 </style>
