@@ -75,7 +75,7 @@ export default {
               })
       },
       killSession(){
-          //XXX tell server to remove session
+          //XXX TODO tell server to remove session
           window.localStorage.removeItem("token")
           window.localStorage.removeItem("session")
           window.location.reload()

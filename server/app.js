@@ -33,7 +33,7 @@ dctrlDb.startDb( (err, conn) => {
 
             socketProtector(io, {
                 authenticate: socketAuth,
-                // TODO
+                // TODO:
                 // postAuthenticate:
                 // disconnect:
                 // timeout:
@@ -43,6 +43,7 @@ dctrlDb.startDb( (err, conn) => {
                 .map(state.removeSensitive)
                 .onValue( ev => {
                     state.applyEvent(state.pubState, ev)
+                    console.log('emitting event')
                     io.emit('eventstream', ev)
                 })
 
