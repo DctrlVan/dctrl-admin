@@ -2,11 +2,11 @@
 
 tr(class="")
     td
-        label {{m.balance.toFixed(2)}}
+        label {{ m.balance.toFixed(2) }}
     td
         dctrl-active(:m='m')
     td
-        span {{m.name}}
+        span {{ m.name }}
     td
         router-link(:to='payStuffLocation')
             img.pay(src='../../assets/images/abundance.svg')

@@ -35,7 +35,7 @@ export default new Vuex.Store({
       isAdmin(state, getters){
           let isAdmin
           state.members.forEach(member => {
-              if( getters.memberId === memberId){
+              if( getters.memberId === member.memberId){
                   isAdmin = member.isAdmin // TODO
               }
           })
@@ -44,6 +44,15 @@ export default new Vuex.Store({
       isLoggedIn(state, getters){
           let isLoggedIn = !!getters.memberId
           return isLoggedIn
+      },
+      name(state, getters){
+          let name
+          state.members.forEach(member => {
+              if( getters.memberId === member.memberId){
+                  name = member.name // TODO
+              }
+          })
+          return name
       }
   },
   middlewares: [],

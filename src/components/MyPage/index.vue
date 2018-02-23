@@ -1,7 +1,7 @@
 <template lang='pug'>
 
 #home
-    shared-title(title='name here')
+    shared-title(:title='name')
     p TODO - way to change password
     calendar
 
@@ -16,8 +16,10 @@ export default {
     components:{
         SharedTitle, Calendar
     },
-    methods: {
-
+    computed: {
+        name(){
+            return this.$store.getters.name
+        }
     }
 }
 
