@@ -4,49 +4,25 @@ tr(class="")
     td
         label {{ m.balance.toFixed(2) }}
     td
+        span {{ m.name }}
         dctrl-active(:m='m')
     td
-        span {{ m.name }}
+        badges(:m='m')
     td
-        router-link(:to='payStuffLocation')
-            img.pay(src='../../assets/images/abundance.svg')
-        router-link(:to='payBtcLocation')
-            img.pay(src='../../assets/images/bitcoin.svg')
-        router-link.pad(:to='payLocation')
-            img.pay(src='../../assets/images/cash1.svg')
-    td
-        router-link(:to='memberLocation')
+        router-link(:to='\'/calendar/\' + this.m.memberId')
             img(src='../../assets/images/calendar.svg')
 
 </template>
 
 
 <script>
+
 import DctrlActive from './DctrlActive'
+import Badges from './Badges'
 
 export default {
     props: ['m'],
-    components: {DctrlActive},
-    computed: {
-        payLocation(){
-            return '/MEMBER_PAID/' + this.m.memberId
-        },
-        chargeLocation(){
-            return '/MEMBER_CHARGED/' + this.m.memberId
-        },
-        payBtcLocation(){
-            return '/MEMBER_PAID_BTC/' + this.m.memberId
-        },
-        payStuffLocation(){
-            return '/MEMBER_PAID_STUFF/' + this.m.memberId
-        },
-        memberLocation(){
-            return '/calendar/' + this.m.memberId
-        },
-        bal(){
-            return parseFloat(this.m.balance).toFixed(2)
-        },
-    }
+    components: {DctrlActive, Badges},
 }
 
 </script>
@@ -61,7 +37,7 @@ export default {
     margin-right: 5px
 
 span
-    color: accent3
+    color: accent1
     font-size: 1.4em
     text-align: center
     margin: 10px

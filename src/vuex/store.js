@@ -35,10 +35,15 @@ export default new Vuex.Store({
       isAdmin(state, getters){
           let isAdmin
           state.members.forEach(member => {
-              if( getters.memberId === member.memberId){
-                  isAdmin = member.isAdmin // TODO
+              if(getters.memberId === member.memberId){
+                  member.badges.forEach( b => {
+                      if (b === 'admin'){
+                          isAdmin = true
+                      }
+                  })
               }
           })
+          console.log('is admin asd', isAdmin)
           return isAdmin
       },
       isLoggedIn(state, getters){

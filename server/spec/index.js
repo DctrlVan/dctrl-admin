@@ -9,11 +9,11 @@ import invoicesSpec from './invoicesSpec'
 
 const router = express.Router()
 
-router.use('/events', preAuth)
-router.use('/events', membersSpec)
-router.use('/events', dctrlSpec)
-router.use('/events', tasksSpec)
-router.use('/events', resourcesSpec)
-router.use('/events', invoicesSpec)
+router.post('/events', preAuth)
+router.post('/events', membersSpec)
+router.post('/events', dctrlSpec)
+router.post('/events', tasksSpec)
+router.post('/events', resourcesSpec)
+router.post('/events', invoicesSpec)
 
 module.exports = router

@@ -3,7 +3,7 @@
 #member
     crazy-btn(v-if='loggedIn' to='/member_create' text='new member')
     shared-title(title='Illuminati Hit List')
-    .list(v-if='loggedIn')
+    .list(v-if='true')
         tab
             row(v-for="m in members", :m="m")
     .padding(v-else)

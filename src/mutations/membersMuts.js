@@ -1,9 +1,11 @@
+import _ from 'lodash'
+
 module.exports = (members, ev)=> {
   switch (ev.type){
       case "member-created":
           members.push(ev)
           break
-
+          
       case "member-activated":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -60,6 +62,20 @@ module.exports = (members, ev)=> {
           members.forEach( member => {
               if (member.memberId === ev.memberId){
                   member.address = ev.address
+              }
+          })
+          break
+      case "badge-added":
+          members.forEach( member => {
+              if (member.memberId === ev.memberId){
+                  member.badges.push( ev.badge )
+              }
+          })
+          break
+      case "badge-removed":
+          members.forEach( member => {
+              if (member.memberId === ev.memberId){
+                  _.remove(member.badges, n => n === ev.badge)
               }
           })
           break

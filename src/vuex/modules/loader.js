@@ -65,7 +65,8 @@ function loadTestState(commit){
         type: 'member-created',
         name: 'Test ' + i * (11 + i*i),
         balance: i - 5,
-        active: i
+        active: i,
+        badges:['admin', 'doge', 'bullet', 'bitpepsi']
       })
 
       current.push({memberId})

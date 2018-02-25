@@ -3,7 +3,7 @@ import validators from './validators'
 import events from '../events'
 
 // export single middleware for each type
-module.exports = function(req,res, next){
+module.exports = function(req,res,next){
   switch (req.body.type){
       case 'member-created':
            specMemberCreated(req, res, next)
@@ -22,6 +22,12 @@ module.exports = function(req,res, next){
           break
       case 'member-address-updated':
           specMemberAddressUpdated(req, res, next)
+          break
+      case 'badge-added':
+          specBadgeAdded(req, res, next)
+          break
+      case 'badge-removed':
+          specBadgeRemoved(req, res, next)
           break
       default:
           next()
@@ -126,4 +132,36 @@ function specMemberActivated(req, res, next){
   } else {
     res.status(200).send(errRes)
   }
+}
+
+function specBadgeAdded(req, res, next){
+    let errRes = []
+    if (
+      validators.isMemberId(req.body.memberId, errRes) &&
+      validators.isNotes( req.body.badge )
+    ){
+      events.badgeRemoved(
+        req.body.memberId,
+        req.body.badge,
+        utils.buildResCallback(res)
+      )
+    } else {
+      res.status(200).send(errRes)
+    }
+}
+
+function specBadgeRemoved(req, res, next){
+    let errRes = []
+    if (
+      validators.isMemberId(req.body.memberId, errRes) &&
+      validators.isNotes( req.body.badge )
+    ){
+      events.badgeRemoved(
+        req.body.memberId,
+        req.body.badge,
+        utils.buildResCallback(res)
+      )
+    } else {
+      res.status(200).send(errRes)
+    }
 }

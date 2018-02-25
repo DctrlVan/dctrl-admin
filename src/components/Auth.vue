@@ -41,7 +41,7 @@ export default {
   },
   computed: {
       confirmed(){
-          return this.$store.state.loader.token
+          return this.$store.getters.isLoggedIn
       },
   },
   methods: {
@@ -78,7 +78,9 @@ export default {
           //XXX TODO tell server to remove session
           window.localStorage.removeItem("token")
           window.localStorage.removeItem("session")
-          window.location.reload()
+          this.$store.commit('setAuth', {
+              token: '', session: ''
+          })
       }
   }
 }

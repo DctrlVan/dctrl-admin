@@ -30,7 +30,7 @@ export default {
           return this.$store.state.tasks
       },
       loggedIn(){
-          return this.$store.state.loader.token
+          return this.$store.getters.isLoggedIn
       }
   },
     components:{
