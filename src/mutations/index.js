@@ -1,17 +1,17 @@
 import cashMuts from './cashMuts'
-import membersMuts from './membersMuts'
-import tasksMuts from './tasksMuts'
-import resourcesMuts from './resourcesMuts'
-import invoicesMuts from './invoicesMuts'
-import sessionsMuts from './sessionsMuts'
 import connectionsMuts from './connectionsMuts'
+import invoicesMuts from './invoicesMuts'
+import membersMuts from './membersMuts'
+import resourcesMuts from './resourcesMuts'
+import sessionsMuts from './sessionsMuts'
+import tasksMuts from './tasksMuts'
 
 module.exports = {
     cashMuts,
-    membersMuts,
-    tasksMuts,
-    resourcesMuts,
+    connectionsMuts,
     invoicesMuts,
+    membersMuts,
+    resourcesMuts,
     sessionsMuts,
-    connectionsMuts
+    tasksMuts,
 }

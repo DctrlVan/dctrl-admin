@@ -59,4 +59,7 @@ a:hover, .router-link-active
     color: main
     border-color: main
 
+li
+    color: accent2
+
 </style>

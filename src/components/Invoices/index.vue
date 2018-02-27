@@ -20,7 +20,13 @@ import SharedTitle from '../slotUtils/SharedTitle'
 export default {
     computed: {
         invoices(){
-            return this.$store.state.invoices
+            let ownerId = this.$router.currentRoute.path.split('/')[2]
+            if ( !ownerId ){
+                ownerId = this.$store.getters.memberId
+            }
+            return this.$store.state.invoices.filter(i => {
+                return i.ownerId === ownerId
+            })
         },
         isLoggedIn(){
             return this.$store.getters.isLoggedIn

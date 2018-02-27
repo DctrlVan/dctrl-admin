@@ -13,5 +13,5 @@ module.exports = Object.assign({},
     tasksEvs,
     resourcesEvs,
     invoicesEvs,
-    sessionsEvs
+    sessionsEvs,
 )

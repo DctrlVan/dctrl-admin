@@ -1,7 +1,23 @@
 // https://apiv2.bitcoinaverage.com/#requests
-const config = require('../configuration')
 const crypto = require('crypto');
 const request = require('superagent')
+const config = require('../configuration')
+const events = require('./events')
+const state = require('./state')
+const validators = require('./spec/validators')
+
+function watchSpot(){
+    getRecordSpot()
+    setInterval( getRecordSpot, 1260000 )
+}
+
+function getRecordSpot(){
+    getPrice( (err, spot)=> {
+        if (!err){
+            events.spotUpdated(spot)
+        }
+    })
+}
 
 function createBitcoinAverageSignature(){
     // Step 1 - Create a payload consisting of “timestamp.public_key”:
@@ -22,31 +38,23 @@ function createBitcoinAverageSignature(){
     return step1 + step2
 }
 
-// Use these to throttle requests
-var currentCadPrice = false
-function resetCadPrice(){
-    currentCadPrice = false
-}
-
-function getCadPrice(callback){
-    if (!currentCadPrice){
-        request
-            .get('https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCCAD')
-            .set('X-signature', createBitcoinAverageSignature())
-            .end((err, res)=> {
-                if (err) return callback(err);
-                currentCadPrice = res.body.last
-                callback(null, currentCadPrice)
-                setTimeout(resetCadPrice , 30000)
-            })
-    } else {
-        console.log('req throttled using', {currentCadPrice})
-        callback(null, currentCadPrice)
-    }
+function getPrice(callback){
+    request
+        .get('https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC' + state.pubState.cash.currency)
+        .set('X-signature', createBitcoinAverageSignature())
+        .end((err, res)=> {
+            if (err) return callback(err);
+            if ( validators.isAmount(res.body.last) ) {
+                callback(null, res.body.last)
+            } else {
+                callback('invalid res?')
+            }
+        })
 }
 
 module.exports = {
-    getCadPrice,
+    getPrice,
+    watchSpot
 }
 
 // success: {

@@ -5,7 +5,7 @@ module.exports = (members, ev)=> {
       case "member-created":
           members.push(ev)
           break
-          
+
       case "member-activated":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -37,6 +37,7 @@ module.exports = (members, ev)=> {
               }
           })
           break
+
       case "resource-stocked":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -44,6 +45,7 @@ module.exports = (members, ev)=> {
               }
           })
           break
+
       case "resource-used":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -51,6 +53,7 @@ module.exports = (members, ev)=> {
               }
           })
           break
+
       case "task-claimed":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -58,6 +61,7 @@ module.exports = (members, ev)=> {
               }
           })
           break
+
       case "member-address-updated":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -65,6 +69,15 @@ module.exports = (members, ev)=> {
               }
           })
           break
+
+      case "member-secret-updated":
+          members.forEach( member => {
+              if (member.memberId === ev.memberId){
+                  member.secret = ev.secret
+              }
+          })
+          break
+
       case "badge-added":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
@@ -72,6 +85,7 @@ module.exports = (members, ev)=> {
               }
           })
           break
+
       case "badge-removed":
           members.forEach( member => {
               if (member.memberId === ev.memberId){

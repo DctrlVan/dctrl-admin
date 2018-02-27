@@ -2,7 +2,12 @@
 
 #home
     shared-title(:title='name')
-    p TODO - way to change password
+    p TODO
+    ol
+      li way to change password
+      li way to get new address
+      li !! way to input addresses if you are on multisig !! -- way to verify?, sign? keybase?
+      li 
     calendar
 
 </template>
@@ -13,7 +18,7 @@ import Calendar from '../MemberCalendar'
 import SharedTitle from '../slotUtils/SharedTitle'
 
 export default {
-    components:{
+    components: {
         SharedTitle, Calendar
     },
     computed: {

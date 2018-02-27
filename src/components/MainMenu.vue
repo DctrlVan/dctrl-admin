@@ -3,6 +3,7 @@
 nav
   router-link(to='/')
       img(src='../assets/images/dctrl.svg')
+  li 1 BTC = ${{ cadPrice }}
   navigation
 
 
@@ -14,6 +15,12 @@ import Navigation from './Navigation'
 export default {
   components:{
       Navigation
+  },
+  computed: {
+    cadPrice(){
+        console.log('cadPrice?::', this.$store.state.cash.spot)
+        return this.$store.state.cash.spot.toLocaleString()
+    }
   }
 }
 </script>
@@ -25,13 +32,16 @@ export default {
 @import '../styles/breakpoints'
 
 nav
-  display: none;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
 
 img
     padding: 2rem
     height: 160px
+
+li
+    margin-left: 3em
+
 
 </style>

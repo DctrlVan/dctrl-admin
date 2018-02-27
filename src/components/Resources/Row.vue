@@ -8,15 +8,21 @@
             label recently used by:
             current(v-for='memberId in currentMembers', :memberId='memberId')
         .six.columns
-            router-link(:to='"/invoice_create/" + r.resourceId')
-                button purchase
+            router-link(:to='"/invoices/" + r.resourceId')
+                button(@click='createPayRec')
+                    img.r(src='../../assets/images/lightning.svg')
+                    img.r(src='../../assets/images/lightning.svg')
+                    img.l(src='../../assets/images/lightning.svg')
+                    img.l(src='../../assets/images/lightning.svg')
+                    span {{sats.toLocaleString()}} sats = ${{ r.charged.toLocaleString() }}
+
             router-link(:to='"/resource_stock/" + r.resourceId')
-                button.refill refill
+                button.refill replenish
 
 </template>
 
 <script>
-
+import request from 'superagent'
 import Current from './Current'
 
 export default {
@@ -26,7 +32,29 @@ export default {
         currentMembers(){
             return this.r.current.map(ev => ev.memberId)
         },
+        sats(){
+            let sats = this.r.charged / this.$store.state.cash.spot * 100000000
+            return sats.toFixed(0)
+        },
     },
+    methods: {
+        createPayRec(){
+            console.log('creating payment request? ')
+            request
+                .post('/events')
+                .set('Authorization', this.$store.state.loader.token)
+                .send({
+                    type: 'invoice-created',
+                    value: this.sats,
+                    memo: this.r.name,
+                    ownerId: this.r.resourceId
+                })
+                .end((err,res)=>{
+                    if (err) return console.log(err);
+                    console.log('createPayRec:', res.body)
+                })
+        }
+    }
 }
 
 </script>
@@ -36,6 +64,16 @@ export default {
 @import '../../styles/button'
 @import '../../styles/grid'
 @import '../../styles/colours'
+
+img
+    height: 1.5em
+    z-index: 100
+
+.r
+    float: right
+
+.l
+    float: left
 
 .resources
     width: 100%

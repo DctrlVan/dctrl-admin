@@ -9,7 +9,11 @@ const serverState = {
   members: [],
   tasks: [],
   resources: [],
-  cash: { cash: 0 }
+  cash: {
+    currency: 'CAD',
+    cash: 0,
+    spot: 0
+  },
 }
 
 const pubState = {
@@ -19,17 +23,21 @@ const pubState = {
   members: [],
   tasks: [],
   resources: [],
-  cash: { cash: 0 }
+  cash: {
+    currency: 'CAD',
+    cash: 0,
+    spot: 0
+  },
 }
 
-
 function applyEvent(state, ev) {
+    mutations.cashMuts(state.cash, ev)
     mutations.connectionsMuts(state.connections, ev)
-    mutations.membersMuts(state.members, ev)
-    mutations.tasksMuts(state.tasks, ev)
-    mutations.sessionsMuts(state.sessions, ev)
-    mutations.resourcesMuts(state.resources, ev)
     mutations.invoicesMuts(state.invoices, ev)
+    mutations.membersMuts(state.members, ev)
+    mutations.resourcesMuts(state.resources, ev)
+    mutations.sessionsMuts(state.sessions, ev)
+    mutations.tasksMuts(state.tasks, ev)
 }
 
 function initialize(callback) {

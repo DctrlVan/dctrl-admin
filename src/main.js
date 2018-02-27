@@ -69,6 +69,9 @@ const routes = [{
       path: '/invoices',
       component: Invoices
     },{
+      path: '/invoices/*',
+      component: Invoices
+    },{
       path: '/invoice_create/*',
       component: InvoiceCreate
     },{

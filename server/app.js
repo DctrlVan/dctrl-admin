@@ -6,6 +6,7 @@ const path = require("path")
 const socketIo = require('socket.io')
 const dctrlDb = require('./dctrlDb')
 const state = require('./state')
+const exchangeRate = require('./exchangeRate')
 
 import socketProtector from 'socketio-auth'
 
@@ -20,7 +21,10 @@ dctrlDb.startDb( (err, conn) => {
 
     state.initialize( err => {
         if (err) return console.log('state initialize failed:', err)
-        console.log('state initialized!')
+        console.log('state initialized!', state.pubState )
+
+        exchangeRate.watchSpot()
+
         // now we listen on the changefeed and keep the state up to date
         const evStream = dctrlDb.changeFeed.onValue( ev => {
             state.applyEvent(state.serverState, ev)
@@ -50,6 +54,3 @@ dctrlDb.startDb( (err, conn) => {
         })
     })
 })
-
-
-// seperate ioConfig

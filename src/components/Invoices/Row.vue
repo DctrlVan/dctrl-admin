@@ -23,7 +23,6 @@ export default {
           let errorCorrectionLevel = 'L';
           let qr = qrcode(typeNumber, errorCorrectionLevel);
           let data = this.i.payment_request
-          console.log({data})
           try {
               qr.addData(data)
               qr.make()
@@ -33,7 +32,6 @@ export default {
           let cellsize = 6
           let margin = 6
           let tag = qr.createImgTag(cellsize, margin)
-          console.log({tag})
           return tag
         },
     }
