@@ -4,8 +4,9 @@ tr(class="")
     td
         label {{ m.balance.toFixed(2) }}
     td
-        span {{ m.name }}
         dctrl-active(:m='m')
+    td
+        span {{ m.name }}
     td
         badges(:m='m')
     td
@@ -56,10 +57,6 @@ img
     height: 4em
     padding-left: .2345em
     padding-right: .2345em
-
-.active
-.pending
-.inactive
 
 tr
     border-left-color: accent2

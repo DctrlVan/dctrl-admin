@@ -1,26 +1,24 @@
 const request = require('superagent')
-const config = require('../configuration')
+const config = require('../../configuration')
+const state = require('../state')
 const bitcoindRpc = require('./bitcoindRpc')
-const state = require('../adminSrc/state')
 
 const currentAccounts = []
 
 function initializeWatchedMembersAddresses(){
-    state.state.members.forEach( member => {
+    state.pubState.members.forEach( member => {
         checkInitial(member.address, 'member')
+        bitcoindRpc.watchAddress(member.address, ()=>{})
     })
-}
-
-function initializeWatchedResourcesAddresses(){
-  state.state.resources.forEach( resource => {
-      checkInitial(resource.address, 'resource')
-  })
+    console.log({currentAccounts})
 }
 
 function checkInitial(address, group){
     if (!address) return console.log('address required')
+
     bitcoindRpc.getBalance(address, (err, balance)=> {
         if (err) return console.log('getbalance err:', err);
+        console.log({address, balance})
         currentAccounts.push({
             address,
             balance,
@@ -28,6 +26,5 @@ function checkInitial(address, group){
         })
     })
 }
-// TODO:
-initializeWatchedMembersAddresses() //
-module.exports = currentAccounts
+
+module.exports = {currentAccounts, initializeWatchedMembersAddresses}

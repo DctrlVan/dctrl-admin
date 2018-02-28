@@ -7,8 +7,8 @@ ul.navigation
     router-link(to='/TASKS') Tasks
     .admin(v-if='isAdmin')
         label admin
-        router-link(to='/HISTORY') View All Events
         router-link(to='/MANAGE') Manage Cash
+        router-link(to='/HISTORY') View All Events
 
 </template>
 

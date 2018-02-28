@@ -15,14 +15,14 @@ var templateReader = function(templatePath) {
 let emailBody = templateReader('template.html')
 
 request
-    .get('http://192.168.0.110:8003/state')
+    .get('localhost:8003/state')
     .end((err, res) => {
         res.body.members.forEach( member => {
             if (member.email){
               let data = {
-                type: 'member-address-updated',
-                memberId: member.memberId,
-                address: addresses.pop()
+                  type: 'member-address-updated',
+                  memberId: member.memberId,
+                  address: addresses.pop()
               }
 
               request

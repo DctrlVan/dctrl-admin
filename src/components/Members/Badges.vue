@@ -33,4 +33,8 @@ img
     padding-left: .2345em
     padding-right: .2345em
 
+a:nth-child(odd)
+      img
+          padding: 1.1em
+
 </style>

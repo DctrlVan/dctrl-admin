@@ -6,7 +6,6 @@ nav
   li 1 BTC = ${{ cadPrice }}
   navigation
 
-
 </template>
 
 <script>

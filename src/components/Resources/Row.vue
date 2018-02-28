@@ -14,8 +14,7 @@
                     img.r(src='../../assets/images/lightning.svg')
                     img.l(src='../../assets/images/lightning.svg')
                     img.l(src='../../assets/images/lightning.svg')
-                    span {{sats.toLocaleString()}} sats = ${{ r.charged.toLocaleString() }}
-
+                    span {{sats}} sats = ${{ r.charged.toLocaleString() }}
             router-link(:to='"/resource_stock/" + r.resourceId')
                 button.refill replenish
 
@@ -34,7 +33,7 @@ export default {
         },
         sats(){
             let sats = this.r.charged / this.$store.state.cash.spot * 100000000
-            return sats.toFixed(0)
+            return Math.round(sats).toLocaleString()
         },
     },
     methods: {

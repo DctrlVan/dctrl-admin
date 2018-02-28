@@ -1,16 +1,15 @@
-import config from '../configuration'
+import config from '../../configuration'
 import request from 'superagent'
+import events from '../events'
+import state from '../state'
 import bitcoindZmq from './bitcoindZmq'
 import bitcoindRpc from './bitcoindRpc'
-import exchangeRate from './exchangeRate'
-import events from '../adminSrc/events'
-import state from '../adminSrc/state'
-import currentAccounts from './currentAccounts'
+import { currentAccounts } from './currentAccounts'
 
 // check on new blocks
 bitcoindZmq.hashblockStream
     .log('block found')
-    .onValue( checkForPayments )
+    .onValue(checkForPayments)
 
 function checkForPayments(){
     console.log("CHECKING FOR PAYMENTS.")
@@ -36,15 +35,17 @@ function checkForPayments(){
     })
 }
 
-function recordMemberPayment(amount, address){
-    console.log("TODO: recordMemberPayment:", {amount, address})
+function recordMemberPayment(btcAmount, address){
     let memberId = getMemberIdFromAddress(address)
-    exchangeRate.getCadPrice( (err, exchangeRate)=> {
-            let amount = (exchangeRate * amount).toFixed(6).toString()
-            let isCash = false
-            let notes = 'dctrl-admin' // bring in the transaction ID, instead of this.
-            events.memberPaid(memberId, amount, isCash, notes)
-    })
+    let paid = (state.pubState.cash.spot * btcAmount).toFixed(6).toString()
+    let isCash = false
+    let notes = 'dctrl-admin' // txid ?
+    console.log({memberId, paid})
+    if (memberId && paid){
+        events.memberPaid(memberId, paid, isCash, notes)
+    }
+
+     // bring in the transaction ID, instead of this.
 }
 
 function getMemberIdFromAddress(address){
@@ -57,18 +58,14 @@ function getMemberIdFromAddress(address){
   return memberId
 }
 
-function recordResourcePayment(amount, address){
-    console.log("TODO: recordResourcePayment:", {amount, address})
+function recordResourcePayment(btcAmount, address){
+    console.log("TODO: recordResourcePayment:", {btcAmount, address})
     let resourceId = getResourceIdFromAddress(address)
-    exchangeRate.getCadPrice( (err, exchangeRate)=> {
-            let notes = 'dctrl-admin' // bring in the transaction ID, instead of this.
-            let amount = (exchangeRate * amount).toFixed(6).toString()
-            events.resourcePaid(resourceId, amount, isCash, notes, (err, res)=>{
-                // get the things from resource here, instead of the member stuff
-            })
-    })
-}
+    let notes = 'dctrl-admin' // bring in the transaction ID, instead of this.
+    let amount = (state.pubState.cash.spot * btcAmount).toFixed(6).toString()
 
+    // events.resourcePaid(resourceId, amount, isCash, notes)
+}
 
 function getResourceIdFromAddress(address, callback){
   let resourceId
@@ -78,9 +75,4 @@ function getResourceIdFromAddress(address, callback){
       }
   })
   return resourceId
-}
-
-
-function removeWatch(){
-    // TODO: _.pullAllWith(array, values, [comparator]) ??
 }

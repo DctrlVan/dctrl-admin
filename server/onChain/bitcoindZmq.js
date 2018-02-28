@@ -34,12 +34,12 @@ const sock = zmq.socket('sub')
 // sock.subscribe("hashblock");
 // sock.subscribe("hashtx");
 sock.subscribe("rawblock");
-sock.subscribe("rawtx");
+// sock.subscribe("rawtx");
 sock.on('message', function(topic, message) {
     switch ( topic.toString('utf8') ) {
         case 'rawblock':
-            const blk = bitcoin.Block.fromBuffer(message)
-            rawblockEmitter.emit(blk)
+            // TODO: large segwit blocks cannot be parsed by this version of bitcoin-lib
+            // const blk = bitcoin.Block.fromBuffer(message)
             break
         case 'rawtx':
             const tx = bitcoin.Transaction.fromBuffer(message)

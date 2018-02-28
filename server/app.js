@@ -1,17 +1,18 @@
 
 let PORT = process.env.PORT || 8003
 
-const express = require('express')
-const path = require("path")
-const socketIo = require('socket.io')
-const dctrlDb = require('./dctrlDb')
-const state = require('./state')
-const exchangeRate = require('./exchangeRate')
+require('./onChain')
 
+import express from 'express'
+import path from "path"
+import socketIo from 'socket.io'
+import dctrlDb from './dctrlDb'
+import state from './state'
+import exchangeRate from './exchangeRate'
+import { initializeWatchedMembersAddresses } from './onChain/currentAccounts'
 import socketProtector from 'socketio-auth'
 
-const applyRouter = require('./router')
-
+import applyRouter from './router'
 import { socketAuth } from './auth'
 
 const app = express()
@@ -24,6 +25,7 @@ dctrlDb.startDb( (err, conn) => {
         console.log('state initialized!', state.pubState )
 
         exchangeRate.watchSpot()
+        initializeWatchedMembersAddresses()
 
         // now we listen on the changefeed and keep the state up to date
         const evStream = dctrlDb.changeFeed.onValue( ev => {
