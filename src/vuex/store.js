@@ -27,7 +27,7 @@ export default new Vuex.Store({
           let id
           state.sessions.forEach( s => {
               if (s.session === state.loader.session){
-                  id = s.ownerId
+                  id = s.ownerId.slice()
               }
           })
           return id
@@ -54,11 +54,11 @@ export default new Vuex.Store({
           let name
           state.members.forEach(member => {
               if( getters.memberId === member.memberId){
-                  name = member.name // TODO
+                  name = member.name.slice() // TODO
               }
           })
           return name
-      }
+      },
   },
   middlewares: [],
   strict: process.env.NODE_ENV !== 'production'
