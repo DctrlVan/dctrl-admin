@@ -17,9 +17,15 @@ export default {
     name: 'navigation',
     computed: {
         memberId(){
+            return this.$store.getters.isAdmin
+        },
+        memberId(){
             return this.$store.getters.memberId
         },
         isLoggedIn(){
+            return this.$store.getters.isLoggedIn
+        },
+        isAdmin(){
             return this.$store.getters.isLoggedIn
         },
     }

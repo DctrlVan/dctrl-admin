@@ -2,12 +2,14 @@
 
 #home
     shared-title(:title='name')
+    //- address
     p TODO
     ol
       li way to change password
-      li way to get new address
+      li way to show address
+      li way prove address
       li !! way to input addresses if you are on multisig !! -- way to verify?, sign? keybase?
-      li 
+      li
     calendar
 
 </template>
@@ -16,10 +18,11 @@
 
 import Calendar from '../MemberCalendar'
 import SharedTitle from '../slotUtils/SharedTitle'
+import Address from '../forms/MemberPaidBtc'
 
 export default {
     components: {
-        SharedTitle, Calendar
+        SharedTitle, Calendar, Address
     },
     computed: {
         name(){

@@ -17,7 +17,6 @@ export default {
   },
   computed: {
     cadPrice(){
-        console.log('cadPrice?::', this.$store.state.cash.spot)
         return this.$store.state.cash.spot.toLocaleString()
     }
   }

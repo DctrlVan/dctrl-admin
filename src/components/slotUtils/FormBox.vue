@@ -9,7 +9,6 @@ form(v-on:submit.prevent="")
                 label ERROR: {{ errTxt }}
         .row(v-if='response.type')
     slot(v-else)
-    
     button(v-if='!response' @click.prevent='post') {{ btntxt }}
 
 </template>

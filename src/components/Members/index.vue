@@ -28,7 +28,7 @@ import CrazyBtn from '../slotUtils/CrazyBtn'
 export default {
     computed: {
         loggedIn(){
-            return this.$store.state.loader.token
+            return this.$store.getters.isLoggedIn
         },
         members(){
             return this.$store.state.members

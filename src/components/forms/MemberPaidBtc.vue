@@ -1,6 +1,6 @@
 <template lang='pug'>
 
-#newmember
+.address
     shared-title(:title='calcTitle')
     label input amount
     select
@@ -16,24 +16,20 @@ import FormBox from '../slotUtils/FormBox'
 import qrcode from 'qrcode-generator'
 
 export default {
-    mounted(){
-        let memberId = this.$router.currentRoute.path.split('/')[2]
-        if (memberId){
-            this.member.memberId = memberId
-        }
-    },
     computed: {
         imgTag(){
+            console.log('computing imgTag?')
             let typeNumber = 10;
             let errorCorrectionLevel = 'L';
             let qr = qrcode(typeNumber, errorCorrectionLevel);
             let address = 'x'
             this.$store.state.members.forEach( member => {
-                if (member.memberId === this.member.memberId){
-                    address = member.address
+                if (member.memberId === this.$store.getters.memberId){
+                    address = member.address.slice()
                 }
             })
             let data = 'bitcoin:' + address
+            console.log('Trying to create address qr:', data)
             qr.addData(data)
             qr.make()
             let cellsize = 10

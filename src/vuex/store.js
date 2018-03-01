@@ -54,11 +54,20 @@ export default new Vuex.Store({
           let name
           state.members.forEach(member => {
               if( getters.memberId === member.memberId){
-                  name = member.name.slice() // TODO
+                  name = member.name.slice()
               }
           })
           return name
       },
+      address(state, getters){
+          let address
+          state.members.forEach(member => {
+              if( getters.memberId === member.memberId){
+                  address = member.address.slice() // TODO
+              }
+          })
+          return address
+      }
   },
   middlewares: [],
   strict: process.env.NODE_ENV !== 'production'
