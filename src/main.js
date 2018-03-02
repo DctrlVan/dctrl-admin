@@ -20,7 +20,6 @@ import MemberCharge from './components/forms/MemberCharge'
 import MemberPaid from './components/forms/MemberPaid'
 import MemberPaidStuff from './components/forms/MemberPaidStuff'
 import MemberActivate from './components/forms/MemberActivate'
-import MemberPaidBtc from './components/forms/MemberPaidBtc'
 
 // Task components
 import Tasks from './components/Tasks'
@@ -101,9 +100,6 @@ const routes = [{
     },{
       path: '/member_paid_stuff/*',
       component: MemberPaidStuff
-    },{
-      path: '/member_paid_btc/*',
-      component: MemberPaidBtc
     },{
       path: '/resources',
       component: Resources

@@ -2,27 +2,22 @@
 
 #home
     shared-title(:title='name')
-    //- address
-    p TODO
-    ol
-      li way to change password
-      li way to show address
-      li way prove address
-      li !! way to input addresses if you are on multisig !! -- way to verify?, sign? keybase?
-      li
+    .container
+        addres
+    changer
+    h6 dctrl members have access to cool shared resources, but also responsibility for their care, maintenance, and replenishment! Be excellent.
     calendar
-
 </template>
 
 <script>
-
-import Calendar from '../MemberCalendar'
 import SharedTitle from '../slotUtils/SharedTitle'
-import Address from '../forms/MemberPaidBtc'
+import Calendar from '../MemberCalendar'
+import Addres from './Addres' // address is an html word so cannot use
+import Changer from './Changer' // address is an html word so cannot use
 
 export default {
     components: {
-        SharedTitle, Calendar, Address
+        SharedTitle, Calendar, Addres, Changer
     },
     computed: {
         name(){
@@ -36,5 +31,13 @@ export default {
 <style lang='stylus' scoped>
 
 @import '../../styles/colours'
+
+h6
+    padding: 2em
+
+select
+    margin: 2em
+    color: main
+    height: 2em
 
 </style>

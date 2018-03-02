@@ -31,19 +31,33 @@ export default {
 
         let token = window.localStorage.token
         let session = window.localStorage.session
+
         if (token && session){
             let auth = {token, session}
+            console.log('setting auth', auth)
             this.$store.commit('setAuth', auth)
         }
 
         const socket = io()
         socket.on('connect', ()=> {
-            socket.emit('authentication', this.$store.state.loader)
+            console.log("socket connected")
+            console.log("authenticating with", {
+              session: this.$store.state.loader.session,
+              token: this.$store.state.loader.token
+            })
+
+            socket.emit('authentication', {
+              session: this.$store.state.loader.session,
+              token: this.$store.state.loader.token
+            })
+
             socket.on('authenticated', ()=> {
+                console.log('socket authenticated')
                 // use the socket as usual
+
                 this.$store.dispatch('loadCurrent')
 
-                console.log('socket authenticated')
+
                 socket.on('eventstream', ev => {
                     this.$store.commit('applyEvent', ev)
                     this.$store.dispatch('displayEvent', ev)

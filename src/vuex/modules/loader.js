@@ -36,7 +36,6 @@ const actions = {
 const state = {
     token: '',
     session: '',
-    id: ''
 }
 
 const mutations = {
@@ -56,27 +55,39 @@ export default {
 function loadTestState(commit){
     console.log('loading test state')
     let i = 0
-    let current = []
+    let c = []
     while (i < 10){
       i++
+      let session = uuidV1()
       let memberId = uuidV1()
+      // commit('setAuth', {
+      //     session,
+      //     token: 'abcd'
+      // })
+
+      commit('applyEvent', {
+        type: 'session-created',
+        session,
+        ownerId: memberId,
+      })
+
       commit('applyEvent', {
         memberId,
         type: 'member-created',
         name: 'Test ' + i * (11 + i*i),
         balance: i - 5,
+        address: '1Ross5Np5doy4ajF9iGXzgKaC2Q3Pwwxv',
         active: i,
         badges:['admin', 'doge', 'bullet', 'bitpepsi']
       })
 
-      current.push({memberId})
       commit('applyEvent', {
         resourceId: uuidV1(),
         name: 'bitpepsi',
         type: "resource-created",
         charged: 3,
         stock: 52,
-        current,
+        current: [{memberId}],
         info: {}
       })
 

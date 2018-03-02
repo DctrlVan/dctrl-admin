@@ -2,7 +2,7 @@
 
 div
     h3 {{ title }}
-    slot
+        slot
 
 </template>
 
