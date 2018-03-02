@@ -28,10 +28,8 @@ module.exports = function applyRouter(app){
 
     app.use(spec)   // handles event creation
     app.use(fobtap) // handles rfid scan devices
-    app.use(bloom) // backup way for door to use
+    app.use(bloom) // backup way for door to allow access
     app.use(eventServe) // serves history
-
-    // TODO: db access api
 
     app.post('/state', (req, res) => {
         res.json(state.pubState)

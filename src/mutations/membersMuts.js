@@ -66,14 +66,18 @@ module.exports = (members, ev)=> {
           members.forEach( member => {
               if (member.memberId === ev.memberId){
                   member.address = ev.address
+                  member.proof = ev.proof
               }
           })
           break
 
-      case "member-secret-updated":
+      case "member-field-updated":
+          console.log('trying to mutate field', ev)
           members.forEach( member => {
               if (member.memberId === ev.memberId){
-                  member.secret = ev.secret
+                  console.log({member})
+                  console.log( 'trying to change', ev.field, member[ev.field] )
+                  member[ev.field] = ev.newfield
               }
           })
           break

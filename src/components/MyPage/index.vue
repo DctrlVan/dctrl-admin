@@ -3,21 +3,23 @@
 #home
     shared-title(:title='name')
     .container
-        addres
+        payment
     changer
     h6 dctrl members have access to cool shared resources, but also responsibility for their care, maintenance, and replenishment! Be excellent.
     calendar
+
 </template>
 
 <script>
+
 import SharedTitle from '../slotUtils/SharedTitle'
 import Calendar from '../MemberCalendar'
-import Addres from './Addres' // address is an html word so cannot use
+import Payment from './Payment' // address is an html word so cannot use
 import Changer from './Changer' // address is an html word so cannot use
 
 export default {
     components: {
-        SharedTitle, Calendar, Addres, Changer
+        SharedTitle, Calendar, Payment, Changer
     },
     computed: {
         name(){

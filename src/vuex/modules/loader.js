@@ -78,7 +78,7 @@ function loadTestState(commit){
         balance: i - 5,
         address: '1Ross5Np5doy4ajF9iGXzgKaC2Q3Pwwxv',
         active: i,
-        badges:['admin', 'doge', 'bullet', 'bitpepsi']
+        badges:['admin', 'doge', 'bullet', 'bitpepsi', 'secure']
       })
 
       commit('applyEvent', {

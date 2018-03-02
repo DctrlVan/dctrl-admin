@@ -12,6 +12,18 @@ module.exports = {
       }
       return (val >= 0)
   },
+  isField(val, errRes){
+      let isField = (
+          val === 'name' ||
+          val === 'email' ||
+          val === 'secret'
+      )
+      if (!isField) {
+          errRes.push('invalid field')
+          return false
+      }
+      return isField
+  },
   isId(val, errRes){
       //XXX not in use
       return true

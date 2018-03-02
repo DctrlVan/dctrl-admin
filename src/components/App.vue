@@ -59,6 +59,7 @@ export default {
 
 
                 socket.on('eventstream', ev => {
+                    console.log('eventstream:' , ev)
                     this.$store.commit('applyEvent', ev)
                     this.$store.dispatch('displayEvent', ev)
                 })

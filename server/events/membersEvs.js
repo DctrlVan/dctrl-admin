@@ -8,6 +8,7 @@ module.exports = {
   memberDeactivated,
   memberActivated,
   memberAddressUpdated,
+  memberFieldUpdated,
   badgeAdded,
   badgeRemoved
 }
@@ -22,7 +23,8 @@ function memberCreated(name, fob, secret, callback) {
         address: '',
         active: 1,
         balance: 0,
-        badges: []
+        badges: [],
+        info: {}
     }
     dctrlDb.insertEvent(newEvent, callback)
 }
@@ -64,11 +66,22 @@ function memberActivated(memberId, callback) {
   dctrlDb.insertEvent(newEvent, callback)
 }
 
-function memberAddressUpdated(memberId, address, callback){
+function memberAddressUpdated(memberId, address, proof, callback){
   let newEvent = {
     type: "member-address-updated",
     memberId,
     address,
+    proof,
+  }
+  dctrlDb.insertEvent(newEvent, callback)
+}
+
+function memberFieldUpdated(memberId, field, newfield, callback){
+  let newEvent = {
+    type: "member-field-updated",
+    memberId,
+    field,
+    newfield,
   }
   dctrlDb.insertEvent(newEvent, callback)
 }

@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -49,6 +50,15 @@ export default new Vuex.Store({
       isLoggedIn(state, getters){
           let isLoggedIn = !!getters.memberId
           return isLoggedIn
+      },
+      member(state, getters){
+          let loggedInMember = {}
+          state.members.forEach(member => {
+              if( getters.memberId === member.memberId){
+                  _.assign(loggedInMember, member)
+              }
+          })
+          return loggedInMember
       },
       name(state, getters){
           let name

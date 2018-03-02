@@ -23,6 +23,9 @@ module.exports = function(req,res,next){
       case 'member-address-updated':
           specMemberAddressUpdated(req, res, next)
           break
+      case 'member-field-updated':
+          specMemberFieldUpdated(req, res, next)
+          break
       case 'badge-added':
           specBadgeAdded(req, res, next)
           break
@@ -46,7 +49,25 @@ function specMemberAddressUpdated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(200).send(errRes)
+    res.status(400).send(errRes)
+  }
+}
+
+function specMemberFieldUpdated(req, res, next){
+  let errRes = []
+  if (
+    validators.isMemberId(req.body.memberId, errRes) &&
+    validators.isField(req.body.field, errRes) &&
+    validators.isNotes(req.body.newfield, errRes)
+  ){
+    events.memberFieldUpdated(
+        req.body.memberId,
+        req.body.field,
+        req.body.newfield,
+        utils.buildResCallback(res)
+    )
+  } else {
+    res.status(400).send(errRes)
   }
 }
 
@@ -64,7 +85,7 @@ function specMemberCreated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(200).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
@@ -84,7 +105,7 @@ function specMemberPaid(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(200).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
@@ -102,7 +123,7 @@ function specMemberCharged(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(200).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
@@ -116,7 +137,7 @@ function specMemberDeactivated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(200).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
@@ -130,7 +151,7 @@ function specMemberActivated(req, res, next){
       utils.buildResCallback(res)
     )
   } else {
-    res.status(200).send(errRes)
+    res.status(400).send(errRes)
   }
 }
 
@@ -146,7 +167,7 @@ function specBadgeAdded(req, res, next){
         utils.buildResCallback(res)
       )
     } else {
-      res.status(200).send(errRes)
+      res.status(400).send(errRes)
     }
 }
 
@@ -162,6 +183,6 @@ function specBadgeRemoved(req, res, next){
         utils.buildResCallback(res)
       )
     } else {
-      res.status(200).send(errRes)
+      res.status(400).send(errRes)
     }
 }

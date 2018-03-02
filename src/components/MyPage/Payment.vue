@@ -4,17 +4,17 @@
 .address
     .qr
         div(v-html='imgTag')
-    h6 on chain address for {{ name }}:
-    h6.c or
-    h6 lightning payment amount for :
+    h5 on chain address for {{ name }}:
+    img.l.big(src='../../assets/images/bitcoin.svg')
+    h5 or lightning payment for
         input(type='text', v-model='details.cadvalue')
-        router-link(:to='"/invoices/" + memberId')
-            button(@click='createPayRec')
-                img.r(src='../../assets/images/lightning.svg')
-                img.r(src='../../assets/images/lightning.svg')
-                img.l(src='../../assets/images/lightning.svg')
-                img.l(src='../../assets/images/lightning.svg')
-                span {{sats}} sats = ${{ details.cadvalue }}
+    router-link(:to='"/invoices/" + memberId')
+        button(@click='createPayRec')
+            img.r(src='../../assets/images/lightning.svg')
+            img.r(src='../../assets/images/lightning.svg')
+            img.l(src='../../assets/images/lightning.svg')
+            img.l(src='../../assets/images/lightning.svg')
+            span {{sats}} sats = ${{ details.cadvalue }}
 
 </template>
 
@@ -27,7 +27,7 @@ import qrcode from 'qrcode-generator'
 
 export default {
     data( ){
-        let cadvalue = this.$store.getters.balance.toString() 
+        let cadvalue = this.$store.getters.balance
         if (!cadvalue) cadvalue = '55'
         return {
           details: {
@@ -53,7 +53,6 @@ export default {
                 }
             })
             let data = 'bitcoin:' + address
-            console.log('Trying to create address qr:', data)
             qr.addData(data)
             qr.make()
             let cellsize = 3
@@ -103,13 +102,26 @@ export default {
 
 .qr
     float: right
+    padding:2em
 
-h6
+h5
     padding: 2em
 
-img
+.big
+    float: left
+    z-index: -1111
+    height: 10em
+    margin-top: -1.5em
+    margin-bottom: -1.5em
+
+input
+    float: right
+
+button
+  img
     height: 1.5em
     z-index: 100
+
 
 .r
     float: right
@@ -119,5 +131,6 @@ img
 
 .c
     text-align: center
+    font-size: 3em
 
 </style>
