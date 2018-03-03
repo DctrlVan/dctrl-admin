@@ -23,7 +23,7 @@ export default {
     },
     computed: {
         name(){
-            return this.$store.getters.name
+            return this.$store.getters.name + '(' + this.$store.getters.member.balance.toFixed() + ')'
         }
     }
 }

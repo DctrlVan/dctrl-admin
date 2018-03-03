@@ -4,7 +4,7 @@
 .address
     .qr
         div(v-html='imgTag')
-    h5 on chain address for {{ name }}:
+    h5 on chain address for {{ name }}: {{address}}
     img.l.big(src='../../assets/images/bitcoin.svg')
     h5 or lightning payment for
         input(type='text', v-model='details.cadvalue')
@@ -14,7 +14,7 @@
             img.r(src='../../assets/images/lightning.svg')
             img.l(src='../../assets/images/lightning.svg')
             img.l(src='../../assets/images/lightning.svg')
-            span {{sats}} sats = ${{ details.cadvalue }}
+            span {{sats.toLocaleString()}} sats = ${{ details.cadvalue }}
 
 </template>
 
@@ -24,11 +24,18 @@ import request from 'superagent'
 import FormBox from '../slotUtils/FormBox'
 import qrcode from 'qrcode-generator'
 
-
 export default {
     data( ){
-        let cadvalue = this.$store.getters.balance
-        if (!cadvalue) cadvalue = '55'
+        let cadvalue
+        if ( this.$store.getters.member.balance < 0){
+            cadvalue = -this.$store.getters.member.balance
+        }
+        console.log({cadvalue})
+        if (!cadvalue){
+            cadvalue = 0
+        } else {
+            cadvalue = cadvalue.toFixed(2)
+        }
         return {
           details: {
             cadvalue
@@ -68,10 +75,12 @@ export default {
             })
             return name
         },
+        address(){
+            return this.$store.getters.member.address
+        },
         memberId(){
             return this.$store.getters.memberId
         }
-
     },
     methods: {
         createPayRec(){
@@ -121,7 +130,6 @@ button
   img
     height: 1.5em
     z-index: 100
-
 
 .r
     float: right

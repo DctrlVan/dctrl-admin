@@ -2,6 +2,8 @@
 
 tr(class="")
     td
+        router-link(:to='\'/member_paid/\' + this.m.memberId')
+            img(src='../../assets/images/cash1.svg')
         label {{ m.balance.toFixed(2) }}
     td
         dctrl-active(:m='m')

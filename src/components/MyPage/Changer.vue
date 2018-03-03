@@ -20,17 +20,12 @@ export default {
     components: {
         FormBox
     },
-    mounted(){
-        this.change.memberId = this.$store.getters.memberId
-        console.log('mounted with memberID', this.$store.getters.memberId)
-        console.log('CHNAGE', this.change )
-    },
     computed: {
         changeReq(){
             return {
                 field: this.change.field,
                 newfield: this.change.newfield,
-                memberId:  '9cb4a430-0c3e-11e8-b7bb-db59b0da68eb'  // this.$store.getters.memberId
+                memberId: this.$store.getters.memberId
             }
         },
         secure(){

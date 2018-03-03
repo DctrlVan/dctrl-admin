@@ -4,6 +4,8 @@
   template(v-for='b in m.badges')
       router-link(v-if='b === "admin"' to='/')
           img(src='../../assets/images/admin.svg')
+      router-link(v-if='b === "secure"' to='/badges/secure')
+          img(src='../../assets/images/secure.svg')
       router-link(v-if='b === "bitcoin"' to='/')
           img(src='../../assets/images/bitcoin.svg')
       router-link(v-if='b === "doge"' to='/')
