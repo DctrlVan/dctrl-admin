@@ -3,11 +3,15 @@
 .changer
   h6 change your information:
     form-box(event='member-field-updated', :data='changeReq', btntxt='change your account')
+        span.i(v-if='inputType === "password"')
+            img.i(v-if='matched', src='../../assets/images/check.svg')
+            img.i(v-else, src='../../assets/images/warn.svg')
         select(v-model='change.field')
             option(value='secret') password
             option(value='email') e-mail
             option(value='name') hackername
         input(:type='inputType' v-model='change.newfield', :placeholder='"new " + change.field ')
+        input(v-if='inputType === "password"', type='password', v-model='change.confirmNewfield', placeholder='repeat secret')
   p(v-if='!secure') Please change your password; extra points for using a password manager or ubikey!
 
 </template>
@@ -21,6 +25,12 @@ export default {
         FormBox
     },
     computed: {
+        matched(){
+            let x = this.change.newfield
+            let y = this.change.confirmNewfield
+            console.log({x, y})
+            return x === y
+        },
         changeReq(){
             return {
                 field: this.change.field,
@@ -36,7 +46,7 @@ export default {
             return secure
         },
         inputType(){
-            if (this.change.field === 'password'){
+            if (this.change.field === 'secret'){
                 return 'password'
             } else {
                 return 'text'
@@ -48,6 +58,7 @@ export default {
             change: {
                 field: 'secret',
                 newfield: '',
+                confirmNewfield: ''
             }
         }
     }
@@ -69,5 +80,8 @@ input, select
     z-index:123123
     color: main
 
+img
+    float: right
+    height: 2em
 
 </style>

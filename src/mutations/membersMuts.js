@@ -85,7 +85,9 @@ module.exports = (members, ev)=> {
       case "badge-added":
           members.forEach( member => {
               if (member.memberId === ev.memberId){
-                  member.badges.push( ev.badge )
+                  if (member.badges.indexOf(ev.badge) === -1){
+                      member.badges.push( ev.badge )
+                  }
               }
           })
           break

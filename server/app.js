@@ -2,6 +2,7 @@
 let PORT = process.env.PORT || 8003
 
 require('./onChain')
+require('./reactions')
 
 import express from 'express'
 import path from "path"
@@ -11,6 +12,8 @@ import state from './state'
 import exchangeRate from './exchangeRate'
 import { initializeWatchedMembersAddresses } from './onChain/currentAccounts'
 import socketProtector from 'socketio-auth'
+
+import reactions from './reactions'
 
 import applyRouter from './router'
 import { socketAuth } from './auth'
@@ -31,6 +34,7 @@ dctrlDb.startDb( (err, conn) => {
         const evStream = dctrlDb.changeFeed.onValue( ev => {
             state.applyEvent(state.serverState, ev)
         })
+        .onValue(reactions)
 
         const server = app.listen(PORT, err => {
             console.log("Listening on port", PORT)
