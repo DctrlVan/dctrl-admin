@@ -14,7 +14,7 @@
                     img.r(src='../../assets/images/lightning.svg')
                     img.l(src='../../assets/images/lightning.svg')
                     img.l(src='../../assets/images/lightning.svg')
-                    span {{sats}} sats = ${{ r.charged.toLocaleString() }}
+                    span {{ sats.toLocaleString() }} sats = ${{ r.charged.toLocaleString() }}
             router-link(:to='"/resource_stock/" + r.resourceId')
                 button.refill replenish
 

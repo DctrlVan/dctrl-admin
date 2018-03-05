@@ -2,6 +2,9 @@
 
 tr(class="")
     td
+        img(v-if='isLoggedIn', src='../../assets/images/loggedIn.svg')
+        img(v-else, src='../../assets/images/loggedOut.svg')
+    td
         router-link(:to='\'/member_paid/\' + this.m.memberId')
             img(src='../../assets/images/cash1.svg')
         label {{ m.balance.toFixed(2) }}
@@ -26,6 +29,17 @@ import Badges from './Badges'
 export default {
     props: ['m'],
     components: {DctrlActive, Badges},
+    computed:{
+        isLoggedIn(){
+            let isLoggedIn
+            this.$store.state.sessions.forEach( s => {
+                if ( s.ownerId === this.m.memberId ){
+                    isLoggedIn = true
+                }
+            })
+            return isLoggedIn
+        }
+    }
 }
 
 </script>
