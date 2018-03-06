@@ -59,10 +59,13 @@ function loadTestState(commit){
       i++
       let session = uuidV1()
       let memberId = uuidV1()
+
+      /*
       commit('setAuth', {
           session,
           token: 'abcd'
       })
+      */
 
       commit('applyEvent', {
         type: 'session-created',
